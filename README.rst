@@ -31,7 +31,20 @@ confirms to the license of the project. The attestation is made by the
 developer including a ``Signed-off-by: <email-address>`` tag in the
 commit text of the contribution.
 
+EBBR discussion is on the boot-architecture_ and arm.ebbr-discuss mailing lists.
+The 'official' list is arm.ebbr-discuss, but the list archives are not yet public,
+so boot-architecture_ is being used to keep everything in the open.
+
+* boot-architechture@lists.linaro.org
+* arm.ebbr-discuss@arm.com
+
+Past discussions can be found in the _boot-architecture-archive.
+
+IRC Channel: ``#ebbr`` on ofct
+
 .. _DCO: https://developercertificate.org/
+.. _boot-architecture: https://lists.linaro.org/mailman/listinfo/boot-architecture
+.. _boot-architecture-archive: https://lists.linaro.org/pipermail/boot-architecture/
 
 Writers Guide
 =============

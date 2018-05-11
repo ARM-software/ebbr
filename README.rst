@@ -13,11 +13,21 @@ expected in September 2018. You can find the current draft text in this
 repository, but be aware that everything in the draft text is subject to
 change before an official v1.0 release is published.
 
-The documentation in this project is provided under the terms of the
-Creative Commons Attribution Share-Alike License.
-Licensing details can be found in the LICENSE.rst_ file.
+License
+=======
 
-.. _LICENSE.rst: ./LICENSE.rst
+This work is licensed under the Creative Commons Attribution-ShareAlike 4.0
+International License. To view a copy of this license, visit
+http://creativecommons.org/licenses/by-sa/4.0/ or send a letter to
+Creative Commons, PO Box 1866, Mountain View, CA 94042, USA.
+
+A copy of the license is included in the LICENSE_ file.
+
+.. image:: https://i.creativecommons.org/l/by-sa/4.0/88x31.png
+   :target: http://creativecommons.org/licenses/by-sa/4.0/
+   :alt: Creative Commons License
+
+.. _LICENSE: ./LICENSE
 
 Contributing
 ============
@@ -25,29 +35,64 @@ Contributing
 Master copy of this project is hosted on GitHub:
 https://github.com/ARM-software/ebbr
 
-Anyone may contribute to EBBR. Contributions must be made with a
-Developer Certificate of Origin (DCO_) attestation that the contribution
-confirms to the license of the project. The attestation is made by the
-developer including a ``Signed-off-by: <email-address>`` tag in the
-commit text of the contribution.
-
-EBBR discussion is on the boot-architecture_ and arm.ebbr-discuss mailing lists.
-The 'official' list is arm.ebbr-discuss, but the list archives are not yet public,
-so boot-architecture_ is being used to keep everything in the open.
+Anyone may contribute to the EBBR project. EBBR discussion uses the
+boot-architecture_ and arm.ebbr-discuss mailing lists.
+The 'official' list is arm.ebbr-discuss, but the list archives are not
+yet public, so boot-architecture_ is being used to keep everything in
+the open.
 
 * boot-architechture@lists.linaro.org
 * arm.ebbr-discuss@arm.com
 
-Past discussions can be found in the _boot-architecture-archive.
+Past discussions can be found in the boot-architecture-archive_.
+
+To help track the origin of contributions, this project uses the same
+DCO_ "sign-off" process as used by the Linux kernel.
+The sign-off is a simple line at the end of the explanation for the
+patch, which certifies that you wrote it or otherwise have the right to
+pass it on as an open-source patch.  The rules are pretty simple: if you
+can certify the below:
+
+Developer's Certificate of Origin 1.1
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+By making a contribution to this project, I certify that:
+
+        (a) The contribution was created in whole or in part by me and I
+            have the right to submit it under the open source license
+            indicated in the file; or
+
+        (b) The contribution is based upon previous work that, to the best
+            of my knowledge, is covered under an appropriate open source
+            license and I have the right under that license to submit that
+            work with modifications, whether created in whole or in part
+            by me, under the same open source license (unless I am
+            permitted to submit under a different license), as indicated
+            in the file; or
+
+        (c) The contribution was provided directly to me by some other
+            person who certified (a), (b) or (c) and I have not modified
+            it.
+
+        (d) I understand and agree that this project and the contribution
+            are public and that a record of the contribution (including all
+            personal information I submit with it, including my sign-off) is
+            maintained indefinitely and may be redistributed consistent with
+            this project or the open source license(s) involved.
+
+then you just add a line saying::
+
+        Signed-off-by: Random J Developer <random@developer.example.org>
 
 IRC Channel: ``#ebbr`` on ofct
 
 .. _DCO: https://developercertificate.org/
 .. _boot-architecture: https://lists.linaro.org/mailman/listinfo/boot-architecture
-.. _boot-architecture-archive: https://lists.linaro.org/pipermail/boot-architecture/
+.. _boot-architecture-archive: https://lists.linaro.org/pipermail/boot-architecture
 
 Writers Guide
 =============
+
 All documentation in this repository uses reStructuredText_ markup
 with Sphinx_ extensions.
 

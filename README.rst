@@ -13,6 +13,62 @@ expected in September 2018. You can find the current draft text in this
 repository, but be aware that everything in the draft text is subject to
 change before an official v1.0 release is published.
 
+Build Instructions
+==================
+
+Requirements
+^^^^^^^^^^^^
+
+* Sphinx version 1.5 or later: http://sphinx-doc.org/contents.html
+* LaTeX (and pdflatex, and various LaTeX packages)
+
+On Debian and Ubuntu
+^^^^^^^^^^^^^^^^^^^^
+::
+
+  # apt-get install python-sphinx texlive texlive-latex-extra libalgorithm-diff-perl \
+                    texlive-humanities texlive-generic-recommended texlive-generic-extra
+
+If the version of python-sphinx installed is too old, then an additional
+new version can be installed with the Python package installer::
+
+  $ apt-get install python-pip
+  $ pip install --user --upgrade Sphinx
+  $ export SPHINXBUILD=~/.local/bin/sphinx-build
+
+Export SPHINXBUILD (see above) if Sphinx was installed with pip --user, then follow Make commands below
+
+On Mac OS X
+^^^^^^^^^^^
+
+* Install MacTeX_
+* Install pip if you do not have it::
+
+  $ sudo easy_install pip
+
+* Install Sphinx::
+
+  $ pip install --user --upgrade Sphinx
+
+.. _MacTeX: http://tug.org/mactex
+
+Make Targets
+^^^^^^^^^^^^
+
+To generate PDF::
+
+  $ make latexpdf
+
+To generate hierarchy of HTML pages::
+
+  $ make html
+
+To generate a single HTML page::
+
+  $ make singlehtml
+
+Output goes in `./build` subdirectory.
+
 License
 =======
 

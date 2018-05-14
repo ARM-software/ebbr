@@ -2,8 +2,24 @@
    Copyright Arm Ltd. 2018
    SPDX-License-Identifier: CC-BY-SA-4.0
 
+####################################################
+Embedded Base Boot Requirements (EBBR) Specification
+####################################################
+
+Copyright © 2017-2018 Arm Ltd and Contributors.
+
+This work is licensed under the Creative Commons Attribution-ShareAlike 4.0
+International License. To view a copy of this license, visit
+http://creativecommons.org/licenses/by-sa/4.0/ or send a letter to
+Creative Commons, PO Box 1866, Mountain View, CA 94042, USA.
+
+.. image:: https://i.creativecommons.org/l/by-sa/4.0/88x31.png
+   :target: http://creativecommons.org/licenses/by-sa/4.0/
+   :alt: Creative Commons License
+   :align: right
+
 *******************
-ABOUT THIS DOCUMENT
+About This Document
 *******************
 
 Introduction
@@ -439,7 +455,7 @@ APPENDIX D - Optional UEFI Protocols
 *******************************************
 
 Basic Networking Support
-====================
+========================
 
 ============================================ ======
 Service                                      UEFI §
@@ -453,7 +469,7 @@ EFI_MANAGED_NETWORK_SERVICE_BINDING_PROTOCOL 25.1
    networking.
 
 Network Boot Protocols
-====================
+======================
 
 ========================================== ======
 Service                                    UEFI §

@@ -1,12 +1,12 @@
 .. EBBR Source Document
-   Copyright Arm Ltd. 2018
+   Copyright Arm Limited, 2018
    SPDX-License-Identifier: CC-BY-SA-4.0
 
 ####################################################
 Embedded Base Boot Requirements (EBBR) Specification
 ####################################################
 
-Copyright © 2017-2018 Arm Ltd and Contributors.
+Copyright © 2017-2018 Arm Limited and Contributors.
 
 This work is licensed under the Creative Commons Attribution-ShareAlike 4.0
 International License. To view a copy of this license, visit

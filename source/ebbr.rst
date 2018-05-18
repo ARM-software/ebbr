@@ -199,8 +199,18 @@ Configuration Tables
 
 A UEFI system that complies with this specification may provide the additional
 tables via the EFI Configuration Table.
-For example, ACPI table or Device Tree table may be needed to support
-configuration and power management.
+
+Compliant systems are required to provide one, but not both, of the following
+tables.
+
+- An Advanced Configuration and Power Interface[ACPI_] table, or
+- a Devicetree[DTSPEC_] system description
+
+As stated above, EBBR systems must not provide both ACPI and Devicetree
+tables at the same time.
+Systems that support both interfaces must provide a configuration
+mechanism to select either ACPI or Devicetree,
+and must ensure only the selected interface is provided to the OS loader.
 
 UEFI Secure Boot (Optional)
 ---------------------------
@@ -524,6 +534,10 @@ EFI_ISCSI_INITIATOR_NAME_PROTOCOL          16.2
 .. [ACPI] `Advanced Configuration and Power Interface specification v6.2A
    <http://www.uefi.org/sites/default/files/resources/ACPI%206_2_A_Sept29.pdf>`_,
    September 2017, `UEFI Forum <http://www.uefi.org>`_
+
+.. [DTSPEC] `Devicetree specification v0.2
+   <https://github.com/devicetree-org/devicetree-specification/releases/tag/v0.2>`_,
+   `Devicetree.org <https://devicetree.org>`_
 
 .. [PSCI] `Power State Coordination Interface Issue D (PSCI v1.1)
    <http://infocenter.arm.com/help//topic/com.arm.doc.den0022d/Power_State_Coordination_Interface_PDD_v1_1_DEN0022D.pdf>`_,

@@ -49,8 +49,8 @@ master_doc = 'ebbr'
 
 # General information about the project.
 project = 'Embedded Base Boot Requirements (EBBR) Specification'
-copyright = '2018 Arm, Ltd. and Contributors'
-author = 'Arm, Ltd. and Contributors'
+copyright = '2018 Arm Limited and Contributors'
+author = 'Arm Limited and Contributors'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the

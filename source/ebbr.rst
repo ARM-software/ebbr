@@ -40,23 +40,6 @@ It leverages the prevalent industry standard firmware specifications of UEFI.
 
 Comments or change requests can be sent to arm.ebbr-discuss@arm.com.
 
-References
-==========
-
-This document refers to the following documents.
-
-========= ====================== ======== =====
-Reference Doc No                 Authors  Title
-========= ====================== ======== =====
-1         ARM DDI 0487           ARM      ARM® Architecture Reference Manual,
-                                          ARMv8, for ARMv8-A architecture profile
-2         UEFI Specification 2.7 UEFI.org Unified Extensible Firmware Interface
-                                          Specification.
-                                          Version 2.7
-3         ARM DEN 022            ARM      Power State Coordination Interface (PSCI)
-                                          Version 1.1
-========= ====================== ======== =====
-
 Cross References
 ----------------
 This document cross-references sources that are listed in the References
@@ -64,7 +47,7 @@ section by using the section sign §.
 
 Examples:
 
-UEFI § 6.1 - Reference to the UEFI specification [4] section 6.1
+UEFI § 6.1 - Reference to the UEFI specification [UEFI]_ section 6.1
 
 Terms and abbreviations
 =======================
@@ -132,21 +115,10 @@ This document defines the boot and runtime services that are expected by an
 Operating System or hypervisor, for an ARM embedded device, which follows the
 UEFI specification.
 
-This document references the following specification and versions:
-
-   UEFI 2.7
-      Published June 2017, includes the AArch64 bindings.
-
 This specification defines the boot and runtime services for a physical system,
 including services that are required for virtualization.
 It does not define a standardized abstract virtual machine view for a Guest
 Operating System.
-
-When present with in a system, this document makes additional references to the
-Power State Coordination Interface:
-
-   PSCI 1.1
-      Published April 2017.
 
 ****
 UEFI
@@ -156,13 +128,13 @@ UEFI Version
 ============
 
 Boot and system firmware for ARM embedded devices can be based on the UEFI
-specification[2], version 2.7 or later, incorporating the AArch64 bindings.
+specification[UEFI_], version 2.7 or later, incorporating the AArch64 bindings.
 
 UEFI Compliance
 ===============
 
 Any UEFI-compliant system must follow the requirements that are laid out in
-section 2.6 of the UEFI specification.
+section 2.6 of the UEFI specification[UEFI_].
 However, to ensure a common boot architecture for embedded-class, systems
 compliant with this specification must always provide the UEFI services and
 protocols that are listed in Appendix A, Appendix B, and Appendix C of this
@@ -306,9 +278,10 @@ command:
 
 - EfiWarmReset()
 
-.. note:: When Runtime Services and PSCI co-exist, it is anticipated that
-   Operating System calls to reset the system will go via Runtime Services and
-   not directly to PSCI.
+.. note:: On platforms implementing the Power State Coordination Interface
+   specification[PSCI_], it is still required that EBBR compliant
+   Operating Systems calls to reset the system will go via Runtime Services
+   and not directly to PSCI.
 
 Set Variable
 ------------
@@ -545,3 +518,17 @@ EFI_ISCSI_INITIATOR_NAME_PROTOCOL          16.2
 .. note:: Support for iSCSI is only required on machines that lack persistent
    storage, such as a, HDD. This configuration is intended for thin clients and
    compute-only nodes
+
+.. Collect all references below this line
+
+.. [ACPI] `Advanced Configuration and Power Interface specification v6.2A
+   <http://www.uefi.org/sites/default/files/resources/ACPI%206_2_A_Sept29.pdf>`_,
+   September 2017, `UEFI Forum <http://www.uefi.org>`_
+
+.. [PSCI] `Power State Coordination Interface Issue D (PSCI v1.1)
+   <http://infocenter.arm.com/help//topic/com.arm.doc.den0022d/Power_State_Coordination_Interface_PDD_v1_1_DEN0022D.pdf>`_,
+   21 April 2017, `Arm Limited <http://arm.com>`_
+
+.. [UEFI] `Unified Extensable Firmware Interface Specification v2.7A
+   <http://www.uefi.org/sites/default/files/resources/UEFI%20Spec%202_7_A%20Sept%206.pdf>`_,
+   August 2017, `UEFI Forum <http://www.uefi.org>`_

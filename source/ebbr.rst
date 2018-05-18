@@ -313,6 +313,25 @@ the aid of the Operating System.
 .. note:: This normally requires dedicated storage for UEFI variables that is
    not directly accessible from the Operating System.
 
+******************************
+Priviledged or Secure Firmware
+******************************
+
+Multiprocessor Startup Protocol
+===============================
+Firmware resident in Trustzone EL3 must implement and conform to the
+Power State Coordination Interface specification[PSCI_].
+
+Platforms without EL3 must implement one of:
+
+- PSCI at EL2 (leaving only EL1 available to an operating system)
+- MP Startup for Arm[MPSTART_] (ACPI Parking Protocol) on an ACPI platform
+- Linux AArch64 spin tables[LINUXA64BOOT_] on a Devicetree platform
+
+However, the MP Startup and Spintable protocols are strongly discouraged.
+Future versions of this specification will only allow PSCI, and PSCI should
+be implemented in all new designs.
+
 ****************************************
 APPENDIX A - Required UEFI Boot Services
 ****************************************
@@ -547,6 +566,14 @@ EFI_ISCSI_INITIATOR_NAME_PROTOCOL          16.2
 .. [DTSPEC] `Devicetree specification v0.2
    <https://github.com/devicetree-org/devicetree-specification/releases/tag/v0.2>`_,
    `Devicetree.org <https://devicetree.org>`_
+
+.. [LINUXA64BOOT] `Linux Documentation/arm64/booting.txt
+   <https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable.git/tree/Documentation/arm64/booting.txt>`_,
+   Linux kernel
+
+.. [MPSTART] `MP Startup for Arm
+   <https://acpica.org/sites/acpica/files/MP%20Startup%20for%20ARM%20platforms.doc>`_,
+   20 December 2012, `Microsoft <http://microsoft.com>`_
 
 .. [PSCI] `Power State Coordination Interface Issue D (PSCI v1.1)
    <http://infocenter.arm.com/help//topic/com.arm.doc.den0022d/Power_State_Coordination_Interface_PDD_v1_1_DEN0022D.pdf>`_,

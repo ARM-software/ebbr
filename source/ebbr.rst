@@ -77,16 +77,16 @@ This document uses the following terms and abbreviations.
       The 64-bit ARM instruction set used in AArch64 state.
       All A64 instructions are 32 bits.
 
-   AArch64
-      state The ARM 64-bit Execution state that uses 64-bit general purpose
+   AArch64 state
+      The ARM 64-bit Execution state that uses 64-bit general purpose
       registers, and a 64-bit program counter (PC), Stack Pointer (SP), and
       exception link registers (ELR).
 
    AArch64
       Execution state provides a single instruction set, A64.
 
-   EFI
-      Loaded Image An executable image to be run under the UEFI environment,
+   EFI Loaded Image
+      An executable image to be run under the UEFI environment,
       and which uses boot time services.
 
    EL0

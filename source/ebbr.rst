@@ -40,8 +40,30 @@ It leverages the prevalent industry standard firmware specifications of UEFI.
 
 Comments or change requests can be sent to arm.ebbr-discuss@arm.com.
 
+Scope
+=====
+This document defines the boot and runtime services that are expected by an
+Operating System or hypervisor, for an ARM embedded device, which follows the
+UEFI specification.
+
+This specification defines the boot and runtime services for a physical system,
+including services that are required for virtualization.
+It does not define a standardized abstract virtual machine view for a Guest
+Operating System.
+
+This specification is similar to the Arm Server Base Boot Requirements
+specification[SBBR_] in that it defines the firmware interface presented to an
+operating system, with SBBR having stricter requirements on hardware and
+firmware than EBBR.
+EBBR allows for design decisions that are common in the embedded space, but not
+supported by the server ecosystem.
+For example, an embedded system may use a single eMMC storage device to hold
+both firmware and operating system images.
+By definition, all SBBR compliant systems are also EBBR compliant, but the
+converse is not true.
+
 Cross References
-----------------
+================
 This document cross-references sources that are listed in the References
 section by using the section sign §.
 
@@ -106,19 +128,6 @@ This document uses the following terms and abbreviations.
    UEFI Runtime Services
       Functionality that is provided to an Operating System after the
       ExitBootServices() call.
-
-*****
-Scope
-*****
-
-This document defines the boot and runtime services that are expected by an
-Operating System or hypervisor, for an ARM embedded device, which follows the
-UEFI specification.
-
-This specification defines the boot and runtime services for a physical system,
-including services that are required for virtualization.
-It does not define a standardized abstract virtual machine view for a Guest
-Operating System.
 
 ****
 UEFI
@@ -542,6 +551,10 @@ EFI_ISCSI_INITIATOR_NAME_PROTOCOL          16.2
 .. [PSCI] `Power State Coordination Interface Issue D (PSCI v1.1)
    <http://infocenter.arm.com/help//topic/com.arm.doc.den0022d/Power_State_Coordination_Interface_PDD_v1_1_DEN0022D.pdf>`_,
    21 April 2017, `Arm Limited <http://arm.com>`_
+
+.. [SBBR] `Arm Server Base Boot Requirements specification Issue B (v1.0)
+   <https://static.docs.arm.com/den0044/b/DEN0044B_Server_Base_Boot_Requirements.pdf>`_
+   8 March 2016, `Arm Limited <http://arm.com>`_
 
 .. [UEFI] `Unified Extensable Firmware Interface Specification v2.7A
    <http://www.uefi.org/sites/default/files/resources/UEFI%20Spec%202_7_A%20Sept%206.pdf>`_,

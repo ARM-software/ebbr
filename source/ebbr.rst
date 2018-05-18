@@ -155,12 +155,16 @@ UEFI System Environment and Configuration
 AArch64 Exception Levels
 ------------------------
 
-The resident AArch64 UEFI boot-time environment is specified to “Use the highest 64-bit Non-secure privilege
-level available”. This level is either EL1 or EL2, depending on whether or not virtualization is used or supported.
+The resident AArch64 UEFI boot-time environment is specified to "Use the
+highest 64-bit Non-secure privilege level available".
+This level is either EL1 or EL2, depending on whether or not virtualization is
+used or supported.
 
-Resident UEFI firmware might target a specific Exception level. In contrast, UEFI Loaded Images, such as thirdparty
-drivers and boot applications, must not contain any built-in assumptions that they are to be loaded at a given
-Exception level during boot time. Since they can legitimately be loaded into EL1 or EL2.
+Resident UEFI firmware might target a specific Exception level.
+In contrast, UEFI Loaded Images, such as thirdparty drivers and boot
+applications, must not contain any built-in assumptions that they are to be
+loaded at a given Exception level during boot time, since they can legitimately
+be loaded into EL1 or EL2.
 
 UEFI Boot at EL2
 ^^^^^^^^^^^^^^^^

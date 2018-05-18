@@ -25,7 +25,7 @@ About This Document
 Introduction
 ============
 
-This Embedded Base Boot Requirements (EBBR) specification is intended for ARM
+This Embedded Base Boot Requirements (EBBR) specification is intended for Arm
 embedded devices that want to take advantage of the UEFI technology to separate
 the firmware and OS development.
 For example, class-A embedded devices like networking platforms can benefit
@@ -43,7 +43,7 @@ Comments or change requests can be sent to arm.ebbr-discuss@arm.com.
 Scope
 =====
 This document defines the boot and runtime services that are expected by an
-Operating System or hypervisor, for an ARM embedded device, which follows the
+Operating System or hypervisor, for an Arm embedded device, which follows the
 UEFI specification.
 
 This specification defines the boot and runtime services for a physical system,
@@ -79,11 +79,11 @@ This document uses the following terms and abbreviations.
 .. glossary::
 
    A64
-      The 64-bit ARM instruction set used in AArch64 state.
+      The 64-bit Arm instruction set used in AArch64 state.
       All A64 instructions are 32 bits.
 
    AArch64 state
-      The ARM 64-bit Execution state that uses 64-bit general purpose
+      The Arm 64-bit Execution state that uses 64-bit general purpose
       registers, and a 64-bit program counter (PC), Stack Pointer (SP), and
       exception link registers (ELR).
 
@@ -136,7 +136,7 @@ UEFI
 UEFI Version
 ============
 
-Boot and system firmware for ARM embedded devices can be based on the UEFI
+Boot and system firmware for Arm embedded devices can be based on the UEFI
 specification[UEFI_], version 2.7 or later, incorporating the AArch64 bindings.
 
 UEFI Compliance

@@ -329,10 +329,9 @@ Power State Coordination Interface specification[PSCI_].
 Platforms without EL3 must implement one of:
 
 - PSCI at EL2 (leaving only EL1 available to an operating system)
-- MP Startup for Arm[MPSTART_] (ACPI Parking Protocol) on an ACPI platform
-- Linux AArch64 spin tables[LINUXA64BOOT_] on a Devicetree platform
+- Linux AArch64 spin tables[LINUXA64BOOT_] (Devicetree only)
 
-However, the MP Startup and Spintable protocols are strongly discouraged.
+However, the spin table protocol is strongly discouraged.
 Future versions of this specification will only allow PSCI, and PSCI should
 be implemented in all new designs.
 
@@ -575,13 +574,9 @@ EFI_ISCSI_INITIATOR_NAME_PROTOCOL          16.2
    <https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable.git/tree/Documentation/arm64/booting.txt>`_,
    Linux kernel
 
-.. [MPSTART] `MP Startup for Arm
-   <https://acpica.org/sites/acpica/files/MP%20Startup%20for%20ARM%20platforms.doc>`_,
-   20 December 2012, `Microsoft <http://microsoft.com>`_
-
-.. [PSCI] `Power State Coordination Interface Issue D (PSCI v1.1)
-   <http://infocenter.arm.com/help//topic/com.arm.doc.den0022d/Power_State_Coordination_Interface_PDD_v1_1_DEN0022D.pdf>`_,
-   21 April 2017, `Arm Limited <http://arm.com>`_
+.. [PSCI] `Power State Coordination Interface Issue C (PSCI v1.0)
+   <https://static.docs.arm.com/den0022/c/DEN0022C_Power_State_Coordination_Interface.pdf>`_
+   30 January 2015, `Arm Limited <http://arm.com>`_
 
 .. [SBBR] `Arm Server Base Boot Requirements specification Issue B (v1.0)
    <https://static.docs.arm.com/den0044/b/DEN0044B_Server_Base_Boot_Requirements.pdf>`_

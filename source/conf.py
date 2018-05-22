@@ -111,6 +111,7 @@ htmlhelp_basename = 'EBBRdoc'
 # -- Options for LaTeX output ---------------------------------------------
 
 latex_elements = {
+    'classoptions': ',oneside',
     # The paper size ('letterpaper' or 'a4paper').
     #
     'papersize': 'a4paper',

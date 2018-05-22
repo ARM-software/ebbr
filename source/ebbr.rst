@@ -18,6 +18,19 @@ Creative Commons, PO Box 1866, Mountain View, CA 94042, USA.
    :alt: Creative Commons License
    :align: right
 
+.. tabularcolumns:: l c p{11.5cm}
+.. table:: Revision History
+
+   ================= ===== =============================================
+   Date              Issue Changes
+   ================= ===== =============================================
+   20 September 2018 B     Confidentiality Change, EBBR version 0.51
+   TBD               TBD   - Relicense to CC-BY-SA 4.0
+                           - Added Devicetree requirements
+                           - Added Multiprocessor boot requirements
+                           - Transitioned to reStructuredText and GitHub
+   ================= ===== =============================================
+
 *******************
 About This Document
 *******************

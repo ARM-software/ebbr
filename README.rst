@@ -49,6 +49,19 @@ new version can be installed with the Python package installer::
 
 Export SPHINXBUILD (see above) if Sphinx was installed with pip --user, then follow Make commands below
 
+On Fedora
+^^^^^^^^^
+
+::
+
+  # dnf install python2-sphinx texlive texlive-capt-of texlive-draftwatermark \
+                texlive-fncychap texlive-framed texlive-needspace \
+                texlive-tabulary texlive-titlesec texlive-upquote \
+                texlive-wrapfig
+
+It is also possible to use python3-sphinx; this requires
+SPHINXBUILD=sphinx-build-3 to be passed on the Make command line.
+
 On Mac OS X
 ^^^^^^^^^^^
 

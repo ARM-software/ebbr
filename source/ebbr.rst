@@ -197,7 +197,52 @@ virtualized service, by the hypervisor and not as part of the host firmware.
 System Volume Format
 --------------------
 
-The system firmware must support GPT partitioning.
+The system firmware must support all partitioning standards required
+by the UEFI specification.
+
+On systems where the system firmware binaries reside on the System Volume then
+the System Volume must be pre-configured with a partition table and include
+protective partitions to reduce risk of accidental destruction of the system
+firmware.
+
+All pre-installed partition tables must use GPT partitioning unless
+some immutable feature of the platform (such as a mask programmed boot ROM)
+makes this impossible; on such platforms MBR partitioning may be
+used as an alternative.
+
+GPT partitioning
+^^^^^^^^^^^^^^^^
+
+Any pre-installed partition table must strictly conform to the UEFI
+specification and include a protective MBR authored exactly as
+described in UEFI specification (hybrid partitioning schemes are not
+permitted).
+
+Pre-installed protective partitions must have the Platform Required
+Attribute Flag set.
+
+It is recommended that automatic system disk partitioning utilities
+preserve Platform Required partitions as is, and that manual disk
+partitioning utilities provide warnings and/or other safe guards to
+reduce risk of accidental removal.
+
+MBR partitioning
+^^^^^^^^^^^^^^^^
+
+Pre-installed protective partitions should have a partition type of 0xF8
+unless some immutable feature of the platform makes this impossible.
+
+It is recommended that disk partitioning utilities treat such
+partitions in the same manner as GPT partitions with the Platform
+Required Attribute Flag set.
+
+It is recommended that pre-installed protective partitions that are not
+type 0xF8 be located wholly within 1MB of the start of the disk.
+
+Automatic disk partitioning utilities shall not create partitions
+within 1MB of the start of the disk. Manual disk partitioning
+utilities should avoid recommending that partitions start within
+1MB of the start of the disk.
 
 UEFI Boot Services
 ==================

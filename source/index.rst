@@ -37,5 +37,6 @@ Creative Commons, PO Box 1866, Mountain View, CA 94042, USA.
    chapter1-about
    chapter2-uefi
    chapter3-secureworld
+   chapter4-firmware-media
    appendix-a-uefi-features
    references

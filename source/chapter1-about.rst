@@ -91,6 +91,11 @@ This document uses the following terms and abbreviations.
       execute Secure Monitor code, which handles the transitions between
       Non-secure and Secure states.  EL3 is always in Secure state.
 
+   Logical Unit (LU)
+      A logical unit (LU) is an externally addressable, independent entity
+      within a device. In the context of storage, a single device may use
+      logical units to provide multiple independent storage areas.
+
    OEM
       Original Equipment Manufacturer. In this document, the final device
       manufacturer.

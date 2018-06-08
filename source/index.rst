@@ -200,15 +200,69 @@ System Volume Format
 The system firmware must support all partitioning standards required
 by the UEFI specification.
 
-On systems where the system firmware binaries reside on the System Volume then
-the System Volume must be pre-configured with a partition table and include
-protective partitions to reduce risk of accidental destruction of the system
-firmware.
-
 All pre-installed partition tables must use GPT partitioning unless
 some immutable feature of the platform (such as a mask programmed boot ROM)
 makes this impossible; on such platforms MBR partitioning may be
 used as an alternative.
+
+System Firmware Partitions
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+On systems where the system firmware binaries reside on the System Volume then
+the System Volume must be pre-configured with a partition table and system
+firmware binaries.
+
+When system firmware is located at a fixed offset, It is strongly recommended
+for the partition table to include protective partitions covering the location
+of firmware to reduce risk of accidental destruction of the system firmware.
+
+System boot ROM should obtain the system firmware partition location
+by reading the partition table.
+Using a fixed offset into the storage media is deprecated and should
+not be used for new SoC designs.
+Future issues of this specification will disallow the use of fixed offsets.
+
+A system firmware partition should not also be used as a EFI System
+Partition (ESP).
+Pre-installed system firmware partitions must not use the ESP GUID,
+and OS installation tools should not install EFI executables in a system
+firmware partition.
+
+.. todo::
+
+   I'm not sure if this is a good idea. It might be that EBBR should define a
+   common GUID for system firmware partitions. It also might be that I'm worrying
+   too much and it is fine to use the ESP as a system firmware partition.
+   This TODO note is a bit of a discussion of the options.
+
+   Options:
+
+   - Require ESP and SFPs to be separate
+
+     - Should a common SFP GUID be defined so a single image can hold firmware
+       for multiple platforms?
+
+       - Don't have to repartition to add additional platforms.
+
+         - Yet repartitioning required to add the *first* platform
+
+       - Require FAT formatting?
+       - Probably also requires a vendor/soc/file pathname spec to avoid
+         conflicts.
+       - OS can mount the ESP without touching SFPs. This means firmware could
+         perform (mediated) operations on the SPF (ex. to update variables)
+         without unmounting the ESP.
+       - Downside: Requries at least two fixed sized partitions to boot the
+         platform: a SFP, and the ESP. A single combined SFP+ESP would be more
+         efficient on space.
+
+   - Allow ESP to be used as an SFP
+
+     - Downside: Partitioning/Install tools can't simply blank the ESP to reset
+       to scratch
+     - Upside: platform firmware can be added by simply dropping files
+       in the ESP
+     - Using the ESP filesystem is a more efficient use of space.
+     - Still need to define pathname spec to avoid conflicts
 
 GPT partitioning
 ^^^^^^^^^^^^^^^^

@@ -1,0 +1,63 @@
+sudo: false
+dist: trusty
+
+cache:
+  apt: true
+
+env:
+  global:
+      - SPHINXBUILD=~/.local/bin/sphinx-build
+      - DIFF_COMMIT=v0.1
+
+git:
+  depth: false
+
+addons:
+  apt:
+    packages:
+      - python-pip
+      - latexmk
+      - libalgorithm-diff-perl
+      - texlive
+      - texlive-latex-extra
+      - texlive-humanities
+      - texlive-generic-recommended
+      - graphviz
+      - texlive-generic-extra
+
+install:
+  - pip install --user mako
+  - pip install --user Sphinx
+
+before_script:
+  - wget https://github.com/ftilmann/latexdiff/releases/download/1.2.1/latexdiff-1.2.1.tar.gz
+  - tar xvf latexdiff-1.2.1.tar.gz
+  - export PATH=$PWD/latexdiff-1.2.1/:$PATH
+
+script:
+  - make latexpdf
+  - make html
+  - make singlehtml
+
+before_deploy:
+  - cp build/latex/EBBR.pdf build/EBBR-$TRAVIS_TAG.pdf
+
+deploy:
+  - provider: releases
+    prerelease: false
+    api_key:
+      secure: lwrJRB1i8a7MPKhuBltpjUdWyY4ontYfjMWwiTiqdW9JZ2/Eb0MQdGhbWS5xvUcTS8eNDPpTUulDlY9gi+TYdtinh5cZ6FROKpY9sll7hKL/LyQrAtOLho2L+Ss2NoSJwjF5O7+rCo5d02mpECVXfSJYqn9Ar4X11HKzqwqTbtXR1wIgH5BhRrN1W/BrloqqEE1KLsOd+TRzTzefy5sWMShc8KUTf0taAe+RnQ+vZFPhCqnRIAgPtwIktsulpMdqvpbzDR6b3QghytbqGlyp9rj1H0AlReD9sfR1BirCZKPHAMJ7yOZGvq1iaUGR90W1PqKVisl2CUNVrytTQQUIxgHyAcsy13UbK5Hft02nNb5QGC0EITO18T2ISPaRX1I5b/n7WKRxv/1D/YsPGBhQbVOfG7GBVNMgDxjiwPiFzN9OTfArMoptpLmQdfs+rjLC7mKGqoSE7/xKo9U6SpZhIv5IR978tfe9Z9u32o+cNjid/moY470LdLmYsZ9AWazURi0VeGkmzOIreZLjTJYdE+wiLzNedwex6gf7gnujyAwQh+LxF57n35zdtDwHeXmSxW4w901q+QJwQ4mBxB2Al++LiGL7WGEuoqvANnVKtOEewxa7zVggkPXCfEWxxxBiCHKYdGqJKs0zc3gB3MTEV0avwwKJg2mldvhjZxYUhjk=
+    file_glob: true
+    file:
+      - "build/EBBR-*.pdf"
+    skip_cleanup: true
+    on:
+      tags: true
+      branch: master
+  - provider: pages
+    github_token: $GITHUB_TOKEN
+    local_dir: "build/singlehtml"
+    skip_cleanup: true
+    on:
+      branch: master
+

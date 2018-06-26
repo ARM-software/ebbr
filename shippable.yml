@@ -1,0 +1,17 @@
+language: python
+
+python:
+  - 3.6
+
+branches:
+  only:
+    - master
+
+before_install:
+  - sudo apt-get update
+  - sudo apt-get install texlive texlive-latex-extra latexmk
+  - pip3 install Sphinx
+
+build:
+  ci:
+    - make latexpdf

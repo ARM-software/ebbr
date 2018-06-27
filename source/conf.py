@@ -45,7 +45,7 @@ templates_path = ['_templates']
 source_suffix = '.rst'
 
 # The master toctree document.
-master_doc = 'ebbr'
+master_doc = 'index'
 
 # General information about the project.
 project = 'Embedded Base Boot Requirements (EBBR) Specification'

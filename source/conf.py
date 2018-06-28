@@ -137,7 +137,7 @@ if '-' in release:
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'EBBR.tex', project, author, 'manual'),
+    (master_doc, 'ebbr.tex', project, author, 'manual'),
 ]
 
 

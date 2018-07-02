@@ -22,7 +22,7 @@ can look at the source text directly here:
 GitHub does a good job of rendering the reStructuredText markup into
 something readable.
 
-.. _`EBBR Draft Text`: source/ebbr.rst
+.. _`EBBR Draft Text`: source/index.rst
 
 Build Instructions
 ==================

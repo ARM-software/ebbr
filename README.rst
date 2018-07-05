@@ -38,7 +38,8 @@ On Debian and Ubuntu
 ::
 
   # apt-get install python-sphinx texlive texlive-latex-extra libalgorithm-diff-perl \
-                    texlive-humanities texlive-generic-recommended texlive-generic-extra
+                    texlive-humanities texlive-generic-recommended texlive-generic-extra \
+                    latexmk
 
 If the version of python-sphinx installed is too old, then an additional
 new version can be installed with the Python package installer::

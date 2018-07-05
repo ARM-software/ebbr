@@ -143,17 +143,35 @@ To allow Operating Systems to use 64K page mappings, UEFI 2.7, constrains all
 mapped 4K memory pages to have identical page attributes, within the same
 physical 64K page.
 
-Real-time Clock
----------------
+Runtime Device Mappings
+-----------------------
 
-The Real-time Clock must be accessible via the UEFI runtime firmware, and the
-following services must be provided:
+Firmware shall not create runtime mappings, or perform any runtime IO that will
+conflict with device access.
+Normally this means a device may be controlled by firmware, or controlled by
+the OS, but not both.
+e.g. If firmware attempts to access an eMMC device at runtime then it will
+conflict with transactions being performed by the OS.
 
-- GetTime()
-- SetTime()
+Devices that are provided to the OS (i.e., via PCIe discovery or ACPI/DT
+description) shall not be access by firmware at runtime.
+Similarly, devices retained by firmware (i.e., not discoverable by the OS)
+shall not be accessed by the OS.
 
-It is permissible for SetTime() to return an error on systems where the
-Real-time Clock cannot be set by this call.
+Only devices that explicitly support concurrent access by both firmware and an
+OS may be mapped at runtime by both firmware and the OS.
+
+Real-time Clock (RTC)
+^^^^^^^^^^^^^^^^^^^^^
+
+Not all embedded systems include an RTC, and even if one is present,
+it may not be possible to access the RTC from runtime services.
+e.g., The RTC may be on a shared I2C bus which runtime services cannot access
+because it will conflict with the OS.
+
+Firmware still must provide the UEFI GetTime() and SetTime() runtime service
+calls, but if an RTC isn't present, or cannot be accessed at runtime, then both
+calls shall return EFI_DEVICE_ERROR.
 
 UEFI Reset and Shutdown
 -----------------------

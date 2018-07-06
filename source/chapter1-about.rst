@@ -5,18 +5,21 @@ About This Document
 Introduction
 ============
 
-This Embedded Base Boot Requirements (EBBR) specification is intended for Arm
-embedded devices that want to take advantage of the UEFI technology to separate
-the firmware and OS development.
-For example, class-A embedded devices like networking platforms can benefit
+This Embedded Base Boot Requirements (EBBR) specification defines an interface
+between platform firmware and an operating system that is suitable for embedded
+platforms.
+EBBR compliant platforms present a consistent interface that will boot an EBBR
+compliant operating system without any custom tailoring required.
+For example, an Arm A-class embedded networking platform will benefit
 from a standard interface that supports features such as secure boot and
 firmware update.
 
-This specification defines the base firmware requirements if UEFI is chosen.
+This specification defines the base firmware requirements for EBBR compliant platforms.
 The requirements in this specification are expected to be minimal yet complete,
 while leaving plenty of room for innovations and design details.
 This specification is intended to be OS-neutral.
-It leverages the prevalent industry standard firmware specifications of UEFI.
+
+It leverages the prevalent industry standard firmware specification of [UEFI]_.
 
 Comments or change requests can be sent to arm.ebbr-discuss@arm.com.
 
@@ -24,7 +27,7 @@ Scope
 =====
 This document defines the boot and runtime services that are expected by an
 Operating System or hypervisor, for an Arm embedded device, which follows the
-UEFI specification.
+UEFI specification [UEFI]_.
 
 This specification defines the boot and runtime services for a physical system,
 including services that are required for virtualization.

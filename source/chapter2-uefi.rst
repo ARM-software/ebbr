@@ -2,21 +2,26 @@
 UEFI
 ****
 
+This chapter discusses specific UEFI implementation details for EBBR compliant
+platforms.
+
 UEFI Version
 ============
-
-Boot and system firmware for Arm embedded devices can be based on the UEFI
-specification [UEFI]_, version 2.7 or later, incorporating the AArch64 bindings.
+This document uses version 2.7 of the UEFI specification [UEFI]_.
 
 UEFI Compliance
 ===============
 
-Any UEFI-compliant system must follow the requirements that are laid out in
-section 2.6 of the UEFI specification [UEFI]_.
-However, to ensure a common boot architecture for embedded-class, systems
-compliant with this specification must always provide the UEFI services and
-protocols that are listed in Appendix A, Appendix B, and Appendix C of this
-document.
+EBBR compliant platforms shall conform to the requirements in [UEFI]_ § 2.6,
+except where explicit exemptions are provided by this document.
+
+EBBR compliant platforms shall also implement the UEFI services and
+protocols that are listed in :ref:appendix-uefi-requirements of this document.
+
+Block device partitioning
+-------------------------
+
+The system firmware must implement support for MBR, GPT and El Torito partitioning.
 
 UEFI System Environment and Configuration
 =========================================
@@ -49,12 +54,6 @@ Operating System environment, to allow the subsequent booting of a
 UEFI-compliant Operating System.
 In this instance, the UEFI boot-time environment can be provided, as a
 virtualized service, by the hypervisor and not as part of the host firmware.
-
-System Volume Format
---------------------
-
-The system firmware must support all partitioning standards required
-by the UEFI specification.
 
 UEFI Boot Services
 ==================

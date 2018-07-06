@@ -1,3 +1,5 @@
+.. _appendix-uefi-requirements:
+
 #############################################
 APPENDIX A - UEFI Implementation Requirements
 #############################################

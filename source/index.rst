@@ -21,15 +21,19 @@ Creative Commons, PO Box 1866, Mountain View, CA 94042, USA.
 .. tabularcolumns:: l c p{11.5cm}
 .. table:: Revision History
 
-   ================= ===== =============================================
-   Date              Issue Changes
-   ================= ===== =============================================
-   20 September 2017 B     Confidentiality Change, EBBR version 0.51
-   TBD               TBD   - Relicense to CC-BY-SA 4.0
-                           - Added Devicetree requirements
-                           - Added Multiprocessor boot requirements
-                           - Transitioned to reStructuredText and GitHub
-   ================= ===== =============================================
+   ================= ========= =============================================
+   Date              Issue     Changes
+   ================= ========= =============================================
+   20 September 2017 0.51      Confidentiality Change, EBBR version 0.51
+   6 July 2018       0.6-pre1  - Relicense to CC-BY-SA 4.0
+                               - Added Devicetree requirements
+                               - Added Multiprocessor boot requirements
+                               - Transitioned to reStructuredText and GitHub
+                               - Added firmware on shared media requirements
+                               - RTC is optional
+                               - Add constraints on sharing devices between
+                                 firmware and OS
+   ================= ========= =============================================
 
 .. toctree::
    :numbered:

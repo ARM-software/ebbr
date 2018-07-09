@@ -23,7 +23,7 @@ It leverages the prevalent industry standard firmware specification of [UEFI]_.
 
 Comments or change requests can be sent to arm.ebbr-discuss@arm.com.
 
-Guiding Principals
+Guiding Principles
 ==================
 
 EBBR as a specification defines requirements on platforms and operating systems,
@@ -51,7 +51,7 @@ amount of custom engineering required, make it possible for OS distributions to
 support embedded platforms, while still preserving the firmware stack product
 vendors are comfortable with.
 Or in simpler terms, EBBR is designed to solve the embedded boot mess by
-migrating existing firmware projects (U-Boot) to a defined standard (UEFI).
+adding a defined standard (UEFI) to the existing firmware projects (U-Boot).
 
 However, EBBR is a specification, not an implementation.
 The goal of EBBR is not to mandate U-Boot and Linux.
@@ -61,24 +61,33 @@ ensure that the EBBR requirements are implemented by both projects.
 [#EDK2Note]_
 
 .. [#EDK2Note] Tianocore/EDK2 and U-Boot are highlighted here because at the
-   time of writing these are the two most important firmware projects.
+   time of writing these are the two most important firmware projects that
+   implement UEFI.
    Tianocore/EDK2 is a full featured UEFI implementation and so should
-   automatically be EBBR compliant. U-Boot is the incumbant firmware project
-   for embedded platforms and has added basic UEFI compliance.
+   automatically be EBBR compliant.
+   U-Boot is the incumbant firmware project for embedded platforms and has
+   steadily been adding UEFI compliance since 2016.
 
-The following guiding principals of the EBBR specification and its
-process:
+The following guiding principles are used while developing the EBBR specification.
 
 - Be agnostic about ACPI and Devicetree.
 
   EBBR explicitly does not require a specific system description language.
   Both Devicetree and ACPI are supported.
-  While ACPI provides more standardization, Devicetree is preferred in may embedded
-  platforms for its flexibility.
+  While ACPI provides more standardization, Devicetree is preferred in many
+  embedded platforms for its flexibility.
   The Linux kernel supports both equally well, and so EBBR doesn't require one
   over the other.
-  However, it does require the system description to be provided by the
-  platform, and that it conform to the relevant ACPI or DT specifications.
+  However, EBBR does require the system description to be supplied by the
+  platform, not the OS.
+  The platform must also conform to the relevant ACPI or DT specifications and
+  adhere to platform compatibility rules. [#CompatRules]_
+
+.. [#CompatRules] It must be acknowledged that at the time of writing this
+   document, platform compatibility rules for DT platforms are not well defined
+   or documented.
+   We the authors recognize that this is a problem and are working to solve it
+   in parallel with this specification.
 
 - Focus on the UEFI interface, not a specific codebase
 
@@ -112,10 +121,20 @@ process:
 
 - Plan to evolve over time
 
-  The first release of EBBR is firmly targeting current embedded hardware.
-  Future versions will add capabilities which may tighten the hardware requirements.
+  The v1.0 release of EBBR is firmly targeted at existing platforms so that
+  gaining EBBR compliance may require a firmware update, but will not require
+  hardware changes for the majority of platforms.
 
-  However, existing compliant boards will remain compliant.
+  Future EBBR releases will tighten requirements to add features and improve
+  compatibility, which may affect hardware design choices.
+  However, EBBR will not retroactively revoke support from previously compliant
+  platforms.
+  Instead, new requirements will be clearly documented as being over and above
+  what was required by a previous release.
+  Existing platforms will be able to retain compliance with a previous
+  requirement level.
+  In turn, OS projects and end users can choose what level of EBBR compliance
+  is required for their use case.
 
 Scope
 =====

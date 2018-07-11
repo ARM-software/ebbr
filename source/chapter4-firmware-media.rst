@@ -4,7 +4,8 @@ Firmware Storage
 
 In general, EBBR compliant platforms should use dedicated storage for boot
 firmware images and data,
-independent of the storage used for OS partitions and the ESP.
+independent of the storage used for OS partitions and the EFI System Partition
+(ESP).
 This could be a physically separate device (e.g. SPI flash),
 or a dedicated logical unit (LU) within a device
 (e.g. eMMC boot partition, [#eMMCBootPartition]_

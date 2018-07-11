@@ -10,7 +10,7 @@ between platform firmware and an operating system that is suitable for embedded
 platforms.
 EBBR compliant platforms present a consistent interface that will boot an EBBR
 compliant operating system without any custom tailoring required.
-For example, an Arm A-class embedded networking platform will benefit
+For example, an Arm A-class embedded platform will benefit
 from a standard interface that supports features such as secure boot and
 firmware update.
 
@@ -149,12 +149,14 @@ Operating System.
 
 This specification is similar to the Arm Server Base Boot Requirements
 specification [SBBR]_ in that it defines the firmware interface presented to an
-operating system, with SBBR having stricter requirements on hardware and
-firmware than EBBR.
-EBBR allows for design decisions that are common in the embedded space, but not
-supported by the server ecosystem.
-For example, an embedded system may use a single eMMC storage device to hold
-both firmware and operating system images.
+operating system.
+SBBR is targeted at the server ecosystem and places strict requirements on the
+platform to ensure cross vendor interoperability.
+EBBR on the other hand allows more flexibility to support embedded designs
+which do not fit within the SBBR model.
+For example, a platform that isn't SBBR compliant because the SoC is only
+supported using Devicetree could be EBBR compliant, but not SBBR compliant.
+
 By definition, all SBBR compliant systems are also EBBR compliant, but the
 converse is not true.
 

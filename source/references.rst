@@ -1,3 +1,5 @@
+.. SPDX-License-Identifier: CC-BY-SA-4.0
+
 .. [ACPI] `Advanced Configuration and Power Interface specification v6.2A
    <http://www.uefi.org/sites/default/files/resources/ACPI%206_2_A_Sept29.pdf>`_,
    September 2017, `UEFI Forum <http://www.uefi.org>`_

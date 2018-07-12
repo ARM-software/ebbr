@@ -112,7 +112,8 @@ UEFI Runtime Services exist after the call to ExitBootServices() and are
 designed to provide a limited set of persistent services to the platform
 Operating System or hypervisor.
 
-The Runtime Services that are listed in Appendix B must be provided.
+The Runtime Services that are listed in :ref:`appendix-uefi-required-runtime`
+must be provided.
 
 Runtime Exception Level
 -----------------------

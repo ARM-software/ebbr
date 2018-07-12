@@ -56,6 +56,8 @@ EFI_SET_MEM                                7.5
 EFI_CREATE_EVENT_EX                        7.5
 ========================================== ======
 
+.. _appendix-uefi-required-runtime:
+
 Required Runtime Services
 *************************
 

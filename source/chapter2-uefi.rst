@@ -16,7 +16,8 @@ EBBR compliant platforms shall conform to the requirements in [UEFI]_ § 2.6,
 except where explicit exemptions are provided by this document.
 
 EBBR compliant platforms shall also implement the UEFI services and
-protocols that are listed in :ref:appendix-uefi-requirements of this document.
+protocols that are listed in :ref:`appendix-uefi-requirements` of this
+document.
 
 Block device partitioning
 -------------------------

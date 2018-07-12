@@ -33,6 +33,9 @@ Creative Commons, PO Box 1866, Mountain View, CA 94042, USA.
                                - RTC is optional
                                - Add constraints on sharing devices between
                                  firmware and OS
+   12 July 2018      0.6       - Response to comments on v0.6-pre1
+                               - Add large note on implementation of runtime
+                                 modification of non-volatile variables
    ================= ========= =============================================
 
 .. toctree::

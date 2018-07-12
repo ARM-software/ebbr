@@ -200,7 +200,7 @@ command:
 Runtime Variable Access
 -----------------------
 
-.. todo:
+.. todo::
 
    There are many platforms where it is difficult to support SetVariable() for
    non-volatile variables because the firmware cannot access storage after

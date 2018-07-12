@@ -197,13 +197,69 @@ command:
    Operating Systems calls to reset the system will go via Runtime Services
    and not directly to PSCI.
 
-Set Variable
-------------
+Runtime Variable Access
+-----------------------
 
-Non-volatile UEFI variables must persist across reset, and emulated variables
-in RAM are not permitted.
-The UEFI Runtime Services must be able to update the variables directly without
-the aid of the Operating System.
+.. todo:
 
-.. note:: This normally requires dedicated storage for UEFI variables that is
-   not directly accessible from the Operating System.
+   There are many platforms where it is difficult to support SetVariable() for
+   non-volatile variables because the firmware cannot access storage after
+   ExitBootServices() is called.
+   e.g., If firmware accesses an eMMC device directly at runtime, it will
+   collide with transactions initiated by the OS.
+   Neither U-Boot nor Tianocore have a solution for accessing shared media for
+   variable updates. [#OPTEESupplicant]_
+
+   In these platforms SetVariable() calls with the EFI_VARIABLE_NON_VOLATILE
+   attribute set will work in boot services, but will fail in runtime services.
+   The [UEFI]_ specification doesn't address what to do in this situation.
+   We need feedback on options before writing this section of EBBR, or making a
+   proposal to modify UEFI.
+
+   We need a solution that communicates to the OS that non-volatile variable
+   updates are not supported at runtime, and that defines the behaviour when
+   SetVariable() is called with the EFI_VARIABLE_NON_VOLATILE attribute.
+
+   Presumably, the solution will require SetVariable() to return
+   EFI_INVALID_PARAMETER if called with the EFI_VARIABLE_NON_VOLATILE
+   attribute, but beyond that there are a number of options:
+
+   #. Clear EFI_VARIABLE_NON_VOLATILE from all variables at ExitBootServices()
+
+      If the platform is incapable of updating non-volatile variables from Runtime
+      Services then it must clear the EFI_VARIABLE_NON_VOLATILE attribute from all
+      non-volatile variables when ExitBootServices() is called.
+
+      An OS can discover that non-volatile variables cannot be updated at
+      runtime by noticing that the NON_VOLATILE attribute is not set.
+
+   #. Clear all variables at ExitBootServices()
+
+      If the platform is incapable of updating non-volatile variables from Runtime
+      Services then it will clear all variables and return EFI_INVALID_PARAMETER
+      on all calls to SetVariable().
+
+      SUSE in particular currently uses this behaviour to decide whether or not
+      to treat the ESP as removable media.
+
+   #. Advertise that SetVariable() doesn't work at runtime with another variable
+
+      Platforms can check another variable to determine if they have this quirk,
+      perhaps by adding a new BootOptionSupport flag.
+
+   This is not a complete list, and other options can still be proposed. We're
+   looking for feedback on what would be most faithful to the UEFI spec, and
+   would work for the OS distributions before filling out this section of the
+   specification.
+
+   Comments can be sent to the boot-architecture@lists.linaro.org mailing list.
+
+.. [#OPTEESupplicant] It is worth noting that OP-TEE has a similar problem
+   regarding secure storage.
+   OP-TEE's chosen solution is to rely on an OS supplicant agent to perform
+   storage operations on behalf of OP-TEE.
+   The same solution may be applicable to solving the UEFI non-volatile
+   variable problem, but that approach is also not entirely UEFI compliant
+   because it requires additional OS support to work.
+
+   https://github.com/OP-TEE/optee_os/blob/master/documentation/secure_storage.md

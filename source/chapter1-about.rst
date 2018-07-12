@@ -76,8 +76,6 @@ The following guiding principles are used while developing the EBBR specificatio
 
   EBBR explicitly does not require a specific system description language.
   Both Devicetree and ACPI are supported.
-  While ACPI provides more standardization, Devicetree is preferred in many
-  embedded platforms for its flexibility.
   The Linux kernel supports both equally well, and so EBBR doesn't require one
   over the other.
   However, EBBR does require the system description to be supplied by the

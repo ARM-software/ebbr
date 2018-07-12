@@ -150,14 +150,14 @@ Runtime Device Mappings
 -----------------------
 
 Firmware shall not create runtime mappings, or perform any runtime IO that will
-conflict with device access.
+conflict with device access by the OS.
 Normally this means a device may be controlled by firmware, or controlled by
 the OS, but not both.
 e.g. If firmware attempts to access an eMMC device at runtime then it will
 conflict with transactions being performed by the OS.
 
 Devices that are provided to the OS (i.e., via PCIe discovery or ACPI/DT
-description) shall not be access by firmware at runtime.
+description) shall not be accessed by firmware at runtime.
 Similarly, devices retained by firmware (i.e., not discoverable by the OS)
 shall not be accessed by the OS.
 

@@ -186,6 +186,10 @@ for purposes of power management and system control.
 - EfiResetShutdown()
   * EfiResetShutdown must not reboot the system.
 
+The UEFI Runtime service ResetSystem() must output stable, reliable and
+unique messages for all supportable error conditions and failures, including
+resets.
+
 If firmware updates are supported through the Runtime Service of
 UpdateCapsule(), then ResetSystem() might need to support the following
 command:

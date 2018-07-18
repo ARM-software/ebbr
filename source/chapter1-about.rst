@@ -119,6 +119,11 @@ The following guiding principles are used while developing the EBBR specificatio
   EBBR was drafted with readily available hardware in mind, like the
   Raspberry Pi and BeagleBone families of boards, and it is applicable for low cost boards (<$10).
 
+- Design to support automated testing
+
+  EBBR support can provide methods to make it easier and more reliable to
+  automate the boot sequence of embedded devices.
+
 - Plan to evolve over time
 
   The v1.0 release of EBBR is firmly targeted at existing platforms so that

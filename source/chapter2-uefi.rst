@@ -188,7 +188,9 @@ for purposes of power management and system control.
 
 The UEFI Runtime service ResetSystem() must output stable, reliable and
 unique messages for all supportable error conditions and failures, including
-resets.
+resets::
+
+ [UEFI] Resetting CPU ....\n
 
 If firmware updates are supported through the Runtime Service of
 UpdateCapsule(), then ResetSystem() might need to support the following
@@ -200,6 +202,10 @@ command:
    specification [PSCI]_, it is still required that EBBR compliant
    Operating Systems calls to reset the system will go via Runtime Services
    and not directly to PSCI.
+
+::
+
+ [UEFI] Warm Reset of CPU ....\n
 
 Runtime Variable Access
 -----------------------

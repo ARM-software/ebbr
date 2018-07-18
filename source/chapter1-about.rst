@@ -124,6 +124,40 @@ The following guiding principles are used while developing the EBBR specificatio
   EBBR support can provide methods to make it easier and more reliable to
   automate the boot sequence of embedded devices.
 
+  * Identifiers need to be unique across devices, persistent across
+    reboots and firmware updates
+
+  * Behaviour and the output need to be consistent, so that the same
+    action or error produces the same output from one boot to the next.
+
+  * Automation will rely on a serial console, not graphical. Support for
+    automation means providing a reliable serial console even if the
+    primary console is intended to be graphical. Serial console can be
+    enabled via jumpers or persistent software configuration.
+
+  * Provide clear version information in the output of every boot
+
+  * Provide clear status messages for critical stages within boot to assist
+    in triage when boot is reported as "failed".
+
+  * Provide clear error messages for all supported error conditions and
+    failures.
+
+  * Use a consistent format, without colour code or escape characters, for
+    all messages, errors and warnings:
+
+    * Version strings::
+
+       [BOOT] Version: <version>\n
+
+    * Status messages::
+
+       [BOOT] Starting kernel ...\n
+
+    * Warnings::
+
+       [WARN] Unable to find <file>\n
+
 - Plan to evolve over time
 
   The v1.0 release of EBBR is firmly targeted at existing platforms so that

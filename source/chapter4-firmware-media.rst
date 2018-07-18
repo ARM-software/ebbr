@@ -24,6 +24,11 @@ conflict with normal usage of the media by an OS.
 * Normal operation of the OS must not interfere with firmware files.
 * Changing the partition table to switch from one OS to another must not
   interfere with firmware files.
+
+  * In cases where the partition table has to be replaced instead of
+    edited, it will not be possible to protect firmware during automated
+    testing when switching between different operating systems.
+
 * Firmware needs a method to modify variable storage at runtime while the
   OS controls access to the device. [#LUVariables]_
 

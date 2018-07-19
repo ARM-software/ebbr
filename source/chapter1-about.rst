@@ -124,8 +124,9 @@ The following guiding principles are used while developing the EBBR specificatio
   EBBR support can provide methods to make it easier and more reliable to
   automate the boot sequence of embedded devices.
 
-  * Identifiers need to be unique across devices, persistent across
-    reboots and firmware updates
+  * All identifiers used within the boot process need to be unique
+    across devices, persistent across reboots and firmware updates.
+    e.g. serial numbers, MAC addresses, USB device ID's.
 
   * Behaviour and the output need to be consistent, so that the same
     action or error produces the same output from one boot to the next.

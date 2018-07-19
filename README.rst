@@ -17,6 +17,14 @@ Released EBBR PDFs can be found here:
 
 https://github.com/ARM-software/ebbr/releases
 
+Contributing
+============
+
+Anyone may contribute to EBBR. Discussion is on the
+boot-architecture@lists.linaro.org mailing list,
+and there is a weekly conference call.
+See CONTRIBUTING.rst_ for details.
+
 Build Instructions
 ==================
 

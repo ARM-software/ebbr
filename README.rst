@@ -13,16 +13,9 @@ expected in September 2018. You can find the current draft text in this
 repository, but be aware that everything in the draft text is subject to
 change before an official v1.0 release is published.
 
-This repository can be used to build a .pdf of the document, and soon there
-will be a CI loop generating a .pdf for each commit. In the mean time you
-can look at the source text directly here:
+Released EBBR PDFs can be found here:
 
-`EBBR Draft Text`_
-
-GitHub does a good job of rendering the reStructuredText markup into
-something readable.
-
-.. _`EBBR Draft Text`: source/index.rst
+https://github.com/ARM-software/ebbr/releases
 
 Build Instructions
 ==================

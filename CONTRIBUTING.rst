@@ -20,6 +20,16 @@ Past discussions can be found in the boot-architecture-archive_.
 
 We use the IRC channel `#ebbr`_ on OFTC_.
 
+There is a weekly conference call to discuss EBBR topics every Thursday
+at 16:30 UTC/BST, 8:30 PST/PDT, 00:30 CST
+(following UTC/BST daylight savings time shifts):
+
+- Online meeting: https://meet.lync.com/armh/grant.likely/YBY93TIK
+- Skype Web App: https://meet.lync.com/armh/grant.likely/YBY93TIK?sl=1
+- Phone: +44 2033215213,, 4664465#
+- Find a local number: https://dialin.lync.com/7bdb65cd-97d0-44fe-bc03-bf8072eadc33
+- Conference ID: 4664465
+
 DCO Attestation
 ---------------
 

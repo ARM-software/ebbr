@@ -120,7 +120,7 @@ Using a filesystem makes it simpler to manage multiple firmware files and
 makes it possible for a single disk image to contain firmware for multiple
 platforms.
 
-When firmware is stored in the ESP, the ESP should contain a partition named
+When firmware is stored in the ESP, the ESP should contain a directory named
 ``/FIRMWARE`` in the root directory,
 and all firmware images and data should be stored in platform vendor
 subdirectories under ``/FIRMWARE``.

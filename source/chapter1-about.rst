@@ -107,9 +107,8 @@ The following guiding principles are used while developing the EBBR specificatio
 - Support multiple architectures
 
   Any architecture can implement the EBBR requirements.
-
-  .. note::
-     At the time of writing this document only addresses AArch64, but AArch32 and others architectures are expected.
+  Architecture specific requirements will clearly marked as to which
+  architecture(s) they apply.
 
 - Design for common embedded hardware
 
@@ -139,7 +138,7 @@ The following guiding principles are used while developing the EBBR specificatio
 Scope
 =====
 This document defines the boot and runtime services that are expected by an
-Operating System or hypervisor, for an Arm embedded device, which follows the
+Operating System or hypervisor, for a device which follows the
 UEFI specification [UEFI]_.
 
 This specification defines the boot and runtime services for a physical system,
@@ -180,6 +179,10 @@ This document uses the following terms and abbreviations.
       The 64-bit Arm instruction set used in AArch64 state.
       All A64 instructions are 32 bits.
 
+   AArch32
+      Arm 32-bit architectures. AArch32 is a roll up term referring to all
+      32-bit versions of the Arm architecture starting at ARMv4.
+
    AArch64 state
       The Arm 64-bit Execution state that uses 64-bit general purpose
       registers, and a 64-bit program counter (PC), Stack Pointer (SP), and
@@ -193,19 +196,19 @@ This document uses the following terms and abbreviations.
       and which uses boot time services.
 
    EL0
-      The lowest Exception level. The Exception level that is used to execute
+      The lowest Exception level on AArch64. The Exception level that is used to execute
       user applications, in Non-secure state.
 
    EL1
-      Privileged Exception level. The Exception level that is used to execute
+      Privileged Exception level on AArch64. The Exception level that is used to execute
       Operating Systems, in Non-secure state.
 
    EL2
-      Hypervisor Exception level. The Exception level that is used to execute
+      Hypervisor Exception level on AArch64. The Exception level that is used to execute
       hypervisor code. EL2 is always in Non-secure state.
 
    EL3
-      Secure Monitor Exception level. The Exception level that is used to
+      Secure Monitor Exception level on AArch64. The Exception level that is used to
       execute Secure Monitor code, which handles the transitions between
       Non-secure and Secure states.  EL3 is always in Secure state.
 

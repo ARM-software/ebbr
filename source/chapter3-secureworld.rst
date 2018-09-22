@@ -4,10 +4,20 @@
 Priviledged or Secure Firmware
 ******************************
 
-Multiprocessor Startup Protocol
-===============================
-Firmware resident in Trustzone EL3 must implement and conform to the
-Power State Coordination Interface specification [PSCI]_.
+AArch32 Multiprocessor Startup Protocol
+=======================================
+There is no standard multiprocessor startup or CPU power management mechanism
+for ARMv7 and earlier platforms.
+The OS is expected to use platform specific drivers for CPU power management.
+Firmware must advertize the CPU power management mechanism in the Devicetree
+system description or the ACPI tables so that the OS can enable the correct
+driver.
+At ExitBootServices() time, all secondary CPUs must be parked or powered off.
+
+AArch64 Multiprocessor Startup Protocol
+=======================================
+On AArch64 platforms, Firmware resident in Trustzone EL3 must implement and
+conform to the Power State Coordination Interface specification [PSCI]_.
 
 Platforms without EL3 must implement one of:
 

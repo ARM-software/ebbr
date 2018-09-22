@@ -29,19 +29,21 @@ The system firmware must implement support for MBR, GPT and El Torito partitioni
 UEFI System Environment and Configuration
 =========================================
 
+The resident UEFI boot-time environment shall use the highest non-secure
+privilege level available.
+The exact meaning of this is architecture dependent, as detailed below.
+
+Resident UEFI firmware might target a specific privilege level.
+In contrast, UEFI Loaded Images, such as third-party drivers and boot
+applications, must not contain any built-in assumptions that they are to be
+loaded at a given privilege level during boot time since they can, for example,
+legitimately be loaded into either EL1 or EL2 on AArch64.
+
 AArch64 Exception Levels
 ------------------------
 
-The resident AArch64 UEFI boot-time environment is specified to "Use the
-highest 64-bit Non-secure privilege level available".
-This level is either EL1 or EL2, depending on whether or not virtualization is
-used or supported.
-
-Resident UEFI firmware might target a specific Exception level.
-In contrast, UEFI Loaded Images, such as thirdparty drivers and boot
-applications, must not contain any built-in assumptions that they are to be
-loaded at a given Exception level during boot time, since they can legitimately
-be loaded into EL1 or EL2.
+UEFI shall execute as 64-bit code in AArch64 model at either EL1 or EL2,
+depending on whether or not virtualization is used or supported.
 
 UEFI Boot at EL2
 ^^^^^^^^^^^^^^^^
@@ -112,8 +114,8 @@ must be provided.
 Runtime Exception Level
 -----------------------
 
-UEFI 2.7 enables runtime services to be supported at either EL1 or EL2, with
-appropriate virtual address mappings.
+On AArch64, UEFI 2.7 enables runtime services to be supported at either
+EL1 or EL2, with appropriate virtual address mappings.
 When called, subsequent runtime service calls must be from the same Exception
 level.
 

@@ -73,12 +73,6 @@ that virtual addresses must equal physical addresses.
 
 The default RAM allocated attribute must be EFI_MEMORY_WB.
 
-UEFI Loaded Images
-------------------
-
-UEFI loaded images for AArch64 must be in 64-bit PE/COFF format and must
-contain only A64 code.
-
 Configuration Tables
 --------------------
 

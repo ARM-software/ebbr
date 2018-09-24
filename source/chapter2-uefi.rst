@@ -119,29 +119,6 @@ EL1 or EL2, with appropriate virtual address mappings.
 When called, subsequent runtime service calls must be from the same Exception
 level.
 
-Runtime Memory Map
-------------------
-
-Before calling ExitBootServices(), the final call to GetMemoryMap() returns a
-description of the entire UEFI memory map, that includes the persistent Runtime
-Services mappings.
-
-After the call to ExitBootServices(), the Runtime Services page mappings can be
-relocated in virtual address space by calling SetVirtualAddressMap().
-This call allows the Runtime Services to assign virtual addresses that are
-compatible with the incoming Operating System memory map.
-
-A UEFI runtime environment compliant with this specification must not be
-written with any assumption of an identity mapping between virtual and physical
-memory maps.
-
-UEFI operates with a 4K page size. With Runtime Services, these pages are
-mapped into the Operating System address space.
-
-To allow Operating Systems to use 64K page mappings, UEFI 2.7, constrains all
-mapped 4K memory pages to have identical page attributes, within the same
-physical 64K page.
-
 Runtime Device Mappings
 -----------------------
 

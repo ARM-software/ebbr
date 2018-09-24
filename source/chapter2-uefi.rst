@@ -104,20 +104,43 @@ requirements for Secure Boot.
 UEFI Runtime Services
 =====================
 
-UEFI Runtime Services exist after the call to ExitBootServices() and are
+UEFI runtime services exist after the call to ExitBootServices() and are
 designed to provide a limited set of persistent services to the platform
 Operating System or hypervisor.
+Functions contained in EFI_RUNTIME_SERVICES are expected to be available
+during both boot services and runtime services.
+However, it isn't always practical for all EFI_RUNTIME_SERVICES functions
+to be callable during runtime services due to hardware limitations.
+If any EFI_RUNTIME_SERVICES functions are only available during boot services
+then firmware shall provide the global `RuntimeServicesAvailable` variable to
+indicate which functions are available during runtime services.
+Functions that are not available during runtime services shall return
+EFI_UNSUPPORTED.
 
-The Runtime Services that are listed in :ref:`appendix-uefi-required-runtime`
-must be provided.
+Table :numref:_uefi_runtime_service_requirements details which EFI_RUNTIME_SERVICES
+are required to be implemented during boot services and runtime services.
 
-Runtime Exception Level
------------------------
+.. _uefi_runtime_service_requirements:
+.. table:: EFI_RUNTIME_SERVICES Implementation Requirements
 
-On AArch64, UEFI 2.7 enables runtime services to be supported at either
-EL1 or EL2, with appropriate virtual address mappings.
-When called, subsequent runtime service calls must be from the same Exception
-level.
+   ============================== ============= ================
+   EFI_RUNTIME_SERVICES function  Boot Services Runtime Services
+   ============================== ============= ================
+   EFI_GET_TIME                   Optional      Optional
+   EFI_SET_TIME                   Optional      Optional
+   EFI_GET_WAKEUP_TIME            Optional      Optional
+   EFI_SET_WAKEUP_TIME            Optional      Optional
+   EFI_SET_VIRTUAL_ADDRESS_MAP    N/A           Required
+   EFI_CONVERT_POINTER            N/A           Required
+   EFI_GET_VARIABLE               Required      Optional
+   EFI_GET_NEXT_VARIABLE_NAME     Required      Optional
+   EFI_SET_VARIABLE               Required      Optional
+   EFI_GET_NEXT_HIGH_MONO_COUNT   N/A           Optional
+   EFI_RESET_SYSTEM               Required      Optional
+   EFI_UPDATE_CAPSULE             Optional      Optional
+   EFI_QUERY_CAPSULE_CAPABILITIES Optional      Optional
+   EFI_QUERY_VARIABLE_INFO        Optional      Optional
+   ============================== ============= ================
 
 Runtime Device Mappings
 -----------------------

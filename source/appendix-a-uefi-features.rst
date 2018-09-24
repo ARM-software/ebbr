@@ -56,33 +56,6 @@ EFI_SET_MEM                                7.5
 EFI_CREATE_EVENT_EX                        7.5
 ========================================== ======
 
-.. _appendix-uefi-required-runtime:
-
-Required Runtime Services
-*************************
-
-========================================== ======
-Service                                    UEFI §
-========================================== ======
-EFI_GET_TIME                               8.3
-EFI_SET_TIME                               8.3
-EFI_GET_WAKEUP_TIME                        8.3
-EFI_SET_WAKEUP_TIME                        8.3
-EFI_SET_VIRTUAL_ADDRESS_MAP                8.4
-EFI_CONVERT_POINTER                        8.4
-EFI_GET_VARIABLE                           8.2
-EFI_GET_NEXT_VARIABLE_NAME                 8.2
-EFI_SET_VARIABLE                           8.2
-EFI_GET_NEXT_HIGH_MONO_COUNT               8.5
-EFI_RESET_SYSTEM                           8.5
-EFI_UPDATE_CAPSULE                         8.5
-EFI_QUERY_CAPSULE_CAPABILITIES             8.5
-EFI_QUERY_VARIABLE_INFO                    8.5
-========================================== ======
-
-.. note:: EFI_GET_WAKEUP_TIME and EFI_SET_WAKEUP_TIME must be implemented, but
-   might simply return EFI_UNSUPPORTED.
-
 Required UEFI Protocols
 ***********************
 

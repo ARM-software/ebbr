@@ -37,6 +37,8 @@ Creative Commons, PO Box 1866, Mountain View, CA 94042, USA.
                                - Add large note on implementation of runtime
                                  modification of non-volatile variables
    TBD               TBD       - Add AArch32 details
+                               - Refactor Runtime Services text after face
+                                 to fact meeting at Linaro Connect YVR18
    ================= ========= =============================================
 
 .. toctree::

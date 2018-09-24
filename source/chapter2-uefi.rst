@@ -175,23 +175,17 @@ and the OS must use a device driver to control the RTC.
 UEFI Reset and Shutdown
 -----------------------
 
-The UEFI Runtime service ResetSystem() must implement the following commands,
-for purposes of power management and system control.
+ResetSystem() is required to be implemented in boot services, but it is
+optional for runtime services.
+During runtime services, the operating system should first attempt to
+use ResetSystem() to reset the system.
+If firmware doesn't support ResetSystem() during runtime services,
+then the call will immediately return EFI_UNSUPPORTED, and the OS should
+fall back to an architecture or platform specific reset mechanism.
 
-- EfiResetCold()
-- EfiResetShutdown()
-  * EfiResetShutdown must not reboot the system.
-
-If firmware updates are supported through the Runtime Service of
-UpdateCapsule(), then ResetSystem() might need to support the following
-command:
-
-- EfiWarmReset()
-
-.. note:: On platforms implementing the Power State Coordination Interface
-   specification [PSCI]_, it is still required that EBBR compliant
-   Operating Systems calls to reset the system will go via Runtime Services
-   and not directly to PSCI.
+On AArch64 platforms implementing [PSCI]_,
+if ResetSystem() is not implemented then the Operating System should fall
+back to making a PSCI call to reset or shutdown the system.
 
 Runtime Variable Access
 -----------------------

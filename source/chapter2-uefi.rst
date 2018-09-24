@@ -145,9 +145,9 @@ it may not be possible to access the RTC from runtime services.
 e.g., The RTC may be on a shared I2C bus which runtime services cannot access
 because it will conflict with the OS.
 
-Firmware still must provide the UEFI GetTime() and SetTime() runtime service
-calls, but if an RTC isn't present, or cannot be accessed at runtime, then both
-calls shall return EFI_DEVICE_ERROR.
+If firmware does not support access to the RTC, then GetTime() and
+SetTime() shall return EFI_UNSUPPORTED,
+and the OS must use a device driver to control the RTC.
 
 UEFI Reset and Shutdown
 -----------------------

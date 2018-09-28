@@ -9,9 +9,14 @@ The aim is to establish consistent boot ABIs and behaviour so that
 supporting new hardware platforms does not require custom engineering work.
 
 EBBR is currently being drafted. The first formal release of EBBR is
-expected in September 2018. You can find the current draft text in this
+expected in December 2018. You can find the current draft text in this
 repository, but be aware that everything in the draft text is subject to
 change before an official v1.0 release is published.
+
+A v0.6 draft has been published to collect feedback from the wider embedded
+community. A second v0.7 draft is expected by mid-October 2018 to solicit
+further feedback at the fall UEFI plugfest (15-19 Oct 2018 in Taipei), and
+the Embedded Linux Conference Europe (22-24 Oct 2018 in Edinburgh).
 
 Released EBBR PDFs can be found here:
 

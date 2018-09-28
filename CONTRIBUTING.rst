@@ -22,13 +22,20 @@ We use the IRC channel `#ebbr`_ on OFTC_.
 
 There is a weekly conference call to discuss EBBR topics every Thursday
 at 16:30 UTC/BST, 8:30 PST/PDT, 00:30 CST
-(following UTC/BST daylight savings time shifts):
+(following UTC/BST daylight savings time shifts).
+Anyone is welcome to join.
 
-- Online meeting: https://meet.lync.com/armh/grant.likely/YBY93TIK
-- Skype Web App: https://meet.lync.com/armh/grant.likely/YBY93TIK?sl=1
-- Phone: +44 2033215213,, 4664465#
-- Find a local number: https://dialin.lync.com/7bdb65cd-97d0-44fe-bc03-bf8072eadc33
-- Conference ID: 4664465
+- Online meeting: https://arm-onsite.webex.com/meet/gralik01
+- Phone
+
+  - 1-408-792-6300 Call-in toll number (US/Canada)
+  - 1-877-668-4490 Call-in toll-free number (US/Canada)
+  - 44-203-478-5285 Call-in toll number (UK)
+  - 08-002061177 Call-in toll-free (UK)
+  - More access numbers: webex-global-numbers_
+- Access code:  809 053 990
+
+.. _webex-global-numbers: https://arm-onsite.webex.com/cmp3300/webcomponents/widget/globalcallin/globalcallin.do?siteurl=arm-onsite&serviceType=MC&ED=572944907&tollFree=1
 
 DCO Attestation
 ---------------

@@ -36,7 +36,7 @@ Build Instructions
 Requirements
 ^^^^^^^^^^^^
 
-* Sphinx version 1.5 or later: http://sphinx-doc.org/contents.html
+* Sphinx version 1.5 or later: http://sphinx-doc.org/en/master/contents.html
 * LaTeX (and pdflatex, and various LaTeX packages)
 
 On Debian and Ubuntu

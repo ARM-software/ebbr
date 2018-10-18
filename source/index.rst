@@ -36,7 +36,7 @@ Creative Commons, PO Box 1866, Mountain View, CA 94042, USA.
    12 July 2018      0.6       - Response to comments on v0.6-pre1
                                - Add large note on implementation of runtime
                                  modification of non-volatile variables
-   TBD               TBD       - Add AArch32 details
+   18 October 2018   0.7       - Add AArch32 details
                                - Refactor Runtime Services text after face
                                  to fact meeting at Linaro Connect YVR18
    ================= ========= =============================================

@@ -93,6 +93,46 @@ Systems that support both interfaces must provide a configuration
 mechanism to select either ACPI or Devicetree,
 and must ensure only the selected interface is provided to the OS loader.
 
+Devicetree
+^^^^^^^^^^
+
+If the system chooses to provide a Devicetree table for system description,
+it must also ensure this Devicetree implements the following rules:
+
+- All bindings that are expected to be used by an Operating System must
+  be described in upstream binding documentation. At the time of writing
+  of this document, this documentation is part of the Linux kernel tree.
+
+- The Devicetree must stay backwards compatible. So a newer version of
+  firmware must never regress functionality on an older version of an OS.
+
+- The Devicetree must be interpreted in a forwards compatible manner.
+  An OS that worked with an older version of firmware must not regress
+  in functionality because of a firmware (and thus Devicetree) update.
+
+To expose the contract above to an Operating System, an EBBR compliant
+Devicetree must indicate the EBBR versions it is compatible to with a
+versioned "compatible" property in the "/ebbr" node.
+
+While definitely not intended, new *major* versions of EBBR might have
+conflicting requirements that may break compatibility with older EBBR
+compatible Operating Systems.  For this reason, every major EBBR version
+that the current Devicetree is compatible to needs to be listed in the
+compatible property.
+
+It is not permitted to remove compatibility to an older EBBR version in
+a firmware update, as that may potentially break backwards compatibility
+with Operating Systems that rely on older EBBR behavior.
+
+An example EBBR node would look like this::
+
+	/ {
+		[...]
+		ebbr {
+			compatible = "ebbr,2.0", "ebbr,1.0";
+		}
+	}
+
 UEFI Secure Boot (Optional)
 ---------------------------
 

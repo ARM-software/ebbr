@@ -112,7 +112,7 @@ during both boot services and runtime services.
 However, it isn't always practical for all EFI_RUNTIME_SERVICES functions
 to be callable during runtime services due to hardware limitations.
 If any EFI_RUNTIME_SERVICES functions are only available during boot services
-then firmware shall provide the global `RuntimeServicesAvailable` variable to
+then firmware shall provide the global `RuntimeServicesSupported` variable to
 indicate which functions are available during runtime services.
 Functions that are not available during runtime services shall return
 EFI_UNSUPPORTED.
@@ -201,14 +201,15 @@ variables stored on shared media. [#OPTEESupplicant]_
 
 If a platform does not implement modifying non-volatile variables with
 SetVariable() after ExitBootServices(),
-then it must not provide any variable operations after ExitBootServices().
-Firmware shall return EFI_UNSUPPORTED for any call to GetVariable(),
-GetNextVariableName() and SetVariable().
-Firmware shall not emulated non-volatile variables using volatile RAM cache.
+then firmware shall return EFI_UNSUPPORTED for any call to SetVariable(),
+and must advertise that SetVariable() isn't available during runtime services
+via the `RuntimeServicesSupported` variable as defined in UEFI version 2.8.
+EFI applications can read `RuntimeServicesSupported` to determine if calls
+to SetVariable() need to be performed before calling ExitBootServices().
 
-.. note:: The behaviour when SetVariable() is not supported during runtime
-   services is still under discussion and subject to change.
-   Do not make any firmware implementation decisions based on this text yet.
+Even when SetVariable() is not supported during runtime services, firmware
+should cache variable names and values in EfiRuntimeServicesData memory so
+that GetVariable() and GetNextVeriableName() can behave as specified.
 
 .. [#OPTEESupplicant] It is worth noting that OP-TEE has a similar problem
    regarding secure storage.
@@ -216,5 +217,7 @@ Firmware shall not emulated non-volatile variables using volatile RAM cache.
    storage operations on behalf of OP-TEE.
    The same solution may be applicable to solving the UEFI non-volatile
    variable problem, but it requires additional OS support to work.
+   Regardless, EBBR compliance does not require SetVariable() support
+   during runtime services.
 
    https://github.com/OP-TEE/optee_os/blob/master/documentation/secure_storage.md

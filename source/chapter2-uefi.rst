@@ -24,7 +24,10 @@ document.
 Block device partitioning
 -------------------------
 
-The system firmware must implement support for MBR, GPT and El Torito partitioning.
+The system firmware must implement support for MBR, GPT and El Torito partitioning
+on block devices.
+System firmware may also implement other partitioning methods as needed by the platform,
+but OS support for other methods is outside the scope of this specification.
 
 UEFI System Environment and Configuration
 =========================================

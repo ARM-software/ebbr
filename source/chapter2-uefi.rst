@@ -45,8 +45,8 @@ legitimately be loaded into either EL1 or EL2 on AArch64.
 AArch64 Exception Levels
 ------------------------
 
-UEFI shall execute as 64-bit code in AArch64 model at either EL1 or EL2,
-depending on whether or not virtualization is used or supported.
+On AArch64 UEFI shall execute as 64-bit code at either EL1 or EL2,
+depending on whether or not virtualization is available at OS load time.
 
 UEFI Boot at EL2
 ^^^^^^^^^^^^^^^^

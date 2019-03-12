@@ -120,7 +120,7 @@ indicate which functions are available during runtime services.
 Functions that are not available during runtime services shall return
 EFI_UNSUPPORTED.
 
-Table :numref:_uefi_runtime_service_requirements details which EFI_RUNTIME_SERVICES
+:numref:`uefi_runtime_service_requirements` details which EFI_RUNTIME_SERVICES
 are required to be implemented during boot services and runtime services.
 
 .. _uefi_runtime_service_requirements:

@@ -136,8 +136,8 @@ Vendors may choose their own subdirectory name under ``/FIRMWARE``,
 but shall choose names that do not conflict with other vendors.
 Normally the vendor name will be the name of the SoC vendor, because the
 firmware directory name will be hard coded in the SoC's boot ROM.
-Vendors are recommended to use their Devicetree vendor prefix as their
-vendor subdirectory name.
+Vendors are recommended to use their Devicetree vendor prefix or ACPI
+vendor ID as their vendor subdirectory name.
 
 Vendors are free to decide how to structure subdirectories under their
 own vendor directory, but they shall use a naming convention that allows

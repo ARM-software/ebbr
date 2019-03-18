@@ -42,6 +42,9 @@ Creative Commons, PO Box 1866, Mountain View, CA 94042, USA.
    12 March 2019     0.8       - Update language around SetVariable() and
                                  what is available during runtime services
                                - Editorial changes preparing for v1.0
+   18 March 2019     1.0-rc1   - Remove unnecessary UEFI requirements
+                                 appendix
+                               - Allow for ACPI vendor id in firmware path
    ================= ========= =============================================
 
 .. toctree::

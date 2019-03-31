@@ -8,14 +8,10 @@ platforms, firmware implementations, and operating system distributions.
 The aim is to establish consistent boot ABIs and behaviour so that
 supporting new hardware platforms does not require custom engineering work.
 
-EBBR is currently being drafted. The first formal release of EBBR is
-expected in March 2019. You can find the current draft text in this
-repository, but be aware that everything in the draft text is subject to
-change before an official v1.0 release is published.
-
-A v0.8 draft has been published to collect feedback from the wider embedded
-community. A v1.0-rc is expected by mid-March 2019 to solicit
-further feedback at Linaro Connect Bangkok 2019.
+The first formal v1.0 release of EBBR was made in March 2019.
+You can find the current draft text in this repository,
+but be aware that everything in the draft text is subject to change.
+Official pdfs can be found in the "Releases" tab of this GitHub project.
 
 Released EBBR PDFs can be found here:
 

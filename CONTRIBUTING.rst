@@ -20,8 +20,8 @@ Past discussions can be found in the boot-architecture-archive_.
 
 We use the IRC channel `#ebbr`_ on OFTC_.
 
-There is a bi-weekly conference call to discuss EBBR topics on the 2nd
-and 4th Tuesday of the month at 15:00 UTC/BST, 7:00 PST/PDT, 23:00/22:00 CST
+There is a monthly conference call to discuss EBBR topics on the
+4th Tuesday of the month at 15:00 UTC/BST, 7:00 PST/PDT, 23:00/22:00 CST
 (following UTC/BST daylight savings time shifts).
 Anyone is welcome to join.
 

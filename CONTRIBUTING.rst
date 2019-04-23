@@ -8,13 +8,9 @@ Anyone may contribute to the EBBR project.
 Contributions are licensed under CC-BY-SA-4.0_ and must be made with a
 Developer Certificate of Origin (DCO_) attestation as described below.
 
-EBBR discussion uses the boot-architecture_ and arm.ebbr-discuss mailing lists.
-The 'official' list is arm.ebbr-discuss, but the list archives are not
-yet public, so boot-architecture_ is being used to keep everything in
-the open.
+EBBR discussion uses the boot-architecture_ mailing list.
 
 * boot-architecture@lists.linaro.org
-* arm.ebbr-discuss@arm.com
 
 Past discussions can be found in the boot-architecture-archive_.
 

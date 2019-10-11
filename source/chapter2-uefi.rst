@@ -9,7 +9,7 @@ platforms.
 
 UEFI Version
 ============
-This document uses version 2.7 of the UEFI specification [UEFI]_.
+This document uses version 2.8 of the UEFI specification [UEFI]_.
 
 UEFI Compliance
 ===============

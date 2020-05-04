@@ -20,6 +20,6 @@
    <https://static.docs.arm.com/den0044/b/DEN0044B_Server_Base_Boot_Requirements.pdf>`_
    8 March 2016, `Arm Limited <http://arm.com>`_
 
-.. [UEFI] `Unified Extensable Firmware Interface Specification v2.7A
-   <http://www.uefi.org/sites/default/files/resources/UEFI%20Spec%202_7_A%20Sept%206.pdf>`_,
-   August 2017, `UEFI Forum <http://www.uefi.org>`_
+.. [UEFI] `Unified Extensable Firmware Interface Specification v2.8
+   <http://www.uefi.org/sites/default/files/resources/UEFI_Spec_2_8_final.pdf>`_,
+   March 2019, `UEFI Forum <http://www.uefi.org>`_

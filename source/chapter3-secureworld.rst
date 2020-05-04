@@ -1,8 +1,8 @@
 .. SPDX-License-Identifier: CC-BY-SA-4.0
 
-******************************
-Priviledged or Secure Firmware
-******************************
+*****************************
+Privileged or Secure Firmware
+*****************************
 
 AArch32 Multiprocessor Startup Protocol
 =======================================

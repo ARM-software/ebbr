@@ -8,8 +8,8 @@
    <https://github.com/devicetree-org/devicetree-specification/releases/tag/v0.2>`_,
    `Devicetree.org <https://devicetree.org>`_
 
-.. [LINUXA64BOOT] `Linux Documentation/arm64/booting.txt
-   <https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable.git/tree/Documentation/arm64/booting.txt>`_,
+.. [LINUXA64BOOT] `Linux Documentation/arm64/booting.rst
+   <https://www.kernel.org/doc/html/latest/arm64/booting.html>`_,
    Linux kernel
 
 .. [PSCI] `Power State Coordination Interface Issue C (PSCI v1.0)

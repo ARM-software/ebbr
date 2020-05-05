@@ -45,6 +45,9 @@ Creative Commons, PO Box 1866, Mountain View, CA 94042, USA.
    31 March 2019     1.0       - Remove unnecessary UEFI requirements
                                  appendix
                                - Allow for ACPI vendor id in firmware path
+   1 June 2020       1.0.1-rc1 - Update to UEFI 2.8 Errata A
+                               - Specify UUID for passing DTB
+                               - Typo and editorial fixes
    ================= ========= =============================================
 
 .. toctree::

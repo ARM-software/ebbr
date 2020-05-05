@@ -1,63 +1,49 @@
 sudo: false
 dist: trusty
-
 cache:
   apt: true
-
 env:
   global:
-      - SPHINXBUILD=~/.local/bin/sphinx-build
-      - DIFF_COMMIT=v0.5
-
+  - SPHINXBUILD=~/.local/bin/sphinx-build
+  - secure: Nn985mEk01BbYLY7IQToa51+jpVp8/f72Q+SY6GVe1cf41gRG4CWrrLFLo4Zrdd+e5a9tMKJ2o6WqT4m0i1AziVnoFx62QtC0dmJVsp4eVzQdhWkaRTcLdoKp18om0To6cVmBzYFzsIUROyOwwJfprpzwylQGFqNFoNG20UmnzTy5c/bg36Ohh/vcpt3HXO6emKDTychu1fBC8tuiy7k5BCfPekKAg6sKTqjsgKM+pEZuv9zTzrBY0HVqCoSLhWUraADko51baOtbBOzLtH4L4EO1rmiFs7/HpN/MzF6REurCAbBM5q82aS/z5KUoMGENt+OwWbeT9BcqUty1wYAFwuK7UwkDO2+YauqGhZ75GKOt213Fdn70Wx1xMkOerdEb8oSdH8Av/FWxwbfI6qxsAhjimYTZ5OCCZu06AVMBugxBnZeYxF89+83qVUxCHNGyGnql1PHJnlIiOzmCmcgjFo90u9fv24497m9O9QlEic/PnN0VLogPOftgcRUdoLjsYh9P6+BvXrWQ0omu41UwnzNJERaeUXuXV+iJsj6kBuj1j6EJ7OK4RyS/Td8mC7sGFBdwOX+HLaPqBTD2rm7z0wtST0jyFJjPfmvCU94+ovpCuYeMxgeudnUXT8T26v6v73nk7QLIIYm1Idg2ibSBfQy5IT220sH6291IryoY2c=
 git:
   depth: false
-
 addons:
   apt:
     packages:
-      - python-pip
-      - latexmk
-      - libalgorithm-diff-perl
-      - texlive
-      - texlive-latex-extra
-      - texlive-humanities
-      - texlive-generic-recommended
-      - graphviz
-      - texlive-generic-extra
-
+    - python-pip
+    - latexmk
+    - libalgorithm-diff-perl
+    - texlive
+    - texlive-latex-extra
+    - texlive-humanities
+    - texlive-generic-recommended
+    - graphviz
+    - texlive-generic-extra
 install:
-  - pip install --user mako
-  - pip install --user Sphinx
-
-before_script:
-  - wget https://github.com/ftilmann/latexdiff/releases/download/1.2.1/latexdiff-1.2.1.tar.gz
-  - tar xvf latexdiff-1.2.1.tar.gz
-  - export PATH=$PWD/latexdiff-1.2.1/:$PATH
-
+- pip install --user mako
+- pip install --user Sphinx
 script:
-  - make latexpdf
-  - make html
-  - make singlehtml
-
+- make latexpdf
+- make html
+- make singlehtml
 before_deploy:
-  - cp build/latex/ebbr.pdf build/ebbr-$TRAVIS_TAG.pdf
-
+- cp build/latex/ebbr.pdf build/ebbr-$TRAVIS_TAG.pdf
 deploy:
-  - provider: releases
-    prerelease: true
-    api_key:
-      secure: QAzEatdHC5w1uC06y6ceeRwL6dXhTz8DmkvIirXbv9paEKC7OHpsNm2NtCvLQDLnT98CFBj64y13P29DTYV0ExHNExnixP+R0b9G5kvCG/mGf+k6teXJmtsDRezTCmqAWwxLp70rewcHM+gQ1SdRy+HlHuVC5D70p99vv/f5hK/6f/PodxB0ftrvmb2S+B733+O7kiEKvBZUq/gaX5MTe8x+N09W+4SUTC4Xy5e0KlADfMWiLRhlJvU0PgtQ0IhRaeHnD+gmz/HUaUE/bsdXzIwv9Vb3p9eVmXLj1nE+p1toM5MJwmpKClXgph55PsD2X9xBSwxBhHZ3JOCl6QCOYaqkNvcE0U3e3QzC1b92EHoHN5vMrZenkALe0y1z1u1G+cZybjUEQ2lTmNq1HmO/QLdVHBCShR9xkpjm+8m//NXON8TDgP5z+hIU/g2NLfcSLdinogRLz2vnSmR6SjWzhH8q29d+wg3f5//eMgTCQF1dSRvNt8SjYUQDrW9z1k4dV64Jcn5AWjWmcaErG2D8jWJQGzzrts84Hcv3N7fRUwvMxdQOQDvoMaIxNxg35rBsuGa1tJkLyurOW31uwbOzrLlRSEcypPimpFQWysBwnX+aNTudhY0Dv4HKSIO12iZdIz9pbsMrJCBMCQdAydIDj35Fu5tJ5Ns4/JRaw5IoBQU=
-    file_glob: true
-    file:
-      - "build/ebbr-*.pdf"
-    skip_cleanup: true
-    on:
-      tags: true
-      branch: master
-  - provider: pages
-    github_token: $GITHUB_TOKEN
-    local_dir: "build/singlehtml"
-    skip_cleanup: true
-    on:
-      branch: master
-
+- provider: releases
+  prerelease: true
+  api_key:
+    secure: QAzEatdHC5w1uC06y6ceeRwL6dXhTz8DmkvIirXbv9paEKC7OHpsNm2NtCvLQDLnT98CFBj64y13P29DTYV0ExHNExnixP+R0b9G5kvCG/mGf+k6teXJmtsDRezTCmqAWwxLp70rewcHM+gQ1SdRy+HlHuVC5D70p99vv/f5hK/6f/PodxB0ftrvmb2S+B733+O7kiEKvBZUq/gaX5MTe8x+N09W+4SUTC4Xy5e0KlADfMWiLRhlJvU0PgtQ0IhRaeHnD+gmz/HUaUE/bsdXzIwv9Vb3p9eVmXLj1nE+p1toM5MJwmpKClXgph55PsD2X9xBSwxBhHZ3JOCl6QCOYaqkNvcE0U3e3QzC1b92EHoHN5vMrZenkALe0y1z1u1G+cZybjUEQ2lTmNq1HmO/QLdVHBCShR9xkpjm+8m//NXON8TDgP5z+hIU/g2NLfcSLdinogRLz2vnSmR6SjWzhH8q29d+wg3f5//eMgTCQF1dSRvNt8SjYUQDrW9z1k4dV64Jcn5AWjWmcaErG2D8jWJQGzzrts84Hcv3N7fRUwvMxdQOQDvoMaIxNxg35rBsuGa1tJkLyurOW31uwbOzrLlRSEcypPimpFQWysBwnX+aNTudhY0Dv4HKSIO12iZdIz9pbsMrJCBMCQdAydIDj35Fu5tJ5Ns4/JRaw5IoBQU=
+  file_glob: true
+  file:
+  - build/ebbr-*.pdf
+  skip_cleanup: true
+  on:
+    tags: true
+    branch: master
+- provider: pages
+  github_token: "$GITHUB_TOKEN"
+  local_dir: build/singlehtml
+  skip_cleanup: true
+  on:
+    branch: master

@@ -9,7 +9,7 @@ platforms.
 
 UEFI Version
 ============
-This document uses version 2.8 of the UEFI specification [UEFI]_.
+This document uses version 2.8 Errata A of the UEFI specification [UEFI]_.
 
 UEFI Compliance
 ===============
@@ -111,7 +111,7 @@ during both boot services and runtime services.
 However, it isn't always practical for all EFI_RUNTIME_SERVICES functions
 to be callable during runtime services due to hardware limitations.
 If any EFI_RUNTIME_SERVICES functions are only available during boot services
-then firmware shall provide the global `RuntimeServicesSupported` variable to
+then firmware shall provide the `EFI_RT_PROPERTIES_TABLE` to
 indicate which functions are available during runtime services.
 Functions that are not available during runtime services shall return
 EFI_UNSUPPORTED.
@@ -202,7 +202,8 @@ If a platform does not implement modifying non-volatile variables with
 SetVariable() after ExitBootServices(),
 then firmware shall return EFI_UNSUPPORTED for any call to SetVariable(),
 and must advertise that SetVariable() isn't available during runtime services
-via the `RuntimeServicesSupported` variable as defined in [UEFI]_ § 8.1.
+via the `RuntimeServicesSupported` value in the `EFI_RT_PROPERTIES_TABLE`
+as defined in [UEFI]_ § 4.6.
 EFI applications can read `RuntimeServicesSupported` to determine if calls
 to SetVariable() need to be performed before calling ExitBootServices().
 

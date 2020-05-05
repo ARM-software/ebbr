@@ -148,7 +148,7 @@ Firmware shall not create runtime mappings, or perform any runtime IO that will
 conflict with device access by the OS.
 Normally this means a device may be controlled by firmware, or controlled by
 the OS, but not both.
-e.g. If firmware attempts to access an eMMC device at runtime then it will
+E.g. if firmware attempts to access an eMMC device at runtime then it will
 conflict with transactions being performed by the OS.
 
 Devices that are provided to the OS (i.e., via PCIe discovery or ACPI/DT

@@ -47,13 +47,19 @@ conflict with normal usage of the media by an OS.
 Partitioning of Shared Storage
 ==============================
 
-A shared storage device shall use GPT partitioning unless it is incompatible
-with the platform boot sequence.
-In which case, MBR partitioning shall be used. [#MBRReqExample]_
+The shared storage device must use the GUID Partition Table (GPT) disk
+layout as defined in [UEFI]_ § 5.3, unless the platform boot sequence is
+fundamentally incompatible with the GPT disk layout.
+In which case, a legacy Master Boot Recored (MBR) must be used.
+[#MBRReqExample]_
 
-.. [#MBRReqExample] For example, if the boot ROM doesn't understand GPT
-   partitioning, and will only work with an MBR, then the storage must be
-   partitioned using an MBR.
+.. [#MBRReqExample] For example, if the SoC boot ROM requires an MBR to
+   find the next stage firmware image, then it is incompatible with
+   the GPT boot layout.
+   Similarly, if the boot ROM expects the next stage firmware to be located
+   at LBA1 (the location of the GPT Header), then it is incompatible with
+   the GPT disk layout.
+   In both cases the shared storage device must use legacy MBR partitioning.
 
 .. warning::
 
@@ -71,15 +77,14 @@ the partition(s) containing firmware.
 
 However, some SoCs load firmware from a fixed offset into the storage media.
 In this case, to protect against partitioning tools overwriting firmware, the
-firmware image shall either reside entirely within the first 1MiB of storage,
-or should be covered by a protective partition entry in the partition table as
+partition table must be formed in a way to protect the firmware image(s) as
 described in sections :ref:`section-gpt-parts` and :ref:`section-mbr-parts`.
 
-Automatic partitioning tools (e.g. an OS installer) must not create
-partitions within the first 1MiB of storage, or delete, move, or modify
-protective partition entries.
+Automatic partitioning tools (e.g. an OS installer) must not
+delete the protective information in the partition table, or
+delete, move, or modify protective partition entries.
 Manual partitioning tools should provide warnings when modifying
-protective partitions or creating partitions within the first 1MiB.
+protective partitions.
 
 .. warning::
 
@@ -95,18 +100,48 @@ GPT partitioning
 ----------------
 
 The partition table must strictly conform to the UEFI specification and include
-a protective MBR authored exactly as described in [UEFI]_ § 5 (hybrid
+a protective MBR authored exactly as described in [UEFI]_ § 5.3 (hybrid
 partitioning schemes are not permitted).
 
-Protective partitions must have the Platform Required Attribute Flag set.
+Fixed-location firmware images must be protected by creating protective
+partition entries, or by placing GPT data structures away from the LBAs
+occupied by firmware,
+
+Protective partitions are entries in the partition table that cover the
+LBA region occupied by firmware and have the 'Required Partition' attribute
+set.
+A protective partition must use a `PartitionTypeGUID` that identifies it
+as a firmware protective partition. (e.g., don't reuse a GUID used by
+non-protective partitions).
+There are no requirements on the contents or layout of the firmware
+protective partition.
+
+Placing GPT data structures away from firmware images can be accomplished by
+adjusting the GUID Partition Entry array location
+(adjusting the values of `PartitionEntryLBA` and `NumberOfPartitionEntries`,
+and `SizeOfPartitionEntry`),
+or by specifying the usable LBAs (Choosing `FirstUsableLBA`/`LastUsableLBA`
+to not overlap the fixed firmware location).
+See [UEFI]_ § 5.3.2.
+
+Given the choice, platforms should use protective partitions over
+adjusting the placement of GPT data structures because protective partitions
+provide explicit information about the protected region.
 
 .. _section-mbr-parts:
 
 MBR partitioning
 ^^^^^^^^^^^^^^^^
 
-Protective partitions should have a partition type of 0xF8 unless some
+If firmware is at a fixed location entirely within the first 1MiB of
+storage (<= LBA2047) then no protective partitions are required.
+If firmware resides in a fixed location outside the first 1MiB,
+then a protective partition must be used to cover the firmware LBAs.
+Protective partitions should have a partition type of 0xF8 unless an
 immutable feature of the platform makes this impossible.
+
+OS partitioning tools must not create partitions in the first 1MiB
+of the storage device, and must not remove protective partitions.
 
 .. _section-fw-partition-fs:
 

@@ -81,9 +81,9 @@ A UEFI system that complies with this specification may provide the additional
 tables via the EFI Configuration Table.
 
 Compliant systems are required to provide one, but not both, of the following
-tables.
+tables:
 
-- An Advanced Configuration and Power Interface [ACPI]_ table, or
+- an Advanced Configuration and Power Interface [ACPI]_ table, or
 - a Devicetree [DTSPEC]_ system description
 
 EBBR systems must not provide both ACPI and Devicetree
@@ -96,11 +96,13 @@ Devicetree
 ^^^^^^^^^^
 
 If firmware provides a Devicetree system description then it must be provided
-in Flattened Devicetree (DTB) format version 17 or higher as described in
+in Flattened Devicetree Blob (DTB) format version 17 or higher as described in
 [DTSPEC]_ § 5.1.
 The following GUID must be used in the EFI system table ([UEFI]_ § 4)
 to identify the DTB.
 The DTB must be contained in memory of type EfiACPIReclaimMemory.
+EfiACPIReclaimMemory was chosen to match the recommendation for ACPI
+tables which fulfill the same task as the DTB.
 
 .. code-block:: c
 

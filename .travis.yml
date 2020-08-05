@@ -11,18 +11,18 @@ git:
 addons:
   apt:
     packages:
-    - python-pip
+    - python3-pip
     - latexmk
     - libalgorithm-diff-perl
     - texlive
     - texlive-latex-extra
     - texlive-humanities
     - texlive-generic-recommended
-    - graphviz
     - texlive-generic-extra
 install:
-- pip install --user mako
-- pip install --user Sphinx
+- pip3 install --user mako
+- pip3 install --user typing
+- pip3 install --user Sphinx==2.4.4
 script:
 - make latexpdf
 - make html
@@ -33,7 +33,7 @@ deploy:
 - provider: releases
   prerelease: true
   api_key:
-    secure: KckKibwGz7k8pXGmepSnMldUbRVN+0wizC2+uJc4JMKpsMVB2j21FC1niMtOPmLHRb3vdyGi58qRz27mVIvwAuRsyxlCnSwf+lvIb4ek21UTMNeaMTS2ROYjiYSpCMGcnFagpBCZQeNCCwa2rJoN6F3JikCiwxDXdysc4SnoCBFqZtQafTPyhU8U49DgEjqvJbmpzs1H854ni9VNXdJYDUyZ2MTtxWEsjc00AcEJj3X1AePMVqBGt6+IBv8Oxj5qn8Ni6Y/m4UhgoCxUx/QStYNF8QU0vmH7A1KlqF+0LOwPwlhVWlZ3EXMsuwmlaYnAW/pbrokcHpZxFNeGVIGtAI05/r95ecF8YjAd250W2kEYoa2TO/B44UeQjBjXtRSD8ei208ciyg04/dvG4HcU5wHWhEhbIBmnpBrhXAKpsBYfUaWx8XIeTcls/eOqO6JJ28c1xucjaYOJ1thhnlk3WHij5hzNcXTfcg0Rb8pTiR1JQduzz7udEvrfpUkbDT8zhpPYJKEAYHCBN5M8At1898rIU0c+jeHgO+cJgIofFQeQNXDv7fzHEgvpczbgssUm6SjvI4da/QKxuKhSuGj4aJWtMA5exOnYhQt+fuzpOa9kmh0IMVh7pFK1hJgmnKcAYwYNG64aa15OLpU5x6sf31FklU0VFlRqdUbow6tnZAo=
+    secure: M2Bwy2f0QUC6aDgMLwy2us6fqvzDFv08wDLfPtdq7Px/Xk6xHPOAKJ8xVbwn7f7wJI6jwtusXQUi8npczfiw5c6Pr/VQj/nVoS+IR1DPrxA+zWniMUYhOxoPTmQwYafDjSKr+89DFq15CVkYRUGb5F6snCEmG/VcpMA/u6CvyN7A+w+04twEY2HB6xjnw8rp45yJMO/Xl2tFrHXP6ofF0ezkfbKFXI+mPXp7A3byCLRk80JkxEyVNZVOJKFFO33uZBQo27MZpGtqk92zqetTTgOZDc9mUGjjz98+wKGKR7hN+h/866QU5M3U5abs7ZpnncedMf/MBkoXBT7xP/Wu5CJg2XYT5hPCOmmE97rz+E28xhbxzYUpnT8kXcGWlQamwQfBdakfPYcswHx5VwjGGSPsh9TU6rWEscjuhfkLeRzcLanl0Doeai2eKKg+1/Qfp123lBnorZLZUZr/g75Xhzd96aE8KxJL+J2Kyx3U6mC+ycBDHKBiQudCsBAL7ybw9CSwpLA6eR6nOAcupz0RuGPSy1T0wCxrxI2GI9NOdOC2IgREAIelEfSP32LNn2Uu+kFSA28zV5kDTaUP5/9vSxZkBOdTz0K3yG8Vha/gJIQx+hl4A3FtYWbIdW9GCMbJcMWuXUFLSwcVUXqoc1tsIvqBrSoYpDnNXK/ma0hYicg=
   file_glob: true
   file:
   - build/ebbr-*.pdf

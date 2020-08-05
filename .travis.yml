@@ -33,14 +33,13 @@ deploy:
 - provider: releases
   prerelease: true
   api_key:
-    secure: QAzEatdHC5w1uC06y6ceeRwL6dXhTz8DmkvIirXbv9paEKC7OHpsNm2NtCvLQDLnT98CFBj64y13P29DTYV0ExHNExnixP+R0b9G5kvCG/mGf+k6teXJmtsDRezTCmqAWwxLp70rewcHM+gQ1SdRy+HlHuVC5D70p99vv/f5hK/6f/PodxB0ftrvmb2S+B733+O7kiEKvBZUq/gaX5MTe8x+N09W+4SUTC4Xy5e0KlADfMWiLRhlJvU0PgtQ0IhRaeHnD+gmz/HUaUE/bsdXzIwv9Vb3p9eVmXLj1nE+p1toM5MJwmpKClXgph55PsD2X9xBSwxBhHZ3JOCl6QCOYaqkNvcE0U3e3QzC1b92EHoHN5vMrZenkALe0y1z1u1G+cZybjUEQ2lTmNq1HmO/QLdVHBCShR9xkpjm+8m//NXON8TDgP5z+hIU/g2NLfcSLdinogRLz2vnSmR6SjWzhH8q29d+wg3f5//eMgTCQF1dSRvNt8SjYUQDrW9z1k4dV64Jcn5AWjWmcaErG2D8jWJQGzzrts84Hcv3N7fRUwvMxdQOQDvoMaIxNxg35rBsuGa1tJkLyurOW31uwbOzrLlRSEcypPimpFQWysBwnX+aNTudhY0Dv4HKSIO12iZdIz9pbsMrJCBMCQdAydIDj35Fu5tJ5Ns4/JRaw5IoBQU=
+    secure: KckKibwGz7k8pXGmepSnMldUbRVN+0wizC2+uJc4JMKpsMVB2j21FC1niMtOPmLHRb3vdyGi58qRz27mVIvwAuRsyxlCnSwf+lvIb4ek21UTMNeaMTS2ROYjiYSpCMGcnFagpBCZQeNCCwa2rJoN6F3JikCiwxDXdysc4SnoCBFqZtQafTPyhU8U49DgEjqvJbmpzs1H854ni9VNXdJYDUyZ2MTtxWEsjc00AcEJj3X1AePMVqBGt6+IBv8Oxj5qn8Ni6Y/m4UhgoCxUx/QStYNF8QU0vmH7A1KlqF+0LOwPwlhVWlZ3EXMsuwmlaYnAW/pbrokcHpZxFNeGVIGtAI05/r95ecF8YjAd250W2kEYoa2TO/B44UeQjBjXtRSD8ei208ciyg04/dvG4HcU5wHWhEhbIBmnpBrhXAKpsBYfUaWx8XIeTcls/eOqO6JJ28c1xucjaYOJ1thhnlk3WHij5hzNcXTfcg0Rb8pTiR1JQduzz7udEvrfpUkbDT8zhpPYJKEAYHCBN5M8At1898rIU0c+jeHgO+cJgIofFQeQNXDv7fzHEgvpczbgssUm6SjvI4da/QKxuKhSuGj4aJWtMA5exOnYhQt+fuzpOa9kmh0IMVh7pFK1hJgmnKcAYwYNG64aa15OLpU5x6sf31FklU0VFlRqdUbow6tnZAo=
   file_glob: true
   file:
   - build/ebbr-*.pdf
   skip_cleanup: true
   on:
-    tags: true
-    branch: master
+    repo: glikely/ebbr
 - provider: pages
   github_token: "$GITHUB_TOKEN"
   local_dir: build/singlehtml

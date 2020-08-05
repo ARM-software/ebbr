@@ -23,7 +23,7 @@ This specification is intended to be OS-neutral.
 
 It leverages the prevalent industry standard firmware specification of [UEFI]_.
 
-Comments or change requests can be sent to arm.ebbr-discuss@arm.com.
+Comments or change requests can be sent to `boot-architecture@lists.linaro.org`.
 
 Guiding Principles
 ==================

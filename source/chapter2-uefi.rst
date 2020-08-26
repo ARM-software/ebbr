@@ -251,4 +251,4 @@ that GetVariable() and GetNextVeriableName() can behave as specified.
    Regardless, EBBR compliance does not require SetVariable() support
    during runtime services.
 
-   https://github.com/OP-TEE/optee_os/blob/master/documentation/secure_storage.md
+   https://optee.readthedocs.io/en/latest/architecture/secure_storage.html

@@ -209,9 +209,10 @@ ResetSystem() is required to be implemented in boot services, but it is
 optional for runtime services.
 During runtime services, the operating system should first attempt to
 use ResetSystem() to reset the system.
-If firmware doesn't support ResetSystem() during runtime services,
-then the call will immediately return EFI_UNSUPPORTED, and the OS should
-fall back to an architecture or platform specific reset mechanism.
+
+If firmware doesn't support ResetSystem() during runtime services, then the call
+will immediately return, and the OS should fall back to an architecture or
+platform specific reset mechanism.
 
 On AArch64 platforms implementing [PSCI]_,
 if ResetSystem() is not implemented then the Operating System should fall

@@ -74,6 +74,10 @@ that virtual addresses must equal physical addresses.
 
 The default RAM allocated attribute must be EFI_MEMORY_WB.
 
+Reserved memory with property no-map [RESMEM]_ in the /reserved-memory
+device-tree node shall not be included in the memory map returned by
+GetMemoryMap().
+
 Configuration Tables
 --------------------
 

@@ -16,6 +16,10 @@
    <https://static.docs.arm.com/den0022/c/DEN0022C_Power_State_Coordination_Interface.pdf>`_
    30 January 2015, `Arm Limited <http://arm.com>`_
 
+.. [RESMEM] `Reserved memory regions
+   <https://www.kernel.org/doc/Documentation/devicetree/bindings/reserved-memory/reserved-memory.txt>`_,
+   21 July 2020, Linux kernel
+
 .. [SBBR] `Arm Server Base Boot Requirements specification Issue B (v1.0)
    <https://static.docs.arm.com/den0044/b/DEN0044B_Server_Base_Boot_Requirements.pdf>`_
    8 March 2016, `Arm Limited <http://arm.com>`_

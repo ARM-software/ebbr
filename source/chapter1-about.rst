@@ -159,6 +159,13 @@ supported using Devicetree could be EBBR compliant, but not SBBR compliant.
 By definition, all SBBR compliant systems are also EBBR compliant, but the
 converse is not true.
 
+Conventions Used in this Document
+=================================
+
+The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD",
+"SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be
+interpreted as described in :rfc:`2119`.
+
 Cross References
 ================
 This document cross-references sources that are listed in the References

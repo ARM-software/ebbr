@@ -74,6 +74,19 @@ that virtual addresses must equal physical addresses.
 
 The default RAM allocated attribute must be EFI_MEMORY_WB.
 
+In the device tree reserved memory is modelled as a /reserved-memory nodes
+[RESMEM]_. The reserved-memory node MAY carry either the no-map or the resue
+property. It MUST NOT carry both properties as this would be contradictary.
+
+A 'no-map' reserved memory node describes memory that the UEFI payload MUST NOT
+access. It MUST be modelled as a EfiReservedMemoryType entry in the memory map.
+
+A reserved memory without the 'no-map' describes memory that MAY be used by the
+UEFI payload after ExitBootServices(). It MUST be modelled as a memory map entry
+that can only be used by the UEFI payload after ExitBootServices(). It
+is recommended to use EfiBootServicesData. The node MUST NOT be modelled as
+EfiReservedMemoryType and NOT as EfiConventionalMemory.
+
 Configuration Tables
 --------------------
 

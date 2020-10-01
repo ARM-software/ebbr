@@ -4,7 +4,7 @@
 Firmware Storage
 ****************
 
-In general, EBBR compliant platforms should use dedicated storage for boot
+In general, EBBR-compliant platforms should use dedicated storage for boot
 firmware images and data,
 independent of the storage used for OS partitions and the EFI System Partition
 (ESP).
@@ -49,12 +49,12 @@ Partitioning of Shared Storage
 
 The shared storage device must use the GUID Partition Table (GPT) disk
 layout as defined in [UEFI]_ § 5.3, unless the platform boot sequence is
-fundamentally incompatible with the GPT disk layout.
-In which case, a legacy Master Boot Recored (MBR) must be used.
+fundamentally incompatible with the GPT disk layout,
+in which case, a legacy Master Boot Recored (MBR) must be used.
 [#MBRReqExample]_
 
 .. [#MBRReqExample] For example, if the SoC boot ROM requires an MBR to
-   find the next stage firmware image, then it is incompatible with
+   find the next-stage firmware image, then it is incompatible with
    the GPT boot layout.
    Similarly, if the boot ROM expects the next stage firmware to be located
    at LBA1 (the location of the GPT Header), then it is incompatible with
@@ -68,7 +68,8 @@ In which case, a legacy Master Boot Recored (MBR) must be used.
    GPT partitioning supports a much larger number of partitions, and
    has built in resiliency.
 
-   A future issue of this specification will remove the MBR allowance.
+   A future issue of this specification will disallow the use of MBR
+   partitioning.
 
 Firmware images and data in shared storage should be contained
 in partitions described by the GPT or MBR.
@@ -111,7 +112,7 @@ Protective partitions are entries in the partition table that cover the
 LBA region occupied by firmware and have the 'Required Partition' attribute
 set.
 A protective partition must use a `PartitionTypeGUID` that identifies it
-as a firmware protective partition. (e.g., don't reuse a GUID used by
+as a firmware protective partition. (e.g. don't reuse a GUID used by
 non-protective partitions).
 There are no requirements on the contents or layout of the firmware
 protective partition.
@@ -157,7 +158,7 @@ platforms.
 
 When firmware is stored in the ESP, the ESP should contain a directory named
 ``/FIRMWARE`` in the root directory,
-and all firmware images and data should be stored in platform vendor
+and all firmware images and data should be stored in platform-vendor
 subdirectories under ``/FIRMWARE``.
 
 Dedicated firmware partitions should be formatted with a FAT
@@ -235,17 +236,17 @@ Fixed Shared Storage
 Fixed storage is storage that is permanently attached to the platform,
 and cannot be moved between systems.
 eMMC and Universal Flash Storage (UFS) device are often used as
-shared fixed storage for both firmware and the OS.
+shared, fixed storage for both firmware and the OS.
 
-Where possible, it is prefered for the system to boot from a dedicated boot
-region on media that provides one (e.g., eMMC) that is sufficiently large.
+Where possible, it is preferred for the system to boot from a dedicated boot
+region on media that provides one (e.g. eMMC) that is sufficiently large.
 Otherwise, the platform storage should be pre-formatted in the factory with
 a partition table, a dedicated firmware partition, and firmware binaries
 installed.
 
 Operating systems must not use the dedicated firmware partition for installing
-EFI applications including, but not limited to, the OS loader and OS specific
-files. Instead, a normal ESP should be created.
+EFI applications, including the OS loader and OS specific files. Instead, a
+normal ESP should be created.
 OS partitioning tools must take care not to modify or delete dedicated
 firmware partitions.
 
@@ -254,11 +255,11 @@ Removable Shared Storage
 
 Removable storage is any media that can be physically removed from
 the system and moved to another machine as part of normal operation
-(e.g., SD cards, USB thumb drives, and CDs).
+(e.g. SD cards, USB thumb drives, and CDs).
 
 There are two primary scenarios for storing firmware on removable media.
 
-1. Platforms that only have removable media (e.g., The Raspberry Pi has an
+1. Platforms that only have removable media (e.g. The Raspberry Pi has an
    SD card slot, but no fixed storage).
 2. Recovery when on-board firmware has been corrupted. If firmware on
    fixed media has been corrupted, some platforms support loading firmware
@@ -279,5 +280,5 @@ On removable media, firmware should be stored in the ESP under the
 Platform vendors should support their platform by providing a single
 .zip file that places all the required firmware files in the correct
 locations when extracted in the ESP ``/FIRMWARE`` directory.
-For simplicity sake, it is expected the same .zip file will recover the
+For simplicity's sake, it is expected that the same .zip file will recover the
 firmware files in a dedicated firmware partition.

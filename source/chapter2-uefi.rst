@@ -4,7 +4,7 @@
 UEFI
 ****
 
-This chapter discusses specific UEFI implementation details for EBBR compliant
+This chapter discusses specific UEFI implementation details for EBBR-compliant
 platforms.
 
 UEFI Version
@@ -14,7 +14,7 @@ This document uses version 2.8 Errata A of the UEFI specification [UEFI]_.
 UEFI Compliance
 ===============
 
-EBBR compliant platforms shall conform to the requirements in [UEFI]_ § 2.6,
+EBBR-compliant platforms shall conform to the requirements in [UEFI]_ § 2.6,
 except where explicit exemptions are provided by this document.
 
 Block device partitioning
@@ -48,12 +48,12 @@ UEFI Boot at EL2
 ^^^^^^^^^^^^^^^^
 
 Most systems are expected to boot UEFI at EL2, to allow for the installation of
-a hypervisor or a virtualization aware Operating System.
+a hypervisor or a virtualization-aware Operating System.
 
 UEFI Boot at EL1
 ^^^^^^^^^^^^^^^^
 
-Booting of UEFI at EL1 is most likely within a hypervisor hosted Guest
+Booting of UEFI at EL1 is most likely employed within a hypervisor hosted Guest
 Operating System environment, to allow the subsequent booting of a
 UEFI-compliant Operating System.
 In this instance, the UEFI boot-time environment can be provided, as a
@@ -77,7 +77,7 @@ The default RAM allocated attribute must be EFI_MEMORY_WB.
 Configuration Tables
 --------------------
 
-A UEFI system that complies with this specification may provide the additional
+A UEFI system that complies with this specification may provide additional
 tables via the EFI Configuration Table.
 
 Compliant systems are required to provide one, but not both, of the following
@@ -128,8 +128,8 @@ UEFI Secure Boot (Optional)
 
 UEFI Secure Boot is optional for this specification.
 
-If Secure Boot is implemented, it must conform to the UEFI specification for Secure Boot. There are no additional
-requirements for Secure Boot.
+If Secure Boot is implemented, it must conform to the UEFI specification for
+Secure Boot. There are no additional requirements for Secure Boot.
 
 UEFI Runtime Services
 =====================
@@ -175,7 +175,7 @@ are required to be implemented during boot services and runtime services.
 Runtime Device Mappings
 -----------------------
 
-Firmware shall not create runtime mappings, or perform any runtime IO that will
+Firmware shall not create runtime mappings, or perform any runtime I/O that will
 conflict with device access by the OS.
 Normally this means a device may be controlled by firmware, or controlled by
 the OS, but not both.
@@ -195,7 +195,7 @@ Real-time Clock (RTC)
 
 Not all embedded systems include an RTC, and even if one is present,
 it may not be possible to access the RTC from runtime services.
-e.g., The RTC may be on a shared I2C bus which runtime services cannot access
+e.g. The RTC may be on a shared I2C bus which runtime services cannot access
 because it will conflict with the OS.
 
 If firmware does not support access to the RTC, then GetTime() and
@@ -211,8 +211,8 @@ During runtime services, the operating system should first attempt to
 use ResetSystem() to reset the system.
 
 If firmware doesn't support ResetSystem() during runtime services, then the call
-will immediately return, and the OS should fall back to an architecture or
-platform specific reset mechanism.
+will immediately return, and the OS should fall back to an architecture- or
+platform-specific reset mechanism.
 
 On AArch64 platforms implementing [PSCI]_,
 if ResetSystem() is not implemented then the Operating System should fall
@@ -225,7 +225,7 @@ There are many platforms where it is difficult to implement SetVariable() for
 non-volatile variables during runtime services because the firmware cannot
 access storage after ExitBootServices() is called.
 
-e.g., If firmware accesses an eMMC device directly at runtime, it will
+e.g. If firmware accesses an eMMC device directly at runtime, it will
 collide with transactions initiated by the OS.
 Neither U-Boot nor Tianocore have a generic solution for accessing or updating
 variables stored on shared media. [#OPTEESupplicant]_

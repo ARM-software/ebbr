@@ -10,18 +10,18 @@ Introduction
 This Embedded Base Boot Requirements (EBBR) specification defines an interface
 between platform firmware and an operating system that is suitable for embedded
 platforms.
-EBBR compliant platforms present a consistent interface that will boot an EBBR
-compliant operating system without any custom tailoring required.
+EBBR-compliant platforms present a consistent interface that will boot an
+EBBR-compliant operating system without any custom tailoring required.
 For example, an Arm A-class embedded platform will benefit
 from a standard interface that supports features such as secure boot and
 firmware update.
 
-This specification defines the base firmware requirements for EBBR compliant platforms.
+This specification defines the base firmware requirements for EBBR-compliant platforms.
 The requirements in this specification are expected to be minimal yet complete,
 while leaving plenty of room for innovations and design details.
 This specification is intended to be OS-neutral.
 
-It leverages the prevalent industry standard firmware specification of [UEFI]_.
+It leverages the prevalent industry-standard firmware specification of [UEFI]_.
 
 Comments or change requests can be sent to `boot-architecture@lists.linaro.org`.
 
@@ -37,7 +37,8 @@ goals and guiding principle that shaped EBBR.
 
 This section should be considered commentary, and not a formal part of the specification.
 
-EBBR was written as a response to the lack of boot sequence standardization in the embedded system ecosystem.
+EBBR was written as a response to the lack of boot sequence standardization in
+the embedded system ecosystem.
 As embedded systems are becoming more sophisticated and connected,
 it is becoming increasingly important for embedded systems to run standard OS
 distributions and software stacks, or to have consistent behaviour across a
@@ -46,12 +47,12 @@ However, the lack of consistency between platforms often requires per-platform
 customization to get an OS image to boot on multiple platforms.
 
 A large part of this ecosystem is based on U-Boot and Linux.
-Vendors have heavy investments in both projects and are not interested in large
-scale changes to their firmware architecture.
+Vendors have heavy investments in both projects and are not interested in
+large-scale changes to their firmware architecture.
 The challenge for EBBR is to define a set of boot standards that reduce the
 amount of custom engineering required, make it possible for OS distributions to
-support embedded platforms, while still preserving the firmware stack product
-vendors are comfortable with.
+support embedded platforms, while still preserving the firmware stack that
+product vendors are comfortable with.
 Or in simpler terms, EBBR is designed to solve the embedded boot mess by
 adding a defined standard (UEFI) to the existing firmware projects (U-Boot).
 
@@ -65,8 +66,8 @@ ensure that the EBBR requirements are implemented by both projects.
 .. [#EDK2Note] Tianocore/EDK2 and U-Boot are highlighted here because at the
    time of writing these are the two most important firmware projects that
    implement UEFI.
-   Tianocore/EDK2 is a full featured UEFI implementation and so should
-   automatically be EBBR compliant.
+   Tianocore/EDK2 is a full-featured UEFI implementation and so should
+   automatically be EBBR-compliant.
    U-Boot is the incumbant firmware project for embedded platforms and has
    steadily been adding UEFI compliance since 2016.
 
@@ -107,7 +108,7 @@ The following guiding principles are used while developing the EBBR specificatio
 - Support multiple architectures
 
   Any architecture can implement the EBBR requirements.
-  Architecture specific requirements will clearly marked as to which
+  Architecture-specific requirements will clearly marked as to which
   architecture(s) they apply.
 
 - Design for common embedded hardware
@@ -116,7 +117,8 @@ The following guiding principles are used while developing the EBBR specificatio
   Generally anything that has a near-upstream U-Boot implementation should be
   able to implement the EBBR requirements.
   EBBR was drafted with readily available hardware in mind, like the
-  Raspberry Pi and BeagleBone families of boards, and it is applicable for low cost boards (<$10).
+  Raspberry Pi and BeagleBone families of boards, and it is applicable for
+  low-cost boards (<$10).
 
 - Plan to evolve over time
 
@@ -154,9 +156,9 @@ platform to ensure cross vendor interoperability.
 EBBR on the other hand allows more flexibility to support embedded designs
 which do not fit within the SBBR model.
 For example, a platform that isn't SBBR compliant because the SoC is only
-supported using Devicetree could be EBBR compliant, but not SBBR compliant.
+supported using Devicetree could be EBBR-compliant, but not SBBR compliant.
 
-By definition, all SBBR compliant systems are also EBBR compliant, but the
+By definition, all SBBR compliant systems are also EBBR-compliant, but the
 converse is not true.
 
 Conventions Used in this Document
@@ -187,7 +189,7 @@ This document uses the following terms and abbreviations.
       All A64 instructions are 32 bits.
 
    AArch32
-      Arm 32-bit architectures. AArch32 is a roll up term referring to all
+      Arm 32-bit architectures. AArch32 is a roll-up term referring to all
       32-bit versions of the Arm architecture starting at ARMv4.
 
    AArch64 state
@@ -200,7 +202,7 @@ This document uses the following terms and abbreviations.
 
    EFI Loaded Image
       An executable image to be run under the UEFI environment,
-      and which uses boot time services.
+      and which uses boot-time services.
 
    EL0
       The lowest Exception level on AArch64. The Exception level that is used to execute

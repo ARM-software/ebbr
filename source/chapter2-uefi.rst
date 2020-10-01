@@ -53,7 +53,7 @@ a hypervisor or a virtualization aware Operating System.
 UEFI Boot at EL1
 ^^^^^^^^^^^^^^^^
 
-Booting of UEFI at EL1 is most likely within a hypervisor hosted Guest
+Booting of UEFI at EL1 is most likely employed within a hypervisor hosted Guest
 Operating System environment, to allow the subsequent booting of a
 UEFI-compliant Operating System.
 In this instance, the UEFI boot-time environment can be provided, as a
@@ -77,7 +77,7 @@ The default RAM allocated attribute must be EFI_MEMORY_WB.
 Configuration Tables
 --------------------
 
-A UEFI system that complies with this specification may provide the additional
+A UEFI system that complies with this specification may provide additional
 tables via the EFI Configuration Table.
 
 Compliant systems are required to provide one, but not both, of the following

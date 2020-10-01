@@ -68,7 +68,8 @@ In which case, a legacy Master Boot Recored (MBR) must be used.
    GPT partitioning supports a much larger number of partitions, and
    has built in resiliency.
 
-   A future issue of this specification will remove the MBR allowance.
+   A future issue of this specification will disallow the use of MBR
+   partitioning.
 
 Firmware images and data in shared storage should be contained
 in partitions described by the GPT or MBR.
@@ -237,7 +238,7 @@ and cannot be moved between systems.
 eMMC and Universal Flash Storage (UFS) device are often used as
 shared fixed storage for both firmware and the OS.
 
-Where possible, it is prefered for the system to boot from a dedicated boot
+Where possible, it is preferred for the system to boot from a dedicated boot
 region on media that provides one (e.g., eMMC) that is sufficiently large.
 Otherwise, the platform storage should be pre-formatted in the factory with
 a partition table, a dedicated firmware partition, and firmware binaries

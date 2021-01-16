@@ -365,7 +365,7 @@ are required to be implemented during boot services and runtime services.
      - Required
      - Optional
    * - `EFI_UPDATE_CAPSULE`
-     - Optional
+     - Required for in-band update
      - Optional
    * - `EFI_QUERY_CAPSULE_CAPABILITIES`
      - Optional
@@ -448,6 +448,26 @@ Even when SetVariable() is not supported during runtime services, firmware
 should cache variable names and values in EfiRuntimeServicesData memory so
 that GetVariable() and GetNextVeriableName() can behave as specified.
 
+Firmware Update
+---------------
+
+Being able to update firmware to address security issues is a key feature of secure platforms.
+EBBR platforms are required to implement either an in-band or an out-of-band firmware update mechanism.
+
+If firmware update is performed in-band (firmware on the application processor updates itself),
+then the firmware shall implement EFI_UPDATE_CAPSULE and accept updates in the
+"Firmware Management Protocol Data Capsule Structure" format as described in [UEFI]_ § 23.3,
+"Delivering Capsules Containing Updates to Firmware Management Protocol.  [#FMPNote]_
+Firmware is also required to provide an EFI System Resource Table (ESRT). [UEFI]_ § 23.4
+Every firmware image that is updated in-band must be described in the ESRT.
+
+If firmware update is performed out-of-band (e.g., by an independent Baseboard
+Management Controller (BMC), or firmware is provided by a hypervisor),
+then the platform is not required to implement EFI_UPDATE_CAPSULE.
+
+EFI_UPDATE_CAPSULE is only required before ExitBootServices() is called.
+
+
 .. [#OPTEESupplicant] It is worth noting that OP-TEE has a similar problem
    regarding secure storage.
    OP-TEE's chosen solution is to rely on an OS supplicant agent to perform
@@ -458,3 +478,11 @@ that GetVariable() and GetNextVeriableName() can behave as specified.
    during runtime services.
 
    https://optee.readthedocs.io/en/latest/architecture/secure_storage.html
+
+.. [#FMPNote] The `EFI_UPDATE_CAPSULE` implementation is expected to be suitable
+   for use by generic firmware update services like fwupd and Windows Update.
+   Both fwupd and Windows Update read the ESRT table to determine what firmware
+   can be updated, and use an EFI helper application to call `EFI_UPDATE_CAPSULE`
+   before ExitBootServices() is called.
+
+   https://fwupd.org/

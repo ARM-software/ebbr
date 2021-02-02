@@ -332,16 +332,16 @@ are required to be implemented during boot services and runtime services.
      - Before ExitBootServices()
      - After ExitBootServices()
    * - `EFI_GET_TIME`
-     - Optional
+     - Required if RTC present
      - Optional
    * - `EFI_SET_TIME`
-     - Optional
+     - Required if RTC present
      - Optional
    * - `EFI_GET_WAKEUP_TIME`
-     - Optional
+     - Required if wakeup supported
      - Optional
    * - `EFI_SET_WAKEUP_TIME`
-     - Optional
+     - Required if wakeup supported
      - Optional
    * - `EFI_SET_VIRTUAL_ADDRESS_MAP`
      - N/A
@@ -400,8 +400,11 @@ it may not be possible to access the RTC from runtime services.
 e.g., The RTC may be on a shared I2C bus which runtime services cannot access
 because it will conflict with the OS.
 
-If firmware does not support access to the RTC, then GetTime() and
-SetTime() shall return EFI_UNSUPPORTED,
+If an RTC is present, then GetTime() and SetTime() must be supported
+before ExitBootServices() is called.
+
+However, if firmware does not support access to the RTC after
+ExitBootServices(), then GetTime() and SetTime() shall return EFI_UNSUPPORTED
 and the OS must use a device driver to control the RTC.
 
 UEFI Reset and Shutdown

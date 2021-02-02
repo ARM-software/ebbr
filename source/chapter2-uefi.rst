@@ -151,26 +151,55 @@ EFI_UNSUPPORTED.
 are required to be implemented during boot services and runtime services.
 
 .. _uefi_runtime_service_requirements:
-.. table:: EFI_RUNTIME_SERVICES Implementation Requirements
+.. list-table:: `EFI_RUNTIME_SERVICES` Implementation Requirements
+   :widths: 40 30 30
+   :header-rows: 1
 
-   ============================== ============= ================
-   EFI_RUNTIME_SERVICES function  Boot Services Runtime Services
-   ============================== ============= ================
-   EFI_GET_TIME                   Optional      Optional
-   EFI_SET_TIME                   Optional      Optional
-   EFI_GET_WAKEUP_TIME            Optional      Optional
-   EFI_SET_WAKEUP_TIME            Optional      Optional
-   EFI_SET_VIRTUAL_ADDRESS_MAP    N/A           Required
-   EFI_CONVERT_POINTER            N/A           Required
-   EFI_GET_VARIABLE               Required      Optional
-   EFI_GET_NEXT_VARIABLE_NAME     Required      Optional
-   EFI_SET_VARIABLE               Required      Optional
-   EFI_GET_NEXT_HIGH_MONO_COUNT   N/A           Optional
-   EFI_RESET_SYSTEM               Required      Optional
-   EFI_UPDATE_CAPSULE             Optional      Optional
-   EFI_QUERY_CAPSULE_CAPABILITIES Optional      Optional
-   EFI_QUERY_VARIABLE_INFO        Optional      Optional
-   ============================== ============= ================
+   * - `EFI_RUNTIME_SERVICES` function
+     - Before ExitBootServices()
+     - After ExitBootServices()
+   * - `EFI_GET_TIME`
+     - Optional
+     - Optional
+   * - `EFI_SET_TIME`
+     - Optional
+     - Optional
+   * - `EFI_GET_WAKEUP_TIME`
+     - Optional
+     - Optional
+   * - `EFI_SET_WAKEUP_TIME`
+     - Optional
+     - Optional
+   * - `EFI_SET_VIRTUAL_ADDRESS_MAP`
+     - N/A
+     - Required
+   * - `EFI_CONVERT_POINTER`
+     - N/A
+     - Required
+   * - `EFI_GET_VARIABLE`
+     - Required
+     - Optional
+   * - `EFI_GET_NEXT_VARIABLE_NAME`
+     - Required
+     - Optional
+   * - `EFI_SET_VARIABLE`
+     - Required
+     - Optional
+   * - `EFI_GET_NEXT_HIGH_MONO_COUNT`
+     - N/A
+     - Optional
+   * - `EFI_RESET_SYSTEM`
+     - Required
+     - Optional
+   * - `EFI_UPDATE_CAPSULE`
+     - Optional
+     - Optional
+   * - `EFI_QUERY_CAPSULE_CAPABILITIES`
+     - Optional
+     - Optional
+   * - `EFI_QUERY_VARIABLE_INFO`
+     - Optional
+     - Optional
 
 Runtime Device Mappings
 -----------------------

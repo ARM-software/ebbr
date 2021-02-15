@@ -114,6 +114,17 @@ interface specific UEFI protocols, and so they have been made optional.
 
    * - Element
      - Description of deviation
+   * - `LoadImage()`
+     - The LoadImage() boot service is not required to install an
+       EFI_HII_PACKAGE_LIST_PROTOCOL for an image containing a custom PE/COFF
+       resource with the type 'HII'. - HII resource images are not needed to run
+       the UEFI shell or the SCT.
+   * - `ConnectController()`
+     - The ConnectController()` boot service is not required to support the
+       EFI_PLATFORM_DRIVER_OVERRIDE_PROTOCOL,
+       EFI_DRIVER_FAMILY_OVERRIDE_PROTOCOL, and
+       EFI_BUS_SPECIFIC_DRIVER_OVERRIDE_PROTOCOL. - These override protocols are
+       only useful if drivers are loaded as EFI binaries by the firmware.
    * - `EFI_HII_CONFIG_ACCESS_PROTOCOL`
      - UEFI requires this for console devices, but it is rarely necessary in practice.
        Therefore this protocol is not required.

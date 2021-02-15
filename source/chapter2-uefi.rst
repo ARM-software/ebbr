@@ -14,8 +14,181 @@ This document uses version 2.8 Errata A of the UEFI specification [UEFI]_.
 UEFI Compliance
 ===============
 
-EBBR compliant platforms shall conform to the requirements in [UEFI]_ § 2.6,
-except where explicit exemptions are provided by this document.
+EBBR compliant platform shall conform to a subset of the [UEFI]_ spec as listed
+in this section.
+Normally, UEFI compliance would require full compliance with all items listed
+in UEFI § 2.6.
+However, the EBBR target market has a reduced set of requirements,
+and so some UEFI features are omitted as unnecessary.
+
+Required Elements
+-----------------
+
+This section replaces the list of required elements in [UEFI]_ § 2.6.1.
+All of the following UEFI elements are required for EBBR compliance.
+
+.. list-table:: UEFI Required Elements
+   :widths: 50 50
+   :header-rows: 1
+
+   * - Element
+     - Requirement
+   * - `EFI_SYSTEM_TABLE`
+     - The system table is required to provide required to access UEFI Boot Services,
+       UEFI Runtime Services, consoles, and other firmware, vendor and platform
+       information.
+   * - `EFI_BOOT_SERVICES`
+     - All functions defined as boot services must exist.
+       Methods for unsupported or unimplemented behaviour must return
+       an appropriate error code.
+   * - `EFI_RUNTIME_SERVICES`
+     - All functions defined as runtime services must exist.
+       Methods for unsupported or unimplemented behaviour must return
+       an appropriate error code.
+       If any runtime service is unimplemented, it must be indicated
+       via the EFI_RT_PROPERTIES_TABLE.
+   * - `EFI_LOADED_IMAGE_PROTOCOL`
+     - Must be installed for each loaded image
+   * - `EFI_LOADED_IMAGE_DEVICE_PATH_PROTOCOL`
+     - Must be installed for each loaded image
+   * - `EFI_DEVICE_PATH_PROTOCOL`
+     - An `EFI_DEVICE_PATH_PROTOCOL` must be installed onto all device
+       handles provided by the firmware.
+   * - `EFI_DEVICE_PATH_UTILITIES_PROTOCOL`
+     - Interface for creating and manipulating UEFI device paths
+
+.. list-table:: Notable omissions from UEFI § 2.6.1
+   :header-rows: 1
+
+   * - Element
+     - Note
+   * - `EFI_DECOMPRESS_PROTOCOL`
+     - Native EFI decompression is rarely used and therefore not required.
+
+Required Platform Specific Elements
+-----------------------------------
+
+This section replaces the list of required elements in [UEFI]_ § 2.6.2.
+All of the following UEFI elements are required for EBBR compliance.
+
+.. list-table:: UEFI Platform-Specific Required Elements
+   :widths: 50 50
+   :header-rows: 1
+
+   * - Element
+     - Description
+   * - Console devices
+     - The platform must have at least one console device
+   * - `EFI_SIMPLE_TEXT_INPUT_PROTOCOL`
+     - Needed for console input
+   * - `EFI_SIMPLE_TEXT_INPUT_EX_PROTOCOL`
+     - Needed for console input
+   * - `EFI_SIMPLE_TEXT_OUTPUT_PROTOCOL`
+     - Needed for console output
+   * - `EFI_DEVICE_PATH_TO_TEXT_PROTOCOL`
+     - Needed for console output
+   * - `EFI_HII_STRING_PROTOCOL`
+     - Required by EFI shell and for compliance testing
+   * - `EFI_HII_DATABASE_PROTOCOL`
+     - Required by EFI shell and for compliance testing
+   * - `EFI_UNICODE_COLLATION2_PROTOCOL`
+     - Required by EFI shell and for compliance testing
+   * - `EFI_BLOCK_IO_PROTOCOL`
+     - Required for block device access
+   * - `EFI_SIMPLE_FILE_SYSTEM_PROTOCOL`
+     - Required if booting from block device is supported
+   * - `EFI_RNG_PROTOCOL`
+     - Required if the platform has a hardware entropy source
+   * - `EFI_SIMPLE_NETWORK_PROTOCOL`
+     - Required if the platform has a network device.
+   * - HTTP Boot (UEFI § 24.7)
+     - Required if the platform supports network booting
+
+The following table is a list of notable deviations from UEFI § 2.6.2.
+Many of these deviations are because the EBBR use cases do not require
+interface specific UEFI protocols, and so they have been made optional.
+
+.. list-table:: Notable Deviations from UEFI § 2.6.2
+   :widths: 50 50
+   :header-rows: 1
+
+   * - Element
+     - Description of deviation
+   * - `LoadImage()`
+     - The LoadImage() boot service is not required to install an
+       EFI_HII_PACKAGE_LIST_PROTOCOL for an image containing a custom PE/COFF
+       resource with the type 'HII'. - HII resource images are not needed to run
+       the UEFI shell or the SCT.
+   * - `ConnectController()`
+     - The ConnectController()` boot service is not required to support the
+       EFI_PLATFORM_DRIVER_OVERRIDE_PROTOCOL,
+       EFI_DRIVER_FAMILY_OVERRIDE_PROTOCOL, and
+       EFI_BUS_SPECIFIC_DRIVER_OVERRIDE_PROTOCOL. - These override protocols are
+       only useful if drivers are loaded as EFI binaries by the firmware.
+   * - `EFI_HII_CONFIG_ACCESS_PROTOCOL`
+     - UEFI requires this for console devices, but it is rarely necessary in practice.
+       Therefore this protocol is not required.
+   * - `EFI_HII_CONFIG_ROUTING_PROTOCOL`
+     - UEFI requires this for console devices, but it is rarely necessary in practice.
+       Therefore this protocol is not required.
+   * - Graphical console
+     - Platforms with a graphical device are not required to expose it as a graphical console.
+   * - `EFI_DISK_IO_PROTOCOL`
+     - Rarely used interface that isn't required for EBBR use cases
+   * - `EFI_PXE_BASE_CODE_PROTOCOL`
+     - Booting via the Preboot Execution Environment (PXE) is insecure.
+       Loading via PXE is typically executed before launching the first UEFI application.
+   * - Network protocols
+     - A full implementation of the UEFI general purpose networking ABIs is not required,
+       including `EFI_NETWORK_INTERFACE_IDENTIFIER_PROTOCOL`, `EFI_MANAGED_NETWORK_PROTOCOL`,
+       `EFI_*_SERVICE_BINDING_PROTOCOL`, or any of the IPv4 or IPv6 protocols.
+   * - Byte stream device support (UART)
+     - UEFI protocols not required
+   * - PCI bus support
+     - UEFI protocols not required
+   * - USB bus support
+     - UEFI protocols not required
+   * - NVMe pass through support
+     - UEFI protocols not required
+   * - SCSI pass through support
+     - UEFI protocols not required
+   * - SCSI pass through support
+     - UEFI protocols not required
+   * - `EFI_DRIVER_FAMILY_OVERRIDE_PROTOCOL`
+     - Not required
+   * - Option ROM support
+     - In many EBBR use cases there is no requirement to generically support
+       any PCIe add in card at the firmware level.
+       When PCIe devices are used, drivers for the device are often built into
+       the firmware itself rather than loaded as option ROMs.
+       For this reason EBBR implementations are not required to support option
+       ROM loading.
+
+Required Global Variables
+-------------------------
+
+EBBR compliant platforms are required to support the following Global
+Variables as found in [UEFI]_ § 3.3.
+
+.. list-table:: Required UEFI Variables
+   :widths: 25 75
+   :header-rows: 1
+
+   * - Variable Name
+     - Description
+   * - `Boot####`
+     - A boot load option. #### is a numerical hex value
+   * - `BootCurrent`
+     - The boot option that was selected for the current boot
+   * - `BootNext`
+     - The boot option that will be used for the next boot only
+   * - `BootOrder`
+     - An ordered list of boot options.
+       Firmware will attempt each Boot#### entry in this order
+   * - `OsIndications`
+     - Method for OS to request features from firmware
+   * - `OsIndicationsSupported`
+     - Variable for firmware to indicate which features can be enabled
 
 Block device partitioning
 -------------------------
@@ -151,26 +324,55 @@ EFI_UNSUPPORTED.
 are required to be implemented during boot services and runtime services.
 
 .. _uefi_runtime_service_requirements:
-.. table:: EFI_RUNTIME_SERVICES Implementation Requirements
+.. list-table:: `EFI_RUNTIME_SERVICES` Implementation Requirements
+   :widths: 40 30 30
+   :header-rows: 1
 
-   ============================== ============= ================
-   EFI_RUNTIME_SERVICES function  Boot Services Runtime Services
-   ============================== ============= ================
-   EFI_GET_TIME                   Optional      Optional
-   EFI_SET_TIME                   Optional      Optional
-   EFI_GET_WAKEUP_TIME            Optional      Optional
-   EFI_SET_WAKEUP_TIME            Optional      Optional
-   EFI_SET_VIRTUAL_ADDRESS_MAP    N/A           Required
-   EFI_CONVERT_POINTER            N/A           Required
-   EFI_GET_VARIABLE               Required      Optional
-   EFI_GET_NEXT_VARIABLE_NAME     Required      Optional
-   EFI_SET_VARIABLE               Required      Optional
-   EFI_GET_NEXT_HIGH_MONO_COUNT   N/A           Optional
-   EFI_RESET_SYSTEM               Required      Optional
-   EFI_UPDATE_CAPSULE             Optional      Optional
-   EFI_QUERY_CAPSULE_CAPABILITIES Optional      Optional
-   EFI_QUERY_VARIABLE_INFO        Optional      Optional
-   ============================== ============= ================
+   * - `EFI_RUNTIME_SERVICES` function
+     - Before ExitBootServices()
+     - After ExitBootServices()
+   * - `EFI_GET_TIME`
+     - Required if RTC present
+     - Optional
+   * - `EFI_SET_TIME`
+     - Required if RTC present
+     - Optional
+   * - `EFI_GET_WAKEUP_TIME`
+     - Required if wakeup supported
+     - Optional
+   * - `EFI_SET_WAKEUP_TIME`
+     - Required if wakeup supported
+     - Optional
+   * - `EFI_SET_VIRTUAL_ADDRESS_MAP`
+     - N/A
+     - Required
+   * - `EFI_CONVERT_POINTER`
+     - N/A
+     - Required
+   * - `EFI_GET_VARIABLE`
+     - Required
+     - Optional
+   * - `EFI_GET_NEXT_VARIABLE_NAME`
+     - Required
+     - Optional
+   * - `EFI_SET_VARIABLE`
+     - Required
+     - Optional
+   * - `EFI_GET_NEXT_HIGH_MONO_COUNT`
+     - N/A
+     - Optional
+   * - `EFI_RESET_SYSTEM`
+     - Required
+     - Optional
+   * - `EFI_UPDATE_CAPSULE`
+     - Required for in-band update
+     - Optional
+   * - `EFI_QUERY_CAPSULE_CAPABILITIES`
+     - Optional
+     - Optional
+   * - `EFI_QUERY_VARIABLE_INFO`
+     - Optional
+     - Optional
 
 Runtime Device Mappings
 -----------------------
@@ -198,8 +400,11 @@ it may not be possible to access the RTC from runtime services.
 e.g., The RTC may be on a shared I2C bus which runtime services cannot access
 because it will conflict with the OS.
 
-If firmware does not support access to the RTC, then GetTime() and
-SetTime() shall return EFI_UNSUPPORTED,
+If an RTC is present, then GetTime() and SetTime() must be supported
+before ExitBootServices() is called.
+
+However, if firmware does not support access to the RTC after
+ExitBootServices(), then GetTime() and SetTime() shall return EFI_UNSUPPORTED
 and the OS must use a device driver to control the RTC.
 
 UEFI Reset and Shutdown
@@ -243,6 +448,26 @@ Even when SetVariable() is not supported during runtime services, firmware
 should cache variable names and values in EfiRuntimeServicesData memory so
 that GetVariable() and GetNextVeriableName() can behave as specified.
 
+Firmware Update
+---------------
+
+Being able to update firmware to address security issues is a key feature of secure platforms.
+EBBR platforms are required to implement either an in-band or an out-of-band firmware update mechanism.
+
+If firmware update is performed in-band (firmware on the application processor updates itself),
+then the firmware shall implement EFI_UPDATE_CAPSULE and accept updates in the
+"Firmware Management Protocol Data Capsule Structure" format as described in [UEFI]_ § 23.3,
+"Delivering Capsules Containing Updates to Firmware Management Protocol.  [#FMPNote]_
+Firmware is also required to provide an EFI System Resource Table (ESRT). [UEFI]_ § 23.4
+Every firmware image that is updated in-band must be described in the ESRT.
+
+If firmware update is performed out-of-band (e.g., by an independent Baseboard
+Management Controller (BMC), or firmware is provided by a hypervisor),
+then the platform is not required to implement EFI_UPDATE_CAPSULE.
+
+EFI_UPDATE_CAPSULE is only required before ExitBootServices() is called.
+
+
 .. [#OPTEESupplicant] It is worth noting that OP-TEE has a similar problem
    regarding secure storage.
    OP-TEE's chosen solution is to rely on an OS supplicant agent to perform
@@ -253,3 +478,11 @@ that GetVariable() and GetNextVeriableName() can behave as specified.
    during runtime services.
 
    https://optee.readthedocs.io/en/latest/architecture/secure_storage.html
+
+.. [#FMPNote] The `EFI_UPDATE_CAPSULE` implementation is expected to be suitable
+   for use by generic firmware update services like fwupd and Windows Update.
+   Both fwupd and Windows Update read the ESRT table to determine what firmware
+   can be updated, and use an EFI helper application to call `EFI_UPDATE_CAPSULE`
+   before ExitBootServices() is called.
+
+   https://fwupd.org/

@@ -152,8 +152,6 @@ interface specific UEFI protocols, and so they have been made optional.
      - UEFI protocols not required
    * - SCSI pass through support
      - UEFI protocols not required
-   * - SCSI pass through support
-     - UEFI protocols not required
    * - `EFI_DRIVER_FAMILY_OVERRIDE_PROTOCOL`
      - Not required
    * - Option ROM support

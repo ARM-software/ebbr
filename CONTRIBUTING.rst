@@ -1,7 +1,7 @@
 Contributing
 ============
 
-Master copy of this project is hosted on GitHub:
+Main copy of this project is hosted on GitHub:
 https://github.com/ARM-software/ebbr
 
 Anyone may contribute to the EBBR project.

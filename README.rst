@@ -62,7 +62,7 @@ On Fedora
   # dnf install python3-sphinx texlive texlive-capt-of texlive-draftwatermark \
                 texlive-fncychap texlive-framed texlive-needspace \
                 texlive-tabulary texlive-titlesec texlive-upquote \
-                texlive-wrapfig
+                texlive-wrapfig texinfo latexmk
 
 On Mac OS X
 ^^^^^^^^^^^

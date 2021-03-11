@@ -146,17 +146,14 @@ including services that are required for virtualization.
 It does not define a standardized abstract virtual machine view for a Guest
 Operating System.
 
-This specification is similar to the Arm Server Base Boot Requirements
-specification [SBBR]_ in that it defines the firmware interface presented to an
-operating system.
-SBBR is targeted at the server ecosystem and places strict requirements on the
-platform to ensure cross vendor interoperability.
-EBBR on the other hand allows more flexibility to support embedded designs
-which do not fit within the SBBR model.
-For example, a platform that isn't SBBR compliant because the SoC is only
-supported using Devicetree could be EBBR compliant, but not SBBR compliant.
+This specification is referenced by the Arm Base Boot Requirements
+Specification [ArmBBR]_ § 4.3.
+The UEFI requirements found in this document are similar but not identical to
+the requirements found in BBR.
+EBBR provides greater flexibility for support embedded designs which cannot
+easily meet the stricter BBR requirements.
 
-By definition, all SBBR compliant systems are also EBBR compliant, but the
+By definition, all BBR compliant systems are also EBBR compliant, but the
 converse is not true.
 
 Conventions Used in this Document

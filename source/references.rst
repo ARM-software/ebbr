@@ -22,9 +22,9 @@
    <https://static.docs.arm.com/den0022/c/DEN0022C_Power_State_Coordination_Interface.pdf>`_
    30 January 2015, `Arm Limited <http://arm.com>`_
 
-.. [SBBR] `Arm Server Base Boot Requirements specification Issue B (v1.0)
-   <https://static.docs.arm.com/den0044/b/DEN0044B_Server_Base_Boot_Requirements.pdf>`_
-   8 March 2016, `Arm Limited <http://arm.com>`_
+.. [ArmBBR] `Arm Base Boot Requirements specification Issue F (v1.0)
+   <https://developer.arm.com/documentation/den0044/f>`_
+   6 Oct 2020, `Arm Limited <http://arm.com>`_
 
 .. [UEFI] `Unified Extensable Firmware Interface Specification v2.8 Errata A
    <https://uefi.org/sites/default/files/resources/UEFI_Spec_2_8_A_Feb14.pdf>`_,

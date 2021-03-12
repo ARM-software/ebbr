@@ -59,6 +59,13 @@ Creative Commons, PO Box 1866, Mountain View, CA 94042, USA.
        - Specify UUID for passing DTB
        - Typo and editorial fixes
        - Document the release process
+   * - 12 Mar 2021
+     - 2.0.0-pre1
+     - - Reduce the number of UEFI required elements needed for compliance.
+       - Add requirement for EFI_UPDATE_CAPSULE
+       - Updated firmware shared storage requirements
+       - Refined RTC requirements
+       - Fixed ResetSystem() to correctly describe failure condition
 
 .. toctree::
    :numbered:

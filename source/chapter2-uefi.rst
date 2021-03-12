@@ -175,14 +175,15 @@ Variables as found in [UEFI]_ § 3.3.
    * - Variable Name
      - Description
    * - `Boot####`
-     - A boot load option. #### is a numerical hex value
+     - A boot load option. `####` is a numerical hex value
    * - `BootCurrent`
      - The boot option that was selected for the current boot
    * - `BootNext`
      - The boot option that will be used for the next boot only
    * - `BootOrder`
      - An ordered list of boot options.
-       Firmware will attempt each Boot#### entry in this order
+       Firmware will try `BootNext` and each `Boot####` entry in the
+       order given by BootOrder to find the first bootable image.
    * - `OsIndications`
      - Method for OS to request features from firmware
    * - `OsIndicationsSupported`

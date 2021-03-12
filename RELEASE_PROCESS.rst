@@ -37,7 +37,7 @@ Process for tagging releases and pre-releases
 1. Create a signed tag for the pre-release in the form ``v<w>.<x>.<y>[-rc<z>]``
    and push out to ``main`` branch on `github.com/arm-software/ebbr`::
 
-      git tag --signed vW.X.Y-rcZ
+      git tag --sign vW.X.Y-rcZ
       git push --follow-tags origin main:main
 
 2. Sync to ``upstream`` branch on ``github.com/glikely/ebbr``::

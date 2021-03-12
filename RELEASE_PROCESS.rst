@@ -22,11 +22,11 @@ Grant how to make a release.
 Process for merging changes into mainline
 -----------------------------------------
 
-1. Push changes to ``master`` branch on `https://github.com/arm-software/ebbr`
+1. Push changes to ``main`` branch on `https://github.com/arm-software/ebbr`
    or merge pull requests.
 2. Update ``upstream`` branch on `https://github.com/glikely/ebbr`::
 
-      git push glikely master:upstream
+      git push glikely main:upstream
 
 Updating ``upstream`` branch will trigger Travis ci to update
 `https://arm-software.github.io/ebbr`.
@@ -35,14 +35,14 @@ Process for tagging releases and pre-releases
 --------------------------------
 
 1. Create a signed tag for the pre-release in the form ``v<w>.<x>.<y>[-rc<z>]``
-   and push out to ``master`` branch on `github.com/arm-software/ebbr`::
+   and push out to ``main`` branch on `github.com/arm-software/ebbr`::
 
       git tag --signed vW.X.Y-rcZ
-      git push --follow-tags origin master:master
+      git push --follow-tags origin main:main
 
 2. Sync to ``upstream`` branch on ``github.com/glikely/ebbr``::
 
-      git push --follow-tags glikely master:upstream
+      git push --follow-tags glikely main:upstream
 
    Updating `upstream` branch with a tag will trigger Travis CI to perform a
    release and publish a .pdf.

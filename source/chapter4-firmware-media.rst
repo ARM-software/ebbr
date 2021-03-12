@@ -68,7 +68,7 @@ In which case, a legacy Master Boot Recored (MBR) must be used.
    GPT partitioning supports a much larger number of partitions, and
    has built in resiliency.
 
-   A future issue of this specification will disallow the use of MBR
+   A future version of this specification will disallow the use of MBR
    partitioning.
 
 Firmware images and data in shared storage should be contained
@@ -92,7 +92,7 @@ protective partitions.
    Fixed offsets to firmware data is supported only for legacy reasons.
    All new platforms are expected to use partitions to locate firmware files.
 
-   A future issues of this specification will disallow the use of fixed
+   A future version of this specification will disallow the use of fixed
    offsets.
 
 .. _section-gpt-parts:

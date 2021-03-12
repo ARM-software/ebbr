@@ -458,7 +458,7 @@ then the firmware shall implement EFI_UPDATE_CAPSULE and accept updates in the
 "Firmware Management Protocol Data Capsule Structure" format as described in [UEFI]_ § 23.3,
 "Delivering Capsules Containing Updates to Firmware Management Protocol.  [#FMPNote]_
 Firmware is also required to provide an EFI System Resource Table (ESRT). [UEFI]_ § 23.4
-Every firmware image that is updated in-band must be described in the ESRT.
+Every firmware image that can be updated in-band must be described in the ESRT.
 
 If firmware update is performed out-of-band (e.g., by an independent Baseboard
 Management Controller (BMC), or firmware is provided by a hypervisor),

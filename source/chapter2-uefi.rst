@@ -46,7 +46,7 @@ All of the following UEFI elements are required for EBBR compliance.
        Methods for unsupported or unimplemented behaviour must return
        an appropriate error code.
        If any runtime service is unimplemented, it must be indicated
-       via the EFI_RT_PROPERTIES_TABLE.
+       via the `EFI_RT_PROPERTIES_TABLE`.
    * - `EFI_LOADED_IMAGE_PROTOCOL`
      - Must be installed for each loaded image
    * - `EFI_LOADED_IMAGE_DEVICE_PATH_PROTOCOL`
@@ -115,15 +115,16 @@ interface specific UEFI protocols, and so they have been made optional.
    * - Element
      - Description of deviation
    * - `LoadImage()`
-     - The LoadImage() boot service is not required to install an
-       EFI_HII_PACKAGE_LIST_PROTOCOL for an image containing a custom PE/COFF
-       resource with the type 'HII'. - HII resource images are not needed to run
+     - The `LoadImage()` boot service is not required to install an
+       `EFI_HII_PACKAGE_LIST_PROTOCOL` for an image containing a custom PE/COFF
+       resource with the type 'HII'. HII resource images are not needed to run
        the UEFI shell or the SCT.
    * - `ConnectController()`
-     - The ConnectController()` boot service is not required to support the
-       EFI_PLATFORM_DRIVER_OVERRIDE_PROTOCOL,
-       EFI_DRIVER_FAMILY_OVERRIDE_PROTOCOL, and
-       EFI_BUS_SPECIFIC_DRIVER_OVERRIDE_PROTOCOL. - These override protocols are
+     - The `ConnectController()` boot service is not required to support the
+       `EFI_PLATFORM_DRIVER_OVERRIDE_PROTOCOL`,
+       `EFI_DRIVER_FAMILY_OVERRIDE_PROTOCOL`, and
+       `EFI_BUS_SPECIFIC_DRIVER_OVERRIDE_PROTOCOL`.
+       These override protocols are
        only useful if drivers are loaded as EFI binaries by the firmware.
    * - `EFI_HII_CONFIG_ACCESS_PROTOCOL`
      - UEFI requires this for console devices, but it is rarely necessary in practice.
@@ -244,7 +245,7 @@ configuration.
 All RAM defined by the UEFI memory map must be identity-mapped, which means
 that virtual addresses must equal physical addresses.
 
-The default RAM allocated attribute must be EFI_MEMORY_WB.
+The default RAM allocated attribute must be `EFI_MEMORY_WB`.
 
 Configuration Tables
 --------------------
@@ -306,20 +307,20 @@ requirements for Secure Boot.
 UEFI Runtime Services
 =====================
 
-UEFI runtime services exist after the call to ExitBootServices() and are
+UEFI runtime services exist after the call to `ExitBootServices()` and are
 designed to provide a limited set of persistent services to the platform
 Operating System or hypervisor.
-Functions contained in EFI_RUNTIME_SERVICES are expected to be available
+Functions contained in `EFI_RUNTIME_SERVICES` are expected to be available
 during both boot services and runtime services.
-However, it isn't always practical for all EFI_RUNTIME_SERVICES functions
+However, it isn't always practical for all `EFI_RUNTIME_SERVICES` functions
 to be callable during runtime services due to hardware limitations.
-If any EFI_RUNTIME_SERVICES functions are only available during boot services
+If any `EFI_RUNTIME_SERVICES` functions are only available during boot services
 then firmware shall provide the `EFI_RT_PROPERTIES_TABLE` to
 indicate which functions are available during runtime services.
 Functions that are not available during runtime services shall return
-EFI_UNSUPPORTED.
+`EFI_UNSUPPORTED`.
 
-:numref:`uefi_runtime_service_requirements` details which EFI_RUNTIME_SERVICES
+:numref:`uefi_runtime_service_requirements` details which `EFI_RUNTIME_SERVICES`
 are required to be implemented during boot services and runtime services.
 
 .. _uefi_runtime_service_requirements:
@@ -328,48 +329,48 @@ are required to be implemented during boot services and runtime services.
    :header-rows: 1
 
    * - `EFI_RUNTIME_SERVICES` function
-     - Before ExitBootServices()
-     - After ExitBootServices()
-   * - `EFI_GET_TIME`
+     - Before `ExitBootServices()`
+     - After `ExitBootServices()`
+   * - `GetTime`
      - Required if RTC present
      - Optional
-   * - `EFI_SET_TIME`
+   * - `SetTime`
      - Required if RTC present
      - Optional
-   * - `EFI_GET_WAKEUP_TIME`
+   * - `GetWakeupTime`
      - Required if wakeup supported
      - Optional
-   * - `EFI_SET_WAKEUP_TIME`
+   * - `SetWakeupTime`
      - Required if wakeup supported
      - Optional
-   * - `EFI_SET_VIRTUAL_ADDRESS_MAP`
+   * - `SetVirtualAddressMap`
      - N/A
      - Required
-   * - `EFI_CONVERT_POINTER`
+   * - `ConvertPointer`
      - N/A
      - Required
-   * - `EFI_GET_VARIABLE`
+   * - `GetVariable`
      - Required
      - Optional
-   * - `EFI_GET_NEXT_VARIABLE_NAME`
+   * - `GetNextVeriableName`
      - Required
      - Optional
-   * - `EFI_SET_VARIABLE`
+   * - `SetVariable`
      - Required
      - Optional
-   * - `EFI_GET_NEXT_HIGH_MONO_COUNT`
+   * - `GetNextHighMonotonicCount`
      - N/A
      - Optional
-   * - `EFI_RESET_SYSTEM`
+   * - `ResetSystem`
      - Required
      - Optional
-   * - `EFI_UPDATE_CAPSULE`
+   * - `UpdateCapsule`
      - Required for in-band update
      - Optional
-   * - `EFI_QUERY_CAPSULE_CAPABILITIES`
+   * - `QueryCapsuleCapabilities`
      - Optional
      - Optional
-   * - `EFI_QUERY_VARIABLE_INFO`
+   * - `QueryVariableInfo`
      - Optional
      - Optional
 
@@ -399,35 +400,35 @@ it may not be possible to access the RTC from runtime services.
 e.g., The RTC may be on a shared I2C bus which runtime services cannot access
 because it will conflict with the OS.
 
-If an RTC is present, then GetTime() and SetTime() must be supported
-before ExitBootServices() is called.
+If an RTC is present, then `GetTime()` and `SetTime()` must be supported
+before `ExitBootServices()` is called.
 
 However, if firmware does not support access to the RTC after
-ExitBootServices(), then GetTime() and SetTime() shall return EFI_UNSUPPORTED
+`ExitBootServices()`, then `GetTime()` and `SetTime()` shall return `EFI_UNSUPPORTED`
 and the OS must use a device driver to control the RTC.
 
 UEFI Reset and Shutdown
 -----------------------
 
-ResetSystem() is required to be implemented in boot services, but it is
+`ResetSystem()` is required to be implemented in boot services, but it is
 optional for runtime services.
 During runtime services, the operating system should first attempt to
-use ResetSystem() to reset the system.
+use `ResetSystem()` to reset the system.
 
-If firmware doesn't support ResetSystem() during runtime services, then the call
+If firmware doesn't support `ResetSystem()` during runtime services, then the call
 will immediately return, and the OS should fall back to an architecture or
 platform specific reset mechanism.
 
 On AArch64 platforms implementing [PSCI]_,
-if ResetSystem() is not implemented then the Operating System should fall
+if `ResetSystem()` is not implemented then the Operating System should fall
 back to making a PSCI call to reset or shutdown the system.
 
 Runtime Variable Access
 -----------------------
 
-There are many platforms where it is difficult to implement SetVariable() for
+There are many platforms where it is difficult to implement `SetVariable()` for
 non-volatile variables during runtime services because the firmware cannot
-access storage after ExitBootServices() is called.
+access storage after `ExitBootServices()` is called.
 
 e.g., If firmware accesses an eMMC device directly at runtime, it will
 collide with transactions initiated by the OS.
@@ -435,17 +436,17 @@ Neither U-Boot nor Tianocore have a generic solution for accessing or updating
 variables stored on shared media. [#OPTEESupplicant]_
 
 If a platform does not implement modifying non-volatile variables with
-SetVariable() after ExitBootServices(),
-then firmware shall return EFI_UNSUPPORTED for any call to SetVariable(),
-and must advertise that SetVariable() isn't available during runtime services
+`SetVariable()` after `ExitBootServices()`,
+then firmware shall return `EFI_UNSUPPORTED` for any call to `SetVariable()`,
+and must advertise that `SetVariable()` isn't available during runtime services
 via the `RuntimeServicesSupported` value in the `EFI_RT_PROPERTIES_TABLE`
 as defined in [UEFI]_ § 4.6.
 EFI applications can read `RuntimeServicesSupported` to determine if calls
-to SetVariable() need to be performed before calling ExitBootServices().
+to `SetVariable()` need to be performed before calling `ExitBootServices()`.
 
-Even when SetVariable() is not supported during runtime services, firmware
+Even when `SetVariable()` is not supported during runtime services, firmware
 should cache variable names and values in EfiRuntimeServicesData memory so
-that GetVariable() and GetNextVeriableName() can behave as specified.
+that `GetVariable()` and `GetNextVeriableName()` can behave as specified.
 
 Firmware Update
 ---------------
@@ -454,7 +455,7 @@ Being able to update firmware to address security issues is a key feature of sec
 EBBR platforms are required to implement either an in-band or an out-of-band firmware update mechanism.
 
 If firmware update is performed in-band (firmware on the application processor updates itself),
-then the firmware shall implement EFI_UPDATE_CAPSULE and accept updates in the
+then the firmware shall implement the `UpdateCapsule()` runtime service and accept updates in the
 "Firmware Management Protocol Data Capsule Structure" format as described in [UEFI]_ § 23.3,
 "Delivering Capsules Containing Updates to Firmware Management Protocol.  [#FMPNote]_
 Firmware is also required to provide an EFI System Resource Table (ESRT). [UEFI]_ § 23.4
@@ -462,9 +463,9 @@ Every firmware image that can be updated in-band must be described in the ESRT.
 
 If firmware update is performed out-of-band (e.g., by an independent Baseboard
 Management Controller (BMC), or firmware is provided by a hypervisor),
-then the platform is not required to implement EFI_UPDATE_CAPSULE.
+then the platform is not required to implement the `UpdateCapsule()` runtime service.
 
-EFI_UPDATE_CAPSULE is only required before ExitBootServices() is called.
+`UpdateCapsule()` is only required before `ExitBootServices()` is called.
 
 
 .. [#OPTEESupplicant] It is worth noting that OP-TEE has a similar problem
@@ -473,15 +474,15 @@ EFI_UPDATE_CAPSULE is only required before ExitBootServices() is called.
    storage operations on behalf of OP-TEE.
    The same solution may be applicable to solving the UEFI non-volatile
    variable problem, but it requires additional OS support to work.
-   Regardless, EBBR compliance does not require SetVariable() support
+   Regardless, EBBR compliance does not require `SetVariable()` support
    during runtime services.
 
    https://optee.readthedocs.io/en/latest/architecture/secure_storage.html
 
-.. [#FMPNote] The `EFI_UPDATE_CAPSULE` implementation is expected to be suitable
+.. [#FMPNote] The `UpdateCapsule()` runtime service is expected to be suitable
    for use by generic firmware update services like fwupd and Windows Update.
    Both fwupd and Windows Update read the ESRT table to determine what firmware
-   can be updated, and use an EFI helper application to call `EFI_UPDATE_CAPSULE`
-   before ExitBootServices() is called.
+   can be updated, and use an EFI helper application to call `UpdateCapsule()`
+   before `ExitBootServices()` is called.
 
    https://fwupd.org/

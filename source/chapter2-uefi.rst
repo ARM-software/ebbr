@@ -253,11 +253,17 @@ Configuration Tables
 A UEFI system that complies with this specification may provide additional
 tables via the EFI Configuration Table.
 
-Compliant systems are required to provide at least one of the following
+Compliant systems are required to provide one, but not both, of the following
 tables:
 
 - an Advanced Configuration and Power Interface [ACPI]_ table, or
 - a Devicetree [DTSPEC]_ system description
+
+EBBR systems must not provide both ACPI and Devicetree
+tables at the same time.
+Systems that support both interfaces must provide a configuration
+mechanism to select either ACPI or Devicetree,
+and must ensure only the selected interface is provided to the OS loader.
 
 Devicetree
 ^^^^^^^^^^

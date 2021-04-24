@@ -137,9 +137,10 @@ The following guiding principles are used while developing the EBBR specificatio
 
 Scope
 =====
-This document defines the boot and runtime services that are expected by an
-Operating System or hypervisor, for a device which follows the
-UEFI specification [UEFI]_.
+
+This document defines a subset of the boot and runtime services, protocols and
+configuration tables defined in the UEFI specification [UEFI]_ that is provided
+to an Operating System or hypervisor.
 
 This specification defines the boot and runtime services for a physical system,
 including services that are required for virtualization.

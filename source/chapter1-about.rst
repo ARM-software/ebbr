@@ -120,7 +120,7 @@ The following guiding principles are used while developing the EBBR specificatio
 
 - Plan to evolve over time
 
-  The v1.0 release of EBBR is firmly targeted at existing platforms so that
+  The current release of EBBR is firmly targeted at existing platforms so that
   gaining EBBR compliance may require a firmware update, but will not require
   hardware changes for the majority of platforms.
 

@@ -302,30 +302,9 @@ Devicetree
 If firmware provides a Devicetree system description then it must be provided
 in Flattened Devicetree Blob (DTB) format version 17 or higher as described in
 [DTSPEC]_ § 5.1.
-The following GUID must be used in the EFI system table ([UEFI]_ § 4)
-to identify the DTB.
 The DTB must be contained in memory of type EfiACPIReclaimMemory.
 EfiACPIReclaimMemory was chosen to match the recommendation for ACPI
 tables which fulfill the same task as the DTB.
-
-.. code-block:: c
-
-    #define EFI_DTB_GUID \
-         EFI_GUID(0xb1b621d5, 0xf19c, 0x41a5, \
-                  0x83, 0x0b, 0xd9, 0x15, 0x2c, 0x69, 0xaa, 0xe0)
-
-Firmware must have the DTB resident in memory and installed in the EFI system table
-before executing any UEFI applications or drivers that are not part of the system
-firmware image.
-Once the DTB is installed as a configuration table,
-the system firmware must not make any modification to it or reference any data
-contained within the DTB.
-
-UEFI applications are permitted to modify or replace the loaded DTB.
-System firmware must not depend on any data contained within the DTB.
-If system firmware makes use of a DTB for its own configuration,
-it should use a separate private copy that is not installed in the
-EFI System Table or otherwise be exposed to EFI applications.
 
 UEFI Secure Boot (Optional)
 ---------------------------

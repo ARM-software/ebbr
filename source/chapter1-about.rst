@@ -102,7 +102,8 @@ The following guiding principles are used while developing the EBBR specificatio
 
 - Design to be OS independent
 
-  This document uses Linux as an example but other OS's are expected.
+  This document uses Linux as an example but other OS's support EBBR compliant
+  systems as well (e.g. FreeBSD, OpenBSD).
 
 - Support multiple architectures
 

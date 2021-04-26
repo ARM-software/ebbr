@@ -10,8 +10,8 @@
    <http://www.uefi.org/sites/default/files/resources/ACPI%206_2_A_Sept29.pdf>`_,
    September 2017, `UEFI Forum <http://www.uefi.org>`_
 
-.. [DTSPEC] `Devicetree specification v0.2
-   <https://github.com/devicetree-org/devicetree-specification/releases/tag/v0.2>`_,
+.. [DTSPEC] `Devicetree specification v0.3
+   <https://github.com/devicetree-org/devicetree-specification/releases/tag/v0.3>`_,
    `Devicetree.org <https://devicetree.org>`_
 
 .. [LINUXA64BOOT] `Linux Documentation/arm64/booting.rst

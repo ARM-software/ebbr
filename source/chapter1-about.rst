@@ -158,6 +158,8 @@ easily meet the stricter BBR requirements.
 By definition, all BBR compliant systems are also EBBR compliant, but the
 converse is not true.
 
+This specification is referenced by RISC-V platform specification [RVPLTSPEC]_.
+
 Conventions Used in this Document
 =================================
 
@@ -252,3 +254,48 @@ AARCH64
       Secure Monitor Exception level on AArch64. The Exception level that is used to
       execute Secure Monitor code, which handles the transitions between
       Non-secure and Secure states.  EL3 is always in Secure state.
+
+RISC-V
+------
+
+.. glossary::
+
+   HART
+      Hardware thread in RISC-V. This is the hardware execution context that contains
+      all the state mandated by the ISA.
+
+   HSM
+      Hart State Management (HSM) is an SBI extension that enables the supervisor
+      mode software to implement ordered booting.
+
+   HS Mode
+      Hypervisor-extended-supervisor mode which virtualizes the supervisor mode.
+
+   M Mode
+      Machine mode is the most secure and privileged mode in RISC-V.
+
+   RISC-V
+      An open standard Instruction Set Architecture (ISA) based on
+      Reduced Instruction Set Architecture (RISC).
+
+   RV32
+      32 bit execution mode in RISC-V.
+
+   RV64
+      64 bit execution mode in RISC-V.
+
+   RISC-V Supervisor Binary Interface (SBI)
+      Supervisor Binary Interface. This is an interface between SEE and supervisor
+      mode in RISC-V.
+
+   SEE
+      Supervisor Execution Environment in RISC-V. This can be M mode or HS mode.
+
+   S Mode
+      Supervisor mode is the next privilege mode after M mode where virtual memory is enabled.
+
+   U Mode
+      User mode is the least privilege mode where user-space application is expected to run.
+
+   VS Mode
+      Virtulized supervisor mode where the guest OS is expected run when hypervisor is enabled.

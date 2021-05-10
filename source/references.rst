@@ -29,3 +29,9 @@
 .. [UEFI] `Unified Extensable Firmware Interface Specification v2.8 Errata A
    <https://uefi.org/sites/default/files/resources/UEFI_Spec_2_8_A_Feb14.pdf>`_,
    February 2020, `UEFI Forum <http://www.uefi.org>`_
+
+.. [RVPLTSPEC] `RISC-V Platform specification <https://github.com/riscv/riscv-platform-specs>`_
+
+.. [RVSBISPEC] `RISC-V Supervisor Binary Interface specification <https://github.com/riscv/riscv-sbi-doc>`_
+
+.. [RVHYPSPEC] `RISC-V ISA Hypervisor extension <https://github.com/riscv/riscv-isa-manual/blob/master/src/hypervisor.tex>`_

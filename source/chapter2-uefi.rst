@@ -209,7 +209,7 @@ Resident UEFI firmware might target a specific privilege level.
 In contrast, UEFI Loaded Images, such as third-party drivers and boot
 applications, must not contain any built-in assumptions that they are to be
 loaded at a given privilege level during boot time since they can, for example,
-legitimately be loaded into either EL1 or EL2 on AArch64.
+legitimately be loaded into either EL1 or EL2 on AArch64 and HS/VS/S mode on RISC-V.
 
 AArch64 Exception Levels
 ------------------------
@@ -231,6 +231,36 @@ Operating System environment, to allow the subsequent booting of a
 UEFI-compliant Operating System.
 In this instance, the UEFI boot-time environment can be provided, as a
 virtualized service, by the hypervisor and not as part of the host firmware.
+
+RISC-V Privilege Levels
+-----------------------
+
+RISC-V doesn't define dedicated privilege levels for hypervisor enabled platforms.
+The supervisor mode becomes HS mode where a hypervisor or a hosting-capable
+operating system runs while the guest OS runs in virtual S mode (VS mode).
+Resident UEFI firmware can be executed in M mode or S/HS mode during POST.
+However, the UEFI images must be loaded in HS or VS mode if virtualization
+is available at OS load time.
+
+UEFI Boot at S mode
+^^^^^^^^^^^^^^^^^^^
+
+Most systems are expected to boot UEFI at S mode as the hypervisor extension
+[RVHYPSPEC]_ is still in draft state.
+
+UEFI Boot at HS mode
+^^^^^^^^^^^^^^^^^^^^
+
+Any platform with hypervisor extension enabled most likely to boot UEFI at HS mode,
+to allow for the installation of a hypervisor or a virtualization aware Operating System.
+
+UEFI Boot at VS mode
+^^^^^^^^^^^^^^^^^^^^
+
+Booting of UEFI at VS mode is employed within a hypervisor hosted Guest Operating System environment,
+to allow the subsequent booting of a UEFI-compliant Operating System.
+In this instance, the UEFI boot-time environment can be provided,
+as a virtualized service, by the hypervisor and not as part of the host firmware.
 
 UEFI Boot Services
 ==================

@@ -178,16 +178,55 @@ Terms and abbreviations
 =======================
 
 This document uses the following terms and abbreviations.
+Generic terms are listed at the beginning of this chapter.
+Architecture specific terms are listed a section for each architecture.
+
+.. glossary::
+
+   EFI Loaded Image
+      An executable image to be run under the UEFI environment,
+      and which uses boot time services.
+
+   UEFI
+      Unified Extensible Firmware Interface.
+
+   UEFI Boot Services
+      Functionality that is provided to UEFI Loaded Images during the UEFI boot
+      process.
+
+   UEFI Runtime Services
+      Functionality that is provided to an Operating System after the
+      ExitBootServices() call.
+
+   Logical Unit (LU)
+      A logical unit (LU) is an externally addressable, independent entity
+      within a device. In the context of storage, a single device may use
+      logical units to provide multiple independent storage areas.
+
+   OEM
+      Original Equipment Manufacturer. In this document, the final device
+      manufacturer.
+
+   SiP
+      Silicon Partner. In this document, the silicon manufacturer.
+
+AARCH32
+-------
+
+.. glossary::
+
+   AArch32
+      Arm 32-bit architectures. AArch32 is a roll up term referring to all
+      32-bit versions of the Arm architecture starting at ARMv4.
+
+AARCH64
+-------
 
 .. glossary::
 
    A64
       The 64-bit Arm instruction set used in AArch64 state.
       All A64 instructions are 32 bits.
-
-   AArch32
-      Arm 32-bit architectures. AArch32 is a roll up term referring to all
-      32-bit versions of the Arm architecture starting at ARMv4.
 
    AArch64 state
       The Arm 64-bit Execution state that uses 64-bit general purpose
@@ -196,10 +235,6 @@ This document uses the following terms and abbreviations.
 
    AArch64
       Execution state provides a single instruction set, A64.
-
-   EFI Loaded Image
-      An executable image to be run under the UEFI environment,
-      and which uses boot time services.
 
    EL0
       The lowest Exception level on AArch64. The Exception level that is used to execute
@@ -217,26 +252,3 @@ This document uses the following terms and abbreviations.
       Secure Monitor Exception level on AArch64. The Exception level that is used to
       execute Secure Monitor code, which handles the transitions between
       Non-secure and Secure states.  EL3 is always in Secure state.
-
-   Logical Unit (LU)
-      A logical unit (LU) is an externally addressable, independent entity
-      within a device. In the context of storage, a single device may use
-      logical units to provide multiple independent storage areas.
-
-   OEM
-      Original Equipment Manufacturer. In this document, the final device
-      manufacturer.
-
-   SiP
-      Silicon Partner. In this document, the silicon manufacturer.
-
-   UEFI
-      Unified Extensible Firmware Interface.
-
-   UEFI Boot Services
-      Functionality that is provided to UEFI Loaded Images during the UEFI boot
-      process.
-
-   UEFI Runtime Services
-      Functionality that is provided to an Operating System after the
-      ExitBootServices() call.

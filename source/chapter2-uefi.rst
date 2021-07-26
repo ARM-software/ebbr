@@ -467,16 +467,13 @@ EBBR platforms are required to implement either an in-band or an out-of-band fir
 If firmware update is performed in-band (firmware on the application processor updates itself),
 then the firmware shall implement the `UpdateCapsule()` runtime service and accept updates in the
 "Firmware Management Protocol Data Capsule Structure" format as described in [UEFI]_ § 23.3,
-"Delivering Capsules Containing Updates to Firmware Management Protocol.  [#FMPNote]_
-Firmware is also required to provide an EFI System Resource Table (ESRT). [UEFI]_ § 23.4
-Every firmware image that can be updated in-band must be described in the ESRT.
+"Delivering Capsules Containing Updates to Firmware Management Protocol."
 
 If firmware update is performed out-of-band (e.g., by an independent Baseboard
 Management Controller (BMC), or firmware is provided by a hypervisor),
 then the platform is not required to implement the `UpdateCapsule()` runtime service.
 
 `UpdateCapsule()` is only required before `ExitBootServices()` is called.
-
 
 .. [#OPTEESupplicant] It is worth noting that OP-TEE has a similar problem
    regarding secure storage.
@@ -488,11 +485,3 @@ then the platform is not required to implement the `UpdateCapsule()` runtime ser
    during runtime services.
 
    https://optee.readthedocs.io/en/latest/architecture/secure_storage.html
-
-.. [#FMPNote] The `UpdateCapsule()` runtime service is expected to be suitable
-   for use by generic firmware update services like fwupd and Windows Update.
-   Both fwupd and Windows Update read the ESRT table to determine what firmware
-   can be updated, and use an EFI helper application to call `UpdateCapsule()`
-   before `ExitBootServices()` is called.
-
-   https://fwupd.org/

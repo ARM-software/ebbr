@@ -7,7 +7,7 @@
 Embedded Base Boot Requirements (EBBR) Specification
 ####################################################
 
-Copyright © 2017-2019 Arm Limited and Contributors.
+Copyright © 2017-2021 Arm Limited and Contributors.
 
 Copyright © 2021 Western Digital Corporation or its affiliates, 2021
 
@@ -69,6 +69,13 @@ Creative Commons, PO Box 1866, Mountain View, CA 94042, USA.
        - Updated firmware shared storage requirements
        - Refined RTC requirements
        - Fixed ResetSystem() to correctly describe failure condition
+   * - 6 Aug 2021
+     - 2.0.1
+     - - Update UEFI version to 2.9
+       - Update Devicetree spec version to v0.3
+       - Add RISC-V platform text
+       - Temporarily drop ESRT requirement
+       - Fix typos
 
 .. toctree::
    :numbered:

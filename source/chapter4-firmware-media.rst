@@ -50,7 +50,7 @@ Partitioning of Shared Storage
 The shared storage device must use the GUID Partition Table (GPT) disk
 layout as defined in [UEFI]_ § 5.3, unless the platform boot sequence is
 fundamentally incompatible with the GPT disk layout.
-In which case, a legacy Master Boot Recored (MBR) must be used.
+In which case, a legacy Master Boot Record (MBR) must be used.
 [#MBRReqExample]_
 
 .. [#MBRReqExample] For example, if the SoC boot ROM requires an MBR to

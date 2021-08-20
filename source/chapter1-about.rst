@@ -67,7 +67,7 @@ ensure that the EBBR requirements are implemented by both projects.
    implement UEFI.
    Tianocore/EDK2 is a full featured UEFI implementation and so should
    automatically be EBBR compliant.
-   U-Boot is the incumbant firmware project for embedded platforms and has
+   U-Boot is the incumbent firmware project for embedded platforms and has
    steadily been adding UEFI compliance since 2016.
 
 The following guiding principles are used while developing the EBBR specification.
@@ -298,4 +298,4 @@ RISC-V
       User mode is the least privilege mode where user-space application is expected to run.
 
    VS Mode
-      Virtulized supervisor mode where the guest OS is expected run when hypervisor is enabled.
+      Virtualized supervisor mode where the guest OS is expected run when hypervisor is enabled.

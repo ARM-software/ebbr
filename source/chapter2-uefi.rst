@@ -456,7 +456,7 @@ to `SetVariable()` need to be performed before calling `ExitBootServices()`.
 
 Even when `SetVariable()` is not supported during runtime services, firmware
 should cache variable names and values in EfiRuntimeServicesData memory so
-that `GetVariable()` and `GetNextVeriableName()` can behave as specified.
+that `GetVariable()` and `GetNextVariableName()` can behave as specified.
 
 Firmware Update
 ---------------

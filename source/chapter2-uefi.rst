@@ -21,6 +21,7 @@ Normally, UEFI compliance would require full compliance with all items listed
 in UEFI § 2.6.
 However, the EBBR target market has a reduced set of requirements,
 and so some UEFI features are omitted as unnecessary.
+Systems that comply with EBBR version 2.0 are expected to publicize their compliance, as specified in `Conformance Profile`_.
 
 Required Elements
 -----------------
@@ -308,6 +309,16 @@ in Flattened Devicetree Blob (DTB) format version 17 or higher as described in
 The DTB must be contained in memory of type EfiACPIReclaimMemory.
 EfiACPIReclaimMemory was chosen to match the recommendation for ACPI
 tables which fulfill the same task as the DTB.
+
+Conformance Profile
+^^^^^^^^^^^^^^^^^^^
+
+.. _Conformance Profile:
+
+A system compliant with EBBR version 2.0 is should provide an
+EFI_CONFORMANCE_PROFILE_TABLE containing at least the
+EFI_CONFORMANCE_PROFILES_EBBR_2_0_GUID profile (as
+defined in [UEFI]_, sub-section EFI_CONFORMANCE_PROFILE_TABLE).
 
 UEFI Secure Boot (Optional)
 ---------------------------

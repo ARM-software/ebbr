@@ -284,6 +284,9 @@ Configuration Tables
 A UEFI system that complies with this specification may provide additional
 tables via the EFI Configuration Table.
 
+System Configuration
+^^^^^^^^^^^^^^^^^^^^
+
 Compliant systems are required to provide one, but not both, of the following
 tables:
 
@@ -297,7 +300,7 @@ mechanism to select either ACPI or Devicetree,
 and must ensure only the selected interface is provided to the OS loader.
 
 Devicetree
-^^^^^^^^^^
+""""""""""
 
 If firmware provides a Devicetree system description then it must be provided
 in Flattened Devicetree Blob (DTB) format version 17 or higher as described in

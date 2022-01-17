@@ -1,0 +1,52 @@
+name: 'EBBR CI Build'
+
+on:
+  push:
+    branches:
+    - '**'
+    tags:
+    - 'v*'
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+
+    - name: 'git describe'
+      run: echo "EBBR_VERSION=$(git describe)" >> $GITHUB_ENV
+
+    - name: 'Install Requirements'
+      run: |
+        sudo apt update
+        sudo apt install python3-pip latexmk libalgorithm-diff-perl texlive texlive-latex-extra texlive-humanities
+        pip3 install --user mako
+        pip3 install --user typing
+        pip3 install --user Sphinx
+
+    - name: 'Build PDF'
+      run: |
+        make latexpdf
+        cp build/latex/ebbr.pdf build/ebbr-${{ env.EBBR_VERSION }}.pdf
+
+    - name: 'Build HTML'
+      run: make html
+
+    - name: 'Build Single HTML'
+      run: make singlehtml
+
+    - name: 'Upload artifacts'
+      uses: actions/upload-artifact@v2
+      with:
+        name: ebbr-${{ env.EBBR_VERSION }}
+        path: |
+          build/ebbr-*.pdf
+          build/html/
+          build/singlehtml/

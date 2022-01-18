@@ -20,8 +20,12 @@ jobs:
       with:
         fetch-depth: 0
 
-    - name: 'git describe'
-      run: echo "EBBR_VERSION=$(git describe)" >> $GITHUB_ENV
+    # checkout@v2 doesn't preserve annotations when fetching the tag
+    # Forcing the tags to be fetched fixes it so the version is correct
+    - name: 'Identify Version'
+      run: |
+        git fetch --force --tags
+        echo "EBBR_VERSION=$(git describe)" >> $GITHUB_ENV
 
     - name: 'Install Debian required packages'
       run: |
@@ -53,3 +57,18 @@ jobs:
           build/ebbr-*.pdf
           build/html/
           build/singlehtml/
+
+    - name: 'Deploy to Github Pages'
+      uses: peaceiris/actions-gh-pages@v3
+      if: ${{ github.ref == 'refs/heads/main' }}
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./build/singlehtml
+
+    - name: 'Publish Release'
+      uses: softprops/action-gh-release@v1
+      if: endsWith(github.ref, env.EBBR_VERSION)
+      with:
+        files: build/ebbr-*.pdf
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

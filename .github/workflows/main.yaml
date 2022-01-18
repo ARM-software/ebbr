@@ -23,10 +23,13 @@ jobs:
     - name: 'git describe'
       run: echo "EBBR_VERSION=$(git describe)" >> $GITHUB_ENV
 
-    - name: 'Install Requirements'
+    - name: 'Install Debian required packages'
       run: |
         sudo apt update
         sudo apt install python3-pip latexmk libalgorithm-diff-perl texlive texlive-latex-extra texlive-humanities
+
+    - name: 'Install Python required packages'
+      run: |
         pip3 install --user mako
         pip3 install --user typing
         pip3 install --user Sphinx

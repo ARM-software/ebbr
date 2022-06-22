@@ -17,6 +17,10 @@ Bibliography
    <https://uefi.org/sites/default/files/resources/ACPI_Spec_6_5_Aug29.pdf>`_,
    August 2022, `UEFI Forum <https://uefi.org/>`_
 
+.. [DEPBOOT] `Dependable Boot Specification version 0.1-alpha.
+   <https://gitlab.com/Linaro/trustedsubstrate/mbfw/uploads/3d0d7d11ca9874dc9115616b418aa330/mbfw.pdf>`_
+   November 2021, `Linaro Limited and contributors <https://www.linaro.org>`_
+
 .. [DTSCHEMA] `Devicetree schema tools v2024.02
    <https://github.com/devicetree-org/dt-schema/releases/tag/v2024.02>`_,
    `Devicetree.org <https://www.devicetree.org/>`_

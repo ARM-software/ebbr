@@ -610,8 +610,9 @@ In-band firmware update
 
 If firmware update is performed in-band (firmware on the application processor
 updates itself), then the firmware shall implement the `UpdateCapsule()` runtime
-service and accept updates in the "Firmware Management Protocol Data Capsule
-Structure" format as described in :UEFI:`23.3`. [#FMPNote]_
+service and accept only authenticated updates in the "Firmware Management
+Protocol Data Capsule Structure" format as described in :UEFI:`23.3`, with
+`IMAGE_ATTRIBUTE_AUTHENTICATION_REQUIRED` set. [#FMPNote]_
 `UpdateCapsule()` is only required before `ExitBootServices()` is called.
 
 .. [#FMPNote] The `UpdateCapsule()` runtime service is expected to be suitable
@@ -621,6 +622,13 @@ Structure" format as described in :UEFI:`23.3`. [#FMPNote]_
    before `ExitBootServices()` is called.
 
    https://fwupd.org/
+
+Firmware is allowed to accept capsules not containing firmware updates in any
+format, with or without authentication. [#SignalingNote]_
+
+.. [#SignalingNote] Capsules not containing firmware updates can be used as a
+   signaling mean between OS and firmware, as described in [DEPBOOT]_ for
+   example.
 
 Firmware is also required to provide an EFI System Resource Table (ESRT) as
 described in :UEFI:`23.4`.

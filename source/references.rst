@@ -19,12 +19,12 @@
    Linux kernel
 
 .. [PSCI] `Power State Coordination Interface Issue C (PSCI v1.0)
-   <https://static.docs.arm.com/den0022/c/DEN0022C_Power_State_Coordination_Interface.pdf>`_
-   30 January 2015, `Arm Limited <http://arm.com>`_
+   <https://developer.arm.com/documentation/den0022/c>`_
+   30 January 2015, `Arm Limited <http://www.arm.com>`_
 
 .. [ArmBBR] `Arm Base Boot Requirements specification Issue F (v1.0)
    <https://developer.arm.com/documentation/den0044/f>`_
-   6 Oct 2020, `Arm Limited <http://arm.com>`_
+   6 Oct 2020, `Arm Limited <http://www.arm.com>`_
 
 .. [UEFI] `Unified Extensible Firmware Interface Specification v2.9
    <https://uefi.org/sites/default/files/resources/UEFI_Spec_2_9_2021_03_18.pdf>`_,

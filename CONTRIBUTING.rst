@@ -61,6 +61,5 @@ then you just add a line saying::
 .. _#ebbr: https://webchat.oftc.net/?channels=%23ebbr&uio=d4
 .. _OFTC: https://www.oftc.net/
 .. _DCO: https://developercertificate.org/
-.. _boot-architecture: https://lists.linaro.org/mailman/listinfo/boot-architecture
-.. _boot-architecture-archive: https://lists.linaro.org/pipermail/boot-architecture
-
+.. _boot-architecture: https://lists.linaro.org/mailman3/lists/boot-architecture.lists.linaro.org/
+.. _boot-architecture-archive: https://lists.linaro.org/archives/list/boot-architecture@lists.linaro.org/

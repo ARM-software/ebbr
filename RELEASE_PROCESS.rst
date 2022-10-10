@@ -51,4 +51,4 @@ Process for tagging releases and pre-releases
 
 3. If the build passes, manually create a release in
    `https://github.com/ARM-software/ebbr/releases` and copy ``ebbr-<version>.pdf``
-   from `https://github.com/glikely-software/ebbr/releases`
+   from `https://github.com/glikely/ebbr/releases`

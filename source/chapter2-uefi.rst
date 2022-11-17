@@ -300,13 +300,16 @@ EFI Conformance Profile Table
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The following GUID in the EFI Conformance Profile Table is used to indicate
-compliance to version 2.0 of the EBBR specification:
+compliance to version 2.0.1 of the EBBR specification:
 
 .. code-block:: c
 
     #define EFI_CONFORMANCE_PROFILE_EBBR_2_0_GUID
     { 0xcce33c35, 0x74ac, 0x4087, \
     { 0xbc, 0xe7, 0x8b, 0x29, 0xb0, 0x2e, 0xeb, 0x27 }}
+
+If the platform advertises an EBBR profile in the EFI Conformance Profile Table,
+then it must be compliant with the corresponding version of this specification.
 
 Devicetree
 ^^^^^^^^^^

@@ -16,7 +16,7 @@ jobs:
 
     steps:
     - name: Checkout
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
       with:
         fetch-depth: 0
 
@@ -54,7 +54,7 @@ jobs:
       run: make singlehtml
 
     - name: 'Upload artifacts'
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       with:
         name: ebbr-${{ env.EBBR_VERSION }}
         path: |

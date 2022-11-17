@@ -10,7 +10,7 @@ platforms.
 UEFI Version
 ============
 
-This document uses version 2.9 of the UEFI specification [UEFI]_.
+This document uses version 2.10 of the UEFI specification [UEFI]_.
 
 UEFI Compliance
 ===============
@@ -462,7 +462,7 @@ If a platform does not implement modifying non-volatile variables with
 then firmware shall return `EFI_UNSUPPORTED` for any call to `SetVariable()`,
 and must advertise that `SetVariable()` isn't available during runtime services
 via the `RuntimeServicesSupported` value in the `EFI_RT_PROPERTIES_TABLE`
-as defined in [UEFI]_ § 4.6.
+as defined in [UEFI]_ § 4.6.2.
 EFI applications can read `RuntimeServicesSupported` to determine if calls
 to `SetVariable()` need to be performed before calling `ExitBootServices()`.
 

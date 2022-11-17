@@ -26,9 +26,9 @@
    <https://developer.arm.com/documentation/den0044/f>`_
    6 Oct 2020, `Arm Limited <http://www.arm.com>`_
 
-.. [UEFI] `Unified Extensible Firmware Interface Specification v2.9
-   <https://uefi.org/sites/default/files/resources/UEFI_Spec_2_9_2021_03_18.pdf>`_,
-   February 2020, `UEFI Forum <http://www.uefi.org>`_
+.. [UEFI] `Unified Extensible Firmware Interface Specification v2.10
+   <https://uefi.org/sites/default/files/resources/UEFI_Spec_2_10_Aug29.pdf>`_,
+   August 2022, `UEFI Forum <http://www.uefi.org>`_
 
 .. [RVPLTSPEC] `RISC-V Platform specification <https://github.com/riscv/riscv-platform-specs>`_
 

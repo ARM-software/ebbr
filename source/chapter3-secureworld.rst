@@ -33,6 +33,3 @@ RISC-V Multiprocessor Startup Protocol
 The resident firmware in M mode or hypervisor running in HS mode must implement
 and conform to at least SBI [RVSBISPEC]_ v0.2 with HART State Management(HSM)
 extension for both RV32 and RV64.
-The firmware must also provide a devicetree containing a ``boot-hartid`` property
-under the ``/chosen`` node before jumping to a UEFI application.
-This property must indicate the id of the booting HART.

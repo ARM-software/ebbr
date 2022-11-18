@@ -32,8 +32,7 @@ import subprocess
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
-extensions = ['sphinx.ext.todo',
-    'sphinx.ext.githubpages']
+extensions = ['sphinx.ext.todo', 'sphinx.ext.githubpages']
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -58,8 +57,9 @@ author = 'Arm Limited and Contributors'
 #
 # The short X.Y version.
 try:
-    version = str(subprocess.check_output(["git", "describe", "--dirty"]), 'utf-8').strip()
-except:
+    version = str(subprocess.check_output(
+                    ["git", "describe", "--dirty"]), 'utf-8').strip()
+except Exception:
     version = "unknown-rev"
 # The full version, including alpha/beta/rc tags.
 release = version
@@ -133,7 +133,11 @@ latex_elements = {
 
 # Release numbers with a qualifier (ex. '-rc', '-pre') get a watermark.
 if '-' in release:
-    latex_elements['preamble'] += '\\usepackage{draftwatermark}\\SetWatermarkScale{.45}\\SetWatermarkText{%s}' % (release)
+    latex_elements['preamble'] += r'''
+        \usepackage{draftwatermark}
+        \SetWatermarkScale{.45}
+        \SetWatermarkText{%s}
+        ''' % (release)
 
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title,
@@ -161,6 +165,3 @@ texinfo_documents = [
     (master_doc, 'EBBR', project, author, 'EBBR',
      'One line description of project.', 'Miscellaneous'),
 ]
-
-
-

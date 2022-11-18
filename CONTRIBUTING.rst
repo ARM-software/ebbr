@@ -7,6 +7,7 @@ https://github.com/ARM-software/ebbr
 Anyone may contribute to the EBBR project.
 Contributions are licensed under CC-BY-SA-4.0_ and must be made with a
 Developer Certificate of Origin (DCO_) attestation as described below.
+It is recommended to run ``make check`` before sending patches.
 
 EBBR discussion uses the boot-architecture_ mailing list.
 

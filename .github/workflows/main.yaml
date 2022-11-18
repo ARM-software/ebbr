@@ -39,8 +39,8 @@ jobs:
           pip3 install --user typing
           pip3 install --user Sphinx
 
-      - name: 'Check links'
-        run: make linkcheck
+      - name: 'Check'
+        run: make check
 
       - name: 'Build PDF'
         run: |

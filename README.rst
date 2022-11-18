@@ -103,6 +103,10 @@ To generate a single HTML page::
 
 Output goes in ``./build`` subdirectory.
 
+To run verifications on this repository::
+
+  $ make check
+
 To get some help on the available targets::
 
   $ make help

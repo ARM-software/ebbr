@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>Embedded Base Boot Requirements (EBBR) Specification v2.0.1-19-gc8b25ef documentation</title>
+    <title>Embedded Base Boot Requirements (EBBR) Specification v2.1.0-pre1 documentation</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
@@ -128,6 +128,20 @@ runtime services</p></li>
 <li><p>Add RISC-V platform text</p></li>
 <li><p>Temporarily drop ESRT requirement</p></li>
 <li><p>Fix typos</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><p>21 Nov 2022</p></td>
+<td><p>2.1.0-pre1</p></td>
+<td><ul class="simple">
+<li><p>Restore ESRT requirement when capsule update is implemented</p></li>
+<li><p>Update UEFI version to 2.10</p></li>
+<li><p>Add an EFI Conformance Profile for EBBR v2.1.x</p></li>
+<li><p>Drop requirement on now-ignored RISC-V boot-hartid</p></li>
+<li><p>Update ACPI version to 6.4</p></li>
+<li><p>Update PSCI version to issue D.b (v1.1)</p></li>
+<li><p>Update BBR version to issue G (v2.0)</p></li>
+<li><p>Fix typos and spelling</p></li>
 </ul>
 </td>
 </tr>
@@ -738,14 +752,23 @@ and must ensure only the selected interface is provided to the OS loader.</p>
 <section id="efi-conformance-profile-table">
 <h5><span class="section-number">2.4.2.1. </span>EFI Conformance Profile Table<a class="headerlink" href="#efi-conformance-profile-table" title="Permalink to this heading">¶</a></h5>
 <p>The following GUID in the EFI Conformance Profile Table is used to indicate
-compliance to version 2.0.1 of the EBBR specification:</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define EFI_CONFORMANCE_PROFILE_EBBR_2_0_GUID</span>
+compliance to version 2.1.x of the EBBR specification:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define EFI_CONFORMANCE_PROFILE_EBBR_2_1_GUID</span>
 <span class="p">{</span><span class="w"> </span><span class="mh">0xcce33c35</span><span class="p">,</span><span class="w"> </span><span class="mh">0x74ac</span><span class="p">,</span><span class="w"> </span><span class="mh">0x4087</span><span class="p">,</span><span class="w"> </span>\
 <span class="p">{</span><span class="w"> </span><span class="mh">0xbc</span><span class="p">,</span><span class="w"> </span><span class="mh">0xe7</span><span class="p">,</span><span class="w"> </span><span class="mh">0x8b</span><span class="p">,</span><span class="w"> </span><span class="mh">0x29</span><span class="p">,</span><span class="w"> </span><span class="mh">0xb0</span><span class="p">,</span><span class="w"> </span><span class="mh">0x2e</span><span class="p">,</span><span class="w"> </span><span class="mh">0xeb</span><span class="p">,</span><span class="w"> </span><span class="mh">0x27</span><span class="w"> </span><span class="p">}}</span><span class="w"></span>
 </pre></div>
 </div>
 <p>If the platform advertises an EBBR profile in the EFI Conformance Profile Table,
-then it must be compliant with the corresponding version of this specification.</p>
+then it must be compliant with the corresponding version(s) of this
+specification [#VersionsNote].</p>
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="versionsnote" role="note">
+<span class="label"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></span>
+<p>This specification follows semantic versioning. As such,
+versions of this specification differing only by their last digit (or “patch
+number”) are expected to be compatible.</p>
+</aside>
+</aside>
 </section>
 <section id="devicetree">
 <h5><span class="section-number">2.4.2.2. </span>Devicetree<a class="headerlink" href="#devicetree" title="Permalink to this heading">¶</a></h5>
@@ -900,7 +923,7 @@ access storage after <cite>ExitBootServices()</cite> is called.</p>
 <p>e.g., If firmware accesses an eMMC device directly at runtime, it will
 collide with transactions initiated by the OS.
 Neither U-Boot nor Tianocore have a generic solution for accessing or updating
-variables stored on shared media. <a class="footnote-reference brackets" href="#opteesupplicant" id="id11" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a></p>
+variables stored on shared media. <a class="footnote-reference brackets" href="#opteesupplicant" id="id11" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a></p>
 <p>If a platform does not implement modifying non-volatile variables with
 <cite>SetVariable()</cite> after <cite>ExitBootServices()</cite>,
 then firmware shall return <cite>EFI_UNSUPPORTED</cite> for any call to <cite>SetVariable()</cite>,
@@ -920,7 +943,7 @@ EBBR platforms are required to implement either an in-band or an out-of-band fir
 <p>If firmware update is performed in-band (firmware on the application processor updates itself),
 then the firmware shall implement the <cite>UpdateCapsule()</cite> runtime service and accept updates in the
 “Firmware Management Protocol Data Capsule Structure” format as described in <a class="reference internal" href="index.html#uefi" id="id13"><span>[UEFI]</span></a> § 23.3,
-“Delivering Capsules Containing Updates to Firmware Management Protocol.  <a class="footnote-reference brackets" href="#fmpnote" id="id14" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>
+“Delivering Capsules Containing Updates to Firmware Management Protocol.  <a class="footnote-reference brackets" href="#fmpnote" id="id14" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a>
 Firmware is also required to provide an EFI System Resource Table (ESRT). <a class="reference internal" href="index.html#uefi" id="id15"><span>[UEFI]</span></a> § 23.4
 Every firmware image that can be updated in-band must be described in the ESRT.</p>
 <p>If firmware update is performed out-of-band (e.g., by an independent Baseboard
@@ -930,7 +953,7 @@ service and it is not required to provide an ESRT.</p>
 <p><cite>UpdateCapsule()</cite> is only required before <cite>ExitBootServices()</cite> is called.</p>
 <aside class="footnote-list brackets">
 <aside class="footnote brackets" id="opteesupplicant" role="note">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id11">1</a><span class="fn-bracket">]</span></span>
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id11">2</a><span class="fn-bracket">]</span></span>
 <p>It is worth noting that OP-TEE has a similar problem
 regarding secure storage.
 OP-TEE’s chosen solution is to rely on an OS supplicant agent to perform
@@ -942,7 +965,7 @@ during runtime services.</p>
 <p><a class="reference external" href="https://optee.readthedocs.io/en/latest/architecture/secure_storage.html">https://optee.readthedocs.io/en/latest/architecture/secure_storage.html</a></p>
 </aside>
 <aside class="footnote brackets" id="fmpnote" role="note">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id14">2</a><span class="fn-bracket">]</span></span>
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id14">3</a><span class="fn-bracket">]</span></span>
 <p>The <cite>UpdateCapsule()</cite> runtime service is expected to be suitable
 for use by generic firmware update services like fwupd and Windows Update.
 Both fwupd and Windows Update read the ESRT table to determine what firmware

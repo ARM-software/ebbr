@@ -76,6 +76,16 @@ Creative Commons, PO Box 1866, Mountain View, CA 94042, USA.
        - Add RISC-V platform text
        - Temporarily drop ESRT requirement
        - Fix typos
+   * - 21 Nov 2022
+     - 2.1.0-pre1
+     - - Restore ESRT requirement when capsule update is implemented
+       - Update UEFI version to 2.10
+       - Add an EFI Conformance Profile for EBBR v2.1.x
+       - Drop requirement on now-ignored RISC-V boot-hartid
+       - Update ACPI version to 6.4
+       - Update PSCI version to issue D.b (v1.1)
+       - Update BBR version to issue G (v2.0)
+       - Fix typos and spelling
 
 .. toctree::
    :numbered:

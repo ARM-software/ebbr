@@ -86,6 +86,9 @@ Creative Commons, PO Box 1866, Mountain View, CA 94042, USA.
        - Update PSCI version to issue D.b (v1.1)
        - Update BBR version to issue G (v2.0)
        - Fix typos and spelling
+   * - 22 Nov 2022
+     -
+     - - Add RISCV_EFI_BOOT_PROTOCOL requirement
 
 .. toctree::
    :numbered:

@@ -104,6 +104,8 @@ All of the following UEFI elements are required for EBBR compliance.
      - Required if the platform has a network device.
    * - HTTP Boot (UEFI § 24.7)
      - Required if the platform supports network booting
+   * - `RISCV_EFI_BOOT_PROTOCOL` [RVUEFI]_
+     - Required on RISC-V platforms
 
 The following table is a list of notable deviations from UEFI § 2.6.2.
 Many of these deviations are because the EBBR use cases do not require

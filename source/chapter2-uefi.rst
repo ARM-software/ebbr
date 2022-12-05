@@ -310,7 +310,7 @@ compliance to version 2.1.x of the EBBR specification:
 
 If the platform advertises an EBBR profile in the EFI Conformance Profile Table,
 then it must be compliant with the corresponding version(s) of this
-specification [#VersionsNote].
+specification [#VersionsNote]_.
 
 .. [#VersionsNote] This specification follows semantic versioning. As such,
    versions of this specification differing only by their last digit (or "patch

@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>Embedded Base Boot Requirements (EBBR) Specification v2.1.0-pre1 documentation</title>
+    <title>Embedded Base Boot Requirements (EBBR) Specification v2.1.0-pre1-1-g2054ffe documentation</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
@@ -753,9 +753,9 @@ and must ensure only the selected interface is provided to the OS loader.</p>
 <h5><span class="section-number">2.4.2.1. </span>EFI Conformance Profile Table<a class="headerlink" href="#efi-conformance-profile-table" title="Permalink to this heading">¶</a></h5>
 <p>The following GUID in the EFI Conformance Profile Table is used to indicate
 compliance to version 2.1.x of the EBBR specification:</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define EFI_CONFORMANCE_PROFILE_EBBR_2_1_GUID</span>
-<span class="p">{</span><span class="w"> </span><span class="mh">0xcce33c35</span><span class="p">,</span><span class="w"> </span><span class="mh">0x74ac</span><span class="p">,</span><span class="w"> </span><span class="mh">0x4087</span><span class="p">,</span><span class="w"> </span>\
-<span class="p">{</span><span class="w"> </span><span class="mh">0xbc</span><span class="p">,</span><span class="w"> </span><span class="mh">0xe7</span><span class="p">,</span><span class="w"> </span><span class="mh">0x8b</span><span class="p">,</span><span class="w"> </span><span class="mh">0x29</span><span class="p">,</span><span class="w"> </span><span class="mh">0xb0</span><span class="p">,</span><span class="w"> </span><span class="mh">0x2e</span><span class="p">,</span><span class="w"> </span><span class="mh">0xeb</span><span class="p">,</span><span class="w"> </span><span class="mh">0x27</span><span class="w"> </span><span class="p">}}</span><span class="w"></span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define EFI_CONFORMANCE_PROFILE_EBBR_2_1_GUID \</span>
+<span class="cp">{ 0xcce33c35, 0x74ac, 0x4087, \</span>
+<span class="cp">{ 0xbc, 0xe7, 0x8b, 0x29, 0xb0, 0x2e, 0xeb, 0x27 }}</span>
 </pre></div>
 </div>
 <p>If the platform advertises an EBBR profile in the EFI Conformance Profile Table,

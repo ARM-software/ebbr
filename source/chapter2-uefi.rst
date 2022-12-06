@@ -323,7 +323,23 @@ Devicetree
 
 If firmware provides a Devicetree system description then it must be provided
 in Flattened Devicetree Blob (DTB) format version 17 or higher as described in
-[DTSPEC]_ § 5.1.
+[DTSPEC]_ § 5.
+The DTB Nodes and Properties must be compliant with the requirements listed in
+[DTSPEC]_ § 3 & 4 and with the requirements listed in the following table, which
+take precedence.
+
+.. list-table:: DTB Nodes and Properties requirements
+   :widths: 50 50
+   :header-rows: 1
+
+   * - Name
+     - Requirement
+   * - `/chosen`
+     - This Node is required. ([DTSPEC]_ § 3.5)
+   * - `/chosen/stdout-path`
+     - This Property is required. It is necessary for console output.
+       ([DTSPEC]_ § 3.5)
+
 The DTB must be contained in memory of type EfiACPIReclaimMemory.
 EfiACPIReclaimMemory was chosen to match the recommendation for ACPI
 tables which fulfill the same task as the DTB.

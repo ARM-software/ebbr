@@ -8,11 +8,11 @@
 
 .. [ACPI] `Advanced Configuration and Power Interface specification v6.4
    <https://uefi.org/sites/default/files/resources/ACPI_Spec_6_4_Jan22.pdf>`_,
-   January 2022, `UEFI Forum <http://www.uefi.org>`_
+   January 2022, `UEFI Forum <https://uefi.org/>`_
 
 .. [DTSPEC] `Devicetree specification v0.3
    <https://github.com/devicetree-org/devicetree-specification/releases/tag/v0.3>`_,
-   `Devicetree.org <https://devicetree.org>`_
+   `Devicetree.org <https://www.devicetree.org/>`_
 
 .. [LINUXA64BOOT] `Linux Documentation/arm64/booting.rst
    <https://www.kernel.org/doc/html/latest/arm64/booting.html>`_,
@@ -20,19 +20,20 @@
 
 .. [PSCI] `Arm Power State Coordination Interface issue D.b (PSCI v1.1).
    <https://developer.arm.com/documentation/den0022/db>`_
-   June 2021, `Arm Limited <http://www.arm.com>`_
+   June 2021, `Arm Limited <https://www.arm.com/>`_
 
 .. [ArmBBR] `Arm Base Boot Requirements specification Issue G (v2.0)
    <https://developer.arm.com/documentation/den0044/g>`_
-   15 Apr 2022, `Arm Limited <http://www.arm.com>`_
+   15 Apr 2022, `Arm Limited <https://www.arm.com/>`_
 
 .. [UEFI] `Unified Extensible Firmware Interface Specification v2.10
    <https://uefi.org/sites/default/files/resources/UEFI_Spec_2_10_Aug29.pdf>`_,
-   August 2022, `UEFI Forum <http://www.uefi.org>`_
+   August 2022, `UEFI Forum <https://uefi.org/>`_
 
 .. [RVPLTSPEC] `RISC-V Platform specification <https://github.com/riscv/riscv-platform-specs>`_
 
-.. [RVSBISPEC] `RISC-V Supervisor Binary Interface specification <https://github.com/riscv/riscv-sbi-doc>`_
+.. [RVSBISPEC] `RISC-V Supervisor Binary Interface specification
+   <https://github.com/riscv-non-isa/riscv-sbi-doc>`_
 
 .. [RVHYPSPEC] `RISC-V ISA Hypervisor extension <https://github.com/riscv/riscv-isa-manual/blob/master/src/hypervisor.tex>`_
 

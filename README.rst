@@ -2,8 +2,9 @@
 Embedded Base Boot Requirements (EBBR) specification
 ####################################################
 
-.. image:: https://travis-ci.org/glikely/ebbr.svg?branch=upstream
-    :target: https://travis-ci.org/glikely/ebbr
+.. image:: https://github.com/ARM-software/ebbr/actions/workflows/main.yaml/badge.svg?branch=main
+    :target: https://github.com/ARM-software/ebbr
+
 
 The Embedded Base Boot Requirements specification defines requirements
 for embedded systems to enable inter-operability between SoCs, hardware

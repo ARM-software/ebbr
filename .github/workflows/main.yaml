@@ -20,8 +20,11 @@ jobs:
       with:
         fetch-depth: 0
 
+    # checkout@v3 doesn't preserve annotations when fetching the tag
+    # Forcing the tags to be fetched fixes it so the version is correct
     - name: 'Identify Version'
       run: |
+        git fetch --force --tags
         echo "EBBR_VERSION=$(git describe)" >> $GITHUB_ENV
 
     - name: 'Install Debian required packages'

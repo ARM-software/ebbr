@@ -12,7 +12,7 @@ The OS is expected to use platform specific drivers for CPU power management.
 Firmware must advertize the CPU power management mechanism in the Devicetree
 system description or the ACPI tables so that the OS can enable the correct
 driver.
-At ExitBootServices() time, all secondary CPUs must be parked or powered off.
+At `ExitBootServices()` time, all secondary CPUs must be parked or powered off.
 
 AArch64 Multiprocessor Startup Protocol
 =======================================

@@ -49,7 +49,7 @@ Creative Commons, PO Box 1866, Mountain View, CA 94042, USA.
          Linaro Connect YVR18
    * - 12 Mar 2019
      - 0.8
-     - - Update language around SetVariable() and what is available during
+     - - Update language around `SetVariable()` and what is available during
          runtime services
        - Editorial changes preparing for v1.0
    * - 31 Mar 2019
@@ -65,10 +65,10 @@ Creative Commons, PO Box 1866, Mountain View, CA 94042, USA.
    * - 23 Apr 2021
      - 2.0.0
      - - Reduce the number of UEFI required elements needed for compliance.
-       - Add requirement for UpdateCapsule() runtime service.
+       - Add requirement for `UpdateCapsule()` runtime service.
        - Updated firmware shared storage requirements
        - Refined RTC requirements
-       - Fixed ResetSystem() to correctly describe failure condition
+       - Fixed `ResetSystem()` to correctly describe failure condition
    * - 6 Aug 2021
      - 2.0.1
      - - Update UEFI version to 2.9
@@ -82,7 +82,7 @@ Creative Commons, PO Box 1866, Mountain View, CA 94042, USA.
        - Update UEFI version to 2.10
        - Add an EFI Conformance Profile for EBBR v2.1.x
        - Drop requirement on now-ignored RISC-V boot-hartid and add
-         RISCV_EFI_BOOT_PROTOCOL requirement
+         `RISCV_EFI_BOOT_PROTOCOL` requirement
        - Update ACPI version to 6.4
        - Update PSCI version to issue D.b (v1.1)
        - Update BBR version to issue G (v2.0)

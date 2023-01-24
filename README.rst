@@ -94,7 +94,7 @@ To generate a single HTML page::
 
   $ make singlehtml
 
-Output goes in `./build` subdirectory.
+Output goes in ``./build`` subdirectory.
 
 License
 =======

@@ -23,7 +23,7 @@ This specification is intended to be OS-neutral.
 
 It leverages the prevalent industry standard firmware specification of [UEFI]_.
 
-Comments or change requests can be sent to `boot-architecture@lists.linaro.org`.
+Comments or change requests can be sent to boot-architecture@lists.linaro.org.
 
 Guiding Principles
 ==================
@@ -167,6 +167,20 @@ The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD",
 "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be
 interpreted as described in :rfc:`2119`.
 
+Typographic conventions
+-----------------------
+
+This document uses the following typographic conventions:
+
+`Italic`
+
+	An `italic` typeface is used for identifiers such as UEFI tables,
+	variables, protocols, memory types and functions names.
+
+``Monospace``
+
+	A ``monospace`` typeface is used for file paths and Devicetree nodes.
+
 Cross References
 ================
 This document cross-references sources that are listed in the References
@@ -198,7 +212,7 @@ Architecture specific terms are listed a section for each architecture.
 
    UEFI Runtime Services
       Functionality that is provided to an Operating System after the
-      ExitBootServices() call.
+      `ExitBootServices()` call.
 
    Logical Unit (LU)
       A logical unit (LU) is an externally addressable, independent entity

@@ -187,7 +187,7 @@ Variables as found in [UEFI]_ § 3.3.
    * - `BootOrder`
      - An ordered list of boot options.
        Firmware will try `BootNext` and each `Boot####` entry in the
-       order given by BootOrder to find the first bootable image.
+       order given by `BootOrder` to find the first bootable image.
    * - `OsIndications`
      - Method for OS to request features from firmware
    * - `OsIndicationsSupported`
@@ -334,14 +334,14 @@ take precedence.
 
    * - Name
      - Requirement
-   * - `/chosen`
+   * - ``/chosen``
      - This Node is required. ([DTSPEC]_ § 3.5)
-   * - `/chosen/stdout-path`
+   * - ``/chosen/stdout-path``
      - This Property is required. It is necessary for console output.
        ([DTSPEC]_ § 3.5)
 
-The DTB must be contained in memory of type EfiACPIReclaimMemory.
-EfiACPIReclaimMemory was chosen to match the recommendation for ACPI
+The DTB must be contained in memory of type `EfiACPIReclaimMemory`.
+`EfiACPIReclaimMemory` was chosen to match the recommendation for ACPI
 tables which fulfill the same task as the DTB.
 
 UEFI Secure Boot (Optional)
@@ -493,7 +493,7 @@ EFI applications can read `RuntimeServicesSupported` to determine if calls
 to `SetVariable()` need to be performed before calling `ExitBootServices()`.
 
 Even when `SetVariable()` is not supported during runtime services, firmware
-should cache variable names and values in EfiRuntimeServicesData memory so
+should cache variable names and values in `EfiRuntimeServicesData` memory so
 that `GetVariable()` and `GetNextVariableName()` can behave as specified.
 
 Firmware Update

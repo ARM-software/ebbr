@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>Embedded Base Boot Requirements (EBBR) Specification v2.1.0-2-g36d512b documentation</title>
+    <title>Embedded Base Boot Requirements (EBBR) Specification v2.1.0-3-g4d87d7c documentation</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
@@ -82,7 +82,7 @@ Linaro Connect YVR18</p></li>
 <tr class="row-odd"><td><p>12 Mar 2019</p></td>
 <td><p>0.8</p></td>
 <td><ul class="simple">
-<li><p>Update language around SetVariable() and what is available during
+<li><p>Update language around <cite>SetVariable()</cite> and what is available during
 runtime services</p></li>
 <li><p>Editorial changes preparing for v1.0</p></li>
 </ul>
@@ -110,10 +110,10 @@ runtime services</p></li>
 <td><p>2.0.0</p></td>
 <td><ul class="simple">
 <li><p>Reduce the number of UEFI required elements needed for compliance.</p></li>
-<li><p>Add requirement for UpdateCapsule() runtime service.</p></li>
+<li><p>Add requirement for <cite>UpdateCapsule()</cite> runtime service.</p></li>
 <li><p>Updated firmware shared storage requirements</p></li>
 <li><p>Refined RTC requirements</p></li>
-<li><p>Fixed ResetSystem() to correctly describe failure condition</p></li>
+<li><p>Fixed <cite>ResetSystem()</cite> to correctly describe failure condition</p></li>
 </ul>
 </td>
 </tr>
@@ -135,7 +135,7 @@ runtime services</p></li>
 <li><p>Update UEFI version to 2.10</p></li>
 <li><p>Add an EFI Conformance Profile for EBBR v2.1.x</p></li>
 <li><p>Drop requirement on now-ignored RISC-V boot-hartid and add
-RISCV_EFI_BOOT_PROTOCOL requirement</p></li>
+<cite>RISCV_EFI_BOOT_PROTOCOL</cite> requirement</p></li>
 <li><p>Update ACPI version to 6.4</p></li>
 <li><p>Update PSCI version to issue D.b (v1.1)</p></li>
 <li><p>Update BBR version to issue G (v2.0)</p></li>
@@ -165,7 +165,7 @@ The requirements in this specification are expected to be minimal yet complete,
 while leaving plenty of room for innovations and design details.
 This specification is intended to be OS-neutral.</p>
 <p>It leverages the prevalent industry standard firmware specification of <a class="reference internal" href="index.html#uefi" id="id1"><span>[UEFI]</span></a>.</p>
-<p>Comments or change requests can be sent to <cite>boot-architecture&#64;lists.linaro.org</cite>.</p>
+<p>Comments or change requests can be sent to <a class="reference external" href="mailto:boot-architecture&#37;&#52;&#48;lists&#46;linaro&#46;org">boot-architecture<span>&#64;</span>lists<span>&#46;</span>linaro<span>&#46;</span>org</a>.</p>
 </section>
 <section id="guiding-principles">
 <h3><span class="section-number">1.2. </span>Guiding Principles<a class="headerlink" href="#guiding-principles" title="Permalink to this heading">¶</a></h3>
@@ -300,6 +300,19 @@ converse is not true.</p>
 <p>The key words “MUST”, “MUST NOT”, “REQUIRED”, “SHALL”, “SHALL NOT”, “SHOULD”,
 “SHOULD NOT”, “RECOMMENDED”, “MAY”, and “OPTIONAL” in this document are to be
 interpreted as described in <span class="target" id="index-0"></span><a class="rfc reference external" href="https://datatracker.ietf.org/doc/html/rfc2119.html"><strong>RFC 2119</strong></a>.</p>
+<section id="typographic-conventions">
+<h4><span class="section-number">1.4.1. </span>Typographic conventions<a class="headerlink" href="#typographic-conventions" title="Permalink to this heading">¶</a></h4>
+<p>This document uses the following typographic conventions:</p>
+<p><cite>Italic</cite></p>
+<blockquote>
+<div><p>An <cite>italic</cite> typeface is used for identifiers such as UEFI tables,
+variables, protocols, memory types and functions names.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">Monospace</span></code></p>
+<blockquote>
+<div><p>A <code class="docutils literal notranslate"><span class="pre">monospace</span></code> typeface is used for file paths and Devicetree nodes.</p>
+</div></blockquote>
+</section>
 </section>
 <section id="cross-references">
 <h3><span class="section-number">1.5. </span>Cross References<a class="headerlink" href="#cross-references" title="Permalink to this heading">¶</a></h3>
@@ -323,7 +336,7 @@ and which uses boot time services.</p>
 process.</p>
 </dd>
 <dt id="term-UEFI-Runtime-Services">UEFI Runtime Services<a class="headerlink" href="#term-UEFI-Runtime-Services" title="Permalink to this term">¶</a></dt><dd><p>Functionality that is provided to an Operating System after the
-ExitBootServices() call.</p>
+<cite>ExitBootServices()</cite> call.</p>
 </dd>
 <dt id="term-Logical-Unit-LU">Logical Unit (LU)<a class="headerlink" href="#term-Logical-Unit-LU" title="Permalink to this term">¶</a></dt><dd><p>A logical unit (LU) is an externally addressable, independent entity
 within a device. In the context of storage, a single device may use
@@ -652,7 +665,7 @@ Variables as found in <a class="reference internal" href="index.html#uefi" id="i
 <tr class="row-odd"><td><p><cite>BootOrder</cite></p></td>
 <td><p>An ordered list of boot options.
 Firmware will try <cite>BootNext</cite> and each <cite>Boot####</cite> entry in the
-order given by BootOrder to find the first bootable image.</p></td>
+order given by <cite>BootOrder</cite> to find the first bootable image.</p></td>
 </tr>
 <tr class="row-even"><td><p><cite>OsIndications</cite></p></td>
 <td><p>Method for OS to request features from firmware</p></td>
@@ -793,17 +806,17 @@ take precedence.</p>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p><cite>/chosen</cite></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">/chosen</span></code></p></td>
 <td><p>This Node is required. (<a class="reference internal" href="index.html#dtspec" id="id13"><span>[DTSPEC]</span></a> § 3.5)</p></td>
 </tr>
-<tr class="row-odd"><td><p><cite>/chosen/stdout-path</cite></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">/chosen/stdout-path</span></code></p></td>
 <td><p>This Property is required. It is necessary for console output.
 (<a class="reference internal" href="index.html#dtspec" id="id14"><span>[DTSPEC]</span></a> § 3.5)</p></td>
 </tr>
 </tbody>
 </table>
-<p>The DTB must be contained in memory of type EfiACPIReclaimMemory.
-EfiACPIReclaimMemory was chosen to match the recommendation for ACPI
+<p>The DTB must be contained in memory of type <cite>EfiACPIReclaimMemory</cite>.
+<cite>EfiACPIReclaimMemory</cite> was chosen to match the recommendation for ACPI
 tables which fulfill the same task as the DTB.</p>
 </section>
 </section>
@@ -960,7 +973,7 @@ as defined in <a class="reference internal" href="index.html#uefi" id="id17"><sp
 EFI applications can read <cite>RuntimeServicesSupported</cite> to determine if calls
 to <cite>SetVariable()</cite> need to be performed before calling <cite>ExitBootServices()</cite>.</p>
 <p>Even when <cite>SetVariable()</cite> is not supported during runtime services, firmware
-should cache variable names and values in EfiRuntimeServicesData memory so
+should cache variable names and values in <cite>EfiRuntimeServicesData</cite> memory so
 that <cite>GetVariable()</cite> and <cite>GetNextVariableName()</cite> can behave as specified.</p>
 </section>
 <section id="firmware-update">
@@ -1014,7 +1027,7 @@ The OS is expected to use platform specific drivers for CPU power management.
 Firmware must advertize the CPU power management mechanism in the Devicetree
 system description or the ACPI tables so that the OS can enable the correct
 driver.
-At ExitBootServices() time, all secondary CPUs must be parked or powered off.</p>
+At <cite>ExitBootServices()</cite> time, all secondary CPUs must be parked or powered off.</p>
 </section>
 <section id="aarch64-multiprocessor-startup-protocol">
 <h3><span class="section-number">3.2. </span>AArch64 Multiprocessor Startup Protocol<a class="headerlink" href="#aarch64-multiprocessor-startup-protocol" title="Permalink to this heading">¶</a></h3>

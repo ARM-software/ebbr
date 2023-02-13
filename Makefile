@@ -17,6 +17,7 @@ help:
 .PHONY: help Makefile check
 
 check:
+	! grep -r --file=.typos.txt --exclude=.typos.txt --exclude-dir=.git
 	$(SPHINXBUILD) -M linkcheck "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
 
 # Catch-all target: route all unknown targets to Sphinx using the new

@@ -122,8 +122,9 @@ latex_elements = {
     # 'pointsize': '10pt',
 
     # Additional stuff for the LaTeX preamble.
-    #
-    # 'preamble': '',
+    'preamble': r'''
+        \usepackage{hyphenat}
+        ''',
 
     # Latex figure (float) alignment
     #
@@ -132,7 +133,7 @@ latex_elements = {
 
 # Release numbers with a qualifier (ex. '-rc', '-pre') get a watermark.
 if '-' in release:
-    latex_elements['preamble'] = '\\usepackage{draftwatermark}\\SetWatermarkScale{.45}\\SetWatermarkText{%s}' % (release)
+    latex_elements['preamble'] += '\\usepackage{draftwatermark}\\SetWatermarkScale{.45}\\SetWatermarkText{%s}' % (release)
 
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title,

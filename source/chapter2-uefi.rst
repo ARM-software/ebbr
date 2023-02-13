@@ -365,6 +365,9 @@ take precedence.
    * - ``/chosen/stdout-path``
      - This Property is required. It is necessary for console output.
        ([DTSPEC]_ § 3.5)
+   * - ``/chosen/efivarfile``
+     - This Property is required when the EFI Variables are stored in a file as
+       detailed in section :ref:`section-efi-vars-file-format`.
 
 The DTB must be contained in memory of type `EfiACPIReclaimMemory`.
 `EfiACPIReclaimMemory` was chosen to match the recommendation for ACPI

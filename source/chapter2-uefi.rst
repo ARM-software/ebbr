@@ -401,7 +401,7 @@ are required to be implemented during boot services and runtime services.
    * - `GetVariable`
      - Required
      - Optional
-   * - `GetNextVeriableName`
+   * - `GetNextVariableName`
      - Required
      - Optional
    * - `SetVariable`

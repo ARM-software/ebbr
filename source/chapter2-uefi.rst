@@ -248,13 +248,13 @@ is available at OS load time.
 UEFI Boot at S mode
 ^^^^^^^^^^^^^^^^^^^
 
-Most systems are expected to boot UEFI at S mode as the hypervisor extension
-[RVHYPSPEC]_ is still in draft state.
+Most systems are expected to boot UEFI at S mode when the hypervisor extension
+is not enabled [RVPRIVSPEC]_.
 
 UEFI Boot at HS mode
 ^^^^^^^^^^^^^^^^^^^^
 
-Any platform with hypervisor extension enabled most likely to boot UEFI at HS mode,
+Any platform supporting the hypervisor extension enabled most likely will boot UEFI at HS mode,
 to allow for the installation of a hypervisor or a virtualization aware Operating System.
 
 UEFI Boot at VS mode

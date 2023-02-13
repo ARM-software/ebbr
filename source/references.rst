@@ -35,6 +35,8 @@
 .. [RVSBISPEC] `RISC-V Supervisor Binary Interface specification
    <https://github.com/riscv-non-isa/riscv-sbi-doc>`_
 
-.. [RVHYPSPEC] `RISC-V ISA Hypervisor extension <https://github.com/riscv/riscv-isa-manual/blob/master/src/hypervisor.tex>`_
+.. [RVPRIVSPEC] `The RISC-V Instruction Set Manual Volume II: Privileged Architecture
+   <https://github.com/riscv/riscv-isa-manual/releases/download/Priv-v1.12/riscv-privileged-20211203.pdf>`_,
+   Version 20211203
 
 .. [RVUEFI] `RISC-V UEFI Protocol Specification <https://github.com/riscv-non-isa/riscv-uefi/releases/download/1.0.0/RISCV_UEFI_PROTOCOL-spec.pdf>`_

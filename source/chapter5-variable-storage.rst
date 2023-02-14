@@ -96,4 +96,6 @@ VariableName
     vendor’s variable.
 
 Data
-    The field contains the value of the variable.
+    The field contains the value of the variable. For authenticated variables
+    that are not time authenticated the *Data* field starts with the
+    authentication header as used by SetVariable().

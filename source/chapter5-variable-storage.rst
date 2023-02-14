@@ -68,7 +68,7 @@ Variable entries
 Each variable is stored as a structure::
 
     typedef struct _EFI_VARIABLE_ENTRY {
-        UINT32          Length;
+        UINT32          DataSize;
         UINT32          Attributes;
         UINT64          TimeStamp;
         EFI_GUID        VendorGuid;
@@ -76,7 +76,7 @@ Each variable is stored as a structure::
         UINT8           Data[];
     } EFI_VARIABLE_ENTRY;
 
-Length
+DataSize
     This field contains the size of the *Data* field in bytes.
 
 Attributes

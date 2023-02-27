@@ -194,6 +194,31 @@ Variables as found in [UEFI]_ § 3.3.
    * - `OsIndicationsSupported`
      - Variable for firmware to indicate which features can be enabled.
 
+.. _section-required-vars-for-on-disk:
+
+Required Variables for capsule update "on disk"
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+When the firmware implements in-band firmware update with `UpdateCapsule()` it
+must support the following Variables to report the status of capsule "on disk"
+processing after restart as found in [UEFI]_ § 8.5.6. [#FWUpNote]_
+
+.. list-table:: UEFI Variables required for capsule update "on disk"
+   :widths: 50 50
+   :header-rows: 1
+
+   * - Variable Name
+     - Description
+   * - `CapsuleNNNN`
+     - Variable for firmware to report capsule processing status after restart.
+       `NNNN` is a numerical hex value.
+   * - `CapsuleMax`
+     - Variable for platform to publish the maximum `CapsuleNNNN` supported.
+   * - `CapsuleLast`
+     - Variable for platform to publish the last `CapsuleNNNN` created.
+
+.. [#FWUpNote] See section :ref:`section-fw-update`.
+
 Block device partitioning
 -------------------------
 
@@ -497,6 +522,8 @@ Even when `SetVariable()` is not supported during runtime services, firmware
 should cache variable names and values in `EfiRuntimeServicesData` memory so
 that `GetVariable()` and `GetNextVariableName()` can behave as specified.
 
+.. _section-fw-update:
+
 Firmware Update
 ---------------
 
@@ -509,6 +536,8 @@ then the firmware shall implement the `UpdateCapsule()` runtime service and acce
 "Delivering Capsules Containing Updates to Firmware Management Protocol".  [#FMPNote]_
 Firmware is also required to provide an EFI System Resource Table (ESRT). [UEFI]_ § 23.4
 Every firmware image that can be updated in-band must be described in the ESRT.
+Firmware must support the delivery of capsules via file on mass storage device
+("on disk") as described in [UEFI]_ § 8.5.5. [#VarNote]_
 
 If firmware update is performed out-of-band (e.g., by an independent Baseboard
 Management Controller (BMC), or firmware is provided by a hypervisor),
@@ -536,3 +565,6 @@ service and it is not required to provide an ESRT.
    before `ExitBootServices()` is called.
 
    https://fwupd.org/
+
+.. [#VarNote] Some Variables are required to support capsule "on disk".
+   See section :ref:`section-required-vars-for-on-disk`.

@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>Embedded Base Boot Requirements (EBBR) Specification v2.1.0-11-g2ef134b documentation</title>
+    <title>Embedded Base Boot Requirements (EBBR) Specification v2.1.0-12-g77d3b09 documentation</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
@@ -1015,6 +1015,20 @@ to <cite>SetVariable()</cite> need to be performed before calling <cite>ExitBoot
 <p>Even when <cite>SetVariable()</cite> is not supported during runtime services, firmware
 should cache variable names and values in <cite>EfiRuntimeServicesData</cite> memory so
 that <cite>GetVariable()</cite> and <cite>GetNextVariableName()</cite> can behave as specified.</p>
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="opteesupplicant" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id18">3</a><span class="fn-bracket">]</span></span>
+<p>It is worth noting that OP-TEE has a similar problem
+regarding secure storage.
+OP-TEE’s chosen solution is to rely on an OS supplicant agent to perform
+storage operations on behalf of OP-TEE.
+The same solution may be applicable to solving the UEFI non-volatile
+variable problem, but it requires additional OS support to work.
+Regardless, EBBR compliance does not require <cite>SetVariable()</cite> support
+during runtime services.</p>
+<p><a class="reference external" href="https://optee.readthedocs.io/en/latest/architecture/secure_storage.html">https://optee.readthedocs.io/en/latest/architecture/secure_storage.html</a></p>
+</aside>
+</aside>
 </section>
 <section id="firmware-update">
 <span id="section-fw-update"></span><h4><span class="section-number">2.5.4. </span>Firmware Update<a class="headerlink" href="#firmware-update" title="Permalink to this heading">¶</a></h4>
@@ -1034,18 +1048,6 @@ then the platform is not required to implement the <cite>UpdateCapsule()</cite> 
 service and it is not required to provide an ESRT.</p>
 <p><cite>UpdateCapsule()</cite> is only required before <cite>ExitBootServices()</cite> is called.</p>
 <aside class="footnote-list brackets">
-<aside class="footnote brackets" id="opteesupplicant" role="note">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id18">3</a><span class="fn-bracket">]</span></span>
-<p>It is worth noting that OP-TEE has a similar problem
-regarding secure storage.
-OP-TEE’s chosen solution is to rely on an OS supplicant agent to perform
-storage operations on behalf of OP-TEE.
-The same solution may be applicable to solving the UEFI non-volatile
-variable problem, but it requires additional OS support to work.
-Regardless, EBBR compliance does not require <cite>SetVariable()</cite> support
-during runtime services.</p>
-<p><a class="reference external" href="https://optee.readthedocs.io/en/latest/architecture/secure_storage.html">https://optee.readthedocs.io/en/latest/architecture/secure_storage.html</a></p>
-</aside>
 <aside class="footnote brackets" id="fmpnote" role="note">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id21">4</a><span class="fn-bracket">]</span></span>
 <p>The <cite>UpdateCapsule()</cite> runtime service is expected to be suitable

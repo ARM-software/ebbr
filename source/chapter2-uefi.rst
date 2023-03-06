@@ -522,6 +522,17 @@ Even when `SetVariable()` is not supported during runtime services, firmware
 should cache variable names and values in `EfiRuntimeServicesData` memory so
 that `GetVariable()` and `GetNextVariableName()` can behave as specified.
 
+.. [#OPTEESupplicant] It is worth noting that OP-TEE has a similar problem
+   regarding secure storage.
+   OP-TEE's chosen solution is to rely on an OS supplicant agent to perform
+   storage operations on behalf of OP-TEE.
+   The same solution may be applicable to solving the UEFI non-volatile
+   variable problem, but it requires additional OS support to work.
+   Regardless, EBBR compliance does not require `SetVariable()` support
+   during runtime services.
+
+   https://optee.readthedocs.io/en/latest/architecture/secure_storage.html
+
 .. _section-fw-update:
 
 Firmware Update
@@ -545,18 +556,6 @@ then the platform is not required to implement the `UpdateCapsule()` runtime
 service and it is not required to provide an ESRT.
 
 `UpdateCapsule()` is only required before `ExitBootServices()` is called.
-
-
-.. [#OPTEESupplicant] It is worth noting that OP-TEE has a similar problem
-   regarding secure storage.
-   OP-TEE's chosen solution is to rely on an OS supplicant agent to perform
-   storage operations on behalf of OP-TEE.
-   The same solution may be applicable to solving the UEFI non-volatile
-   variable problem, but it requires additional OS support to work.
-   Regardless, EBBR compliance does not require `SetVariable()` support
-   during runtime services.
-
-   https://optee.readthedocs.io/en/latest/architecture/secure_storage.html
 
 .. [#FMPNote] The `UpdateCapsule()` runtime service is expected to be suitable
    for use by generic firmware update services like fwupd and Windows Update.

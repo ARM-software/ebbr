@@ -370,6 +370,18 @@ The DTB must be contained in memory of type `EfiACPIReclaimMemory`.
 `EfiACPIReclaimMemory` was chosen to match the recommendation for ACPI
 tables which fulfill the same task as the DTB.
 
+.. _section-misc-boot-services:
+
+Miscellaneous Boot Services
+---------------------------
+
+The platform's monotonic counter is made optional.
+If the platform does not implement the monotonic counter, the
+`GetNextMonotonicCount()` function shall return `EFI_DEVICE_ERROR`. [#MonoNote]_
+
+.. [#MonoNote] `EFI_UNSUPPORTED` is not an allowed status code for
+   `GetNextMonotonicCount()`.
+
 UEFI Secure Boot (Optional)
 ---------------------------
 
@@ -567,3 +579,12 @@ service and it is not required to provide an ESRT.
 
 .. [#VarNote] Some Variables are required to support capsule "on disk".
    See section :ref:`section-required-vars-for-on-disk`.
+
+Miscellaneous Runtime Services
+------------------------------
+
+If the platform does not implement the monotonic counter, it shall not support
+the `GetNextHighMonotonicCount()` runtime service. [#BootNote]_
+
+.. [#BootNote] The platform's monotonic counter is made optional in section
+   :ref:`section-misc-boot-services`.

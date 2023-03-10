@@ -565,6 +565,11 @@ Every firmware image that can be updated in-band must be described in the ESRT.
 Firmware must support the delivery of capsules via file on mass storage device
 ("on disk") as described in [UEFI]_ § 8.5.5. [#VarNote]_
 
+.. note::
+   It is recommended that firmware implementing the `UpdateCapsule()` runtime
+   service and an ESRT also implement the `EFI_FIRMWARE_MANAGEMENT_PROTOCOL`
+   described in [UEFI]_ § 23.1. [#FMProtoNote]_
+
 If firmware update is performed out-of-band (e.g., by an independent Baseboard
 Management Controller (BMC), or firmware is provided by a hypervisor),
 then the platform is not required to implement the `UpdateCapsule()` runtime
@@ -582,6 +587,11 @@ service and it is not required to provide an ESRT.
 
 .. [#VarNote] Some Variables are required to support capsule "on disk".
    See section :ref:`section-required-vars-for-on-disk`.
+
+.. [#FMProtoNote] At the time of writing, both Tianocore/EDK2 and U-Boot are
+   using the `EFI_FIRMWARE_MANAGEMENT_PROTOCOL` internally to support their
+   implementation of the `UpdateCapsule()` runtime service and of the ESRT,
+   as detailed in [UEFI]_ § 23.3 and 23.4 respectively.
 
 Miscellaneous Runtime Services
 ------------------------------

@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>Embedded Base Boot Requirements (EBBR) Specification v2.1.0-13-g0c32b79 documentation</title>
+    <title>Embedded Base Boot Requirements (EBBR) Specification v2.1.0-14-gd5ab59b documentation</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
@@ -853,6 +853,10 @@ take precedence.</p>
 <td><p>This Property is required. It is necessary for console output.
 (<a class="reference internal" href="index.html#dtspec" id="id16"><span>[DTSPEC]</span></a> § 3.5)</p></td>
 </tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">/chosen/efivarfile</span></code></p></td>
+<td><p>This Property is required when the EFI Variables are stored in a file as
+detailed in section <a class="reference internal" href="index.html#section-efi-vars-file-format"><span class="std std-ref">File Format For Storing EFI Variables</span></a>.</p></td>
+</tr>
 </tbody>
 </table>
 <p>The DTB must be contained in memory of type <cite>EfiACPIReclaimMemory</cite>.
@@ -1375,8 +1379,119 @@ firmware files in a dedicated firmware partition.</p>
 </section>
 </section>
 </section>
+<span id="document-chapter5-variable-storage"></span><section id="file-format-for-storing-efi-variables">
+<span id="section-efi-vars-file-format"></span><h2><span class="section-number">5. </span>File Format For Storing EFI Variables<a class="headerlink" href="#file-format-for-storing-efi-variables" title="Permalink to this heading">¶</a></h2>
+<p>Some UEFI enabled devices can only store EFI variables as a file on a block
+device. This implies that at runtime the operating system must manage changes
+to the EFI variable by updating the file.</p>
+<p>This chapter defines a file-format for EFI variables that both the firmware
+and the operating system can rely on.</p>
+<p>The path of the file will be related to the operating system via the Devicetree
+as UTF-8 string <code class="docutils literal notranslate"><span class="pre">/chosen/efivarfile</span></code>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The Devicetree node name and contents are not final at this point and are
+subject to change.</p>
+<p>The string will likely contain a part identifying a filesystem uniquely,
+followed by a comma and followed by a file path in the identified filesystem.
+For example: “UUID=1234:45678,/ubootefi.var”.</p>
+</div>
+<p>All integer fields are stored in little-endian byte order.</p>
+<section id="file-header">
+<h3><span class="section-number">5.1. </span>File header<a class="headerlink" href="#file-header" title="Permalink to this heading">¶</a></h3>
+<p>The following byte sequence is used to identify the file format:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define EFI_VAR_FILE_MAGIC {0x55, 0x62, 0x45, 0x66, 0x69, 0x56, 0x61}</span>
+</pre></div>
+</div>
+<p>The current revision of the file format it given by:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define EFI_VAR_FILE_FORMAT_REVISION_1 1</span>
+</pre></div>
+</div>
+<p>The file header has the following structure:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">UINT64</span><span class="w">                  </span><span class="n">Reserved</span><span class="p">;</span>
+<span class="w">    </span><span class="n">UINT8</span><span class="w">                   </span><span class="n">Magic</span><span class="p">[</span><span class="mi">7</span><span class="p">];</span>
+<span class="w">    </span><span class="n">UINT8</span><span class="w">                   </span><span class="n">Revision</span><span class="p">;</span>
+<span class="w">    </span><span class="n">UINT32</span><span class="w">                  </span><span class="n">Length</span><span class="p">;</span>
+<span class="w">    </span><span class="n">UINT32</span><span class="w">                  </span><span class="n">Crc32</span><span class="p">;</span>
+<span class="w">    </span><span class="n">EFI_VARIABLE_ENTRY</span><span class="w">      </span><span class="n">Variables</span><span class="p">[];</span>
+<span class="p">}</span><span class="w"> </span><span class="n">EFI_VARIABLE_FILE</span><span class="p">;</span>
+</pre></div>
+</div>
+<dl class="simple">
+<dt>Reserved</dt><dd><p>This field is not used currently. Its value shall be set to 0.</p>
+</dd>
+<dt>Magic</dt><dd><p>This field is used to identify the file as containing EFI variables.
+Its value is <cite>EFI_VAR_FILE_MAGIC</cite>.</p>
+</dd>
+<dt>Revision</dt><dd><p>This field contains the revision of the file format. As of this revision it
+takes the value <cite>EFI_VAR_FILE_FORMAT_REVISION_1</cite>.</p>
+</dd>
+<dt>Length</dt><dd><p>This field contains the length in bytes of the structure <cite>EFI_VARIABLE_FILE</cite>
+and all entries in <cite>Variables</cite> entries. The actual file may be longer.</p>
+</dd>
+<dt>Crc32</dt><dd><p>This field contains the value of the CRC32 of all variable entries.
+The first byte to hash is given by the offset of field <cite>Variables</cite>. The
+number of bytes to hash is given by <cite>Length</cite> minus the size of
+<cite>EFI_VARIABLE_FILE</cite>.</p>
+</dd>
+<dt>Variables</dt><dd><p>The list of variables entries starts at this field. Each variable entry is
+expanded with NUL bytes to a multiple of 8 bytes. The list of variables is
+not sorted.</p>
+</dd>
+</dl>
+</section>
+<section id="variable-entries">
+<h3><span class="section-number">5.2. </span>Variable entries<a class="headerlink" href="#variable-entries" title="Permalink to this heading">¶</a></h3>
+<p>Each variable is stored as a structure:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">UINT32</span><span class="w">          </span><span class="n">DataSize</span><span class="p">;</span>
+<span class="w">    </span><span class="n">UINT32</span><span class="w">          </span><span class="n">Attributes</span><span class="p">;</span>
+<span class="w">    </span><span class="n">UINT64</span><span class="w">          </span><span class="n">TimeStamp</span><span class="p">;</span>
+<span class="w">    </span><span class="n">EFI_GUID</span><span class="w">        </span><span class="n">VendorGuid</span><span class="p">;</span>
+<span class="w">    </span><span class="n">UINT8</span><span class="w">           </span><span class="n">Data</span><span class="p">[];</span>
+<span class="p">}</span><span class="w"> </span><span class="n">EFI_VARIABLE_ENTRY</span><span class="p">;</span>
+</pre></div>
+</div>
+<dl class="simple">
+<dt>DataSize</dt><dd><p>This field contains the size of the <cite>Data</cite> field in bytes without
+the NUL terminated variable name.</p>
+</dd>
+<dt>Attributes</dt><dd><p>This field is a bitmap with the variable attributes as defined in
+<a class="reference internal" href="index.html#uefi" id="id1"><span>[UEFI]</span></a> § 8.2.1.</p>
+</dd>
+<dt>TimeStamp</dt><dd><p>For time-based authenticaed variables this field contains the timestamp
+associated with the authentication descriptor encoded as seconds since
+1970-01-01T00:00:00Z. For all other variables this field shall be set to 0.</p>
+</dd>
+<dt>VendorGuid</dt><dd><p>This field contains the unique identifier of the vendor.</p>
+</dd>
+<dt>Data</dt><dd><p>This field contains a NUL terminated UCS-2 string with the name of the
+vendor’s variable followed by <cite>DataSize</cite> bytes of actual content of the
+variable.</p>
+</dd>
+</dl>
+</section>
+<section id="limitations">
+<h3><span class="section-number">5.3. </span>Limitations<a class="headerlink" href="#limitations" title="Permalink to this heading">¶</a></h3>
+<p>The security of a file based variable storage is limited by the security
+of the storage or transport medium. Without further measures file storage
+is inadequate for the UEFI security database and other authenticated
+variables.</p>
+<p>The current version of the file format can convey the timestamp of
+time-based authenticated variables. It does not define the storage of the
+signing certificates of nonce-based authenticated variables. <a class="footnote-reference brackets" href="#certnote" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a></p>
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="certnote" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">1</a><span class="fn-bracket">]</span></span>
+<p>Tianocore EDK II keeps signer certificates of authenticated
+variables in variables <cite>certdb</cite> and <cite>certdbv</cite>.</p>
+</aside>
+</aside>
+</section>
+</section>
 <span id="document-references"></span><section id="bibliography">
-<h2><span class="section-number">5. </span>Bibliography<a class="headerlink" href="#bibliography" title="Permalink to this heading">¶</a></h2>
+<h2><span class="section-number">6. </span>Bibliography<a class="headerlink" href="#bibliography" title="Permalink to this heading">¶</a></h2>
 </section>
 <div role="list" class="citation-list">
 <div class="citation" id="acpi" role="doc-biblioentry">
@@ -1452,7 +1567,8 @@ Version 20211203</p>
 <li class="toctree-l1"><a class="reference internal" href="index.html#document-chapter2-uefi">2. UEFI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="index.html#document-chapter3-secureworld">3. Privileged or Secure Firmware</a></li>
 <li class="toctree-l1"><a class="reference internal" href="index.html#document-chapter4-firmware-media">4. Firmware Storage</a></li>
-<li class="toctree-l1"><a class="reference internal" href="index.html#document-references">5. Bibliography</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-chapter5-variable-storage">5. File Format For Storing EFI Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-references">6. Bibliography</a></li>
 </ul>
 
 <div class="relations">

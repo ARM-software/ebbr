@@ -21,6 +21,10 @@ Released EBBR PDFs can be found here:
 
 https://github.com/ARM-software/ebbr/releases
 
+The latest development version is available at:
+
+https://ARM-software.github.io/ebbr/
+
 Contributing
 ============
 

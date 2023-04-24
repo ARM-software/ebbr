@@ -18,14 +18,14 @@ UEFI Compliance
 EBBR compliant platform shall conform to a subset of the [UEFI]_ spec as listed
 in this section.
 Normally, UEFI compliance would require full compliance with all items listed
-in UEFI § 2.6.
+in :UEFI:`2.6`.
 However, the EBBR target market has a reduced set of requirements,
 and so some UEFI features are omitted as unnecessary.
 
 Required Elements
 -----------------
 
-This section replaces the list of required elements in [UEFI]_ § 2.6.1.
+This section replaces the list of required elements in :UEFI:`2.6.1`.
 All of the following UEFI elements are required for EBBR compliance.
 
 .. list-table:: UEFI Required Elements
@@ -58,7 +58,7 @@ All of the following UEFI elements are required for EBBR compliance.
    * - `EFI_DEVICE_PATH_UTILITIES_PROTOCOL`
      - Interface for creating and manipulating UEFI device paths.
 
-.. list-table:: Notable omissions from UEFI § 2.6.1
+.. list-table:: Notable omissions from :UEFI:`2.6.1`
    :widths: 50 50
    :header-rows: 1
 
@@ -70,7 +70,7 @@ All of the following UEFI elements are required for EBBR compliance.
 Required Platform Specific Elements
 -----------------------------------
 
-This section replaces the list of required elements in [UEFI]_ § 2.6.2.
+This section replaces the list of required elements in :UEFI:`2.6.2`.
 All of the following UEFI elements are required for EBBR compliance.
 
 .. list-table:: UEFI Platform-Specific Required Elements
@@ -104,15 +104,15 @@ All of the following UEFI elements are required for EBBR compliance.
    * - `EFI_SIMPLE_NETWORK_PROTOCOL`
      - Required if the platform has a network device.
    * - HTTP Boot
-     - Required if the platform supports network booting. (UEFI § 24.7)
+     - Required if the platform supports network booting. (:UEFI:`24.7`)
    * - `RISCV_EFI_BOOT_PROTOCOL`
-     - Required on RISC-V platforms. (UEFI § 2.3.7.1 and [RVUEFI]_)
+     - Required on RISC-V platforms. (:UEFI:`2.3.7.1` and [RVUEFI]_)
 
-The following table is a list of notable deviations from UEFI § 2.6.2.
+The following table is a list of notable deviations from :UEFI:`2.6.2`.
 Many of these deviations are because the EBBR use cases do not require
 interface specific UEFI protocols, and so they have been made optional.
 
-.. list-table:: Notable Deviations from UEFI § 2.6.2
+.. list-table:: Notable Deviations from :UEFI:`2.6.2`
    :widths: 50 50
    :header-rows: 1
 
@@ -171,7 +171,7 @@ Required Global Variables
 -------------------------
 
 EBBR compliant platforms are required to support the following Global
-Variables as found in [UEFI]_ § 3.3.
+Variables as found in :UEFI:`3.3`.
 
 .. list-table:: Required UEFI Variables
    :widths: 50 50
@@ -201,7 +201,7 @@ Required Variables for capsule update "on disk"
 
 When the firmware implements in-band firmware update with `UpdateCapsule()` it
 must support the following Variables to report the status of capsule "on disk"
-processing after restart as found in [UEFI]_ § 8.5.6. [#FWUpNote]_
+processing after restart as found in :UEFI:`8.5.6`. [#FWUpNote]_
 
 .. list-table:: UEFI Variables required for capsule update "on disk"
    :widths: 50 50
@@ -244,7 +244,7 @@ AArch64 Exception Levels
 ------------------------
 
 On AArch64 UEFI shall execute as 64-bit code at either EL1 or EL2, as defined in
-[UEFI]_ § 2.3.6, depending on whether or not virtualization is available at OS
+:UEFI:`2.3.6`, depending on whether or not virtualization is available at OS
 load time.
 
 UEFI Boot at EL2
@@ -530,7 +530,7 @@ If a platform does not implement modifying non-volatile variables with
 then firmware shall return `EFI_UNSUPPORTED` for any call to `SetVariable()`,
 and must advertise that `SetVariable()` isn't available during runtime services
 via the `RuntimeServicesSupported` value in the `EFI_RT_PROPERTIES_TABLE`
-as defined in [UEFI]_ § 4.6.2.
+as defined in :UEFI:`4.6.2`.
 EFI applications can read `RuntimeServicesSupported` to determine if calls
 to `SetVariable()` need to be performed before calling `ExitBootServices()`.
 
@@ -559,17 +559,18 @@ EBBR platforms are required to implement either an in-band or an out-of-band fir
 
 If firmware update is performed in-band (firmware on the application processor updates itself),
 then the firmware shall implement the `UpdateCapsule()` runtime service and accept updates in the
-"Firmware Management Protocol Data Capsule Structure" format as described in [UEFI]_ § 23.3,
-"Delivering Capsules Containing Updates to Firmware Management Protocol".  [#FMPNote]_
-Firmware is also required to provide an EFI System Resource Table (ESRT). [UEFI]_ § 23.4
+"Firmware Management Protocol Data Capsule Structure" format as described in
+:UEFI:`23.3`. [#FMPNote]_
+Firmware is also required to provide an EFI System Resource Table (ESRT) as
+described in :UEFI:`23.4`.
 Every firmware image that can be updated in-band must be described in the ESRT.
 Firmware must support the delivery of capsules via file on mass storage device
-("on disk") as described in [UEFI]_ § 8.5.5. [#VarNote]_
+("on disk") as described in :UEFI:`8.5.5`. [#VarNote]_
 
 .. note::
    It is recommended that firmware implementing the `UpdateCapsule()` runtime
    service and an ESRT also implement the `EFI_FIRMWARE_MANAGEMENT_PROTOCOL`
-   described in [UEFI]_ § 23.1. [#FMProtoNote]_
+   described in :UEFI:`23.1`. [#FMProtoNote]_
 
 If firmware update is performed out-of-band (e.g., by an independent Baseboard
 Management Controller (BMC), or firmware is provided by a hypervisor),
@@ -592,7 +593,7 @@ service and it is not required to provide an ESRT.
 .. [#FMProtoNote] At the time of writing, both Tianocore/EDK2 and U-Boot are
    using the `EFI_FIRMWARE_MANAGEMENT_PROTOCOL` internally to support their
    implementation of the `UpdateCapsule()` runtime service and of the ESRT,
-   as detailed in [UEFI]_ § 23.3 and 23.4 respectively.
+   as detailed in :UEFI:`23.3` and :UEFI:`23.4` respectively.
 
 Miscellaneous Runtime Services
 ------------------------------

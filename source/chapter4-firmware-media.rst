@@ -48,7 +48,7 @@ Partitioning of Shared Storage
 ==============================
 
 The shared storage device must use the GUID Partition Table (GPT) disk
-layout as defined in [UEFI]_ § 5.3, unless the platform boot sequence is
+layout as defined in :UEFI:`5.3`, unless the platform boot sequence is
 fundamentally incompatible with the GPT disk layout.
 In which case, a legacy Master Boot Record (MBR) must be used.
 [#MBRReqExample]_
@@ -101,7 +101,7 @@ GPT partitioning
 ----------------
 
 The partition table must strictly conform to the UEFI specification and include
-a protective MBR authored exactly as described in [UEFI]_ § 5.3 (hybrid
+a protective MBR authored exactly as described in :UEFI:`5.3` (hybrid
 partitioning schemes are not permitted).
 
 Fixed-location firmware images must be protected by creating protective
@@ -123,7 +123,7 @@ adjusting the GUID Partition Entry array location
 and `SizeOfPartitionEntry`),
 or by specifying the usable LBAs (Choosing `FirstUsableLBA`/`LastUsableLBA`
 to not overlap the fixed firmware location).
-See [UEFI]_ § 5.3.2.
+See :UEFI:`5.3.2`.
 
 Given the choice, platforms should use protective partitions over
 adjusting the placement of GPT data structures because protective partitions

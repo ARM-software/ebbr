@@ -146,6 +146,35 @@ tag. Generally this means each ``.rst`` file should include the line
 .. _reStructuredText: http://docutils.sourceforge.net/docs/user/rst/quickref.html
 .. _Sphinx: http://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html
 
+Sphinx Extensions
+^^^^^^^^^^^^^^^^^
+
+Sphinx extension files are kept under ``source/extensions/``.
+
+Debugging extensions is easier when running Sphinx with debug messages::
+
+  $ make singlehtml SPHINXOPTS=-vv
+
+UEFI chapter links
+..................
+
+We have an extension for referencing UEFI specifications chapters.
+
+To reference UEFI section 6.1 for example, write::
+
+ :UEFI:`6.1`
+
+This will be expanded to the following reference, with a link to the UEFI
+webpage::
+
+ UEFI § 6.1 Block Translation Table (BTT) Background
+
+We keep the UEFI index ``.csv`` file under version control for caching, and we
+have a python script to re-generate it from the UEFI specification webpage.
+To re-generate the index file, do::
+
+  $ ./scripts/update_uefi_index.py
+
 Original Document
 =================
 Prior to being relicensed to CC-BY-SA 4.0, this specification was

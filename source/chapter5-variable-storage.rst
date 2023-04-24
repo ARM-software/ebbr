@@ -101,7 +101,7 @@ DataSize
 
 Attributes
     This field is a bitmap with the variable attributes as defined in
-    [UEFI]_ § 8.2.1.
+    :UEFI:`8.2.1`.
 
 TimeStamp
     For time-based authenticaed variables this field contains the timestamp

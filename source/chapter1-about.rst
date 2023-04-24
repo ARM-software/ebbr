@@ -188,7 +188,7 @@ section by using the section sign §.
 
 Examples:
 
-UEFI § 6.1 - Reference to the UEFI specification [UEFI]_ section 6.1
+:UEFI:`6.1` - Reference to the UEFI specification [UEFI]_ section 6.1
 
 Terms and abbreviations
 =======================

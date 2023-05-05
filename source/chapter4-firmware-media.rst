@@ -117,6 +117,13 @@ non-protective partitions).
 There are no requirements on the contents or layout of the firmware
 protective partition.
 
+Devices should use the partition type GUID to identify the partition with
+the firmware to load. This is preferable over fixed sector or partition
+numbers as it imposes the least restrictions on the partitioning scheme.
+
+Firmware partition type GUIDs should be unique for a board type. This
+allows creating media that can be booted on a multitude of boards.
+
 Placing GPT data structures away from firmware images can be accomplished by
 adjusting the GUID Partition Entry array location
 (adjusting the values of `PartitionEntryLBA` and `NumberOfPartitionEntries`,

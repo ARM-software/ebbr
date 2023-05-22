@@ -1,12 +1,11 @@
-
 <!DOCTYPE html>
 
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Embedded Base Boot Requirements (EBBR) Specification v2.1.0-15-g552fe5a documentation</title>
+    <title>Embedded Base Boot Requirements (EBBR) Specification v2.1.0-16-g854ba0e documentation</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
@@ -199,7 +198,7 @@ OS project, while at the same time work with both Tianocore/EDK2 and U-Boot to
 ensure that the EBBR requirements are implemented by both projects.
 <a class="footnote-reference brackets" href="#edk2note" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a></p>
 <aside class="footnote-list brackets">
-<aside class="footnote brackets" id="edk2note" role="note">
+<aside class="footnote brackets" id="edk2note" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">1</a><span class="fn-bracket">]</span></span>
 <p>Tianocore/EDK2 and U-Boot are highlighted here because at the
 time of writing these are the two most important firmware projects that
@@ -224,7 +223,7 @@ adhere to platform compatibility rules. <a class="footnote-reference brackets" h
 </li>
 </ul>
 <aside class="footnote-list brackets">
-<aside class="footnote brackets" id="compatrules" role="note">
+<aside class="footnote brackets" id="compatrules" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id3">2</a><span class="fn-bracket">]</span></span>
 <p>It must be acknowledged that at the time of writing this
 document, platform compatibility rules for DT platforms are not well defined
@@ -438,8 +437,8 @@ and so some UEFI features are omitted as unnecessary.</p>
 <h4><span class="section-number">2.2.1. </span>Required Elements<a class="headerlink" href="#required-elements" title="Permalink to this heading">¶</a></h4>
 <p>This section replaces the list of required elements in <a class="reference internal" href="index.html#uefi" id="id3"><span>[UEFI]</span></a> § 2.6.1.
 All of the following UEFI elements are required for EBBR compliance.</p>
-<table class="docutils align-default" id="id27">
-<caption><span class="caption-number">Table 2.1 </span><span class="caption-text">UEFI Required Elements</span><a class="headerlink" href="#id27" title="Permalink to this table">¶</a></caption>
+<table class="docutils align-default" id="id30">
+<caption><span class="caption-number">Table 2.1 </span><span class="caption-text">UEFI Required Elements</span><a class="headerlink" href="#id30" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 50.0%" />
 <col style="width: 50.0%" />
@@ -482,8 +481,8 @@ handles provided by the firmware.</p></td>
 </tr>
 </tbody>
 </table>
-<table class="docutils align-default" id="id28">
-<caption><span class="caption-number">Table 2.2 </span><span class="caption-text">Notable omissions from UEFI § 2.6.1</span><a class="headerlink" href="#id28" title="Permalink to this table">¶</a></caption>
+<table class="docutils align-default" id="id31">
+<caption><span class="caption-number">Table 2.2 </span><span class="caption-text">Notable omissions from UEFI § 2.6.1</span><a class="headerlink" href="#id31" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 50.0%" />
 <col style="width: 50.0%" />
@@ -504,8 +503,8 @@ handles provided by the firmware.</p></td>
 <h4><span class="section-number">2.2.2. </span>Required Platform Specific Elements<a class="headerlink" href="#required-platform-specific-elements" title="Permalink to this heading">¶</a></h4>
 <p>This section replaces the list of required elements in <a class="reference internal" href="index.html#uefi" id="id4"><span>[UEFI]</span></a> § 2.6.2.
 All of the following UEFI elements are required for EBBR compliance.</p>
-<table class="docutils align-default" id="id29">
-<caption><span class="caption-number">Table 2.3 </span><span class="caption-text">UEFI Platform-Specific Required Elements</span><a class="headerlink" href="#id29" title="Permalink to this table">¶</a></caption>
+<table class="docutils align-default" id="id32">
+<caption><span class="caption-number">Table 2.3 </span><span class="caption-text">UEFI Platform-Specific Required Elements</span><a class="headerlink" href="#id32" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 50.0%" />
 <col style="width: 50.0%" />
@@ -563,8 +562,8 @@ All of the following UEFI elements are required for EBBR compliance.</p>
 <p>The following table is a list of notable deviations from UEFI § 2.6.2.
 Many of these deviations are because the EBBR use cases do not require
 interface specific UEFI protocols, and so they have been made optional.</p>
-<table class="docutils align-default" id="id30">
-<caption><span class="caption-number">Table 2.4 </span><span class="caption-text">Notable Deviations from UEFI § 2.6.2</span><a class="headerlink" href="#id30" title="Permalink to this table">¶</a></caption>
+<table class="docutils align-default" id="id33">
+<caption><span class="caption-number">Table 2.4 </span><span class="caption-text">Notable Deviations from UEFI § 2.6.2</span><a class="headerlink" href="#id33" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 50.0%" />
 <col style="width: 50.0%" />
@@ -645,8 +644,8 @@ ROM loading.</p></td>
 <h4><span class="section-number">2.2.3. </span>Required Global Variables<a class="headerlink" href="#required-global-variables" title="Permalink to this heading">¶</a></h4>
 <p>EBBR compliant platforms are required to support the following Global
 Variables as found in <a class="reference internal" href="index.html#uefi" id="id6"><span>[UEFI]</span></a> § 3.3.</p>
-<table class="docutils align-default" id="id31">
-<caption><span class="caption-number">Table 2.5 </span><span class="caption-text">Required UEFI Variables</span><a class="headerlink" href="#id31" title="Permalink to this table">¶</a></caption>
+<table class="docutils align-default" id="id34">
+<caption><span class="caption-number">Table 2.5 </span><span class="caption-text">Required UEFI Variables</span><a class="headerlink" href="#id34" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 50.0%" />
 <col style="width: 50.0%" />
@@ -684,8 +683,8 @@ order given by <cite>BootOrder</cite> to find the first bootable image.</p></td>
 <p>When the firmware implements in-band firmware update with <cite>UpdateCapsule()</cite> it
 must support the following Variables to report the status of capsule “on disk”
 processing after restart as found in <a class="reference internal" href="index.html#uefi" id="id7"><span>[UEFI]</span></a> § 8.5.6. <a class="footnote-reference brackets" href="#fwupnote" id="id8" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a></p>
-<table class="docutils align-default" id="id32">
-<caption><span class="caption-number">Table 2.6 </span><span class="caption-text">UEFI Variables required for capsule update “on disk”</span><a class="headerlink" href="#id32" title="Permalink to this table">¶</a></caption>
+<table class="docutils align-default" id="id35">
+<caption><span class="caption-number">Table 2.6 </span><span class="caption-text">UEFI Variables required for capsule update “on disk”</span><a class="headerlink" href="#id35" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 50.0%" />
 <col style="width: 50.0%" />
@@ -709,7 +708,7 @@ processing after restart as found in <a class="reference internal" href="index.h
 </tbody>
 </table>
 <aside class="footnote-list brackets">
-<aside class="footnote brackets" id="fwupnote" role="note">
+<aside class="footnote brackets" id="fwupnote" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id8">1</a><span class="fn-bracket">]</span></span>
 <p>See section <a class="reference internal" href="#section-fw-update"><span class="std std-ref">Firmware Update</span></a>.</p>
 </aside>
@@ -818,7 +817,7 @@ compliance to version 2.1.x of the EBBR specification:</p>
 then it must be compliant with the corresponding version(s) of this
 specification <a class="footnote-reference brackets" href="#versionsnote" id="id12" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>.</p>
 <aside class="footnote-list brackets">
-<aside class="footnote brackets" id="versionsnote" role="note">
+<aside class="footnote brackets" id="versionsnote" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id12">2</a><span class="fn-bracket">]</span></span>
 <p>This specification follows semantic versioning. As such,
 versions of this specification differing only by their last digit (or “patch
@@ -834,8 +833,8 @@ in Flattened Devicetree Blob (DTB) format version 17 or higher as described in
 The DTB Nodes and Properties must be compliant with the requirements listed in
 <a class="reference internal" href="index.html#dtspec" id="id14"><span>[DTSPEC]</span></a> § 3 &amp; 4 and with the requirements listed in the following table, which
 take precedence.</p>
-<table class="docutils align-default" id="id33">
-<caption><span class="caption-number">Table 2.7 </span><span class="caption-text">DTB Nodes and Properties requirements</span><a class="headerlink" href="#id33" title="Permalink to this table">¶</a></caption>
+<table class="docutils align-default" id="id36">
+<caption><span class="caption-number">Table 2.7 </span><span class="caption-text">DTB Nodes and Properties requirements</span><a class="headerlink" href="#id36" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 50.0%" />
 <col style="width: 50.0%" />
@@ -870,7 +869,7 @@ tables which fulfill the same task as the DTB.</p>
 If the platform does not implement the monotonic counter, the
 <cite>GetNextMonotonicCount()</cite> function shall return <cite>EFI_DEVICE_ERROR</cite>. <a class="footnote-reference brackets" href="#mononote" id="id17" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a></p>
 <aside class="footnote-list brackets">
-<aside class="footnote brackets" id="mononote" role="note">
+<aside class="footnote brackets" id="mononote" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id17">3</a><span class="fn-bracket">]</span></span>
 <p><cite>EFI_UNSUPPORTED</cite> is not an allowed status code for
 <cite>GetNextMonotonicCount()</cite>.</p>
@@ -900,8 +899,8 @@ Functions that are not available during runtime services shall return
 <cite>EFI_UNSUPPORTED</cite>.</p>
 <p><a class="reference internal" href="#uefi-runtime-service-requirements"><span class="std std-numref">Table 2.8</span></a> details which <cite>EFI_RUNTIME_SERVICES</cite>
 are required to be implemented during boot services and runtime services.</p>
-<span id="uefi-runtime-service-requirements"></span><table class="docutils align-default" id="id34">
-<caption><span class="caption-number">Table 2.8 </span><span class="caption-text"><cite>EFI_RUNTIME_SERVICES</cite> Implementation Requirements</span><a class="headerlink" href="#id34" title="Permalink to this table">¶</a></caption>
+<span id="uefi-runtime-service-requirements"></span><table class="docutils align-default" id="id37">
+<caption><span class="caption-number">Table 2.8 </span><span class="caption-text"><cite>EFI_RUNTIME_SERVICES</cite> Implementation Requirements</span><a class="headerlink" href="#id37" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 40.0%" />
 <col style="width: 30.0%" />
@@ -1033,7 +1032,7 @@ to <cite>SetVariable()</cite> need to be performed before calling <cite>ExitBoot
 should cache variable names and values in <cite>EfiRuntimeServicesData</cite> memory so
 that <cite>GetVariable()</cite> and <cite>GetNextVariableName()</cite> can behave as specified.</p>
 <aside class="footnote-list brackets">
-<aside class="footnote brackets" id="opteesupplicant" role="note">
+<aside class="footnote brackets" id="opteesupplicant" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id19">4</a><span class="fn-bracket">]</span></span>
 <p>It is worth noting that OP-TEE has a similar problem
 regarding secure storage.
@@ -1059,13 +1058,19 @@ Firmware is also required to provide an EFI System Resource Table (ESRT). <a cla
 Every firmware image that can be updated in-band must be described in the ESRT.
 Firmware must support the delivery of capsules via file on mass storage device
 (“on disk”) as described in <a class="reference internal" href="index.html#uefi" id="id24"><span>[UEFI]</span></a> § 8.5.5. <a class="footnote-reference brackets" href="#varnote" id="id25" role="doc-noteref"><span class="fn-bracket">[</span>6<span class="fn-bracket">]</span></a></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>It is recommended that firmware implementing the <cite>UpdateCapsule()</cite> runtime
+service and an ESRT also implement the <cite>EFI_FIRMWARE_MANAGEMENT_PROTOCOL</cite>
+described in <a class="reference internal" href="index.html#uefi" id="id26"><span>[UEFI]</span></a> § 23.1. <a class="footnote-reference brackets" href="#fmprotonote" id="id27" role="doc-noteref"><span class="fn-bracket">[</span>7<span class="fn-bracket">]</span></a></p>
+</div>
 <p>If firmware update is performed out-of-band (e.g., by an independent Baseboard
 Management Controller (BMC), or firmware is provided by a hypervisor),
 then the platform is not required to implement the <cite>UpdateCapsule()</cite> runtime
 service and it is not required to provide an ESRT.</p>
 <p><cite>UpdateCapsule()</cite> is only required before <cite>ExitBootServices()</cite> is called.</p>
 <aside class="footnote-list brackets">
-<aside class="footnote brackets" id="fmpnote" role="note">
+<aside class="footnote brackets" id="fmpnote" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id22">5</a><span class="fn-bracket">]</span></span>
 <p>The <cite>UpdateCapsule()</cite> runtime service is expected to be suitable
 for use by generic firmware update services like fwupd and Windows Update.
@@ -1074,20 +1079,27 @@ can be updated, and use an EFI helper application to call <cite>UpdateCapsule()<
 before <cite>ExitBootServices()</cite> is called.</p>
 <p><a class="reference external" href="https://fwupd.org/">https://fwupd.org/</a></p>
 </aside>
-<aside class="footnote brackets" id="varnote" role="note">
+<aside class="footnote brackets" id="varnote" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id25">6</a><span class="fn-bracket">]</span></span>
 <p>Some Variables are required to support capsule “on disk”.
 See section <a class="reference internal" href="#section-required-vars-for-on-disk"><span class="std std-ref">Required Variables for capsule update “on disk”</span></a>.</p>
+</aside>
+<aside class="footnote brackets" id="fmprotonote" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id27">7</a><span class="fn-bracket">]</span></span>
+<p>At the time of writing, both Tianocore/EDK2 and U-Boot are
+using the <cite>EFI_FIRMWARE_MANAGEMENT_PROTOCOL</cite> internally to support their
+implementation of the <cite>UpdateCapsule()</cite> runtime service and of the ESRT,
+as detailed in <a class="reference internal" href="index.html#uefi" id="id28"><span>[UEFI]</span></a> § 23.3 and 23.4 respectively.</p>
 </aside>
 </aside>
 </section>
 <section id="miscellaneous-runtime-services">
 <h4><span class="section-number">2.5.5. </span>Miscellaneous Runtime Services<a class="headerlink" href="#miscellaneous-runtime-services" title="Permalink to this heading">¶</a></h4>
 <p>If the platform does not implement the monotonic counter, it shall not support
-the <cite>GetNextHighMonotonicCount()</cite> runtime service. <a class="footnote-reference brackets" href="#bootnote" id="id26" role="doc-noteref"><span class="fn-bracket">[</span>7<span class="fn-bracket">]</span></a></p>
+the <cite>GetNextHighMonotonicCount()</cite> runtime service. <a class="footnote-reference brackets" href="#bootnote" id="id29" role="doc-noteref"><span class="fn-bracket">[</span>8<span class="fn-bracket">]</span></a></p>
 <aside class="footnote-list brackets">
-<aside class="footnote brackets" id="bootnote" role="note">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id26">7</a><span class="fn-bracket">]</span></span>
+<aside class="footnote brackets" id="bootnote" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id29">8</a><span class="fn-bracket">]</span></span>
 <p>The platform’s monotonic counter is made optional in section
 <a class="reference internal" href="#section-misc-boot-services"><span class="std std-ref">Miscellaneous Boot Services</span></a>.</p>
 </aside>
@@ -1150,7 +1162,7 @@ with normal partitioning and usage by the operating system.</p></li>
 OS controls access to the device. <a class="footnote-reference brackets" href="#luvariables" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a></p></li>
 </ul>
 <aside class="footnote-list brackets">
-<aside class="footnote brackets" id="emmcbootpartition" role="note">
+<aside class="footnote brackets" id="emmcbootpartition" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
 <p>Watch out for the ambiguity of the word ‘partition’.
 In most of this document, a ‘partition’ is a contiguous region of a block
@@ -1159,7 +1171,7 @@ but eMMC devices also provide a dedicated ‘boot partition’ that is addressed
 separately from the main storage region, and does not appear in the
 partition table.</p>
 </aside>
-<aside class="footnote brackets" id="logicalunitnote" role="note">
+<aside class="footnote brackets" id="logicalunitnote" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">2</a><span class="fn-bracket">]</span></span>
 <p>For the purposes of this document, logical units are
 treated as independent storage devices, each with their own GPT or MBR
@@ -1167,7 +1179,7 @@ partition table.
 A platform that uses one LU for firmware, and another LU for OS partitions
 and the ESP is considered to be using dedicated firmware storage.</p>
 </aside>
-<aside class="footnote brackets" id="luvariables" role="note">
+<aside class="footnote brackets" id="luvariables" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id3">3</a><span class="fn-bracket">]</span></span>
 <p>Runtime access to firmware data may still be an issue when
 firmware is stored in a dedicated LU, simply because the OS remains in
@@ -1184,7 +1196,7 @@ fundamentally incompatible with the GPT disk layout.
 In which case, a legacy Master Boot Record (MBR) must be used.
 <a class="footnote-reference brackets" href="#mbrreqexample" id="id5" role="doc-noteref"><span class="fn-bracket">[</span>4<span class="fn-bracket">]</span></a></p>
 <aside class="footnote-list brackets">
-<aside class="footnote brackets" id="mbrreqexample" role="note">
+<aside class="footnote brackets" id="mbrreqexample" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id5">4</a><span class="fn-bracket">]</span></span>
 <p>For example, if the SoC boot ROM requires an MBR to
 find the next stage firmware image, then it is incompatible with
@@ -1482,7 +1494,7 @@ variables.</p>
 time-based authenticated variables. It does not define the storage of the
 signing certificates of nonce-based authenticated variables. <a class="footnote-reference brackets" href="#certnote" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a></p>
 <aside class="footnote-list brackets">
-<aside class="footnote brackets" id="certnote" role="note">
+<aside class="footnote brackets" id="certnote" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">1</a><span class="fn-bracket">]</span></span>
 <p>Tianocore EDK II keeps signer certificates of authenticated
 variables in variables <cite>certdb</cite> and <cite>certdbv</cite>.</p>
@@ -1594,7 +1606,7 @@ Version 20211203</p>
       &copy;2017-2023 Arm Limited and Contributors.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 6.1.3</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 7.0.1</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.13</a>
       
     </div>

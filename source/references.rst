@@ -15,7 +15,7 @@
    `Devicetree.org <https://www.devicetree.org/>`_
 
 .. [LINUXA64BOOT] `Linux Documentation/arm64/booting.rst
-   <https://www.kernel.org/doc/html/latest/arm64/booting.html>`_,
+   <https://docs.kernel.org/arch/arm64/booting.html>`_,
    Linux kernel
 
 .. [PSCI] `Arm Power State Coordination Interface issue D.b (PSCI v1.1).

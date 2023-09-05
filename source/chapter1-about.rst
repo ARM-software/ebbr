@@ -219,48 +219,54 @@ Architecture specific terms are listed a section for each architecture.
       within a device. In the context of storage, a single device may use
       logical units to provide multiple independent storage areas.
 
-AARCH32
--------
+Arm
+---
+
+Refer to the Arm Architecture Reference Manual for A-profile architecture
+[ArmARM]_.
 
 .. glossary::
 
    AArch32
-      Arm 32-bit architectures. AArch32 is a roll up term referring to all
-      32-bit versions of the Arm architecture starting at ARMv4.
+      The Arm 32-bit Execution state.
+      In this state, addresses are held in 32-bit registers, and instructions in
+      the base instruction sets use 32-bit registers for their processing.
+      This state supports the T32 and A32 instruction sets.
+      This is the execution state used by all pre-Armv8 architectures.
 
-AARCH64
--------
+   A32
+      The 32-bit length instruction set, known as Arm instruction set in
+      pre-Armv8 architectures.
 
-.. glossary::
-
-   A64
-      The 64-bit Arm instruction set used in AArch64 state.
-      All A64 instructions are 32 bits.
-
-   AArch64 state
-      The Arm 64-bit Execution state that uses 64-bit general purpose
-      registers, and a 64-bit program counter (PC), Stack Pointer (SP), and
-      exception link registers (ELR).
+   T32
+      The mixed 32- and 16-bit length instruction set, known as Thumb in
+      pre-Armv8 architectures.
 
    AArch64
-      Execution state provides a single instruction set, A64.
+      The Arm 64-bit Execution state, supported by the Armv8-A architecture.
+      In this state, addresses are held in 64-bit registers, and instructions in
+      the base instruction set can use 64-bit registers for their processing.
+      This state supports the A64 instruction set.
+
+   A64
+      The 32-bit length instruction set, supported by the Armv8-A architecture.
 
    EL0
-      The lowest Exception level on AArch64. The Exception level that is used to execute
-      user applications, in Non-secure state.
+      The lowest Exception level, used to execute user applications,
+      in Non-secure state.
 
    EL1
-      Privileged Exception level on AArch64. The Exception level that is used to execute
-      Operating Systems, in Non-secure state.
+      Privileged Exception level, used to execute Operating Systems,
+      in Non-secure state.
 
    EL2
-      Hypervisor Exception level on AArch64. The Exception level that is used to execute
-      hypervisor code. EL2 is always in Non-secure state.
+      Hypervisor Exception level, used to execute hypervisor code,
+      in Non-secure state.
 
    EL3
-      Secure Monitor Exception level on AArch64. The Exception level that is used to
-      execute Secure Monitor code, which handles the transitions between
-      Non-secure and Secure states.  EL3 is always in Secure state.
+      The highest Exception level, used to execute Secure Monitor code, which
+      handles the transitions between Non-secure and Secure states.
+      EL3 is always in Secure state.
 
 RISC-V
 ------

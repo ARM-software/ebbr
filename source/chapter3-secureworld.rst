@@ -16,7 +16,7 @@ At `ExitBootServices()` time, all secondary CPUs must be parked or powered off.
 
 AArch64 Multiprocessor Startup Protocol
 =======================================
-On AArch64 platforms, Firmware resident in Trustzone EL3 must implement and
+On AArch64 platforms, Firmware resident in EL3 must implement and
 conform to the Power State Coordination Interface specification [PSCI]_.
 
 Platforms without EL3 must implement one of:

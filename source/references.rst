@@ -18,6 +18,10 @@
    <https://docs.kernel.org/arch/arm64/booting.html>`_,
    Linux kernel
 
+.. [ArmARM] `Arm Architecture Reference Manual for A-profile architecture Issue J.a
+   <https://developer.arm.com/documentation/ddi0487/ja>`_,
+   April 2023, `Arm Limited <https://www.arm.com/>`_
+
 .. [PSCI] `Arm Power State Coordination Interface issue E (PSCI v1.2).
    <https://developer.arm.com/documentation/den0022/e>`_
    Mar 2023, `Arm Limited <https://www.arm.com/>`_

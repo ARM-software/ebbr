@@ -243,7 +243,7 @@ legitimately be loaded into either EL1 or EL2 on AArch64 and HS/VS/S mode on RIS
 AArch64 Exception Levels
 ------------------------
 
-On AArch64 UEFI shall execute as 64-bit code at either EL1 or EL2, as defined in
+On AArch64 UEFI shall execute as A64 code at either EL1 or EL2, as defined in
 [UEFI]_ § 2.3.6, depending on whether or not virtualization is available at OS
 load time.
 

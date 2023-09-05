@@ -509,9 +509,9 @@ If firmware doesn't support `ResetSystem()` during runtime services, then the ca
 will immediately return, and the OS should fall back to an architecture or
 platform specific reset mechanism.
 
-On AArch64 platforms implementing [PSCI]_,
-if `ResetSystem()` is not implemented then the Operating System should fall
-back to making a PSCI call to reset or shutdown the system.
+On platforms implementing [PSCI]_, if `ResetSystem()` is not implemented then
+the Operating System should fall back to making a PSCI call to reset or shutdown
+the system.
 
 Runtime Variable Access
 -----------------------

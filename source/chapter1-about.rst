@@ -219,13 +219,6 @@ Architecture specific terms are listed a section for each architecture.
       within a device. In the context of storage, a single device may use
       logical units to provide multiple independent storage areas.
 
-   OEM
-      Original Equipment Manufacturer. In this document, the final device
-      manufacturer.
-
-   SiP
-      Silicon Partner. In this document, the silicon manufacturer.
-
 AARCH32
 -------
 

@@ -55,3 +55,7 @@ Bibliography
    Version 20211203
 
 .. [RVUEFI] `RISC-V UEFI Protocol Specification <https://github.com/riscv-non-isa/riscv-uefi/releases/download/1.0.0/RISCV_UEFI_PROTOCOL-spec.pdf>`_
+
+.. [SMBIOS] `System Management BIOS (SMBIOS) Reference Specification v3.7.0
+   <https://www.dmtf.org/sites/default/files/standards/documents/DSP0134_3.7.0.pdf>`_,
+   July 2023, `DMTF <https://www.dmtf.org>`_

@@ -385,6 +385,26 @@ The DTB must be contained in memory of type `EfiACPIReclaimMemory`.
 .. [#ACPIMemNote] `EfiACPIReclaimMemory` was chosen to match the recommendation
    for ACPI tables which fulfill the same task as the DTB.
 
+SMBIOS
+------
+
+It is strongly recommended that firmware provides SMBIOS tables and structures.
+[#SMBNote]_
+
+If firmware provides SMBIOS tables and structures then it must provide them as
+described in :UEFI:`4.6.1.1` and [SMBIOS]_ § 5 & 6.
+
+.. warning:: A future version of this specification will require firmware to
+   provide SMBIOS tables and strutures and will explicitly list which ones are
+   required.
+
+.. [#SMBNote] Support tools such as sosreport use SMBIOS to provide information
+   to users and collect information for support cases.
+   https://github.com/sosreport/sos
+
+   SMBIOS informations are also useful to identify systems in a fleet of
+   devices.
+
 UEFI Protocols
 ==============
 

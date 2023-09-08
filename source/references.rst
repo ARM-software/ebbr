@@ -56,6 +56,10 @@ Bibliography
 
 .. [RVUEFI] `RISC-V UEFI Protocol Specification <https://github.com/riscv-non-isa/riscv-uefi/releases/download/1.0.0/RISCV_UEFI_PROTOCOL-spec.pdf>`_
 
+.. [SMBIOS] `System Management BIOS (SMBIOS) Reference Specification v3.7.0
+   <https://www.dmtf.org/sites/default/files/standards/documents/DSP0134_3.7.0.pdf>`_,
+   July 2023, `DMTF <https://www.dmtf.org>`_
+
 .. [TCG2] `TCG EFI Protocol Specification, Family “2.0”, Level 00 Revision 00.13.
    <https://trustedcomputinggroup.org/wp-content/uploads/EFI-Protocol-Specification-rev13-160330final.pdf>`_
    March 2016, `Trusted Computing Group <https://trustedcomputinggroup.org/>`_

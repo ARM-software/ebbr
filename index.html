@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Embedded Base Boot Requirements (EBBR) Specification v2.1.0-19-g9b27817 documentation</title>
+    <title>Embedded Base Boot Requirements (EBBR) Specification v2.1.0-20-geddb1d7 documentation</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
     <script src="_static/documentation_options.js"></script>
@@ -773,19 +773,8 @@ as a virtualized service, by the hypervisor and not as part of the host firmware
 </section>
 </section>
 </section>
-<section id="uefi-boot-services">
-<h3><span class="section-number">2.4. </span>UEFI Boot Services<a class="headerlink" href="#uefi-boot-services" title="Link to this heading">¶</a></h3>
-<section id="memory-map">
-<h4><span class="section-number">2.4.1. </span>Memory Map<a class="headerlink" href="#memory-map" title="Link to this heading">¶</a></h4>
-<p>The UEFI environment must provide a system memory map, which must include all
-appropriate devices and memories that are required for booting and system
-configuration.</p>
-<p>All RAM defined by the UEFI memory map must be identity-mapped, which means
-that virtual addresses must equal physical addresses.</p>
-<p>The default RAM allocated attribute must be <cite>EFI_MEMORY_WB</cite>.</p>
-</section>
-<section id="configuration-tables">
-<h4><span class="section-number">2.4.2. </span>Configuration Tables<a class="headerlink" href="#configuration-tables" title="Link to this heading">¶</a></h4>
+<section id="uefi-configuration-tables">
+<h3><span class="section-number">2.4. </span>UEFI Configuration Tables<a class="headerlink" href="#uefi-configuration-tables" title="Link to this heading">¶</a></h3>
 <p>A UEFI system that complies with this specification may provide additional
 tables via the EFI Configuration Table.</p>
 <p>Compliant systems are required to provide one, but not both, of the following
@@ -800,7 +789,7 @@ Systems that support both interfaces must provide a configuration
 mechanism to select either ACPI or Devicetree,
 and must ensure only the selected interface is provided to the OS loader.</p>
 <section id="efi-conformance-profile-table">
-<h5><span class="section-number">2.4.2.1. </span>EFI Conformance Profile Table<a class="headerlink" href="#efi-conformance-profile-table" title="Link to this heading">¶</a></h5>
+<h4><span class="section-number">2.4.1. </span>EFI Conformance Profile Table<a class="headerlink" href="#efi-conformance-profile-table" title="Link to this heading">¶</a></h4>
 <p>The following GUID in the EFI Conformance Profile Table is used to indicate
 compliance to version 2.1.x of the EBBR specification:</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define EFI_CONFORMANCE_PROFILE_EBBR_2_1_GUID \</span>
@@ -821,7 +810,7 @@ number”) are expected to be compatible.</p>
 </aside>
 </section>
 <section id="devicetree">
-<h5><span class="section-number">2.4.2.2. </span>Devicetree<a class="headerlink" href="#devicetree" title="Link to this heading">¶</a></h5>
+<h4><span class="section-number">2.4.2. </span>Devicetree<a class="headerlink" href="#devicetree" title="Link to this heading">¶</a></h4>
 <p>If firmware provides a Devicetree system description then it must be provided
 in Flattened Devicetree Blob (DTB) format version 17 or higher as described in
 <a class="reference internal" href="index.html#dtspec" id="id13"><span>[DTSPEC]</span></a> § 5.
@@ -858,8 +847,19 @@ detailed in section <a class="reference internal" href="index.html#section-efi-v
 tables which fulfill the same task as the DTB.</p>
 </section>
 </section>
+<section id="uefi-boot-services">
+<h3><span class="section-number">2.5. </span>UEFI Boot Services<a class="headerlink" href="#uefi-boot-services" title="Link to this heading">¶</a></h3>
+<section id="memory-map">
+<h4><span class="section-number">2.5.1. </span>Memory Map<a class="headerlink" href="#memory-map" title="Link to this heading">¶</a></h4>
+<p>The UEFI environment must provide a system memory map, which must include all
+appropriate devices and memories that are required for booting and system
+configuration.</p>
+<p>All RAM defined by the UEFI memory map must be identity-mapped, which means
+that virtual addresses must equal physical addresses.</p>
+<p>The default RAM allocated attribute must be <cite>EFI_MEMORY_WB</cite>.</p>
+</section>
 <section id="miscellaneous-boot-services">
-<span id="section-misc-boot-services"></span><h4><span class="section-number">2.4.3. </span>Miscellaneous Boot Services<a class="headerlink" href="#miscellaneous-boot-services" title="Link to this heading">¶</a></h4>
+<span id="section-misc-boot-services"></span><h4><span class="section-number">2.5.2. </span>Miscellaneous Boot Services<a class="headerlink" href="#miscellaneous-boot-services" title="Link to this heading">¶</a></h4>
 <p>The platform’s monotonic counter is made optional.
 If the platform does not implement the monotonic counter, the
 <cite>GetNextMonotonicCount()</cite> function shall return <cite>EFI_DEVICE_ERROR</cite>. <a class="footnote-reference brackets" href="#mononote" id="id17" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a></p>
@@ -872,14 +872,14 @@ If the platform does not implement the monotonic counter, the
 </aside>
 </section>
 <section id="uefi-secure-boot-optional">
-<h4><span class="section-number">2.4.4. </span>UEFI Secure Boot (Optional)<a class="headerlink" href="#uefi-secure-boot-optional" title="Link to this heading">¶</a></h4>
+<h4><span class="section-number">2.5.3. </span>UEFI Secure Boot (Optional)<a class="headerlink" href="#uefi-secure-boot-optional" title="Link to this heading">¶</a></h4>
 <p>UEFI Secure Boot is optional for this specification.</p>
 <p>If Secure Boot is implemented, it must conform to the UEFI specification for Secure Boot. There are no additional
 requirements for Secure Boot.</p>
 </section>
 </section>
 <section id="uefi-runtime-services">
-<h3><span class="section-number">2.5. </span>UEFI Runtime Services<a class="headerlink" href="#uefi-runtime-services" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">2.6. </span>UEFI Runtime Services<a class="headerlink" href="#uefi-runtime-services" title="Link to this heading">¶</a></h3>
 <p>UEFI runtime services exist after the call to <cite>ExitBootServices()</cite> and are
 designed to provide a limited set of persistent services to the platform
 Operating System or hypervisor.
@@ -967,7 +967,7 @@ are required to be implemented during boot services and runtime services.</p>
 </tbody>
 </table>
 <section id="runtime-device-mappings">
-<h4><span class="section-number">2.5.1. </span>Runtime Device Mappings<a class="headerlink" href="#runtime-device-mappings" title="Link to this heading">¶</a></h4>
+<h4><span class="section-number">2.6.1. </span>Runtime Device Mappings<a class="headerlink" href="#runtime-device-mappings" title="Link to this heading">¶</a></h4>
 <p>Firmware shall not create runtime mappings, or perform any runtime IO that will
 conflict with device access by the OS.
 Normally this means a device may be controlled by firmware, or controlled by
@@ -981,7 +981,7 @@ shall not be accessed by the OS.</p>
 <p>Only devices that explicitly support concurrent access by both firmware and an
 OS may be mapped at runtime by both firmware and the OS.</p>
 <section id="real-time-clock-rtc">
-<h5><span class="section-number">2.5.1.1. </span>Real-time Clock (RTC)<a class="headerlink" href="#real-time-clock-rtc" title="Link to this heading">¶</a></h5>
+<h5><span class="section-number">2.6.1.1. </span>Real-time Clock (RTC)<a class="headerlink" href="#real-time-clock-rtc" title="Link to this heading">¶</a></h5>
 <p>Not all embedded systems include an RTC, and even if one is present,
 it may not be possible to access the RTC from runtime services.
 e.g., The RTC may be on a shared I2C bus which runtime services cannot access
@@ -994,7 +994,7 @@ and the OS must use a device driver to control the RTC.</p>
 </section>
 </section>
 <section id="uefi-reset-and-shutdown">
-<h4><span class="section-number">2.5.2. </span>UEFI Reset and Shutdown<a class="headerlink" href="#uefi-reset-and-shutdown" title="Link to this heading">¶</a></h4>
+<h4><span class="section-number">2.6.2. </span>UEFI Reset and Shutdown<a class="headerlink" href="#uefi-reset-and-shutdown" title="Link to this heading">¶</a></h4>
 <p><cite>ResetSystem()</cite> is required to be implemented in boot services, but it is
 optional for runtime services.
 During runtime services, the operating system should first attempt to
@@ -1007,7 +1007,7 @@ if <cite>ResetSystem()</cite> is not implemented then the Operating System shoul
 back to making a PSCI call to reset or shutdown the system.</p>
 </section>
 <section id="runtime-variable-access">
-<h4><span class="section-number">2.5.3. </span>Runtime Variable Access<a class="headerlink" href="#runtime-variable-access" title="Link to this heading">¶</a></h4>
+<h4><span class="section-number">2.6.3. </span>Runtime Variable Access<a class="headerlink" href="#runtime-variable-access" title="Link to this heading">¶</a></h4>
 <p>There are many platforms where it is difficult to implement <cite>SetVariable()</cite> for
 non-volatile variables during runtime services because the firmware cannot
 access storage after <cite>ExitBootServices()</cite> is called.</p>
@@ -1042,7 +1042,7 @@ during runtime services.</p>
 </aside>
 </section>
 <section id="firmware-update">
-<span id="section-fw-update"></span><h4><span class="section-number">2.5.4. </span>Firmware Update<a class="headerlink" href="#firmware-update" title="Link to this heading">¶</a></h4>
+<span id="section-fw-update"></span><h4><span class="section-number">2.6.4. </span>Firmware Update<a class="headerlink" href="#firmware-update" title="Link to this heading">¶</a></h4>
 <p>Being able to update firmware to address security issues is a key feature of secure platforms.
 EBBR platforms are required to implement either an in-band or an out-of-band firmware update mechanism.</p>
 <p>If firmware update is performed in-band (firmware on the application processor updates itself),
@@ -1089,7 +1089,7 @@ as detailed in <a class="reference internal" href="index.html#uefi" id="id28"><s
 </aside>
 </section>
 <section id="miscellaneous-runtime-services">
-<h4><span class="section-number">2.5.5. </span>Miscellaneous Runtime Services<a class="headerlink" href="#miscellaneous-runtime-services" title="Link to this heading">¶</a></h4>
+<h4><span class="section-number">2.6.5. </span>Miscellaneous Runtime Services<a class="headerlink" href="#miscellaneous-runtime-services" title="Link to this heading">¶</a></h4>
 <p>If the platform does not implement the monotonic counter, it shall not support
 the <cite>GetNextHighMonotonicCount()</cite> runtime service. <a class="footnote-reference brackets" href="#bootnote" id="id29" role="doc-noteref"><span class="fn-bracket">[</span>8<span class="fn-bracket">]</span></a></p>
 <aside class="footnote-list brackets">

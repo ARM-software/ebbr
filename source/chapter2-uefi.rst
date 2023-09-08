@@ -291,23 +291,8 @@ to allow the subsequent booting of a UEFI-compliant Operating System.
 In this instance, the UEFI boot-time environment can be provided,
 as a virtualized service, by the hypervisor and not as part of the host firmware.
 
-UEFI Boot Services
-==================
-
-Memory Map
-----------
-
-The UEFI environment must provide a system memory map, which must include all
-appropriate devices and memories that are required for booting and system
-configuration.
-
-All RAM defined by the UEFI memory map must be identity-mapped, which means
-that virtual addresses must equal physical addresses.
-
-The default RAM allocated attribute must be `EFI_MEMORY_WB`.
-
-Configuration Tables
---------------------
+UEFI Configuration Tables
+=========================
 
 A UEFI system that complies with this specification may provide additional
 tables via the EFI Configuration Table.
@@ -325,7 +310,7 @@ mechanism to select either ACPI or Devicetree,
 and must ensure only the selected interface is provided to the OS loader.
 
 EFI Conformance Profile Table
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+-----------------------------
 
 The following GUID in the EFI Conformance Profile Table is used to indicate
 compliance to version 2.1.x of the EBBR specification:
@@ -345,7 +330,7 @@ specification [#VersionsNote]_.
    number") are expected to be compatible.
 
 Devicetree
-^^^^^^^^^^
+----------
 
 If firmware provides a Devicetree system description then it must be provided
 in Flattened Devicetree Blob (DTB) format version 17 or higher as described in
@@ -372,6 +357,21 @@ take precedence.
 The DTB must be contained in memory of type `EfiACPIReclaimMemory`.
 `EfiACPIReclaimMemory` was chosen to match the recommendation for ACPI
 tables which fulfill the same task as the DTB.
+
+UEFI Boot Services
+==================
+
+Memory Map
+----------
+
+The UEFI environment must provide a system memory map, which must include all
+appropriate devices and memories that are required for booting and system
+configuration.
+
+All RAM defined by the UEFI memory map must be identity-mapped, which means
+that virtual addresses must equal physical addresses.
+
+The default RAM allocated attribute must be `EFI_MEMORY_WB`.
 
 .. _section-misc-boot-services:
 

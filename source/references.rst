@@ -6,9 +6,9 @@
    Bibliography
    ************
 
-.. [ACPI] `Advanced Configuration and Power Interface specification v6.4
-   <https://uefi.org/sites/default/files/resources/ACPI_Spec_6_4_Jan22.pdf>`_,
-   January 2022, `UEFI Forum <https://uefi.org/>`_
+.. [ACPI] `Advanced Configuration and Power Interface specification v6.5
+   <https://uefi.org/sites/default/files/resources/ACPI_Spec_6_5_Aug29.pdf>`_,
+   August 2022, `UEFI Forum <https://uefi.org/>`_
 
 .. [DTSPEC] `Devicetree specification v0.3
    <https://github.com/devicetree-org/devicetree-specification/releases/tag/v0.3>`_,
@@ -18,9 +18,9 @@
    <https://docs.kernel.org/arch/arm64/booting.html>`_,
    Linux kernel
 
-.. [PSCI] `Arm Power State Coordination Interface issue D.b (PSCI v1.1).
-   <https://developer.arm.com/documentation/den0022/db>`_
-   June 2021, `Arm Limited <https://www.arm.com/>`_
+.. [PSCI] `Arm Power State Coordination Interface issue E (PSCI v1.2).
+   <https://developer.arm.com/documentation/den0022/e>`_
+   Mar 2023, `Arm Limited <https://www.arm.com/>`_
 
 .. [ArmBBR] `Arm Base Boot Requirements specification Issue G (v2.0)
    <https://developer.arm.com/documentation/den0044/g>`_

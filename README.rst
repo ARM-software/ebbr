@@ -59,6 +59,9 @@ new version can be installed with the Python package installer::
 
 Export SPHINXBUILD (see above) if Sphinx was installed with pip3 --user, then follow Make commands below.
 
+**Note**: the ``.github/workflows/main.yaml`` CI configuration file installs the
+necessary dependencies for Ubuntu and can be used as an example.
+
 On Fedora
 ^^^^^^^^^
 
@@ -99,6 +102,10 @@ To generate a single HTML page::
   $ make singlehtml
 
 Output goes in ``./build`` subdirectory.
+
+To get some help on the available targets::
+
+  $ make help
 
 License
 =======

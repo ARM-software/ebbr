@@ -19,6 +19,7 @@ help:
 check:
 	! grep -r --file=.typos.txt --exclude=.typos.txt --exclude-dir=.git
 	flake8 .
+	mypy .
 	$(SPHINXBUILD) -M linkcheck "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
 
 # Catch-all target: route all unknown targets to Sphinx using the new

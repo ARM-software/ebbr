@@ -41,7 +41,7 @@ Requirements
 
 * Sphinx version 1.5 or later: http://sphinx-doc.org/en/master/contents.html
 * LaTeX (and pdflatex, and various LaTeX packages)
-* Optionally, for verification: ``flake8`` and ``mypy``
+* Optionally, for verification: ``flake8``, ``mypy`` and ``yamllint``
 
 On Debian and Ubuntu
 ^^^^^^^^^^^^^^^^^^^^

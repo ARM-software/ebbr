@@ -18,6 +18,7 @@ help:
 
 check:
 	! grep -r --file=.typos.txt --exclude=.typos.txt --exclude-dir=.git
+	yamllint .
 	flake8 .
 	mypy .
 	$(SPHINXBUILD) -M linkcheck "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)

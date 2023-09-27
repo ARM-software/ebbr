@@ -31,7 +31,7 @@ jobs:
         run: |
           sudo apt update
           sudo apt install python3-pip latexmk libalgorithm-diff-perl texlive \
-            texlive-latex-extra texlive-humanities flake8 mypy
+            texlive-latex-extra texlive-humanities flake8 mypy yamllint
 
       - name: 'Install Python required packages'
         run: |

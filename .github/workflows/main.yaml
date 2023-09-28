@@ -53,6 +53,9 @@ jobs:
       - name: 'Build Single HTML'
         run: make singlehtml
 
+      - name: 'Build Text'
+        run: make text
+
       - name: 'Upload artifacts'
         uses: actions/upload-artifact@v3
         with:
@@ -61,6 +64,7 @@ jobs:
             build/ebbr-*.pdf
             build/html/
             build/singlehtml/
+            build/text/
 
       - name: 'Deploy to Github Pages'
         uses: peaceiris/actions-gh-pages@v3

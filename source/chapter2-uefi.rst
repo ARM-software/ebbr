@@ -35,7 +35,7 @@ All of the following UEFI elements are required for EBBR compliance.
    * - Element
      - Requirement
    * - `EFI_SYSTEM_TABLE`
-     - The system table is required to provide required to access UEFI Boot Services,
+     - The system table is required to provide access to UEFI Boot Services,
        UEFI Runtime Services, consoles, and other firmware, vendor and platform
        information.
    * - `EFI_BOOT_SERVICES`

@@ -10,8 +10,8 @@
    <https://uefi.org/sites/default/files/resources/ACPI_Spec_6_5_Aug29.pdf>`_,
    August 2022, `UEFI Forum <https://uefi.org/>`_
 
-.. [DTSPEC] `Devicetree specification v0.3
-   <https://github.com/devicetree-org/devicetree-specification/releases/tag/v0.3>`_,
+.. [DTSPEC] `Devicetree specification v0.4
+   <https://github.com/devicetree-org/devicetree-specification/releases/tag/v0.4>`_,
    `Devicetree.org <https://www.devicetree.org/>`_
 
 .. [LINUXA64BOOT] `Linux Documentation/arm64/booting.rst

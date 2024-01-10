@@ -18,9 +18,9 @@
    <https://docs.kernel.org/arch/arm64/booting.html>`_,
    Linux kernel
 
-.. [PSCI] `Arm Power State Coordination Interface issue E (PSCI v1.2).
-   <https://developer.arm.com/documentation/den0022/e>`_
-   Mar 2023, `Arm Limited <https://www.arm.com/>`_
+.. [PSCI] `Arm Power State Coordination Interface issue F (PSCI v1.3 ALPHA).
+   <https://developer.arm.com/documentation/den0022/f>`_
+   July 2023, `Arm Limited <https://www.arm.com/>`_
 
 .. [ArmBBR] `Arm Base Boot Requirements specification Issue G (v2.0)
    <https://developer.arm.com/documentation/den0044/g>`_

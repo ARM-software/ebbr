@@ -28,6 +28,14 @@ However, the spin table protocol is strongly discouraged.
 Future versions of this specification will only allow PSCI, and PSCI should
 be implemented in all new designs.
 
+It is recommended that firmware implementing PSCI supports version 1.0 or later.
+[#PSCINote]_
+
+.. [#PSCINote]
+   PSCI version 1.0 is considered as an errata fix release for version 0.2,
+   where functions interfaces have been stabilized.
+   It also introduced the `PSCI_FEATURES` function, for standardized discovery.
+
 RISC-V Multiprocessor Startup Protocol
 ======================================
 The resident firmware in M mode or hypervisor running in HS mode must implement

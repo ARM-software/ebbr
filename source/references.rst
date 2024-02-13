@@ -22,6 +22,10 @@
    <https://developer.arm.com/documentation/den0022/f>`_
    July 2023, `Arm Limited <https://www.arm.com/>`_
 
+.. [SMCCC] `SMC Calling Convention version F.
+   <https://developer.arm.com/documentation/den0028/f>`_
+   Dec 2023, `Arm Limited <https://www.arm.com/>`_
+
 .. [ArmBBR] `Arm Base Boot Requirements specification Issue G (v2.0)
    <https://developer.arm.com/documentation/den0044/g>`_
    15 Apr 2022, `Arm Limited <https://www.arm.com/>`_

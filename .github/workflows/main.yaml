@@ -15,6 +15,55 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: 'Compute IRC message'
+        # We compute a message only for events happening in the main repository
+        # and only in the following cases:
+        # - Push of a tag or to the main branch
+        # - Pull request opened for the main branch of the main repository.
+        if: ${{ github.repository == 'ARM-software/ebbr' }}
+        run: |
+          tmp="/tmp/tmp.$$"
+          cat >"$tmp" <<EOF
+          ${{ github.event.head_commit.message }}
+          EOF
+
+          case "${{ github.event_name }}" in
+          push)
+            case "${{ github.event.ref }}" in
+            refs/heads/main|refs/tags/*)
+              title=$(head -1 "$tmp")
+              msg="Push ${{ github.event.ref }} (\"$title\")"
+              url="${{ github.event.head_commit.url }}"
+              ;;
+            esac ;;
+          pull_request)
+            if [ "${{ github.event.action }}" == opened ] &&
+               [ "${{ github.event.pull_request.base.ref }}" == main ]; then
+              msg="Pull request ${{ github.event.number }}"
+              msg="$msg (\"${{ github.event.pull_request.title }}\")"
+              msg="$msg ${{ github.event.action }}"
+              url="${{ github.event.pull_request.html_url }}"
+            fi ;;
+          esac
+
+          echo "EBBR_IRC_MESSAGE=$msg" >> $GITHUB_ENV
+          echo "EBBR_IRC_URL=$url" >> $GITHUB_ENV
+          rm -f "$tmp"
+
+      - name: 'Notify IRC'
+        uses: Gottox/irc-message-action@v2
+        # We notify IRC only for the main repository
+        # and when we have computed a message.
+        if: ${{ github.repository == 'ARM-software/ebbr' &&
+                env.EBBR_IRC_MESSAGE != '' }}
+        with:
+          server: irc.oftc.net
+          channel: '#ebbr'
+          nickname: ebbr-bot
+          message: |-
+            ${{ env.EBBR_IRC_MESSAGE }}
+            ${{ env.EBBR_IRC_URL }}
+
       - name: Checkout
         uses: actions/checkout@v3
         with:

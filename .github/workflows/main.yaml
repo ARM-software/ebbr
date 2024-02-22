@@ -65,15 +65,14 @@ jobs:
             ${{ env.EBBR_IRC_URL }}
 
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
+        # Make sure we fetch the tags for proper version identification.
         with:
           fetch-depth: 0
+          fetch-tags: true
 
-      # checkout@v3 doesn't preserve annotations when fetching the tag
-      # Forcing the tags to be fetched fixes it so the version is correct
       - name: 'Identify Version'
         run: |
-          git fetch --force --tags
           echo "EBBR_VERSION=$(git describe)" >> $GITHUB_ENV
 
       - name: 'Install Debian required packages'
@@ -106,7 +105,7 @@ jobs:
         run: make text
 
       - name: 'Upload artifacts'
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: ebbr-${{ env.EBBR_VERSION }}
           path: |

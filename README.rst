@@ -37,14 +37,14 @@ Build Instructions
 ==================
 
 Requirements
-^^^^^^^^^^^^
+------------
 
 * Sphinx version 1.5 or later: http://sphinx-doc.org/en/master/contents.html
 * LaTeX (and pdflatex, and various LaTeX packages)
 * Optionally, for verification: ``flake8``, ``mypy`` and ``yamllint``
 
 On Debian and Ubuntu
-^^^^^^^^^^^^^^^^^^^^
+--------------------
 ::
 
   # apt-get install python3-sphinx texlive texlive-latex-extra libalgorithm-diff-perl \
@@ -64,7 +64,7 @@ Export SPHINXBUILD (see above) if Sphinx was installed with pip3 --user, then fo
 necessary dependencies for Ubuntu and can be used as an example.
 
 On Fedora
-^^^^^^^^^
+---------
 
 ::
 
@@ -74,7 +74,7 @@ On Fedora
                 texlive-wrapfig texinfo latexmk
 
 On Mac OS X
-^^^^^^^^^^^
+-----------
 
 * Install MacTeX_
 * Install pip if you do not have it::
@@ -88,7 +88,7 @@ On Mac OS X
 .. _MacTeX: http://tug.org/mactex
 
 Make Targets
-^^^^^^^^^^^^
+------------
 
 To generate PDF::
 
@@ -147,7 +147,7 @@ tag. Generally this means each ``.rst`` file should include the line
 .. _Sphinx: http://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html
 
 Sphinx Extensions
-^^^^^^^^^^^^^^^^^
+-----------------
 
 Sphinx extension files are kept under ``source/extensions/``.
 
@@ -156,7 +156,7 @@ Debugging extensions is easier when running Sphinx with debug messages::
   $ make singlehtml SPHINXOPTS=-vv
 
 UEFI chapter links
-..................
+^^^^^^^^^^^^^^^^^^
 
 We have an extension for referencing UEFI specifications chapters.
 

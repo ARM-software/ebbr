@@ -15,6 +15,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        # Make sure we fetch the tags for proper version identification.
+        with:
+          fetch-depth: 0
+          fetch-tags: true
+
       - name: 'Compute IRC message'
         # We compute a message only for events happening in the main repository
         # and only in the following cases:
@@ -22,17 +29,13 @@ jobs:
         # - Pull request opened for the main branch of the main repository.
         if: ${{ github.repository == 'ARM-software/ebbr' }}
         run: |
-          tmp="/tmp/tmp.$$"
-          cat >"$tmp" <<EOF
-          ${{ github.event.head_commit.message }}
-          EOF
-
           case "${{ github.event_name }}" in
           push)
             case "${{ github.event.ref }}" in
             refs/heads/main|refs/tags/*)
-              title=$(head -1 "$tmp")
-              msg="Push ${{ github.event.ref }} (\"$title\")"
+              hash=$(git log -1 --pretty=format:%h)
+              title=$(git log -1 --pretty=format:%s)
+              msg="Push ${{ github.event.ref }} $hash (\"$title\")"
               url="${{ github.event.head_commit.url }}"
               ;;
             esac ;;
@@ -48,7 +51,6 @@ jobs:
 
           echo "EBBR_IRC_MESSAGE=$msg" >> $GITHUB_ENV
           echo "EBBR_IRC_URL=$url" >> $GITHUB_ENV
-          rm -f "$tmp"
 
       - name: 'Notify IRC'
         uses: Gottox/irc-message-action@v2
@@ -63,13 +65,6 @@ jobs:
           message: |-
             ${{ env.EBBR_IRC_MESSAGE }}
             ${{ env.EBBR_IRC_URL }}
-
-      - name: Checkout
-        uses: actions/checkout@v4
-        # Make sure we fetch the tags for proper version identification.
-        with:
-          fetch-depth: 0
-          fetch-tags: true
 
       - name: 'Identify Version'
         run: |

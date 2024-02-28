@@ -313,8 +313,9 @@ and must ensure only the selected interface is provided to the OS loader.
 EFI Conformance Profile Table
 -----------------------------
 
-The following GUID in the EFI Conformance Profile Table is used to indicate
-compliance to version 2.1.x of the EBBR specification:
+The following GUID in the EFI Conformance Profile Table, as defined in
+:UEFI:`4.6.5`, is used to indicate compliance to version 2.1.x of the EBBR
+specification:
 
 .. code-block:: c
 

@@ -162,7 +162,7 @@ and all firmware images and data should be stored in platform vendor
 subdirectories under ``/FIRMWARE``.
 
 Dedicated firmware partitions should be formatted with a FAT
-filesystem as defined by the UEFI specification.
+filesystem as defined in :UEFI:`13.3`.
 Dedicated firmware partitions should use the same ``/FIRMWARE`` directory
 hierarchy.
 OS tools shall ignore dedicated firmware partitions,

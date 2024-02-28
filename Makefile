@@ -12,6 +12,9 @@ BUILDDIR      = build
 help:
 	@$(SPHINXBUILD) -M help "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
 	@echo
+	@echo 'Use "make text html singlehtml latexpdf" to generate the EBBR'
+	@echo 'specification in the main supported formats.'
+	@echo
 	@echo 'Use "make check" to perform verifications on this repository.'
 
 .PHONY: help Makefile check

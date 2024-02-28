@@ -102,6 +102,10 @@ To generate a single HTML page::
 
   $ make singlehtml
 
+To generate as text (useful for comparing different versions)::
+
+  $ make text
+
 Output goes in ``./build`` subdirectory.
 
 To run verifications on this repository::

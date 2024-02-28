@@ -132,7 +132,7 @@ provide explicit information about the protected region.
 .. _section-mbr-parts:
 
 MBR partitioning
-^^^^^^^^^^^^^^^^
+----------------
 
 If firmware is at a fixed location entirely within the first 1MiB of
 storage (<= LBA2047) then no protective partitions are required.
@@ -167,6 +167,9 @@ Dedicated firmware partitions should use the same ``/FIRMWARE`` directory
 hierarchy.
 OS tools shall ignore dedicated firmware partitions,
 and shall not attempt to use a dedicated firmware partition as an ESP.
+
+The firmware directory hierarchy
+--------------------------------
 
 Vendors may choose their own subdirectory name under ``/FIRMWARE``,
 but shall choose names that do not conflict with other vendors.
@@ -219,6 +222,9 @@ Operating systems and installers should not manipulate any files in the
    * Define firmware update procedure. In what circumstances could an
      OS automatically update firmware files in ``/FIRMWARE``?
 
+Shared Storage Requirements
+===========================
+
 The sections below discuss the requirements when using both fixed and
 removable storage.
 However, it should be noted that the recommended behaviour of firmware
@@ -228,7 +234,6 @@ in a dedicated firmware partition, and second search for firmware in the
 ESP.
 The only difference between fixed and removable storage is the recommended
 factory settings for the platform.
-
 
 Fixed Shared Storage
 --------------------

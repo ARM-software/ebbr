@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Embedded Base Boot Requirements (EBBR) Specification v2.1.0-44-gb6de573 documentation</title>
+    <title>Embedded Base Boot Requirements (EBBR) Specification v2.1.0-45-g8d75153 documentation</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
     <script src="_static/documentation_options.js"></script>
@@ -1278,8 +1278,9 @@ See <a class="reference external" href="https://uefi.org/specs/UEFI/2.10/05_GUID
 <p>Given the choice, platforms should use protective partitions over
 adjusting the placement of GPT data structures because protective partitions
 provide explicit information about the protected region.</p>
+</section>
 <section id="mbr-partitioning">
-<span id="section-mbr-parts"></span><h5><span class="section-number">4.1.1.1. </span>MBR partitioning<a class="headerlink" href="#mbr-partitioning" title="Link to this heading">¶</a></h5>
+<span id="section-mbr-parts"></span><h4><span class="section-number">4.1.2. </span>MBR partitioning<a class="headerlink" href="#mbr-partitioning" title="Link to this heading">¶</a></h4>
 <p>If firmware is at a fixed location entirely within the first 1MiB of
 storage (&lt;= LBA2047) then no protective partitions are required.
 If firmware resides in a fixed location outside the first 1MiB,
@@ -1288,7 +1289,6 @@ Protective partitions should have a partition type of 0xF8 unless an
 immutable feature of the platform makes this impossible.</p>
 <p>OS partitioning tools must not create partitions in the first 1MiB
 of the storage device, and must not remove protective partitions.</p>
-</section>
 </section>
 </section>
 <section id="firmware-partition-filesystem">
@@ -1309,6 +1309,8 @@ Dedicated firmware partitions should use the same <code class="docutils literal 
 hierarchy.
 OS tools shall ignore dedicated firmware partitions,
 and shall not attempt to use a dedicated firmware partition as an ESP.</p>
+<section id="the-firmware-directory-hierarchy">
+<h4><span class="section-number">4.2.1. </span>The firmware directory hierarchy<a class="headerlink" href="#the-firmware-directory-hierarchy" title="Link to this heading">¶</a></h4>
 <p>Vendors may choose their own subdirectory name under <code class="docutils literal notranslate"><span class="pre">/FIRMWARE</span></code>,
 but shall choose names that do not conflict with other vendors.
 Normally the vendor name will be the name of the SoC vendor, because the
@@ -1349,6 +1351,10 @@ choose to use the SoC part number as a subdirectory in the firmware path:</p>
 </div>
 <p>Operating systems and installers should not manipulate any files in the
 <code class="docutils literal notranslate"><span class="pre">/FIRMWARE</span></code> hierarchy during normal operation.</p>
+</section>
+</section>
+<section id="shared-storage-requirements">
+<h3><span class="section-number">4.3. </span>Shared Storage Requirements<a class="headerlink" href="#shared-storage-requirements" title="Link to this heading">¶</a></h3>
 <p>The sections below discuss the requirements when using both fixed and
 removable storage.
 However, it should be noted that the recommended behaviour of firmware
@@ -1359,7 +1365,7 @@ ESP.
 The only difference between fixed and removable storage is the recommended
 factory settings for the platform.</p>
 <section id="fixed-shared-storage">
-<h4><span class="section-number">4.2.1. </span>Fixed Shared Storage<a class="headerlink" href="#fixed-shared-storage" title="Link to this heading">¶</a></h4>
+<h4><span class="section-number">4.3.1. </span>Fixed Shared Storage<a class="headerlink" href="#fixed-shared-storage" title="Link to this heading">¶</a></h4>
 <p>Fixed storage is storage that is permanently attached to the platform,
 and cannot be moved between systems.
 eMMC and Universal Flash Storage (UFS) device are often used as
@@ -1376,7 +1382,7 @@ OS partitioning tools must take care not to modify or delete dedicated
 firmware partitions.</p>
 </section>
 <section id="removable-shared-storage">
-<h4><span class="section-number">4.2.2. </span>Removable Shared Storage<a class="headerlink" href="#removable-shared-storage" title="Link to this heading">¶</a></h4>
+<h4><span class="section-number">4.3.2. </span>Removable Shared Storage<a class="headerlink" href="#removable-shared-storage" title="Link to this heading">¶</a></h4>
 <p>Removable storage is any media that can be physically removed from
 the system and moved to another machine as part of normal operation
 (e.g., SD cards, USB thumb drives, and CDs).</p>

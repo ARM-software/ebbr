@@ -1,10 +1,17 @@
 .. SPDX-License-Identifier: CC-BY-SA-4.0
 
-.. only:: html
+.. raw:: latex
 
-   ************
-   Bibliography
-   ************
+   \cleardoublepage
+   \begingroup
+   \renewcommand\chapter[1]{\endgroup}
+   \phantomsection
+
+.. _refs:
+
+************
+Bibliography
+************
 
 .. [ACPI] `Advanced Configuration and Power Interface specification v6.5
    <https://uefi.org/sites/default/files/resources/ACPI_Spec_6_5_Aug29.pdf>`_,

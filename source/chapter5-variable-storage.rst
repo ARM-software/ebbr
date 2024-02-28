@@ -89,8 +89,7 @@ DataSize
     the NUL terminated variable name.
 
 Attributes
-    This field is a bitmap with the variable attributes as defined in
-    :UEFI:`8.2.1`.
+    This field is a bitmap with the variable attributes [#AttrNote]_.
 
 TimeStamp
     For time-based authenticaed variables this field contains the timestamp
@@ -104,6 +103,8 @@ Data
     This field contains a NUL terminated UCS-2 string with the name of the
     vendor’s variable followed by `DataSize` bytes of actual content of the
     variable.
+
+.. [#AttrNote] As defined in :UEFI:`8.2.1`.
 
 Limitations
 ===========

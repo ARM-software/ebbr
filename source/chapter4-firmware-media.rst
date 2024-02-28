@@ -47,11 +47,13 @@ conflict with normal usage of the media by an OS.
 Partitioning of Shared Storage
 ==============================
 
-The shared storage device must use the GUID Partition Table (GPT) disk
-layout as defined in :UEFI:`5.3`, unless the platform boot sequence is
-fundamentally incompatible with the GPT disk layout.
+The shared storage device must use the GUID Partition Table (GPT) disk layout
+[#GPTNote]_, unless the platform boot sequence is fundamentally incompatible
+with the GPT disk layout.
 In which case, a legacy Master Boot Record (MBR) must be used.
 [#MBRReqExample]_
+
+.. [#GPTNote] As defined in :UEFI:`5.3`.
 
 .. [#MBRReqExample] For example, if the SoC boot ROM requires an MBR to
    find the next stage firmware image, then it is incompatible with
@@ -121,11 +123,13 @@ adjusting the GUID Partition Entry array location
 and `SizeOfPartitionEntry`),
 or by specifying the usable LBAs (Choosing `FirstUsableLBA`/`LastUsableLBA`
 to not overlap the fixed firmware location).
-See :UEFI:`5.3.2`.
+[#GPTHNote]_
 
 Given the choice, platforms should use protective partitions over
 adjusting the placement of GPT data structures because protective partitions
 provide explicit information about the protected region.
+
+.. [#GPTHNote] See :UEFI:`5.3.2`.
 
 .. _section-mbr-parts:
 
@@ -160,11 +164,13 @@ and all firmware images and data should be stored in platform vendor
 subdirectories under ``/FIRMWARE``.
 
 Dedicated firmware partitions should be formatted with a FAT
-filesystem as defined in :UEFI:`13.3`.
+filesystem [#FATNote]_.
 Dedicated firmware partitions should use the same ``/FIRMWARE`` directory
 hierarchy.
 OS tools shall ignore dedicated firmware partitions,
 and shall not attempt to use a dedicated firmware partition as an ESP.
+
+.. [#FATNote] As defined in :UEFI:`13.3`.
 
 The firmware directory hierarchy
 --------------------------------
@@ -278,10 +284,11 @@ the required firmware files into the ``/FIRMWARE`` directory tree on the ESP
 using the basic file manager tools provided by all desktop operating systems.
 
 On removable media, firmware should be stored in the ESP under the
-``/FIRMWARE`` directory structure as described in
-:ref:`section-fw-partition-fs`.
+``/FIRMWARE`` directory structure [#FWNote]_.
 Platform vendors should support their platform by providing a single
 .zip file that places all the required firmware files in the correct
 locations when extracted in the ESP ``/FIRMWARE`` directory.
 For simplicity sake, it is expected the same .zip file will recover the
 firmware files in a dedicated firmware partition.
+
+.. [#FWNote] As described in :ref:`section-fw-partition-fs`.

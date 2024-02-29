@@ -357,8 +357,10 @@ take precedence.
        detailed in section :ref:`section-efi-vars-file-format`.
 
 The DTB must be contained in memory of type `EfiACPIReclaimMemory`.
-`EfiACPIReclaimMemory` was chosen to match the recommendation for ACPI
-tables which fulfill the same task as the DTB.
+[#ACPIMemNote]_
+
+.. [#ACPIMemNote] `EfiACPIReclaimMemory` was chosen to match the recommendation
+   for ACPI tables which fulfill the same task as the DTB.
 
 UEFI Boot Services
 ==================

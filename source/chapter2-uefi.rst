@@ -67,6 +67,9 @@ All of the following UEFI elements are required for EBBR compliance.
    * - `EFI_DECOMPRESS_PROTOCOL`
      - Native EFI decompression is rarely used and therefore not required.
 
+.. versionchanged:: 2.0.0
+   Required Elements
+
 Required Platform Specific Elements
 -----------------------------------
 
@@ -170,6 +173,15 @@ interface specific UEFI protocols, and so they have been made optional.
        For this reason EBBR implementations are not required to support option
        ROM loading.
 
+.. versionchanged:: 2.0.0
+   Required Platform Specific Elements
+
+.. versionadded:: 2.1.0
+   `RISCV_EFI_BOOT_PROTOCOL`
+
+.. versionchanged:: TBD
+   Clarify `ConnectController`
+
 Required Global Variables
 -------------------------
 
@@ -197,6 +209,9 @@ Variables as found in :UEFI:`3.3`.
    * - `OsIndicationsSupported`
      - Variable for firmware to indicate which features can be enabled.
 
+.. versionchanged:: 2.0.0
+   Required Global Variables
+
 .. _section-required-vars-for-on-disk:
 
 Required Variables for capsule update "on disk"
@@ -221,6 +236,9 @@ processing after restart as found in :UEFI:`8.5.6`. [#FWUpNote]_
      - Variable for platform to publish the last `CapsuleNNNN` created.
 
 .. [#FWUpNote] See section :ref:`section-fw-update`.
+
+.. versionadded:: TBD
+   Required Variables for "on disk"
 
 Block device partitioning
 -------------------------
@@ -277,6 +295,9 @@ operating system runs while the guest OS runs in virtual S mode (VS mode).
 Resident UEFI firmware can be executed in M mode or S/HS mode during POST.
 However, the UEFI images must be loaded in HS or VS mode if virtualization
 is available at OS load time.
+
+.. versionadded:: 2.0.1
+   RISC-V
 
 UEFI Boot at S mode
 ^^^^^^^^^^^^^^^^^^^
@@ -340,6 +361,9 @@ specification [#VersionsNote]_.
    versions of this specification differing only by their last digit (or "patch
    number") are expected to be compatible.
 
+.. versionadded:: 2.1.0
+   Conformance Profile Table
+
 Devicetree
 ----------
 
@@ -371,6 +395,12 @@ The DTB must be contained in memory of type `EfiACPIReclaimMemory`.
 .. [#ACPIMemNote] `EfiACPIReclaimMemory` was chosen to match the recommendation
    for ACPI tables which fulfill the same task as the DTB.
 
+.. versionadded:: 1.0.1
+   Devicetree
+
+.. versionadded:: 2.1.0
+   ```/chosen``, ``/chosen/stdout-path``
+
 UEFI Boot Services
 ==================
 
@@ -397,6 +427,9 @@ If the platform does not implement the monotonic counter, the
 
 .. [#MonoNote] `EFI_UNSUPPORTED` is not an allowed status code for
    `GetNextMonotonicCount()`.
+
+.. versionadded:: TBD
+   `EFI_DEVICE_ERROR`
 
 UEFI Secure Boot (Optional)
 ---------------------------
@@ -476,6 +509,12 @@ are required to be implemented during boot services and runtime services.
      - Optional
      - Optional
 
+.. versionadded:: 1.0.1
+   `EFI_RT_PROPERTIES_TABLE`
+
+.. versionchanged:: 2.0.0
+   RTC present, wakeup supported, `UpdateCapsule`
+
 Runtime Device Mappings
 -----------------------
 
@@ -508,6 +547,9 @@ before `ExitBootServices()` is called.
 However, if firmware does not support access to the RTC after
 `ExitBootServices()`, then `GetTime()` and `SetTime()` shall return
 `EFI_UNSUPPORTED` and the OS must use a device driver to control the RTC.
+
+.. versionchanged:: 2.0.0
+   RTC present
 
 UEFI Reset and Shutdown
 -----------------------
@@ -561,6 +603,9 @@ that `GetVariable()` and `GetNextVariableName()` can behave as specified.
 
    https://optee.readthedocs.io/en/latest/architecture/secure_storage.html
 
+.. versionadded:: 1.0.1
+   `EFI_RT_PROPERTIES_TABLE`
+
 .. _section-fw-update:
 
 Firmware Update
@@ -608,6 +653,15 @@ Firmware must support the delivery of capsules via file on mass storage device
    implementation of the `UpdateCapsule()` runtime service and of the ESRT,
    as detailed in :UEFI:`23.3` and :UEFI:`23.4` respectively.
 
+.. versionadded:: 2.0.0
+   `UpdateCapsule()`
+
+.. versionadded:: 2.1.0
+   ESRT
+
+.. versionadded:: TBD
+   "On disk"
+
 Out-of-band firmware update
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -624,3 +678,6 @@ the `GetNextHighMonotonicCount()` runtime service. [#BootNote]_
 
 .. [#BootNote] The platform's monotonic counter is made optional in section
    :ref:`section-misc-boot-services`.
+
+.. versionadded:: TBD
+   Monotonic

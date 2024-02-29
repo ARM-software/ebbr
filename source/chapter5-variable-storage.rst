@@ -15,6 +15,9 @@ and the operating system can rely on.
 
 All integer fields are stored in little-endian byte order.
 
+.. versionadded:: TBD
+   File format
+
 File header
 ===========
 

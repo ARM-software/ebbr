@@ -124,8 +124,8 @@ interface specific UEFI protocols, and so they have been made optional.
        resource with the type 'HII'. HII resource images are not needed to run
        the UEFI shell or the SCT.
    * - `ConnectController()`
-     - The `ConnectController()` boot service is not required to support the
-       `EFI_PLATFORM_DRIVER_OVERRIDE_PROTOCOL`,
+     - The `ConnectController()` boot service must be implemented but it is not
+       required to support the `EFI_PLATFORM_DRIVER_OVERRIDE_PROTOCOL`,
        `EFI_DRIVER_FAMILY_OVERRIDE_PROTOCOL`, and
        `EFI_BUS_SPECIFIC_DRIVER_OVERRIDE_PROTOCOL`.
        These override protocols are

@@ -558,13 +558,19 @@ Firmware Update
 Being able to update firmware to address security issues is a key feature of secure platforms.
 EBBR platforms are required to implement either an in-band or an out-of-band firmware update mechanism.
 
-If firmware update is performed in-band (firmware on the application processor updates itself),
-then the firmware shall implement the `UpdateCapsule()` runtime service and accept updates in the
-"Firmware Management Protocol Data Capsule Structure" format as described in
-:UEFI:`23.3`. [#FMPNote]_
+In-band firmware update
+^^^^^^^^^^^^^^^^^^^^^^^
+
+If firmware update is performed in-band (firmware on the application processor
+updates itself), then the firmware shall implement the `UpdateCapsule()` runtime
+service and accept updates in the "Firmware Management Protocol Data Capsule
+Structure" format as described in :UEFI:`23.3`. [#FMPNote]_
+`UpdateCapsule()` is only required before `ExitBootServices()` is called.
+
 Firmware is also required to provide an EFI System Resource Table (ESRT) as
 described in :UEFI:`23.4`.
 Every firmware image that can be updated in-band must be described in the ESRT.
+
 Firmware must support the delivery of capsules via file on mass storage device
 ("on disk") as described in :UEFI:`8.5.5`. [#VarNote]_
 
@@ -572,13 +578,6 @@ Firmware must support the delivery of capsules via file on mass storage device
    It is recommended that firmware implementing the `UpdateCapsule()` runtime
    service and an ESRT also implement the `EFI_FIRMWARE_MANAGEMENT_PROTOCOL`
    described in :UEFI:`23.1`. [#FMProtoNote]_
-
-If firmware update is performed out-of-band (e.g., by an independent Baseboard
-Management Controller (BMC), or firmware is provided by a hypervisor),
-then the platform is not required to implement the `UpdateCapsule()` runtime
-service and it is not required to provide an ESRT.
-
-`UpdateCapsule()` is only required before `ExitBootServices()` is called.
 
 .. [#FMPNote] The `UpdateCapsule()` runtime service is expected to be suitable
    for use by generic firmware update services like fwupd and Windows Update.
@@ -595,6 +594,14 @@ service and it is not required to provide an ESRT.
    using the `EFI_FIRMWARE_MANAGEMENT_PROTOCOL` internally to support their
    implementation of the `UpdateCapsule()` runtime service and of the ESRT,
    as detailed in :UEFI:`23.3` and :UEFI:`23.4` respectively.
+
+Out-of-band firmware update
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+If firmware update is performed out-of-band (e.g., by an independent Baseboard
+Management Controller (BMC), or firmware is provided by a hypervisor),
+then the platform is not required to implement the `UpdateCapsule()` runtime
+service and it is not required to provide an ESRT.
 
 Miscellaneous Runtime Services
 ------------------------------

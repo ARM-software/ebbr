@@ -35,9 +35,15 @@ It is recommended that firmware implements PSCI version 1.0 or later
 .. [#SMCCCNote] Starting with SMCCC version 1.1, support for the `SMCCC_VERSION`
    function is required, for standardized discovery.
 
+.. versionadded:: TBD
+   SMCCC
+
 RISC-V Multiprocessor Startup Protocol
 ======================================
 
 The resident firmware in M mode or hypervisor running in HS mode must implement
 and conform to at least SBI [RVSBISPEC]_ v0.2 with HART State Management(HSM)
 extension for both RV32 and RV64.
+
+.. versionadded:: 2.0.1
+   RISC-V

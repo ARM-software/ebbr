@@ -173,6 +173,15 @@ The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD",
 "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be
 interpreted as described in :rfc:`2119`.
 
+The following annotations are used to highlight when a requirement was
+introduced or significantly changed after v1.0:
+
+.. versionadded:: 2.1.0
+   Example new requirement
+
+.. versionchanged:: 2.1.0
+   Example changed requirement
+
 Features, which will not be supported by a future version of this specification
 are indicated with a warning such as the following one:
 

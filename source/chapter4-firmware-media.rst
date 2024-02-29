@@ -127,6 +127,9 @@ Given the choice, platforms should use protective partitions over
 adjusting the placement of GPT data structures because protective partitions
 provide explicit information about the protected region.
 
+.. versionchanged:: 2.0.0
+   GPT partitioning
+
 .. _section-mbr-parts:
 
 MBR partitioning
@@ -141,6 +144,9 @@ immutable feature of the platform makes this impossible.
 
 OS partitioning tools must not create partitions in the first 1MiB
 of the storage device, and must not remove protective partitions.
+
+.. versionchanged:: 2.0.0
+   MBR partitioning
 
 .. _section-fw-partition-fs:
 

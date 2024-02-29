@@ -22,6 +22,8 @@ in :UEFI:`2.6`.
 However, the EBBR target market has a reduced set of requirements,
 and so some UEFI features are omitted as unnecessary.
 
+.. _section-required-elems:
+
 Required Elements
 -----------------
 
@@ -66,6 +68,8 @@ All of the following UEFI elements are required for EBBR compliance.
      - Note
    * - `EFI_DECOMPRESS_PROTOCOL`
      - Native EFI decompression is rarely used and therefore not required.
+
+.. _section-required-plat-specific-elems:
 
 Required Platform Specific Elements
 -----------------------------------
@@ -370,6 +374,22 @@ The DTB must be contained in memory of type `EfiACPIReclaimMemory`.
 
 .. [#ACPIMemNote] `EfiACPIReclaimMemory` was chosen to match the recommendation
    for ACPI tables which fulfill the same task as the DTB.
+
+UEFI Protocols
+==============
+
+Requirements for protocols defined in the UEFI specification are described in
+sections :ref:`section-required-elems` and
+:ref:`section-required-plat-specific-elems`.
+
+The following sections give additional requirements, for protocols not defined
+in the UEFI specification.
+
+Trusted Platform Module (TPM)
+-----------------------------
+
+Not all embedded systems include a TPM but if a TPM is present, then firmware
+shall implement the `EFI_TCG2_PROTOCOL` as defined in [TCG2]_.
 
 UEFI Boot Services
 ==================

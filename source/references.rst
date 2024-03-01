@@ -17,6 +17,10 @@ Bibliography
    <https://uefi.org/sites/default/files/resources/ACPI_Spec_6_5_Aug29.pdf>`_,
    August 2022, `UEFI Forum <https://uefi.org/>`_
 
+.. [DTSCHEMA] `Devicetree schema tools v2024.02
+   <https://github.com/devicetree-org/dt-schema/releases/tag/v2024.02>`_,
+   `Devicetree.org <https://www.devicetree.org/>`_
+
 .. [DTSPEC] `Devicetree specification v0.4
    <https://github.com/devicetree-org/devicetree-specification/releases/tag/v0.4>`_,
    `Devicetree.org <https://www.devicetree.org/>`_

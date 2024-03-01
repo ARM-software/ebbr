@@ -339,7 +339,7 @@ in Flattened Devicetree Blob (DTB) format version 17 or higher as described in
 [DTSPEC]_ § 5.
 The DTB Nodes and Properties must be compliant with the requirements listed in
 [DTSPEC]_ § 3 & 4 and with the requirements listed in the following table, which
-take precedence.
+take precedence. [#DTSchNote]_
 
 .. list-table:: DTB Nodes and Properties requirements
    :widths: 50 50
@@ -358,6 +358,9 @@ take precedence.
 
 The DTB must be contained in memory of type `EfiACPIReclaimMemory`.
 [#ACPIMemNote]_
+
+.. [#DTSchNote] The validity of the DTB and its conformance to [DTSPEC]_ can be
+   verified automatically with the tools and schemas in [DTSCHEMA]_.
 
 .. [#ACPIMemNote] `EfiACPIReclaimMemory` was chosen to match the recommendation
    for ACPI tables which fulfill the same task as the DTB.

@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Embedded Base Boot Requirements (EBBR) Specification v2.1.0-51-gf2c68ed documentation</title>
+    <title>Embedded Base Boot Requirements (EBBR) Specification v2.1.0-52-g2798117 documentation</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
     <script src="_static/documentation_options.js"></script>
@@ -160,7 +160,8 @@ compliant operating system without any custom tailoring required.
 For example, an Arm A-class embedded platform will benefit
 from a standard interface that supports features such as secure boot and
 firmware update.</p>
-<p>This specification defines the base firmware requirements for EBBR compliant platforms.
+<p>This specification defines the base firmware requirements for EBBR compliant
+platforms.
 The requirements in this specification are expected to be minimal yet complete,
 while leaving plenty of room for innovations and design details.
 This specification is intended to be OS-neutral.</p>
@@ -175,8 +176,10 @@ written the way it is, or what problems it is intended to solve.
 Using the assumption that better understanding of the thought process behind
 EBBR will result in better implementations, this section is a discussion of the
 goals and guiding principle that shaped EBBR.</p>
-<p>This section should be considered commentary, and not a formal part of the specification.</p>
-<p>EBBR was written as a response to the lack of boot sequence standardization in the embedded system ecosystem.
+<p>This section should be considered commentary, and not a formal part of the
+specification.</p>
+<p>EBBR was written as a response to the lack of boot sequence standardization in
+the embedded system ecosystem.
 As embedded systems are becoming more sophisticated and connected,
 it is becoming increasingly important for embedded systems to run standard OS
 distributions and software stacks, or to have consistent behaviour across a
@@ -210,7 +213,8 @@ U-Boot is the incumbent firmware project for embedded platforms and has
 steadily been adding UEFI compliance since 2016.</p>
 </aside>
 </aside>
-<p>The following guiding principles are used while developing the EBBR specification.</p>
+<p>The following guiding principles are used while developing the EBBR
+specification.</p>
 <ul>
 <li><p>Be agnostic about ACPI and Devicetree.</p>
 <p>EBBR explicitly does not require a specific system description language.
@@ -257,7 +261,8 @@ architecture(s) they apply.</p>
 Generally anything that has a near-upstream U-Boot implementation should be
 able to implement the EBBR requirements.
 EBBR was drafted with readily available hardware in mind, like the
-Raspberry Pi and BeagleBone families of boards, and it is applicable for low cost boards (&lt;$10).</p>
+Raspberry Pi and BeagleBone families of boards, and it is applicable for low
+cost boards (&lt;$10).</p>
 </li>
 <li><p>Plan to evolve over time</p>
 <p>The current release of EBBR is firmly targeted at existing platforms so that
@@ -363,17 +368,17 @@ exception link registers (ELR).</p>
 </dd>
 <dt id="term-AArch64">AArch64<a class="headerlink" href="#term-AArch64" title="Link to this term">¶</a></dt><dd><p>Execution state provides a single instruction set, A64.</p>
 </dd>
-<dt id="term-EL0">EL0<a class="headerlink" href="#term-EL0" title="Link to this term">¶</a></dt><dd><p>The lowest Exception level on AArch64. The Exception level that is used to execute
-user applications, in Non-secure state.</p>
+<dt id="term-EL0">EL0<a class="headerlink" href="#term-EL0" title="Link to this term">¶</a></dt><dd><p>The lowest Exception level on AArch64. The Exception level that is used
+to execute user applications, in Non-secure state.</p>
 </dd>
-<dt id="term-EL1">EL1<a class="headerlink" href="#term-EL1" title="Link to this term">¶</a></dt><dd><p>Privileged Exception level on AArch64. The Exception level that is used to execute
-Operating Systems, in Non-secure state.</p>
+<dt id="term-EL1">EL1<a class="headerlink" href="#term-EL1" title="Link to this term">¶</a></dt><dd><p>Privileged Exception level on AArch64. The Exception level that is used
+to execute Operating Systems, in Non-secure state.</p>
 </dd>
-<dt id="term-EL2">EL2<a class="headerlink" href="#term-EL2" title="Link to this term">¶</a></dt><dd><p>Hypervisor Exception level on AArch64. The Exception level that is used to execute
-hypervisor code. EL2 is always in Non-secure state.</p>
+<dt id="term-EL2">EL2<a class="headerlink" href="#term-EL2" title="Link to this term">¶</a></dt><dd><p>Hypervisor Exception level on AArch64. The Exception level that is used
+to execute hypervisor code. EL2 is always in Non-secure state.</p>
 </dd>
-<dt id="term-EL3">EL3<a class="headerlink" href="#term-EL3" title="Link to this term">¶</a></dt><dd><p>Secure Monitor Exception level on AArch64. The Exception level that is used to
-execute Secure Monitor code, which handles the transitions between
+<dt id="term-EL3">EL3<a class="headerlink" href="#term-EL3" title="Link to this term">¶</a></dt><dd><p>Secure Monitor Exception level on AArch64. The Exception level that is
+used to execute Secure Monitor code, which handles the transitions between
 Non-secure and Secure states.  EL3 is always in Secure state.</p>
 </dd>
 </dl>
@@ -381,11 +386,11 @@ Non-secure and Secure states.  EL3 is always in Secure state.</p>
 <section id="risc-v">
 <h4><span class="section-number">1.6.3. </span>RISC-V<a class="headerlink" href="#risc-v" title="Link to this heading">¶</a></h4>
 <dl class="simple glossary">
-<dt id="term-HART">HART<a class="headerlink" href="#term-HART" title="Link to this term">¶</a></dt><dd><p>Hardware thread in RISC-V. This is the hardware execution context that contains
-all the state mandated by the ISA.</p>
+<dt id="term-HART">HART<a class="headerlink" href="#term-HART" title="Link to this term">¶</a></dt><dd><p>Hardware thread in RISC-V. This is the hardware execution context that
+contains all the state mandated by the ISA.</p>
 </dd>
-<dt id="term-HSM">HSM<a class="headerlink" href="#term-HSM" title="Link to this term">¶</a></dt><dd><p>Hart State Management (HSM) is an SBI extension that enables the supervisor
-mode software to implement ordered booting.</p>
+<dt id="term-HSM">HSM<a class="headerlink" href="#term-HSM" title="Link to this term">¶</a></dt><dd><p>Hart State Management (HSM) is an SBI extension that enables the
+supervisor mode software to implement ordered booting.</p>
 </dd>
 <dt id="term-HS-Mode">HS Mode<a class="headerlink" href="#term-HS-Mode" title="Link to this term">¶</a></dt><dd><p>Hypervisor-extended-supervisor mode which virtualizes the supervisor mode.</p>
 </dd>
@@ -398,16 +403,19 @@ Reduced Instruction Set Architecture (RISC).</p>
 </dd>
 <dt id="term-RV64">RV64<a class="headerlink" href="#term-RV64" title="Link to this term">¶</a></dt><dd><p>64 bit execution mode in RISC-V.</p>
 </dd>
-<dt id="term-RISC-V-Supervisor-Binary-Interface-SBI">RISC-V Supervisor Binary Interface (SBI)<a class="headerlink" href="#term-RISC-V-Supervisor-Binary-Interface-SBI" title="Link to this term">¶</a></dt><dd><p>Supervisor Binary Interface. This is an interface between SEE and supervisor
-mode in RISC-V.</p>
+<dt id="term-RISC-V-Supervisor-Binary-Interface-SBI">RISC-V Supervisor Binary Interface (SBI)<a class="headerlink" href="#term-RISC-V-Supervisor-Binary-Interface-SBI" title="Link to this term">¶</a></dt><dd><p>Supervisor Binary Interface. This is an interface between SEE and
+supervisor mode in RISC-V.</p>
 </dd>
 <dt id="term-SEE">SEE<a class="headerlink" href="#term-SEE" title="Link to this term">¶</a></dt><dd><p>Supervisor Execution Environment in RISC-V. This can be M mode or HS mode.</p>
 </dd>
-<dt id="term-S-Mode">S Mode<a class="headerlink" href="#term-S-Mode" title="Link to this term">¶</a></dt><dd><p>Supervisor mode is the next privilege mode after M mode where virtual memory is enabled.</p>
+<dt id="term-S-Mode">S Mode<a class="headerlink" href="#term-S-Mode" title="Link to this term">¶</a></dt><dd><p>Supervisor mode is the next privilege mode after M mode where virtual
+memory is enabled.</p>
 </dd>
-<dt id="term-U-Mode">U Mode<a class="headerlink" href="#term-U-Mode" title="Link to this term">¶</a></dt><dd><p>User mode is the least privilege mode where user-space application is expected to run.</p>
+<dt id="term-U-Mode">U Mode<a class="headerlink" href="#term-U-Mode" title="Link to this term">¶</a></dt><dd><p>User mode is the least privilege mode where user-space application is
+expected to run.</p>
 </dd>
-<dt id="term-VS-Mode">VS Mode<a class="headerlink" href="#term-VS-Mode" title="Link to this term">¶</a></dt><dd><p>Virtualized supervisor mode where the guest OS is expected run when hypervisor is enabled.</p>
+<dt id="term-VS-Mode">VS Mode<a class="headerlink" href="#term-VS-Mode" title="Link to this term">¶</a></dt><dd><p>Virtualized supervisor mode where the guest OS is expected run when
+hypervisor is enabled.</p>
 </dd>
 </dl>
 </section>
@@ -585,27 +593,30 @@ These override protocols are
 only useful if drivers are loaded as EFI binaries by the firmware.</p></td>
 </tr>
 <tr class="row-even"><td><p><cite>EFI_HII_CONFIG_ACCESS_PROTOCOL</cite></p></td>
-<td><p>UEFI requires this for console devices, but it is rarely necessary in practice.
-Therefore this protocol is not required.</p></td>
+<td><p>UEFI requires this for console devices, but it is rarely necessary
+in practice. Therefore this protocol is not required.</p></td>
 </tr>
 <tr class="row-odd"><td><p><cite>EFI_HII_CONFIG_ROUTING_PROTOCOL</cite></p></td>
-<td><p>UEFI requires this for console devices, but it is rarely necessary in practice.
-Therefore this protocol is not required.</p></td>
+<td><p>UEFI requires this for console devices, but it is rarely necessary
+in practice. Therefore this protocol is not required.</p></td>
 </tr>
 <tr class="row-even"><td><p>Graphical console</p></td>
-<td><p>Platforms with a graphical device are not required to expose it as a graphical console.</p></td>
+<td><p>Platforms with a graphical device are not required to expose it as
+a graphical console.</p></td>
 </tr>
 <tr class="row-odd"><td><p><cite>EFI_DISK_IO_PROTOCOL</cite></p></td>
 <td><p>Rarely used interface that isn’t required for EBBR use cases.</p></td>
 </tr>
 <tr class="row-even"><td><p><cite>EFI_PXE_BASE_CODE_PROTOCOL</cite></p></td>
 <td><p>Booting via the Preboot Execution Environment (PXE) is insecure.
-Loading via PXE is typically executed before launching the first UEFI application.</p></td>
+Loading via PXE is typically executed before launching the first UEFI
+application.</p></td>
 </tr>
 <tr class="row-odd"><td><p>Network protocols</p></td>
-<td><p>A full implementation of the UEFI general purpose networking ABIs is not required,
-including <cite>EFI_NETWORK_INTERFACE_IDENTIFIER_PROTOCOL</cite>, <cite>EFI_MANAGED_NETWORK_PROTOCOL</cite>,
-<cite>EFI_*_SERVICE_BINDING_PROTOCOL</cite>, or any of the IPv4 or IPv6 protocols.</p></td>
+<td><p>A full implementation of the UEFI general purpose networking ABIs is not
+required, including <cite>EFI_NETWORK_INTERFACE_IDENTIFIER_PROTOCOL</cite>,
+<cite>EFI_MANAGED_NETWORK_PROTOCOL</cite>, <cite>EFI_*_SERVICE_BINDING_PROTOCOL</cite>,
+or any of the IPv4 or IPv6 protocols.</p></td>
 </tr>
 <tr class="row-even"><td><p>Byte stream device support (UART)</p></td>
 <td><p>UEFI protocols not required.</p></td>
@@ -713,10 +724,11 @@ processing after restart as found in <a class="reference external" href="https:/
 </section>
 <section id="block-device-partitioning">
 <h4><span class="section-number">2.2.4. </span>Block device partitioning<a class="headerlink" href="#block-device-partitioning" title="Link to this heading">¶</a></h4>
-<p>The system firmware must implement support for MBR, GPT and El Torito partitioning
-on block devices.
-System firmware may also implement other partitioning methods as needed by the platform,
-but OS support for other methods is outside the scope of this specification.</p>
+<p>The system firmware must implement support for MBR, GPT and El Torito
+partitioning on block devices.
+System firmware may also implement other partitioning methods as needed by the
+platform, but OS support for other methods is outside the scope of this
+specification.</p>
 </section>
 </section>
 <section id="uefi-system-environment-and-configuration">
@@ -728,7 +740,8 @@ The exact meaning of this is architecture dependent, as detailed below.</p>
 In contrast, UEFI Loaded Images, such as third-party drivers and boot
 applications, must not contain any built-in assumptions that they are to be
 loaded at a given privilege level during boot time since they can, for example,
-legitimately be loaded into either EL1 or EL2 on AArch64 and HS/VS/S mode on RISC-V.</p>
+legitimately be loaded into either EL1 or EL2 on AArch64 and HS/VS/S mode on
+RISC-V.</p>
 <section id="aarch64-exception-levels">
 <h4><span class="section-number">2.3.1. </span>AArch64 Exception Levels<a class="headerlink" href="#aarch64-exception-levels" title="Link to this heading">¶</a></h4>
 <p>On AArch64 UEFI shall execute as 64-bit code at either EL1 or EL2, as defined in
@@ -750,7 +763,8 @@ virtualized service, by the hypervisor and not as part of the host firmware.</p>
 </section>
 <section id="risc-v-privilege-levels">
 <h4><span class="section-number">2.3.2. </span>RISC-V Privilege Levels<a class="headerlink" href="#risc-v-privilege-levels" title="Link to this heading">¶</a></h4>
-<p>RISC-V doesn’t define dedicated privilege levels for hypervisor enabled platforms.
+<p>RISC-V doesn’t define dedicated privilege levels for hypervisor enabled
+platforms.
 The supervisor mode becomes HS mode where a hypervisor or a hosting-capable
 operating system runs while the guest OS runs in virtual S mode (VS mode).
 Resident UEFI firmware can be executed in M mode or S/HS mode during POST.
@@ -763,15 +777,18 @@ is not enabled <a class="reference internal" href="index.html#rvprivspec" id="id
 </section>
 <section id="uefi-boot-at-hs-mode">
 <h5><span class="section-number">2.3.2.2. </span>UEFI Boot at HS mode<a class="headerlink" href="#uefi-boot-at-hs-mode" title="Link to this heading">¶</a></h5>
-<p>Any platform supporting the hypervisor extension enabled most likely will boot UEFI at HS mode,
-to allow for the installation of a hypervisor or a virtualization aware Operating System.</p>
+<p>Any platform supporting the hypervisor extension enabled most likely will boot
+UEFI at HS mode, to allow for the installation of a hypervisor or
+a virtualization aware Operating System.</p>
 </section>
 <section id="uefi-boot-at-vs-mode">
 <h5><span class="section-number">2.3.2.3. </span>UEFI Boot at VS mode<a class="headerlink" href="#uefi-boot-at-vs-mode" title="Link to this heading">¶</a></h5>
-<p>Booting of UEFI at VS mode is employed within a hypervisor hosted Guest Operating System environment,
-to allow the subsequent booting of a UEFI-compliant Operating System.
+<p>Booting of UEFI at VS mode is employed within a hypervisor hosted Guest
+Operating System environment, to allow the subsequent booting of
+a UEFI-compliant Operating System.
 In this instance, the UEFI boot-time environment can be provided,
-as a virtualized service, by the hypervisor and not as part of the host firmware.</p>
+as a virtualized service, by the hypervisor and not as part of the host
+firmware.</p>
 </section>
 </section>
 </section>
@@ -888,8 +905,8 @@ If the platform does not implement the monotonic counter, the
 <section id="uefi-secure-boot-optional">
 <h4><span class="section-number">2.5.3. </span>UEFI Secure Boot (Optional)<a class="headerlink" href="#uefi-secure-boot-optional" title="Link to this heading">¶</a></h4>
 <p>UEFI Secure Boot is optional for this specification.</p>
-<p>If Secure Boot is implemented, it must conform to the UEFI specification for Secure Boot. There are no additional
-requirements for Secure Boot.</p>
+<p>If Secure Boot is implemented, it must conform to the UEFI specification for
+Secure Boot. There are no additional requirements for Secure Boot.</p>
 </section>
 </section>
 <section id="uefi-runtime-services">
@@ -1003,8 +1020,8 @@ because it will conflict with the OS.</p>
 <p>If an RTC is present, then <cite>GetTime()</cite> and <cite>SetTime()</cite> must be supported
 before <cite>ExitBootServices()</cite> is called.</p>
 <p>However, if firmware does not support access to the RTC after
-<cite>ExitBootServices()</cite>, then <cite>GetTime()</cite> and <cite>SetTime()</cite> shall return <cite>EFI_UNSUPPORTED</cite>
-and the OS must use a device driver to control the RTC.</p>
+<cite>ExitBootServices()</cite>, then <cite>GetTime()</cite> and <cite>SetTime()</cite> shall return
+<cite>EFI_UNSUPPORTED</cite> and the OS must use a device driver to control the RTC.</p>
 </section>
 </section>
 <section id="uefi-reset-and-shutdown">
@@ -1013,8 +1030,8 @@ and the OS must use a device driver to control the RTC.</p>
 optional for runtime services.
 During runtime services, the operating system should first attempt to
 use <cite>ResetSystem()</cite> to reset the system.</p>
-<p>If firmware doesn’t support <cite>ResetSystem()</cite> during runtime services, then the call
-will immediately return, and the OS should fall back to an architecture or
+<p>If firmware doesn’t support <cite>ResetSystem()</cite> during runtime services, then the
+call will immediately return, and the OS should fall back to an architecture or
 platform specific reset mechanism.</p>
 <p>On AArch64 platforms implementing <a class="reference internal" href="index.html#psci" id="id18"><span>[PSCI]</span></a>,
 if <cite>ResetSystem()</cite> is not implemented then the Operating System should fall
@@ -1057,8 +1074,10 @@ during runtime services.</p>
 </section>
 <section id="firmware-update">
 <span id="section-fw-update"></span><h4><span class="section-number">2.6.4. </span>Firmware Update<a class="headerlink" href="#firmware-update" title="Link to this heading">¶</a></h4>
-<p>Being able to update firmware to address security issues is a key feature of secure platforms.
-EBBR platforms are required to implement either an in-band or an out-of-band firmware update mechanism.</p>
+<p>Being able to update firmware to address security issues is a key feature of
+secure platforms.
+EBBR platforms are required to implement either an in-band or an out-of-band
+firmware update mechanism.</p>
 <section id="in-band-firmware-update">
 <h5><span class="section-number">2.6.4.1. </span>In-band firmware update<a class="headerlink" href="#in-band-firmware-update" title="Link to this heading">¶</a></h5>
 <p>If firmware update is performed in-band (firmware on the application processor

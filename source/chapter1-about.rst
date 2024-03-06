@@ -172,6 +172,12 @@ The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD",
 "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be
 interpreted as described in :rfc:`2119`.
 
+Features, which will not be supported by a future version of this specification
+are indicated with a warning such as the following one:
+
+.. warning:: This feature is deprecated.
+   A future version of this specification will disallow its use.
+
 Typographic conventions
 -----------------------
 

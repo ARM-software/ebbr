@@ -25,9 +25,9 @@ Platforms without EL3 must implement one of:
 - PSCI and SMCCC at EL2 (leaving only EL1 available to an operating system)
 - Linux AArch64 spin tables [LINUXA64BOOT]_ (Devicetree only)
 
-However, the spin table protocol is strongly discouraged.
-Future versions of this specification will only allow PSCI and SMCCC, and they
-should be implemented in all new designs.
+.. warning:: The spin table protocol is strongly discouraged.
+   Future versions of this specification will only allow PSCI and SMCCC, and
+   they should be implemented in all new designs.
 
 It is recommended that firmware implementing PSCI supports version 1.0 or later
 [#PSCINote]_ and that firmware implementing SMCCC supports version 1.1 or later

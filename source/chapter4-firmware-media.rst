@@ -61,9 +61,8 @@ In which case, a legacy Master Boot Record (MBR) must be used.
    the GPT disk layout.
    In both cases the shared storage device must use legacy MBR partitioning.
 
-.. warning::
-
-   MBR partitioning is deprecated and only included for legacy support.
+.. warning:: MBR partitioning is deprecated and only included for legacy
+   support.
    All new platforms are expected to use GPT partitioning.
    GPT partitioning supports a much larger number of partitions, and
    has built in resiliency.
@@ -87,9 +86,8 @@ delete, move, or modify protective partition entries.
 Manual partitioning tools should provide warnings when modifying
 protective partitions.
 
-.. warning::
-
-   Fixed offsets to firmware data is supported only for legacy reasons.
+.. warning:: Fixed offsets to firmware data is supported only for legacy
+   reasons.
    All new platforms are expected to use partitions to locate firmware files.
 
    A future version of this specification will disallow the use of fixed

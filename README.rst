@@ -47,8 +47,9 @@ On Debian and Ubuntu
 --------------------
 ::
 
-  # apt-get install python3-sphinx texlive texlive-latex-extra libalgorithm-diff-perl \
-                    texlive-humanities texlive-generic-recommended texlive-generic-extra \
+  # apt-get install python3-sphinx texlive texlive-latex-extra \
+                    libalgorithm-diff-perl texlive-humanities \
+                    texlive-generic-recommended texlive-generic-extra \
                     latexmk
 
 If the version of python-sphinx installed is too old, then an additional
@@ -58,7 +59,8 @@ new version can be installed with the Python package installer::
   $ pip3 install --user --upgrade Sphinx
   $ export SPHINXBUILD=~/.local/bin/sphinx-build
 
-Export SPHINXBUILD (see above) if Sphinx was installed with pip3 --user, then follow Make commands below.
+Export SPHINXBUILD (see above) if Sphinx was installed with pip3 --user,
+then follow Make commands below.
 
 **Note**: the ``.github/workflows/main.yaml`` CI configuration file installs the
 necessary dependencies for Ubuntu and can be used as an example.
@@ -149,6 +151,8 @@ tag. Generally this means each ``.rst`` file should include the line
 
 .. _reStructuredText: http://docutils.sourceforge.net/docs/user/rst/quickref.html
 .. _Sphinx: http://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html
+
+In general, try to keep the text width to at most 80 columns.
 
 Sphinx Extensions
 -----------------

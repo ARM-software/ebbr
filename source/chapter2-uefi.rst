@@ -131,22 +131,25 @@ interface specific UEFI protocols, and so they have been made optional.
        These override protocols are
        only useful if drivers are loaded as EFI binaries by the firmware.
    * - `EFI_HII_CONFIG_ACCESS_PROTOCOL`
-     - UEFI requires this for console devices, but it is rarely necessary in practice.
-       Therefore this protocol is not required.
+     - UEFI requires this for console devices, but it is rarely necessary
+       in practice. Therefore this protocol is not required.
    * - `EFI_HII_CONFIG_ROUTING_PROTOCOL`
-     - UEFI requires this for console devices, but it is rarely necessary in practice.
-       Therefore this protocol is not required.
+     - UEFI requires this for console devices, but it is rarely necessary
+       in practice. Therefore this protocol is not required.
    * - Graphical console
-     - Platforms with a graphical device are not required to expose it as a graphical console.
+     - Platforms with a graphical device are not required to expose it as
+       a graphical console.
    * - `EFI_DISK_IO_PROTOCOL`
      - Rarely used interface that isn't required for EBBR use cases.
    * - `EFI_PXE_BASE_CODE_PROTOCOL`
      - Booting via the Preboot Execution Environment (PXE) is insecure.
-       Loading via PXE is typically executed before launching the first UEFI application.
+       Loading via PXE is typically executed before launching the first UEFI
+       application.
    * - Network protocols
-     - A full implementation of the UEFI general purpose networking ABIs is not required,
-       including `EFI_NETWORK_INTERFACE_IDENTIFIER_PROTOCOL`, `EFI_MANAGED_NETWORK_PROTOCOL`,
-       `EFI_*_SERVICE_BINDING_PROTOCOL`, or any of the IPv4 or IPv6 protocols.
+     - A full implementation of the UEFI general purpose networking ABIs is not
+       required, including `EFI_NETWORK_INTERFACE_IDENTIFIER_PROTOCOL`,
+       `EFI_MANAGED_NETWORK_PROTOCOL`, `EFI_*_SERVICE_BINDING_PROTOCOL`,
+       or any of the IPv4 or IPv6 protocols.
    * - Byte stream device support (UART)
      - UEFI protocols not required.
    * - PCI bus support
@@ -222,10 +225,11 @@ processing after restart as found in :UEFI:`8.5.6`. [#FWUpNote]_
 Block device partitioning
 -------------------------
 
-The system firmware must implement support for MBR, GPT and El Torito partitioning
-on block devices.
-System firmware may also implement other partitioning methods as needed by the platform,
-but OS support for other methods is outside the scope of this specification.
+The system firmware must implement support for MBR, GPT and El Torito
+partitioning on block devices.
+System firmware may also implement other partitioning methods as needed by the
+platform, but OS support for other methods is outside the scope of this
+specification.
 
 UEFI System Environment and Configuration
 =========================================
@@ -238,7 +242,8 @@ Resident UEFI firmware might target a specific privilege level.
 In contrast, UEFI Loaded Images, such as third-party drivers and boot
 applications, must not contain any built-in assumptions that they are to be
 loaded at a given privilege level during boot time since they can, for example,
-legitimately be loaded into either EL1 or EL2 on AArch64 and HS/VS/S mode on RISC-V.
+legitimately be loaded into either EL1 or EL2 on AArch64 and HS/VS/S mode on
+RISC-V.
 
 AArch64 Exception Levels
 ------------------------
@@ -265,7 +270,8 @@ virtualized service, by the hypervisor and not as part of the host firmware.
 RISC-V Privilege Levels
 -----------------------
 
-RISC-V doesn't define dedicated privilege levels for hypervisor enabled platforms.
+RISC-V doesn't define dedicated privilege levels for hypervisor enabled
+platforms.
 The supervisor mode becomes HS mode where a hypervisor or a hosting-capable
 operating system runs while the guest OS runs in virtual S mode (VS mode).
 Resident UEFI firmware can be executed in M mode or S/HS mode during POST.
@@ -281,16 +287,19 @@ is not enabled [RVPRIVSPEC]_.
 UEFI Boot at HS mode
 ^^^^^^^^^^^^^^^^^^^^
 
-Any platform supporting the hypervisor extension enabled most likely will boot UEFI at HS mode,
-to allow for the installation of a hypervisor or a virtualization aware Operating System.
+Any platform supporting the hypervisor extension enabled most likely will boot
+UEFI at HS mode, to allow for the installation of a hypervisor or
+a virtualization aware Operating System.
 
 UEFI Boot at VS mode
 ^^^^^^^^^^^^^^^^^^^^
 
-Booting of UEFI at VS mode is employed within a hypervisor hosted Guest Operating System environment,
-to allow the subsequent booting of a UEFI-compliant Operating System.
+Booting of UEFI at VS mode is employed within a hypervisor hosted Guest
+Operating System environment, to allow the subsequent booting of
+a UEFI-compliant Operating System.
 In this instance, the UEFI boot-time environment can be provided,
-as a virtualized service, by the hypervisor and not as part of the host firmware.
+as a virtualized service, by the hypervisor and not as part of the host
+firmware.
 
 UEFI Configuration Tables
 =========================
@@ -397,8 +406,8 @@ UEFI Secure Boot (Optional)
 
 UEFI Secure Boot is optional for this specification.
 
-If Secure Boot is implemented, it must conform to the UEFI specification for Secure Boot. There are no additional
-requirements for Secure Boot.
+If Secure Boot is implemented, it must conform to the UEFI specification for
+Secure Boot. There are no additional requirements for Secure Boot.
 
 UEFI Runtime Services
 =====================
@@ -500,8 +509,8 @@ If an RTC is present, then `GetTime()` and `SetTime()` must be supported
 before `ExitBootServices()` is called.
 
 However, if firmware does not support access to the RTC after
-`ExitBootServices()`, then `GetTime()` and `SetTime()` shall return `EFI_UNSUPPORTED`
-and the OS must use a device driver to control the RTC.
+`ExitBootServices()`, then `GetTime()` and `SetTime()` shall return
+`EFI_UNSUPPORTED` and the OS must use a device driver to control the RTC.
 
 UEFI Reset and Shutdown
 -----------------------
@@ -511,8 +520,8 @@ optional for runtime services.
 During runtime services, the operating system should first attempt to
 use `ResetSystem()` to reset the system.
 
-If firmware doesn't support `ResetSystem()` during runtime services, then the call
-will immediately return, and the OS should fall back to an architecture or
+If firmware doesn't support `ResetSystem()` during runtime services, then the
+call will immediately return, and the OS should fall back to an architecture or
 platform specific reset mechanism.
 
 On AArch64 platforms implementing [PSCI]_,
@@ -560,8 +569,10 @@ that `GetVariable()` and `GetNextVariableName()` can behave as specified.
 Firmware Update
 ---------------
 
-Being able to update firmware to address security issues is a key feature of secure platforms.
-EBBR platforms are required to implement either an in-band or an out-of-band firmware update mechanism.
+Being able to update firmware to address security issues is a key feature of
+secure platforms.
+EBBR platforms are required to implement either an in-band or an out-of-band
+firmware update mechanism.
 
 In-band firmware update
 ^^^^^^^^^^^^^^^^^^^^^^^

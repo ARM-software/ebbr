@@ -13,17 +13,6 @@ to the EFI variable by updating the file.
 This chapter defines a file-format for EFI variables that both the firmware
 and the operating system can rely on.
 
-The path of the file will be related to the operating system via the Devicetree
-as UTF-8 string ``/chosen/efivarfile``.
-
-.. warning::
-   The Devicetree node name and contents are not final at this point and are
-   subject to change.
-
-   The string will likely contain a part identifying a filesystem uniquely,
-   followed by a comma and followed by a file path in the identified filesystem.
-   For example: "UUID=1234:45678,/ubootefi.var".
-
 All integer fields are stored in little-endian byte order.
 
 File header

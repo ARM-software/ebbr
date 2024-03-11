@@ -89,6 +89,15 @@ Creative Commons, PO Box 1866, Mountain View, CA 94042, USA.
        - Add DTB requirements
        - Fix typos and spelling
        - Refresh links
+   * - TBD
+     - TBD
+     - - Require capsule update "on disk" and variables
+       - Define a file format for storing EFI variables
+       - Recommend the firmware update protocol, PSCI >= 1.0, SMCCC >= 1.1
+       - Make monotonic counter optional
+       - Bump ACPI, PSCI and Devicetree references versions, refresh reference
+         for RISC-V hypervisor extension, mention dt-schema
+       - Links additions, typos fixes, cosmetic changes
 
 .. toctree::
    :numbered:

@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Embedded Base Boot Requirements (EBBR) Specification v2.1.0-55-g8794c04 documentation</title>
+    <title>Embedded Base Boot Requirements (EBBR) Specification v2.1.0-56-gc3e0844 documentation</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
     <script src="_static/documentation_options.js"></script>
@@ -605,8 +605,8 @@ resource with the type ‘HII’. HII resource images are not needed to run
 the UEFI shell or the SCT.</p></td>
 </tr>
 <tr class="row-odd"><td><p><cite>ConnectController()</cite></p></td>
-<td><p>The <cite>ConnectController()</cite> boot service is not required to support the
-<cite>EFI_PLATFORM_DRIVER_OVERRIDE_PROTOCOL</cite>,
+<td><p>The <cite>ConnectController()</cite> boot service must be implemented but it is not
+required to support the <cite>EFI_PLATFORM_DRIVER_OVERRIDE_PROTOCOL</cite>,
 <cite>EFI_DRIVER_FAMILY_OVERRIDE_PROTOCOL</cite>, and
 <cite>EFI_BUS_SPECIFIC_DRIVER_OVERRIDE_PROTOCOL</cite>.
 These override protocols are

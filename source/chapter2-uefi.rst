@@ -580,6 +580,10 @@ service and accept updates in the "Firmware Management Protocol Data Capsule
 Structure" format as described in :UEFI:`23.3`. [#FMPNote]_
 `UpdateCapsule()` is only required before `ExitBootServices()` is called.
 
+The firmware shall accept only authenticated updates.
+For updates in the FMP format, the firmware shall only accept updates with
+`IMAGE_ATTRIBUTE_AUTHENTICATION_REQUIRED` set.
+
 Firmware is also required to provide an EFI System Resource Table (ESRT) as
 described in :UEFI:`23.4`.
 Every firmware image that can be updated in-band must be described in the ESRT.

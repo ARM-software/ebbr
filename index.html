@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Embedded Base Boot Requirements (EBBR) Specification v2.1.0-54-g2a60aad documentation</title>
+    <title>Embedded Base Boot Requirements (EBBR) Specification v2.1.0-55-g8794c04 documentation</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
     <script src="_static/documentation_options.js"></script>
@@ -876,10 +876,6 @@ take precedence. <a class="footnote-reference brackets" href="#dtschnote" id="id
 <td><p>This Property is required. It is necessary for console output.
 (<a class="reference internal" href="index.html#dtspec" id="id13"><span>[DTSPEC]</span></a> § 3.6)</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">/chosen/efivarfile</span></code></p></td>
-<td><p>This Property is required when the EFI Variables are stored in a file as
-detailed in section <a class="reference internal" href="index.html#section-efi-vars-file-format"><span class="std std-ref">File Format For Storing EFI Variables</span></a>.</p></td>
-</tr>
 </tbody>
 </table>
 <p>The DTB must be contained in memory of type <cite>EfiACPIReclaimMemory</cite>.
@@ -1481,16 +1477,6 @@ device. This implies that at runtime the operating system must manage changes
 to the EFI variable by updating the file.</p>
 <p>This chapter defines a file-format for EFI variables that both the firmware
 and the operating system can rely on.</p>
-<p>The path of the file will be related to the operating system via the Devicetree
-as UTF-8 string <code class="docutils literal notranslate"><span class="pre">/chosen/efivarfile</span></code>.</p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>The Devicetree node name and contents are not final at this point and are
-subject to change.</p>
-<p>The string will likely contain a part identifying a filesystem uniquely,
-followed by a comma and followed by a file path in the identified filesystem.
-For example: “UUID=1234:45678,/ubootefi.var”.</p>
-</div>
 <p>All integer fields are stored in little-endian byte order.</p>
 <section id="file-header">
 <h3><span class="section-number">5.1. </span>File header<a class="headerlink" href="#file-header" title="Link to this heading">¶</a></h3>

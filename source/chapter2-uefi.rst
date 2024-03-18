@@ -322,15 +322,9 @@ and must ensure only the selected interface is provided to the OS loader.
 EFI Conformance Profile Table
 -----------------------------
 
-The following GUID in the EFI Conformance Profile Table, as defined in
-:UEFI:`4.6.5`, is used to indicate compliance to version 2.1.x of the EBBR
-specification:
-
-.. code-block:: c
-
-    #define EFI_CONFORMANCE_PROFILE_EBBR_2_1_GUID \
-    { 0xcce33c35, 0x74ac, 0x4087, \
-    { 0xbc, 0xe7, 0x8b, 0x29, 0xb0, 0x2e, 0xeb, 0x27 }}
+The following GUIDs in the EFI Conformance Profile Table, as defined in
+:UEFI:`4.6.5`, are used to indicate compliance to specific version(s) of the
+EBBR specification.
 
 If the platform advertises an EBBR profile in the EFI Conformance Profile Table,
 then it must be compliant with the corresponding version(s) of this
@@ -339,6 +333,22 @@ specification [#VersionsNote]_.
 .. [#VersionsNote] This specification follows semantic versioning. As such,
    versions of this specification differing only by their last digit (or "patch
    number") are expected to be compatible.
+
+- Version 2.1.x:
+
+.. code-block:: c
+
+    #define EFI_CONFORMANCE_PROFILE_EBBR_2_1_GUID \
+    { 0xcce33c35, 0x74ac, 0x4087, \
+    { 0xbc, 0xe7, 0x8b, 0x29, 0xb0, 0x2e, 0xeb, 0x27 }}
+
+- Version TBD:
+
+.. code-block:: c
+
+    #define EFI_CONFORMANCE_PROFILE_EBBR_TBD_GUID \
+    { 0x9073eed4, 0xe50d, 0x11ee, \
+    { 0xb8, 0xb0, 0x8b, 0x68, 0xda, 0x62, 0xfc, 0x80 }}
 
 Devicetree
 ----------

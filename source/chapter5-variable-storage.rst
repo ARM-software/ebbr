@@ -16,7 +16,7 @@ and the operating system can rely on.
 All integer fields are stored in little-endian byte order.
 
 File header
------------
+===========
 
 The following byte sequence is used to identify the file format:
 
@@ -70,7 +70,7 @@ Variables
     not sorted.
 
 Variable entries
-----------------
+================
 
 Each variable is stored as a structure:
 
@@ -106,7 +106,7 @@ Data
     variable.
 
 Limitations
------------
+===========
 
 The security of a file based variable storage is limited by the security
 of the storage or transport medium. Without further measures file storage

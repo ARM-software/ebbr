@@ -194,6 +194,7 @@ This document uses the following typographic conventions:
 
 Cross References
 ================
+
 This document cross-references sources that are listed in the References
 section by using the section sign §.
 

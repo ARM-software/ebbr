@@ -6,6 +6,7 @@ Privileged or Secure Firmware
 
 AArch32 Multiprocessor Startup Protocol
 =======================================
+
 There is no standard multiprocessor startup or CPU power management mechanism
 for ARMv7 and earlier platforms.
 The OS is expected to use platform specific drivers for CPU power management.
@@ -16,6 +17,7 @@ At `ExitBootServices()` time, all secondary CPUs must be parked or powered off.
 
 AArch64 Multiprocessor Startup Protocol
 =======================================
+
 On AArch64 platforms, Firmware resident in Trustzone EL3 must implement and
 conform to the Power State Coordination Interface specification [PSCI]_ and to
 the SMC Calling Convention [SMCCC]_.
@@ -42,6 +44,7 @@ It is recommended that firmware implementing PSCI supports version 1.0 or later
 
 RISC-V Multiprocessor Startup Protocol
 ======================================
+
 The resident firmware in M mode or hypervisor running in HS mode must implement
 and conform to at least SBI [RVSBISPEC]_ v0.2 with HART State Management(HSM)
 extension for both RV32 and RV64.

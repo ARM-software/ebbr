@@ -110,14 +110,14 @@ jobs:
             build/text/
 
       - name: 'Deploy to Github Pages'
-        uses: peaceiris/actions-gh-pages@v3
+        uses: peaceiris/actions-gh-pages@v4
         if: ${{ github.ref == 'refs/heads/main' }}
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./build/singlehtml
 
       - name: 'Publish Release'
-        uses: softprops/action-gh-release@v1
+        uses: softprops/action-gh-release@v2
         if: endsWith(github.ref, env.EBBR_VERSION)
         with:
           files: build/ebbr-*.pdf

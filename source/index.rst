@@ -21,9 +21,10 @@ Creative Commons, PO Box 1866, Mountain View, CA 94042, USA.
    :alt: Creative Commons License
    :align: right
 
-.. tabularcolumns:: l c p{11.5cm}
 .. list-table:: Revision History
+   :widths: 15 10 75
    :header-rows: 1
+   :class: longtable
 
    * - Date
      - Issue

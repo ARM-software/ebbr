@@ -9,7 +9,7 @@ Embedded Base Boot Requirements (EBBR) Specification
 
 Copyright © 2017-2024 Arm Limited and Contributors.
 
-Copyright © 2021 Western Digital Corporation or its affiliates, 2021
+Copyright © 2021 Western Digital Corporation or its affiliates.
 
 This work is licensed under the Creative Commons Attribution-ShareAlike 4.0
 International License. To view a copy of this license, visit

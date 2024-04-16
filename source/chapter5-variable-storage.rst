@@ -93,7 +93,7 @@ Attributes
     :UEFI:`8.2.1`.
 
 TimeStamp
-    For time-based authenticaed variables this field contains the timestamp
+    For time-based authenticated variables this field contains the timestamp
     associated with the authentication descriptor encoded as seconds since
     1970-01-01T00:00:00Z. For all other variables this field shall be set to 0.
 

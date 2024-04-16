@@ -89,15 +89,19 @@ Creative Commons, PO Box 1866, Mountain View, CA 94042, USA.
        - Add DTB requirements
        - Fix typos and spelling
        - Refresh links
-   * - TBD
-     - TBD
+   * - 16 Apr 2024
+     - 2.2.0-pre1
      - - Require capsule update "on disk" and variables
+       - Require the TCG2 protocol if system has a TPM
        - Define a file format for storing EFI variables
+       - Provision conformance profile 2.2 guid
        - Recommend the firmware update protocol, PSCI >= 1.0, SMCCC >= 1.1
        - Make monotonic counter optional
+       - Clarify that ConnectController must be implemented
        - Bump ACPI, PSCI and Devicetree references versions, refresh reference
          for RISC-V hypervisor extension, mention dt-schema
-       - Links additions, typos fixes, cosmetic changes
+       - Links refresh and additions, typos and syntax fixes, cosmetic changes,
+         formatting conventions, notes movements, chapters changes
 
 .. toctree::
    :numbered:

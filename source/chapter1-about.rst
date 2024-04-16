@@ -55,8 +55,9 @@ The challenge for EBBR is to define a set of boot standards that reduce the
 amount of custom engineering required, make it possible for OS distributions to
 support embedded platforms, while still preserving the firmware stack that
 product vendors are comfortable with.
-Or in simpler terms, EBBR is designed to solve the embedded boot mess by
-adding a defined standard (UEFI) to the existing firmware projects (U-Boot).
+Or in simpler terms, EBBR is designed to reduce the embedded boot differences by
+implementing a widely accepted standard (UEFI) in existing firmware projects
+(U-Boot).
 
 However, EBBR is a specification, not an implementation.
 The goal of EBBR is not to mandate U-Boot and Linux.

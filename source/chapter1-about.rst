@@ -157,7 +157,7 @@ This specification is referenced by the Arm Base Boot Requirements
 Specification [ArmBBR]_ § 4.2.
 The UEFI requirements found in this document are similar but not identical to
 the requirements found in BBR.
-EBBR provides greater flexibility for support embedded designs which cannot
+EBBR provides greater flexibility to support embedded designs which cannot
 easily meet the stricter BBR requirements.
 
 By definition, all BBR compliant systems are also EBBR compliant, but the

@@ -215,6 +215,19 @@ Architecture specific terms are listed a section for each architecture.
       An executable image to be run under the UEFI environment,
       and which uses boot time services.
 
+   Logical Unit (LU)
+      A logical unit (LU) is an externally addressable, independent entity
+      within a device. In the context of storage, a single device may use
+      logical units to provide multiple independent storage areas.
+
+   SoC
+      System on a Chip. An integrated circuit comprising many components
+      of a computer.
+
+   SPI
+      Serial Peripheral Interface. A synchronous serial bus used
+      for communication between integrated circuits.
+
    UEFI
       Unified Extensible Firmware Interface.
 
@@ -225,11 +238,6 @@ Architecture specific terms are listed a section for each architecture.
    UEFI Runtime Services
       Functionality that is provided to an Operating System after the
       `ExitBootServices()` call.
-
-   Logical Unit (LU)
-      A logical unit (LU) is an externally addressable, independent entity
-      within a device. In the context of storage, a single device may use
-      logical units to provide multiple independent storage areas.
 
 AARCH32
 -------

@@ -90,8 +90,8 @@ Creative Commons, PO Box 1866, Mountain View, CA 94042, USA.
        - Add DTB requirements
        - Fix typos and spelling
        - Refresh links
-   * - 16 Apr 2024
-     - 2.2.0-pre1
+   * - 5 Jun 2024
+     - 2.2.0
      - - Require capsule update "on disk" and variables
        - Require the TCG2 protocol if system has a TPM
        - Define a file format for storing EFI variables
@@ -102,7 +102,8 @@ Creative Commons, PO Box 1866, Mountain View, CA 94042, USA.
        - Bump ACPI, PSCI and Devicetree references versions, refresh reference
          for RISC-V hypervisor extension, mention dt-schema
        - Links refresh and additions, typos and syntax fixes, cosmetic changes,
-         formatting conventions, notes movements, chapters changes
+         formatting conventions, notes movements, chapters changes, glossary
+         adjustments
 
 .. toctree::
    :numbered:

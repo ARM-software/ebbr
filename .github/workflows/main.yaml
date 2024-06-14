@@ -72,11 +72,11 @@ jobs:
         run: |
           echo "EBBR_VERSION=$(git describe)" >> $GITHUB_ENV
 
-      - name: 'Install Debian required packages'
+      - name: 'Install Ubuntu required packages'
         run: |
-          sudo apt update
-          sudo apt install python3-pip latexmk libalgorithm-diff-perl texlive \
-            texlive-latex-extra texlive-humanities flake8 mypy yamllint
+          sudo apt-get update
+          sudo apt-get -y install python3-pip latexmk libalgorithm-diff-perl \
+            texlive texlive-latex-extra texlive-humanities flake8 mypy yamllint
 
       - name: 'Install Python required packages'
         run: |

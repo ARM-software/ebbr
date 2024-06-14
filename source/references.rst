@@ -25,10 +25,6 @@ Bibliography
    <https://github.com/devicetree-org/devicetree-specification/releases/tag/v0.4>`_,
    `Devicetree.org <https://www.devicetree.org/>`_
 
-.. [LINUXA64BOOT] `Linux Documentation/arm64/booting.rst
-   <https://docs.kernel.org/arch/arm64/booting.html>`_,
-   Linux kernel
-
 .. [PSCI] `Arm Power State Coordination Interface issue F (PSCI v1.3 ALPHA).
    <https://developer.arm.com/documentation/den0022/f>`_
    July 2023, `Arm Limited <https://www.arm.com/>`_

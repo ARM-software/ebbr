@@ -13,18 +13,6 @@ or a dedicated logical unit (LU) within a device
 (e.g. eMMC boot partition, [#eMMCBootPartition]_
 or UFS boot LU [#LogicalUnitNote]_).
 
-However, many embedded systems have size, cost, or implementation
-constraints that make separate firmware storage unfeasible.
-On such systems, firmware and the OS reside in the same storage device.
-Care must be taken to ensure firmware kept in normal storage does not
-conflict with normal usage of the media by an OS.
-
-* Firmware must be stored on the media in a way that does not conflict
-  with normal partitioning and usage by the operating system.
-* Normal operation of the OS must not interfere with firmware files.
-* Firmware needs a method to modify variable storage at runtime while the
-  OS controls access to the device. [#LUVariables]_
-
 .. [#eMMCBootPartition] Watch out for the ambiguity of the word 'partition'.
    In most of this document, a 'partition' is a contiguous region of a block
    device as described by a GPT or MBR partition table,
@@ -37,6 +25,18 @@ conflict with normal usage of the media by an OS.
    partition table.
    A platform that uses one LU for firmware, and another LU for OS partitions
    and the ESP is considered to be using dedicated firmware storage.
+
+However, many embedded systems have size, cost, or implementation
+constraints that make separate firmware storage unfeasible.
+On such systems, firmware and the OS reside in the same storage device.
+Care must be taken to ensure firmware kept in normal storage does not
+conflict with normal usage of the media by an OS.
+
+* Firmware must be stored on the media in a way that does not conflict
+  with normal partitioning and usage by the operating system.
+* Normal operation of the OS must not interfere with firmware files.
+* Firmware needs a method to modify variable storage at runtime while the
+  OS controls access to the device. [#LUVariables]_
 
 .. [#LUVariables] Runtime access to firmware data may still be an issue when
    firmware is stored in a dedicated LU, simply because the OS remains in

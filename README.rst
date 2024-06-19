@@ -153,6 +153,8 @@ tag. Generally this means each ``.rst`` file should include the line
 .. _Sphinx: http://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html
 
 In general, try to keep the text width to at most 80 columns.
+Try to write footnotes contents as close a possible to the places referencing
+them.
 
 Sphinx Extensions
 -----------------

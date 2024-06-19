@@ -210,6 +210,8 @@ When the firmware implements in-band firmware update with `UpdateCapsule()` it
 must support the following Variables to report the status of capsule "on disk"
 processing after restart as found in :UEFI:`8.5.6`. [#FWUpNote]_
 
+.. [#FWUpNote] See section :ref:`section-fw-update`.
+
 .. list-table:: UEFI Variables required for capsule update "on disk"
    :widths: 50 50
    :header-rows: 1
@@ -223,8 +225,6 @@ processing after restart as found in :UEFI:`8.5.6`. [#FWUpNote]_
      - Variable for platform to publish the maximum `CapsuleNNNN` supported.
    * - `CapsuleLast`
      - Variable for platform to publish the last `CapsuleNNNN` created.
-
-.. [#FWUpNote] See section :ref:`section-fw-update`.
 
 Block device partitioning
 -------------------------
@@ -364,6 +364,9 @@ The DTB Nodes and Properties must be compliant with the requirements listed in
 [DTSPEC]_ § 3 & 4 and with the requirements listed in the following table, which
 take precedence. [#DTSchNote]_
 
+.. [#DTSchNote] The validity of the DTB and its conformance to [DTSPEC]_ can be
+   verified automatically with the tools and schemas in [DTSCHEMA]_.
+
 .. list-table:: DTB Nodes and Properties requirements
    :widths: 50 50
    :header-rows: 1
@@ -378,9 +381,6 @@ take precedence. [#DTSchNote]_
 
 The DTB must be contained in memory of type `EfiACPIReclaimMemory`.
 [#ACPIMemNote]_
-
-.. [#DTSchNote] The validity of the DTB and its conformance to [DTSPEC]_ can be
-   verified automatically with the tools and schemas in [DTSCHEMA]_.
 
 .. [#ACPIMemNote] `EfiACPIReclaimMemory` was chosen to match the recommendation
    for ACPI tables which fulfill the same task as the DTB.
@@ -567,6 +567,17 @@ collide with transactions initiated by the OS.
 Neither U-Boot nor Tianocore have a generic solution for accessing or updating
 variables stored on shared media. [#OPTEESupplicant]_
 
+.. [#OPTEESupplicant] It is worth noting that OP-TEE has a similar problem
+   regarding secure storage.
+   OP-TEE's chosen solution is to rely on an OS supplicant agent to perform
+   storage operations on behalf of OP-TEE.
+   The same solution may be applicable to solving the UEFI non-volatile
+   variable problem, but it requires additional OS support to work.
+   Regardless, EBBR compliance does not require `SetVariable()` support
+   during runtime services.
+
+   https://optee.readthedocs.io/en/latest/architecture/secure_storage.html
+
 If a platform does not implement modifying non-volatile variables with
 `SetVariable()` after `ExitBootServices()`,
 then firmware shall return `EFI_UNSUPPORTED` for any call to `SetVariable()`,
@@ -579,17 +590,6 @@ to `SetVariable()` need to be performed before calling `ExitBootServices()`.
 Even when `SetVariable()` is not supported during runtime services, firmware
 should cache variable names and values in `EfiRuntimeServicesData` memory so
 that `GetVariable()` and `GetNextVariableName()` can behave as specified.
-
-.. [#OPTEESupplicant] It is worth noting that OP-TEE has a similar problem
-   regarding secure storage.
-   OP-TEE's chosen solution is to rely on an OS supplicant agent to perform
-   storage operations on behalf of OP-TEE.
-   The same solution may be applicable to solving the UEFI non-volatile
-   variable problem, but it requires additional OS support to work.
-   Regardless, EBBR compliance does not require `SetVariable()` support
-   during runtime services.
-
-   https://optee.readthedocs.io/en/latest/architecture/secure_storage.html
 
 .. _section-fw-update:
 
@@ -610,18 +610,6 @@ service and accept updates in the "Firmware Management Protocol Data Capsule
 Structure" format as described in :UEFI:`23.3`. [#FMPNote]_
 `UpdateCapsule()` is only required before `ExitBootServices()` is called.
 
-Firmware is also required to provide an EFI System Resource Table (ESRT) as
-described in :UEFI:`23.4`.
-Every firmware image that can be updated in-band must be described in the ESRT.
-
-Firmware must support the delivery of capsules via file on mass storage device
-("on disk") as described in :UEFI:`8.5.5`. [#VarNote]_
-
-.. note::
-   It is recommended that firmware implementing the `UpdateCapsule()` runtime
-   service and an ESRT also implement the `EFI_FIRMWARE_MANAGEMENT_PROTOCOL`
-   described in :UEFI:`23.1`. [#FMProtoNote]_
-
 .. [#FMPNote] The `UpdateCapsule()` runtime service is expected to be suitable
    for use by generic firmware update services like fwupd and Windows Update.
    Both fwupd and Windows Update read the ESRT table to determine what firmware
@@ -630,8 +618,20 @@ Firmware must support the delivery of capsules via file on mass storage device
 
    https://fwupd.org/
 
+Firmware is also required to provide an EFI System Resource Table (ESRT) as
+described in :UEFI:`23.4`.
+Every firmware image that can be updated in-band must be described in the ESRT.
+
+Firmware must support the delivery of capsules via file on mass storage device
+("on disk") as described in :UEFI:`8.5.5`. [#VarNote]_
+
 .. [#VarNote] Some Variables are required to support capsule "on disk".
    See section :ref:`section-required-vars-for-on-disk`.
+
+.. note::
+   It is recommended that firmware implementing the `UpdateCapsule()` runtime
+   service and an ESRT also implement the `EFI_FIRMWARE_MANAGEMENT_PROTOCOL`
+   described in :UEFI:`23.1`. [#FMProtoNote]_
 
 .. [#FMProtoNote] At the time of writing, both Tianocore/EDK2 and U-Boot are
    using the `EFI_FIRMWARE_MANAGEMENT_PROTOCOL` internally to support their

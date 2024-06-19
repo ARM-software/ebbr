@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Embedded Base Boot Requirements (EBBR) Specification v2.2.0-1-ga94f2fd documentation</title>
+    <title>Embedded Base Boot Requirements (EBBR) Specification v2.2.0-2-g2efd1cd documentation</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
     <script src="_static/documentation_options.js"></script>
@@ -728,6 +728,12 @@ order given by <cite>BootOrder</cite> to find the first bootable image.</p></td>
 <p>When the firmware implements in-band firmware update with <cite>UpdateCapsule()</cite> it
 must support the following Variables to report the status of capsule “on disk”
 processing after restart as found in <a class="reference external" href="https://uefi.org/specs/UEFI/2.10/08_Services_Runtime_Services.html#uefi-variable-reporting-on-the-success-or-any-errors-encountered-in-processing-of-capsules-after-restart">UEFI § 8.5.6 UEFI variable reporting on the Success or any Errors encountered in processing of capsules after restart</a>. <a class="footnote-reference brackets" href="#fwupnote" id="id4" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a></p>
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="fwupnote" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id4">1</a><span class="fn-bracket">]</span></span>
+<p>See section <a class="reference internal" href="#section-fw-update"><span class="std std-ref">Firmware Update</span></a>.</p>
+</aside>
+</aside>
 <table class="docutils align-default" id="id30">
 <caption><span class="caption-number">Table 2.6 </span><span class="caption-text">UEFI Variables required for capsule update “on disk”</span><a class="headerlink" href="#id30" title="Link to this table">¶</a></caption>
 <colgroup>
@@ -752,12 +758,6 @@ processing after restart as found in <a class="reference external" href="https:/
 </tr>
 </tbody>
 </table>
-<aside class="footnote-list brackets">
-<aside class="footnote brackets" id="fwupnote" role="doc-footnote">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id4">1</a><span class="fn-bracket">]</span></span>
-<p>See section <a class="reference internal" href="#section-fw-update"><span class="std std-ref">Firmware Update</span></a>.</p>
-</aside>
-</aside>
 </section>
 </section>
 <section id="block-device-partitioning">
@@ -886,6 +886,13 @@ in Flattened Devicetree Blob (DTB) format version 17 or higher as described in
 The DTB Nodes and Properties must be compliant with the requirements listed in
 <a class="reference internal" href="index.html#dtspec" id="id10"><span>[DTSPEC]</span></a> § 3 &amp; 4 and with the requirements listed in the following table, which
 take precedence. <a class="footnote-reference brackets" href="#dtschnote" id="id11" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a></p>
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="dtschnote" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id11">3</a><span class="fn-bracket">]</span></span>
+<p>The validity of the DTB and its conformance to <a class="reference internal" href="index.html#dtspec" id="id12"><span>[DTSPEC]</span></a> can be
+verified automatically with the tools and schemas in <a class="reference internal" href="index.html#dtschema" id="id13"><span>[DTSCHEMA]</span></a>.</p>
+</aside>
+</aside>
 <table class="docutils align-default" id="id31">
 <caption><span class="caption-number">Table 2.7 </span><span class="caption-text">DTB Nodes and Properties requirements</span><a class="headerlink" href="#id31" title="Link to this table">¶</a></caption>
 <colgroup>
@@ -899,24 +906,19 @@ take precedence. <a class="footnote-reference brackets" href="#dtschnote" id="id
 </thead>
 <tbody>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">/chosen</span></code></p></td>
-<td><p>This Node is required. (<a class="reference internal" href="index.html#dtspec" id="id12"><span>[DTSPEC]</span></a> § 3.6)</p></td>
+<td><p>This Node is required. (<a class="reference internal" href="index.html#dtspec" id="id14"><span>[DTSPEC]</span></a> § 3.6)</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">/chosen/stdout-path</span></code></p></td>
 <td><p>This Property is required. It is necessary for console output.
-(<a class="reference internal" href="index.html#dtspec" id="id13"><span>[DTSPEC]</span></a> § 3.6)</p></td>
+(<a class="reference internal" href="index.html#dtspec" id="id15"><span>[DTSPEC]</span></a> § 3.6)</p></td>
 </tr>
 </tbody>
 </table>
 <p>The DTB must be contained in memory of type <cite>EfiACPIReclaimMemory</cite>.
-<a class="footnote-reference brackets" href="#acpimemnote" id="id14" role="doc-noteref"><span class="fn-bracket">[</span>4<span class="fn-bracket">]</span></a></p>
+<a class="footnote-reference brackets" href="#acpimemnote" id="id16" role="doc-noteref"><span class="fn-bracket">[</span>4<span class="fn-bracket">]</span></a></p>
 <aside class="footnote-list brackets">
-<aside class="footnote brackets" id="dtschnote" role="doc-footnote">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id11">3</a><span class="fn-bracket">]</span></span>
-<p>The validity of the DTB and its conformance to <a class="reference internal" href="index.html#dtspec" id="id15"><span>[DTSPEC]</span></a> can be
-verified automatically with the tools and schemas in <a class="reference internal" href="index.html#dtschema" id="id16"><span>[DTSCHEMA]</span></a>.</p>
-</aside>
 <aside class="footnote brackets" id="acpimemnote" role="doc-footnote">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id14">4</a><span class="fn-bracket">]</span></span>
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id16">4</a><span class="fn-bracket">]</span></span>
 <p><cite>EfiACPIReclaimMemory</cite> was chosen to match the recommendation
 for ACPI tables which fulfill the same task as the DTB.</p>
 </aside>
@@ -1104,17 +1106,6 @@ access storage after <cite>ExitBootServices()</cite> is called.</p>
 collide with transactions initiated by the OS.
 Neither U-Boot nor Tianocore have a generic solution for accessing or updating
 variables stored on shared media. <a class="footnote-reference brackets" href="#opteesupplicant" id="id20" role="doc-noteref"><span class="fn-bracket">[</span>6<span class="fn-bracket">]</span></a></p>
-<p>If a platform does not implement modifying non-volatile variables with
-<cite>SetVariable()</cite> after <cite>ExitBootServices()</cite>,
-then firmware shall return <cite>EFI_UNSUPPORTED</cite> for any call to <cite>SetVariable()</cite>,
-and must advertise that <cite>SetVariable()</cite> isn’t available during runtime services
-via the <cite>RuntimeServicesSupported</cite> value in the <cite>EFI_RT_PROPERTIES_TABLE</cite>
-as defined in <a class="reference external" href="https://uefi.org/specs/UEFI/2.10/04_EFI_System_Table.html#efi-rt-properties-table">UEFI § 4.6.2 EFI_RT_PROPERTIES_TABLE</a>.
-EFI applications can read <cite>RuntimeServicesSupported</cite> to determine if calls
-to <cite>SetVariable()</cite> need to be performed before calling <cite>ExitBootServices()</cite>.</p>
-<p>Even when <cite>SetVariable()</cite> is not supported during runtime services, firmware
-should cache variable names and values in <cite>EfiRuntimeServicesData</cite> memory so
-that <cite>GetVariable()</cite> and <cite>GetNextVariableName()</cite> can behave as specified.</p>
 <aside class="footnote-list brackets">
 <aside class="footnote brackets" id="opteesupplicant" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id20">6</a><span class="fn-bracket">]</span></span>
@@ -1129,6 +1120,17 @@ during runtime services.</p>
 <p><a class="reference external" href="https://optee.readthedocs.io/en/latest/architecture/secure_storage.html">https://optee.readthedocs.io/en/latest/architecture/secure_storage.html</a></p>
 </aside>
 </aside>
+<p>If a platform does not implement modifying non-volatile variables with
+<cite>SetVariable()</cite> after <cite>ExitBootServices()</cite>,
+then firmware shall return <cite>EFI_UNSUPPORTED</cite> for any call to <cite>SetVariable()</cite>,
+and must advertise that <cite>SetVariable()</cite> isn’t available during runtime services
+via the <cite>RuntimeServicesSupported</cite> value in the <cite>EFI_RT_PROPERTIES_TABLE</cite>
+as defined in <a class="reference external" href="https://uefi.org/specs/UEFI/2.10/04_EFI_System_Table.html#efi-rt-properties-table">UEFI § 4.6.2 EFI_RT_PROPERTIES_TABLE</a>.
+EFI applications can read <cite>RuntimeServicesSupported</cite> to determine if calls
+to <cite>SetVariable()</cite> need to be performed before calling <cite>ExitBootServices()</cite>.</p>
+<p>Even when <cite>SetVariable()</cite> is not supported during runtime services, firmware
+should cache variable names and values in <cite>EfiRuntimeServicesData</cite> memory so
+that <cite>GetVariable()</cite> and <cite>GetNextVariableName()</cite> can behave as specified.</p>
 </section>
 <section id="firmware-update">
 <span id="section-fw-update"></span><h4><span class="section-number">2.7.4. </span>Firmware Update<a class="headerlink" href="#firmware-update" title="Link to this heading">¶</a></h4>
@@ -1143,17 +1145,6 @@ updates itself), then the firmware shall implement the <cite>UpdateCapsule()</ci
 service and accept updates in the “Firmware Management Protocol Data Capsule
 Structure” format as described in <a class="reference external" href="https://uefi.org/specs/UEFI/2.10/23_Firmware_Update_and_Reporting.html#delivering-capsules-containing-updates-tofirmware-management-protocol">UEFI § 23.3 Delivering Capsules Containing Updates toFirmware Management Protocol</a>. <a class="footnote-reference brackets" href="#fmpnote" id="id21" role="doc-noteref"><span class="fn-bracket">[</span>7<span class="fn-bracket">]</span></a>
 <cite>UpdateCapsule()</cite> is only required before <cite>ExitBootServices()</cite> is called.</p>
-<p>Firmware is also required to provide an EFI System Resource Table (ESRT) as
-described in <a class="reference external" href="https://uefi.org/specs/UEFI/2.10/23_Firmware_Update_and_Reporting.html#efi-system-resource-table">UEFI § 23.4 EFI System Resource Table</a>.
-Every firmware image that can be updated in-band must be described in the ESRT.</p>
-<p>Firmware must support the delivery of capsules via file on mass storage device
-(“on disk”) as described in <a class="reference external" href="https://uefi.org/specs/UEFI/2.10/08_Services_Runtime_Services.html#delivery-of-capsules-via-file-on-mass-storage-device">UEFI § 8.5.5 Delivery of Capsules via file on Mass Storage Device</a>. <a class="footnote-reference brackets" href="#varnote" id="id22" role="doc-noteref"><span class="fn-bracket">[</span>8<span class="fn-bracket">]</span></a></p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>It is recommended that firmware implementing the <cite>UpdateCapsule()</cite> runtime
-service and an ESRT also implement the <cite>EFI_FIRMWARE_MANAGEMENT_PROTOCOL</cite>
-described in <a class="reference external" href="https://uefi.org/specs/UEFI/2.10/23_Firmware_Update_and_Reporting.html#firmware-management-protocol">UEFI § 23.1 Firmware Management Protocol</a>. <a class="footnote-reference brackets" href="#fmprotonote" id="id23" role="doc-noteref"><span class="fn-bracket">[</span>9<span class="fn-bracket">]</span></a></p>
-</div>
 <aside class="footnote-list brackets">
 <aside class="footnote brackets" id="fmpnote" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id21">7</a><span class="fn-bracket">]</span></span>
@@ -1164,11 +1155,26 @@ can be updated, and use an EFI helper application to call <cite>UpdateCapsule()<
 before <cite>ExitBootServices()</cite> is called.</p>
 <p><a class="reference external" href="https://fwupd.org/">https://fwupd.org/</a></p>
 </aside>
+</aside>
+<p>Firmware is also required to provide an EFI System Resource Table (ESRT) as
+described in <a class="reference external" href="https://uefi.org/specs/UEFI/2.10/23_Firmware_Update_and_Reporting.html#efi-system-resource-table">UEFI § 23.4 EFI System Resource Table</a>.
+Every firmware image that can be updated in-band must be described in the ESRT.</p>
+<p>Firmware must support the delivery of capsules via file on mass storage device
+(“on disk”) as described in <a class="reference external" href="https://uefi.org/specs/UEFI/2.10/08_Services_Runtime_Services.html#delivery-of-capsules-via-file-on-mass-storage-device">UEFI § 8.5.5 Delivery of Capsules via file on Mass Storage Device</a>. <a class="footnote-reference brackets" href="#varnote" id="id22" role="doc-noteref"><span class="fn-bracket">[</span>8<span class="fn-bracket">]</span></a></p>
+<aside class="footnote-list brackets">
 <aside class="footnote brackets" id="varnote" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id22">8</a><span class="fn-bracket">]</span></span>
 <p>Some Variables are required to support capsule “on disk”.
 See section <a class="reference internal" href="#section-required-vars-for-on-disk"><span class="std std-ref">Required Variables for capsule update “on disk”</span></a>.</p>
 </aside>
+</aside>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>It is recommended that firmware implementing the <cite>UpdateCapsule()</cite> runtime
+service and an ESRT also implement the <cite>EFI_FIRMWARE_MANAGEMENT_PROTOCOL</cite>
+described in <a class="reference external" href="https://uefi.org/specs/UEFI/2.10/23_Firmware_Update_and_Reporting.html#firmware-management-protocol">UEFI § 23.1 Firmware Management Protocol</a>. <a class="footnote-reference brackets" href="#fmprotonote" id="id23" role="doc-noteref"><span class="fn-bracket">[</span>9<span class="fn-bracket">]</span></a></p>
+</div>
+<aside class="footnote-list brackets">
 <aside class="footnote brackets" id="fmprotonote" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id23">9</a><span class="fn-bracket">]</span></span>
 <p>At the time of writing, both Tianocore/EDK2 and U-Boot are
@@ -1262,18 +1268,6 @@ This could be a physically separate device (e.g. SPI flash),
 or a dedicated logical unit (LU) within a device
 (e.g. eMMC boot partition, <a class="footnote-reference brackets" href="#emmcbootpartition" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>
 or UFS boot LU <a class="footnote-reference brackets" href="#logicalunitnote" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>).</p>
-<p>However, many embedded systems have size, cost, or implementation
-constraints that make separate firmware storage unfeasible.
-On such systems, firmware and the OS reside in the same storage device.
-Care must be taken to ensure firmware kept in normal storage does not
-conflict with normal usage of the media by an OS.</p>
-<ul class="simple">
-<li><p>Firmware must be stored on the media in a way that does not conflict
-with normal partitioning and usage by the operating system.</p></li>
-<li><p>Normal operation of the OS must not interfere with firmware files.</p></li>
-<li><p>Firmware needs a method to modify variable storage at runtime while the
-OS controls access to the device. <a class="footnote-reference brackets" href="#luvariables" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a></p></li>
-</ul>
 <aside class="footnote-list brackets">
 <aside class="footnote brackets" id="emmcbootpartition" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
@@ -1292,6 +1286,20 @@ partition table.
 A platform that uses one LU for firmware, and another LU for OS partitions
 and the ESP is considered to be using dedicated firmware storage.</p>
 </aside>
+</aside>
+<p>However, many embedded systems have size, cost, or implementation
+constraints that make separate firmware storage unfeasible.
+On such systems, firmware and the OS reside in the same storage device.
+Care must be taken to ensure firmware kept in normal storage does not
+conflict with normal usage of the media by an OS.</p>
+<ul class="simple">
+<li><p>Firmware must be stored on the media in a way that does not conflict
+with normal partitioning and usage by the operating system.</p></li>
+<li><p>Normal operation of the OS must not interfere with firmware files.</p></li>
+<li><p>Firmware needs a method to modify variable storage at runtime while the
+OS controls access to the device. <a class="footnote-reference brackets" href="#luvariables" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a></p></li>
+</ul>
+<aside class="footnote-list brackets">
 <aside class="footnote brackets" id="luvariables" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id3">3</a><span class="fn-bracket">]</span></span>
 <p>Runtime access to firmware data may still be an issue when

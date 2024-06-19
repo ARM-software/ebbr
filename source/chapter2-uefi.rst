@@ -97,7 +97,7 @@ All of the following UEFI elements are required for EBBR compliance.
      - Required by EFI shell and for compliance testing.
    * - `EFI_HII_DATABASE_PROTOCOL`
      - Required by EFI shell and for compliance testing.
-   * - `EFI_UNICODE_COLLATION2_PROTOCOL`
+   * - `EFI_UNICODE_COLLATION_PROTOCOL` [#COLNote]_
      - Required by EFI shell and for compliance testing.
    * - `EFI_BLOCK_IO_PROTOCOL`
      - Required for block device access.
@@ -111,6 +111,10 @@ All of the following UEFI elements are required for EBBR compliance.
      - Required if the platform supports network booting. (:UEFI:`24.7`)
    * - `RISCV_EFI_BOOT_PROTOCOL`
      - Required on RISC-V platforms. (:UEFI:`2.3.7.1` and [RVUEFI]_)
+
+.. [#COLNote] The `EFI_UNICODE_COLLATION_PROTOCOL` defined in :UEFI:`21.1` is
+   also sometimes called the `EFI_UNICODE_COLLATION2_PROTOCOL` or even the
+   `EFI_UNICODE_COLLATION_PROTOCOL2`.
 
 The following table is a list of notable deviations from :UEFI:`2.6.2`.
 Many of these deviations are because the EBBR use cases do not require

@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Embedded Base Boot Requirements (EBBR) Specification v2.2.0-3-g51bee2c documentation</title>
+    <title>Embedded Base Boot Requirements (EBBR) Specification v2.2.0-4-g144a027 documentation</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
     <script src="_static/documentation_options.js"></script>
@@ -1231,29 +1231,19 @@ At <cite>ExitBootServices()</cite> time, all secondary CPUs must be parked or po
 <p>On AArch64 platforms, Firmware resident in Trustzone EL3 must implement and
 conform to the Power State Coordination Interface specification <a class="reference internal" href="index.html#psci" id="id1"><span>[PSCI]</span></a> and to
 the SMC Calling Convention <a class="reference internal" href="index.html#smccc" id="id2"><span>[SMCCC]</span></a>.</p>
-<p>Platforms without EL3 must implement one of:</p>
-<ul class="simple">
-<li><p>PSCI and SMCCC at EL2 (leaving only EL1 available to an operating system)</p></li>
-<li><p>Linux AArch64 spin tables <a class="reference internal" href="index.html#linuxa64boot" id="id3"><span>[LINUXA64BOOT]</span></a> (Devicetree only)</p></li>
-</ul>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>The spin table protocol is strongly discouraged.
-Future versions of this specification will only allow PSCI and SMCCC, and
-they should be implemented in all new designs.</p>
-</div>
-<p>It is recommended that firmware implementing PSCI supports version 1.0 or later
-<a class="footnote-reference brackets" href="#pscinote" id="id4" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a> and that firmware implementing SMCCC supports version 1.1 or later
-<a class="footnote-reference brackets" href="#smcccnote" id="id5" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>.</p>
+<p>Platforms without EL3 must implement PSCI and SMCCC at EL2 (leaving only EL1
+available to an operating system).</p>
+<p>It is recommended that firmware implements PSCI version 1.0 or later
+<a class="footnote-reference brackets" href="#pscinote" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a> and SMCCC version 1.1 or later <a class="footnote-reference brackets" href="#smcccnote" id="id4" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>.</p>
 <aside class="footnote-list brackets">
 <aside class="footnote brackets" id="pscinote" role="doc-footnote">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id4">1</a><span class="fn-bracket">]</span></span>
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id3">1</a><span class="fn-bracket">]</span></span>
 <p>PSCI version 1.0 is considered as an errata fix release for
 version 0.2, where functions interfaces have been stabilized.
 It also introduced the <cite>PSCI_FEATURES</cite> function, for standardized discovery.</p>
 </aside>
 <aside class="footnote brackets" id="smcccnote" role="doc-footnote">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id5">2</a><span class="fn-bracket">]</span></span>
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id4">2</a><span class="fn-bracket">]</span></span>
 <p>Starting with SMCCC version 1.1, support for the <cite>SMCCC_VERSION</cite>
 function is required, for standardized discovery.</p>
 </aside>
@@ -1262,7 +1252,7 @@ function is required, for standardized discovery.</p>
 <section id="risc-v-multiprocessor-startup-protocol">
 <h3><span class="section-number">3.3. </span>RISC-V Multiprocessor Startup Protocol<a class="headerlink" href="#risc-v-multiprocessor-startup-protocol" title="Link to this heading">¶</a></h3>
 <p>The resident firmware in M mode or hypervisor running in HS mode must implement
-and conform to at least SBI <a class="reference internal" href="index.html#rvsbispec" id="id6"><span>[RVSBISPEC]</span></a> v0.2 with HART State Management(HSM)
+and conform to at least SBI <a class="reference internal" href="index.html#rvsbispec" id="id5"><span>[RVSBISPEC]</span></a> v0.2 with HART State Management(HSM)
 extension for both RV32 and RV64.</p>
 </section>
 </section>
@@ -1646,11 +1636,6 @@ August 2022, <a class="reference external" href="https://uefi.org/">UEFI Forum</
 <span class="label"><span class="fn-bracket">[</span>DTSPEC<span class="fn-bracket">]</span></span>
 <p><a class="reference external" href="https://github.com/devicetree-org/devicetree-specification/releases/tag/v0.4">Devicetree specification v0.4</a>,
 <a class="reference external" href="https://www.devicetree.org/">Devicetree.org</a></p>
-</div>
-<div class="citation" id="linuxa64boot" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span>LINUXA64BOOT<span class="fn-bracket">]</span></span>
-<p><a class="reference external" href="https://docs.kernel.org/arch/arm64/booting.html">Linux Documentation/arm64/booting.rst</a>,
-Linux kernel</p>
 </div>
 <div class="citation" id="psci" role="doc-biblioentry">
 <span class="label"><span class="fn-bracket">[</span>PSCI<span class="fn-bracket">]</span></span>

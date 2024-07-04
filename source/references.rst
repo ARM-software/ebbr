@@ -29,9 +29,9 @@ Bibliography
    <https://github.com/devicetree-org/devicetree-specification/releases/tag/v0.4>`_,
    `Devicetree.org <https://www.devicetree.org/>`_
 
-.. [PSCI] `Arm Power State Coordination Interface issue F (PSCI v1.3 ALPHA).
-   <https://developer.arm.com/documentation/den0022/f>`_
-   July 2023, `Arm Limited <https://www.arm.com/>`_
+.. [PSCI] `Arm Power State Coordination Interface issue F (PSCI v1.3 BETA-0).
+   <https://developer.arm.com/documentation/den0022/fbet0>`_
+   June 2024, `Arm Limited <https://www.arm.com/>`_
 
 .. [SMCCC] `SMC Calling Convention version F.
    <https://developer.arm.com/documentation/den0028/f>`_

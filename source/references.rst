@@ -21,8 +21,8 @@ Bibliography
    <https://gitlab.com/Linaro/trustedsubstrate/mbfw/uploads/3d0d7d11ca9874dc9115616b418aa330/mbfw.pdf>`_
    November 2021, `Linaro Limited and contributors <https://www.linaro.org>`_
 
-.. [DTSCHEMA] `Devicetree schema tools v2024.02
-   <https://github.com/devicetree-org/dt-schema/releases/tag/v2024.02>`_,
+.. [DTSCHEMA] `Devicetree schema tools v2024.05
+   <https://github.com/devicetree-org/dt-schema/releases/tag/v2024.05>`_,
    `Devicetree.org <https://www.devicetree.org/>`_
 
 .. [DTSPEC] `Devicetree specification v0.4

@@ -155,7 +155,7 @@ It does not define a standardized abstract virtual machine view for a Guest
 Operating System.
 
 This specification is referenced by the Arm Base Boot Requirements
-Specification [ArmBBR]_ § 4.2.
+Specification [ArmBBR]_ § 3.2.
 The UEFI requirements found in this document are similar but not identical to
 the requirements found in BBR.
 EBBR provides greater flexibility to support embedded designs which cannot

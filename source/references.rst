@@ -37,9 +37,9 @@ Bibliography
    <https://developer.arm.com/documentation/den0028/f>`_
    Dec 2023, `Arm Limited <https://www.arm.com/>`_
 
-.. [ArmBBR] `Arm Base Boot Requirements specification Issue G (v2.0)
-   <https://developer.arm.com/documentation/den0044/g>`_
-   15 Apr 2022, `Arm Limited <https://www.arm.com/>`_
+.. [ArmBBR] `Arm Base Boot Requirements specification Issue H (v2.1)
+   <https://developer.arm.com/documentation/den0044/h>`_
+   15 Apr 2024, `Arm Limited <https://www.arm.com/>`_
 
 .. [UEFI] `Unified Extensible Firmware Interface Specification v2.10
    <https://uefi.org/sites/default/files/resources/UEFI_Spec_2_10_Aug29.pdf>`_,

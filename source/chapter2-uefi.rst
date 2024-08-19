@@ -10,7 +10,7 @@ platforms.
 UEFI Version
 ============
 
-This document uses version 2.10 of the UEFI specification [UEFI]_.
+This document uses version 2.10 Errata A of the UEFI specification [UEFI]_.
 
 UEFI Compliance
 ===============
@@ -331,7 +331,7 @@ EFI Conformance Profile Table
 -----------------------------
 
 The following GUIDs in the EFI Conformance Profile Table, as defined in
-:UEFI:`4.6.5`, are used to indicate compliance to specific versions of the EBBR
+:UEFI:`4.6.4`, are used to indicate compliance to specific versions of the EBBR
 specification.
 
 If the platform advertises an EBBR profile in the EFI Conformance Profile Table,

@@ -178,6 +178,8 @@ interface specific UEFI protocols, and so they have been made optional.
        For this reason EBBR implementations are not required to support option
        ROM loading.
 
+.. _section-required-global-vars:
+
 Required Global Variables
 -------------------------
 
@@ -666,3 +668,71 @@ the `GetNextHighMonotonicCount()` runtime service. [#BootNote]_
 
 .. [#BootNote] The platform's monotonic counter is made optional in section
    :ref:`section-misc-boot-services`.
+
+UEFI Boot Manager
+=================
+
+The UEFI Boot Manager is required for EBBR compliance.
+
+Not all the elements defined in :UEFI:`3` are necessary to allow installing and
+booting an OS, therefore only a subset is required.
+
+All of the following UEFI Boot Manager elements are required for EBBR
+compliance.
+
+.. list-table:: Required UEFI Boot Manager elements
+   :widths: 50 50
+   :header-rows: 1
+
+   * - Required element
+     - Description
+   * - Load options
+     - The load options residing in the `Boot####` variables, the priorities set
+       by the `BootNext` and `BootOrder` variables and the reporting of the
+       selected boot option with the `BootCurrent` variable, as defined in
+       :UEFI:`3.1`, must be supported (see :ref:`section-required-global-vars`).
+   * - Default behavior
+     - The default boot behavior after trying `BootOrder` as defined in
+       :UEFI:`3.4.3` must be supported.
+   * - Boot mechanisms
+     - Booting an application from device as defined in :UEFI:`3.5` must be
+       supported.
+
+The following table is a list of notable UEFI Boot Manager elements, which have
+been made optional.
+
+.. list-table:: Notable optional UEFI Boot Manager elements
+   :widths: 50 50
+   :header-rows: 1
+
+   * - Optional element
+     - Description
+   * - Drivers
+     - Loading UEFI drivers and the associated `Driver####` variables are not
+       required.
+   * - Menu
+     - A boot menu is not required.
+   * - Short form USB device paths
+     - Booting from short-form USB device paths as defined in :UEFI:`3.1.2` is
+       not required.
+   * - Categories
+     - The load options categories as defined in :UEFI:`3.1.3` are not required.
+   * - Capabilities
+     - Reporting capabilities in the `BootOptionSupport` variable as defined in
+       :UEFI:`3.1.4` is not required.
+   * - Hot Keys
+     - Launching load options using key presses as defined in :UEFI:`3.1.6` is
+       not required.
+   * - System preparation applications
+     - Launching system preparation applications and the associated
+       `SysPrep####` variables as defined in :UEFI:`3.1.7` are not required.
+   * - `EFI_BOOT_MANAGER_POLICY_PROTOCOL`
+     - This protocol defined in :UEFI:`3.2` is not required.
+   * - Boot Option Recovery
+     - The OS-defined recovery and the associated `OsRecovery####` variables as
+       defined in :UEFI:`3.4.1`, and the platform-specific recovery and
+       associated `PlatformRecovery####` variables as defined in :UEFI:`3.4.2`
+       are not required.
+
+.. warning:: A future version of this specification will require reporting
+   capabilities in the `BootOptionSupport` variable.

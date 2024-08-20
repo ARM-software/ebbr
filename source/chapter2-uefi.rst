@@ -668,3 +668,86 @@ the `GetNextHighMonotonicCount()` runtime service. [#BootNote]_
 
 .. [#BootNote] The platform's monotonic counter is made optional in section
    :ref:`section-misc-boot-services`.
+
+.. _section-uefi-boot-mgr:
+
+UEFI Boot Manager
+=================
+
+The UEFI Boot Manager is required for EBBR compliance.
+
+Not all the elements defined in :UEFI:`3` are necessary to allow installing and
+booting an OS, therefore only a subset is required.
+
+All of the following UEFI Boot Manager elements are required for EBBR
+compliance.
+
+.. list-table:: Required UEFI Boot Manager elements
+   :widths: 50 50
+   :header-rows: 1
+
+   * - Required element
+     - Description
+   * - Load options for normal boot
+     - The load options residing in the `Boot####` variables, the priorities set
+       by the `BootNext` and `BootOrder` variables, the reporting of the
+       selected boot option with the `BootCurrent` variable and the load option
+       attribute `LOAD_OPTION_ACTIVE` as defined in :UEFI:`3.1` must be
+       supported (see :ref:`section-required-global-vars`).
+   * - Default behavior
+     - The default boot behavior after trying `BootOrder`, i.e. searching for a
+       default application to boot on both removable and fixed media as defined
+       in :UEFI:`3.1.2` and :UEFI:`3.5.1.1` must be supported.
+   * - Boot mechanisms
+     - Booting an application from device using the
+       `EFI_SIMPLE_FILE_SYSTEM_PROTOCOL`, `LoadImage()`, configuring the
+       watchdog timer with `SetWatchdogTimer()`, booting via the
+       `EFI_LOAD_FILE_PROTOCOL` and booting from short-form hard drive media
+       device paths as defined in :UEFI:`3.1.2` and :UEFI:`3.5` must be
+       supported.
+   * - Short form USB device paths
+     - If the platform supports USB, booting from short-form USB device paths as
+       defined in :UEFI:`3.1.2` must be supported.
+   * - URI device paths
+     - If the platform supports network boot, booting from short-form URI device
+       paths as defined in :UEFI:`3.1.2` must be supported.
+
+The following table is a list of notable UEFI Boot Manager elements, which have
+been made optional.
+
+.. list-table:: Notable optional UEFI Boot Manager elements
+   :widths: 50 50
+   :header-rows: 1
+
+   * - Optional element
+     - Description
+   * - Booting with block io
+     - Booting an application from device using the `EFI_BLOCK_IO_PROTOCOL` and
+       `ConnectController()` is optional.
+   * - Drivers loading
+     - Loading UEFI drivers and the associated `DriverOrder` and `Driver####`
+       variables are optional.
+   * - Other load option attributes
+     - All other load options attributes than `LOAD_OPTION_ACTIVE` are optional.
+   * - Boot manager policy protocol
+     - The `EFI_BOOT_MANAGER_POLICY_PROTOCOL` is optional.
+   * - Boot option recovery
+     - The OS-defined recovery, the associated `OsRecoveryOrder` and
+       `OsRecovery####` variables, the platform-specific recovery, the
+       associated `PlatformRecovery####` variables and the associated
+       `EFI_OS_INDICATIONS_START_OS_RECOVERY` and
+       `EFI_OS_INDICATIONS_START_PLATFORM_RECOVERY` `OsIndications` bits are
+       optional.
+   * - Event groups notifications
+     - Notifying the `EFI_EVENT_GROUP_READY_TO_BOOT` and the
+       `EFI_EVENT_GROUP_AFTER_READY_TO_BOOT` event groups is optional.
+
+.. note::
+   Other mechanisms exist, which leverage the Boot Manager. For example: the
+   Linux kernel EFI stub is capable of loading an initial ramdisk using the
+   `EFI_LOAD_FILE2_PROTOCOL`, while the U-Boot bootloader can use the OSV
+   specific information contained in the load options `FilePathList[1..n]` to
+   setup the protocol. [#LF2Note]_
+   This is outside the scope of this specification.
+
+.. [#LF2Note] https://docs.u-boot.org/en/v2024.10/develop/uefi/uefi.html#load-file-2-protocol

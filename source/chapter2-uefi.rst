@@ -178,6 +178,8 @@ interface specific UEFI protocols, and so they have been made optional.
        For this reason EBBR implementations are not required to support option
        ROM loading.
 
+.. _section-required-global-vars:
+
 Required Global Variables
 -------------------------
 

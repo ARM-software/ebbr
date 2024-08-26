@@ -5,8 +5,9 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Embedded Base Boot Requirements (EBBR) Specification v2.2.0-9-g645fa7e documentation</title>
+    <title>Embedded Base Boot Requirements (EBBR) Specification v2.2.0-10-g2819a58 documentation</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/basic.css" />
     <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
     <script src="_static/documentation_options.js"></script>
     <script src="_static/doctools.js"></script>
@@ -356,7 +357,7 @@ variables, protocols, memory types and functions names.</p>
 <p>This document cross-references sources that are listed in the References
 section by using the section sign §.</p>
 <p>Examples:</p>
-<p><a class="reference external" href="https://uefi.org/specs/UEFI/2.10/06_Block_Transition_Table_Layout.html#block-translation-table-btt-background">UEFI § 6.1 Block Translation Table (BTT) Background</a> - Reference to the UEFI specification <a class="reference internal" href="index.html#uefi" id="id7"><span>[UEFI]</span></a> section 6.1</p>
+<p><a class="reference external" href="https://uefi.org/specs/UEFI/2.10_A/06_Block_Transition_Table_Layout.html#block-translation-table-btt-background">UEFI § 6.1 Block Translation Table (BTT) Background</a> - Reference to the UEFI specification <a class="reference internal" href="index.html#uefi" id="id7"><span>[UEFI]</span></a> section 6.1</p>
 </section>
 <section id="terms-and-abbreviations">
 <h3><span class="section-number">1.6. </span>Terms and abbreviations<a class="headerlink" href="#terms-and-abbreviations" title="Link to this heading">¶</a></h3>
@@ -465,19 +466,19 @@ hypervisor is enabled.</p>
 platforms.</p>
 <section id="uefi-version">
 <h3><span class="section-number">2.1. </span>UEFI Version<a class="headerlink" href="#uefi-version" title="Link to this heading">¶</a></h3>
-<p>This document uses version 2.10 of the UEFI specification <a class="reference internal" href="index.html#uefi" id="id1"><span>[UEFI]</span></a>.</p>
+<p>This document uses version 2.10 Errata A of the UEFI specification <a class="reference internal" href="index.html#uefi" id="id1"><span>[UEFI]</span></a>.</p>
 </section>
 <section id="uefi-compliance">
 <h3><span class="section-number">2.2. </span>UEFI Compliance<a class="headerlink" href="#uefi-compliance" title="Link to this heading">¶</a></h3>
 <p>EBBR compliant platform shall conform to a subset of the <a class="reference internal" href="index.html#uefi" id="id2"><span>[UEFI]</span></a> spec as listed
 in this section.
 Normally, UEFI compliance would require full compliance with all items listed
-in <a class="reference external" href="https://uefi.org/specs/UEFI/2.10/02_Overview.html#requirements">UEFI § 2.6 Requirements</a>.
+in <a class="reference external" href="https://uefi.org/specs/UEFI/2.10_A/02_Overview.html#requirements">UEFI § 2.6 Requirements</a>.
 However, the EBBR target market has a reduced set of requirements,
 and so some UEFI features are omitted as unnecessary.</p>
 <section id="required-elements">
 <span id="section-required-elems"></span><h4><span class="section-number">2.2.1. </span>Required Elements<a class="headerlink" href="#required-elements" title="Link to this heading">¶</a></h4>
-<p>This section replaces the list of required elements in <a class="reference external" href="https://uefi.org/specs/UEFI/2.10/02_Overview.html#required-elements">UEFI § 2.6.1 Required Elements</a>.
+<p>This section replaces the list of required elements in <a class="reference external" href="https://uefi.org/specs/UEFI/2.10_A/02_Overview.html#required-elements">UEFI § 2.6.1 Required Elements</a>.
 All of the following UEFI elements are required for EBBR compliance.</p>
 <table class="docutils align-default" id="id28">
 <caption><span class="caption-number">Table 2.1 </span><span class="caption-text">UEFI Required Elements</span><a class="headerlink" href="#id28" title="Link to this table">¶</a></caption>
@@ -524,7 +525,7 @@ handles provided by the firmware.</p></td>
 </tbody>
 </table>
 <table class="docutils align-default" id="id29">
-<caption><span class="caption-number">Table 2.2 </span><span class="caption-text">Notable omissions from <a class="reference external" href="https://uefi.org/specs/UEFI/2.10/02_Overview.html#required-elements">UEFI § 2.6.1 Required Elements</a></span><a class="headerlink" href="#id29" title="Link to this table">¶</a></caption>
+<caption><span class="caption-number">Table 2.2 </span><span class="caption-text">Notable omissions from <a class="reference external" href="https://uefi.org/specs/UEFI/2.10_A/02_Overview.html#required-elements">UEFI § 2.6.1 Required Elements</a></span><a class="headerlink" href="#id29" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 50.0%" />
 <col style="width: 50.0%" />
@@ -543,7 +544,7 @@ handles provided by the firmware.</p></td>
 </section>
 <section id="required-platform-specific-elements">
 <span id="section-required-plat-specific-elems"></span><h4><span class="section-number">2.2.2. </span>Required Platform Specific Elements<a class="headerlink" href="#required-platform-specific-elements" title="Link to this heading">¶</a></h4>
-<p>This section replaces the list of required elements in <a class="reference external" href="https://uefi.org/specs/UEFI/2.10/02_Overview.html#platform-specific-elements">UEFI § 2.6.2 Platform-Specific Elements</a>.
+<p>This section replaces the list of required elements in <a class="reference external" href="https://uefi.org/specs/UEFI/2.10_A/02_Overview.html#platform-specific-elements">UEFI § 2.6.2 Platform-Specific Elements</a>.
 All of the following UEFI elements are required for EBBR compliance.</p>
 <table class="docutils align-default" id="id30">
 <caption><span class="caption-number">Table 2.3 </span><span class="caption-text">UEFI Platform-Specific Required Elements</span><a class="headerlink" href="#id30" title="Link to this table">¶</a></caption>
@@ -594,26 +595,26 @@ All of the following UEFI elements are required for EBBR compliance.</p>
 <td><p>Required if the platform has a network device.</p></td>
 </tr>
 <tr class="row-even"><td><p>HTTP Boot</p></td>
-<td><p>Required if the platform supports network booting. (<a class="reference external" href="https://uefi.org/specs/UEFI/2.10/24_Network_Protocols_SNP_PXE_BIS.html#http-boot">UEFI § 24.7 HTTP Boot</a>)</p></td>
+<td><p>Required if the platform supports network booting. (<a class="reference external" href="https://uefi.org/specs/UEFI/2.10_A/24_Network_Protocols_SNP_PXE_BIS.html#http-boot">UEFI § 24.7 HTTP Boot</a>)</p></td>
 </tr>
 <tr class="row-odd"><td><p><cite>RISCV_EFI_BOOT_PROTOCOL</cite></p></td>
-<td><p>Required on RISC-V platforms. (<a class="reference external" href="https://uefi.org/specs/UEFI/2.10/02_Overview.html#handoff-state-5">UEFI § 2.3.7.1 Handoff State</a> and <a class="reference internal" href="index.html#rvuefi" id="id4"><span>[RVUEFI]</span></a>)</p></td>
+<td><p>Required on RISC-V platforms. (<a class="reference external" href="https://uefi.org/specs/UEFI/2.10_A/02_Overview.html#handoff-state-5">UEFI § 2.3.7.1 Handoff State</a> and <a class="reference internal" href="index.html#rvuefi" id="id4"><span>[RVUEFI]</span></a>)</p></td>
 </tr>
 </tbody>
 </table>
 <aside class="footnote-list brackets">
 <aside class="footnote brackets" id="colnote" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id3">1</a><span class="fn-bracket">]</span></span>
-<p>The <cite>EFI_UNICODE_COLLATION_PROTOCOL</cite> defined in <a class="reference external" href="https://uefi.org/specs/UEFI/2.10/21_Protocols_String_Services.html#unicode-collation-protocol">UEFI § 21.1 Unicode Collation Protocol</a> is
+<p>The <cite>EFI_UNICODE_COLLATION_PROTOCOL</cite> defined in <a class="reference external" href="https://uefi.org/specs/UEFI/2.10_A/21_Protocols_String_Services.html#unicode-collation-protocol">UEFI § 21.1 Unicode Collation Protocol</a> is
 also sometimes called the <cite>EFI_UNICODE_COLLATION2_PROTOCOL</cite> or even the
 <cite>EFI_UNICODE_COLLATION_PROTOCOL2</cite>.</p>
 </aside>
 </aside>
-<p>The following table is a list of notable deviations from <a class="reference external" href="https://uefi.org/specs/UEFI/2.10/02_Overview.html#platform-specific-elements">UEFI § 2.6.2 Platform-Specific Elements</a>.
+<p>The following table is a list of notable deviations from <a class="reference external" href="https://uefi.org/specs/UEFI/2.10_A/02_Overview.html#platform-specific-elements">UEFI § 2.6.2 Platform-Specific Elements</a>.
 Many of these deviations are because the EBBR use cases do not require
 interface specific UEFI protocols, and so they have been made optional.</p>
 <table class="docutils align-default" id="id31">
-<caption><span class="caption-number">Table 2.4 </span><span class="caption-text">Notable Deviations from <a class="reference external" href="https://uefi.org/specs/UEFI/2.10/02_Overview.html#platform-specific-elements">UEFI § 2.6.2 Platform-Specific Elements</a></span><a class="headerlink" href="#id31" title="Link to this table">¶</a></caption>
+<caption><span class="caption-number">Table 2.4 </span><span class="caption-text">Notable Deviations from <a class="reference external" href="https://uefi.org/specs/UEFI/2.10_A/02_Overview.html#platform-specific-elements">UEFI § 2.6.2 Platform-Specific Elements</a></span><a class="headerlink" href="#id31" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 50.0%" />
 <col style="width: 50.0%" />
@@ -696,7 +697,7 @@ ROM loading.</p></td>
 <section id="required-global-variables">
 <h4><span class="section-number">2.2.3. </span>Required Global Variables<a class="headerlink" href="#required-global-variables" title="Link to this heading">¶</a></h4>
 <p>EBBR compliant platforms are required to support the following Global
-Variables as found in <a class="reference external" href="https://uefi.org/specs/UEFI/2.10/03_Boot_Manager.html#globally-defined-variables">UEFI § 3.3 Globally Defined Variables</a>.</p>
+Variables as found in <a class="reference external" href="https://uefi.org/specs/UEFI/2.10_A/03_Boot_Manager.html#globally-defined-variables">UEFI § 3.3 Globally Defined Variables</a>.</p>
 <table class="docutils align-default" id="id32">
 <caption><span class="caption-number">Table 2.5 </span><span class="caption-text">Required UEFI Variables</span><a class="headerlink" href="#id32" title="Link to this table">¶</a></caption>
 <colgroup>
@@ -735,7 +736,7 @@ order given by <cite>BootOrder</cite> to find the first bootable image.</p></td>
 <span id="section-required-vars-for-on-disk"></span><h5><span class="section-number">2.2.3.1. </span>Required Variables for capsule update “on disk”<a class="headerlink" href="#required-variables-for-capsule-update-on-disk" title="Link to this heading">¶</a></h5>
 <p>When the firmware implements in-band firmware update with <cite>UpdateCapsule()</cite> it
 must support the following Variables to report the status of capsule “on disk”
-processing after restart as found in <a class="reference external" href="https://uefi.org/specs/UEFI/2.10/08_Services_Runtime_Services.html#uefi-variable-reporting-on-the-success-or-any-errors-encountered-in-processing-of-capsules-after-restart">UEFI § 8.5.6 UEFI variable reporting on the Success or any Errors encountered in processing of capsules after restart</a>. <a class="footnote-reference brackets" href="#fwupnote" id="id5" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a></p>
+processing after restart as found in <a class="reference external" href="https://uefi.org/specs/UEFI/2.10_A/08_Services_Runtime_Services.html#uefi-variable-reporting-on-the-success-or-any-errors-encountered-in-processing-of-capsules-after-restart">UEFI § 8.5.6 UEFI variable reporting on the Success or any Errors encountered in processing of capsules after restart</a>. <a class="footnote-reference brackets" href="#fwupnote" id="id5" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a></p>
 <aside class="footnote-list brackets">
 <aside class="footnote brackets" id="fwupnote" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id5">2</a><span class="fn-bracket">]</span></span>
@@ -791,7 +792,7 @@ RISC-V.</p>
 <section id="aarch64-exception-levels">
 <h4><span class="section-number">2.3.1. </span>AArch64 Exception Levels<a class="headerlink" href="#aarch64-exception-levels" title="Link to this heading">¶</a></h4>
 <p>On AArch64 UEFI shall execute as 64-bit code at either EL1 or EL2, as defined in
-<a class="reference external" href="https://uefi.org/specs/UEFI/2.10/02_Overview.html#aarch64-platforms">UEFI § 2.3.6 AArch64 Platforms</a>, depending on whether or not virtualization is available at OS
+<a class="reference external" href="https://uefi.org/specs/UEFI/2.10_A/02_Overview.html#aarch64-platforms">UEFI § 2.3.6 AArch64 Platforms</a>, depending on whether or not virtualization is available at OS
 load time.</p>
 <section id="uefi-boot-at-el2">
 <h5><span class="section-number">2.3.1.1. </span>UEFI Boot at EL2<a class="headerlink" href="#uefi-boot-at-el2" title="Link to this heading">¶</a></h5>
@@ -856,7 +857,7 @@ and must ensure only the selected interface is provided to the OS loader.</p>
 <section id="efi-conformance-profile-table">
 <h4><span class="section-number">2.4.1. </span>EFI Conformance Profile Table<a class="headerlink" href="#efi-conformance-profile-table" title="Link to this heading">¶</a></h4>
 <p>The following GUIDs in the EFI Conformance Profile Table, as defined in
-<a class="reference external" href="https://uefi.org/specs/UEFI/2.10/04_EFI_System_Table.html#efi-conformance-profile-table">UEFI § 4.6.5 EFI_CONFORMANCE_PROFILE_TABLE</a>, are used to indicate compliance to specific versions of the EBBR
+<a class="reference external" href="https://uefi.org/specs/UEFI/2.10_A/04_EFI_System_Table.html#efi-conformance-profile-table">UEFI § 4.6.4 EFI_CONFORMANCE_PROFILE_TABLE</a>, are used to indicate compliance to specific versions of the EBBR
 specification.</p>
 <p>If the platform advertises an EBBR profile in the EFI Conformance Profile Table,
 then it must be compliant with the corresponding version(s) of this
@@ -1133,7 +1134,7 @@ during runtime services.</p>
 then firmware shall return <cite>EFI_UNSUPPORTED</cite> for any call to <cite>SetVariable()</cite>,
 and must advertise that <cite>SetVariable()</cite> isn’t available during runtime services
 via the <cite>RuntimeServicesSupported</cite> value in the <cite>EFI_RT_PROPERTIES_TABLE</cite>
-as defined in <a class="reference external" href="https://uefi.org/specs/UEFI/2.10/04_EFI_System_Table.html#efi-rt-properties-table">UEFI § 4.6.2 EFI_RT_PROPERTIES_TABLE</a>.
+as defined in <a class="reference external" href="https://uefi.org/specs/UEFI/2.10_A/04_EFI_System_Table.html#efi-rt-properties-table">UEFI § 4.6.2 EFI_RT_PROPERTIES_TABLE</a>.
 EFI applications can read <cite>RuntimeServicesSupported</cite> to determine if calls
 to <cite>SetVariable()</cite> need to be performed before calling <cite>ExitBootServices()</cite>.</p>
 <p>Even when <cite>SetVariable()</cite> is not supported during runtime services, firmware
@@ -1151,7 +1152,7 @@ firmware update mechanism.</p>
 <p>If firmware update is performed in-band (firmware on the application processor
 updates itself), then the firmware shall implement the <cite>UpdateCapsule()</cite> runtime
 service and accept only authenticated updates in the “Firmware Management
-Protocol Data Capsule Structure” format as described in <a class="reference external" href="https://uefi.org/specs/UEFI/2.10/23_Firmware_Update_and_Reporting.html#delivering-capsules-containing-updates-tofirmware-management-protocol">UEFI § 23.3 Delivering Capsules Containing Updates toFirmware Management Protocol</a>, with
+Protocol Data Capsule Structure” format as described in <a class="reference external" href="https://uefi.org/specs/UEFI/2.10_A/23_Firmware_Update_and_Reporting.html#delivering-capsules-containing-updates-tofirmware-management-protocol">UEFI § 23.3 Delivering Capsules Containing Updates toFirmware Management Protocol</a>, with
 <cite>IMAGE_ATTRIBUTE_AUTHENTICATION_REQUIRED</cite> set. <a class="footnote-reference brackets" href="#fmpnote" id="id22" role="doc-noteref"><span class="fn-bracket">[</span>8<span class="fn-bracket">]</span></a>
 <cite>UpdateCapsule()</cite> is only required before <cite>ExitBootServices()</cite> is called.</p>
 <aside class="footnote-list brackets">
@@ -1176,10 +1177,10 @@ example.</p>
 </aside>
 </aside>
 <p>Firmware is also required to provide an EFI System Resource Table (ESRT) as
-described in <a class="reference external" href="https://uefi.org/specs/UEFI/2.10/23_Firmware_Update_and_Reporting.html#efi-system-resource-table">UEFI § 23.4 EFI System Resource Table</a>.
+described in <a class="reference external" href="https://uefi.org/specs/UEFI/2.10_A/23_Firmware_Update_and_Reporting.html#efi-system-resource-table">UEFI § 23.4 EFI System Resource Table</a>.
 Every firmware image that can be updated in-band must be described in the ESRT.</p>
 <p>Firmware must support the delivery of capsules via file on mass storage device
-(“on disk”) as described in <a class="reference external" href="https://uefi.org/specs/UEFI/2.10/08_Services_Runtime_Services.html#delivery-of-capsules-via-file-on-mass-storage-device">UEFI § 8.5.5 Delivery of Capsules via file on Mass Storage Device</a>. <a class="footnote-reference brackets" href="#varnote" id="id25" role="doc-noteref"><span class="fn-bracket">[</span>10<span class="fn-bracket">]</span></a></p>
+(“on disk”) as described in <a class="reference external" href="https://uefi.org/specs/UEFI/2.10_A/08_Services_Runtime_Services.html#delivery-of-capsules-via-file-on-mass-storage-device">UEFI § 8.5.5 Delivery of Capsules via file on Mass Storage Device</a>. <a class="footnote-reference brackets" href="#varnote" id="id25" role="doc-noteref"><span class="fn-bracket">[</span>10<span class="fn-bracket">]</span></a></p>
 <aside class="footnote-list brackets">
 <aside class="footnote brackets" id="varnote" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id25">10</a><span class="fn-bracket">]</span></span>
@@ -1191,7 +1192,7 @@ See section <a class="reference internal" href="#section-required-vars-for-on-di
 <p class="admonition-title">Note</p>
 <p>It is recommended that firmware implementing the <cite>UpdateCapsule()</cite> runtime
 service and an ESRT also implement the <cite>EFI_FIRMWARE_MANAGEMENT_PROTOCOL</cite>
-described in <a class="reference external" href="https://uefi.org/specs/UEFI/2.10/23_Firmware_Update_and_Reporting.html#firmware-management-protocol">UEFI § 23.1 Firmware Management Protocol</a>. <a class="footnote-reference brackets" href="#fmprotonote" id="id26" role="doc-noteref"><span class="fn-bracket">[</span>11<span class="fn-bracket">]</span></a></p>
+described in <a class="reference external" href="https://uefi.org/specs/UEFI/2.10_A/23_Firmware_Update_and_Reporting.html#firmware-management-protocol">UEFI § 23.1 Firmware Management Protocol</a>. <a class="footnote-reference brackets" href="#fmprotonote" id="id26" role="doc-noteref"><span class="fn-bracket">[</span>11<span class="fn-bracket">]</span></a></p>
 </div>
 <aside class="footnote-list brackets">
 <aside class="footnote brackets" id="fmprotonote" role="doc-footnote">
@@ -1199,7 +1200,7 @@ described in <a class="reference external" href="https://uefi.org/specs/UEFI/2.1
 <p>At the time of writing, both Tianocore/EDK2 and U-Boot are
 using the <cite>EFI_FIRMWARE_MANAGEMENT_PROTOCOL</cite> internally to support their
 implementation of the <cite>UpdateCapsule()</cite> runtime service and of the ESRT,
-as detailed in <a class="reference external" href="https://uefi.org/specs/UEFI/2.10/23_Firmware_Update_and_Reporting.html#delivering-capsules-containing-updates-tofirmware-management-protocol">UEFI § 23.3 Delivering Capsules Containing Updates toFirmware Management Protocol</a> and <a class="reference external" href="https://uefi.org/specs/UEFI/2.10/23_Firmware_Update_and_Reporting.html#efi-system-resource-table">UEFI § 23.4 EFI System Resource Table</a> respectively.</p>
+as detailed in <a class="reference external" href="https://uefi.org/specs/UEFI/2.10_A/23_Firmware_Update_and_Reporting.html#delivering-capsules-containing-updates-tofirmware-management-protocol">UEFI § 23.3 Delivering Capsules Containing Updates toFirmware Management Protocol</a> and <a class="reference external" href="https://uefi.org/specs/UEFI/2.10_A/23_Firmware_Update_and_Reporting.html#efi-system-resource-table">UEFI § 23.4 EFI System Resource Table</a> respectively.</p>
 </aside>
 </aside>
 </section>
@@ -1321,7 +1322,7 @@ runtime storage IO.</p>
 <section id="partitioning-of-shared-storage">
 <h3><span class="section-number">4.1. </span>Partitioning of Shared Storage<a class="headerlink" href="#partitioning-of-shared-storage" title="Link to this heading">¶</a></h3>
 <p>The shared storage device must use the GUID Partition Table (GPT) disk
-layout as defined in <a class="reference external" href="https://uefi.org/specs/UEFI/2.10/05_GUID_Partition_Table_Format.html#guid-partition-table-gpt-disk-layout-1">UEFI § 5.3 GUID Partition Table (GPT) Disk Layout</a>, unless the platform boot sequence is
+layout as defined in <a class="reference external" href="https://uefi.org/specs/UEFI/2.10_A/05_GUID_Partition_Table_Format.html#guid-partition-table-gpt-disk-layout-1">UEFI § 5.3 GUID Partition Table (GPT) Disk Layout</a>, unless the platform boot sequence is
 fundamentally incompatible with the GPT disk layout.
 In which case, a legacy Master Boot Record (MBR) must be used.
 <a class="footnote-reference brackets" href="#mbrreqexample" id="id4" role="doc-noteref"><span class="fn-bracket">[</span>4<span class="fn-bracket">]</span></a></p>
@@ -1371,7 +1372,7 @@ offsets.</p>
 <section id="gpt-partitioning">
 <span id="section-gpt-parts"></span><h4><span class="section-number">4.1.1. </span>GPT partitioning<a class="headerlink" href="#gpt-partitioning" title="Link to this heading">¶</a></h4>
 <p>The partition table must strictly conform to the UEFI specification and include
-a protective MBR authored exactly as described in <a class="reference external" href="https://uefi.org/specs/UEFI/2.10/05_GUID_Partition_Table_Format.html#guid-partition-table-gpt-disk-layout-1">UEFI § 5.3 GUID Partition Table (GPT) Disk Layout</a> (hybrid
+a protective MBR authored exactly as described in <a class="reference external" href="https://uefi.org/specs/UEFI/2.10_A/05_GUID_Partition_Table_Format.html#guid-partition-table-gpt-disk-layout-1">UEFI § 5.3 GUID Partition Table (GPT) Disk Layout</a> (hybrid
 partitioning schemes are not permitted).</p>
 <p>Fixed-location firmware images must be protected by creating protective
 partition entries, or by placing GPT data structures away from the LBAs
@@ -1390,7 +1391,7 @@ adjusting the GUID Partition Entry array location
 and <cite>SizeOfPartitionEntry</cite>),
 or by specifying the usable LBAs (Choosing <cite>FirstUsableLBA</cite>/<cite>LastUsableLBA</cite>
 to not overlap the fixed firmware location).
-See <a class="reference external" href="https://uefi.org/specs/UEFI/2.10/05_GUID_Partition_Table_Format.html#gpt-header">UEFI § 5.3.2 GPT Header</a>.</p>
+See <a class="reference external" href="https://uefi.org/specs/UEFI/2.10_A/05_GUID_Partition_Table_Format.html#gpt-header">UEFI § 5.3.2 GPT Header</a>.</p>
 <p>Given the choice, platforms should use protective partitions over
 adjusting the placement of GPT data structures because protective partitions
 provide explicit information about the protected region.</p>
@@ -1420,7 +1421,7 @@ platforms.</p>
 and all firmware images and data should be stored in platform vendor
 subdirectories under <code class="docutils literal notranslate"><span class="pre">/FIRMWARE</span></code>.</p>
 <p>Dedicated firmware partitions should be formatted with a FAT
-filesystem as defined in <a class="reference external" href="https://uefi.org/specs/UEFI/2.10/13_Protocols_Media_Access.html#file-system-format">UEFI § 13.3 File System Format</a>.
+filesystem as defined in <a class="reference external" href="https://uefi.org/specs/UEFI/2.10_A/13_Protocols_Media_Access.html#file-system-format">UEFI § 13.3 File System Format</a>.
 Dedicated firmware partitions should use the same <code class="docutils literal notranslate"><span class="pre">/FIRMWARE</span></code> directory
 hierarchy.
 OS tools shall ignore dedicated firmware partitions,
@@ -1598,7 +1599,7 @@ not sorted.</p>
 the NUL terminated variable name.</p>
 </dd>
 <dt>Attributes</dt><dd><p>This field is a bitmap with the variable attributes as defined in
-<a class="reference external" href="https://uefi.org/specs/UEFI/2.10/08_Services_Runtime_Services.html#getvariable">UEFI § 8.2.1 GetVariable()</a>.</p>
+<a class="reference external" href="https://uefi.org/specs/UEFI/2.10_A/08_Services_Runtime_Services.html#getvariable">UEFI § 8.2.1 GetVariable()</a>.</p>
 </dd>
 <dt>TimeStamp</dt><dd><p>For time-based authenticated variables this field contains the timestamp
 associated with the authentication descriptor encoded as seconds since
@@ -1670,8 +1671,8 @@ Dec 2023, <a class="reference external" href="https://www.arm.com/">Arm Limited<
 </div>
 <div class="citation" id="uefi" role="doc-biblioentry">
 <span class="label"><span class="fn-bracket">[</span>UEFI<span class="fn-bracket">]</span></span>
-<p><a class="reference external" href="https://uefi.org/sites/default/files/resources/UEFI_Spec_2_10_Aug29.pdf">Unified Extensible Firmware Interface Specification v2.10</a>,
-August 2022, <a class="reference external" href="https://uefi.org/">UEFI Forum</a></p>
+<p><a class="reference external" href="https://uefi.org/sites/default/files/resources/UEFI_Spec_2_10_A_Aug8.pdf">Unified Extensible Firmware Interface Specification v2.10 Errata A</a>,
+August 2024, <a class="reference external" href="https://uefi.org/">UEFI Forum</a></p>
 </div>
 <div class="citation" id="rvpltspec" role="doc-biblioentry">
 <span class="label"><span class="fn-bracket">[</span>RVPLTSPEC<span class="fn-bracket">]</span></span>
@@ -1705,7 +1706,7 @@ March 2016, <a class="reference external" href="https://trustedcomputinggroup.or
           
         </div>
       </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
         <div class="sphinxsidebarwrapper">
 <h1 class="logo"><a href="#">Embedded Base Boot Requirements (EBBR) Specification</a></h1>
 
@@ -1749,8 +1750,8 @@ March 2016, <a class="reference external" href="https://trustedcomputinggroup.or
       &#169;2017-2024 Arm Limited and Contributors.
       
       |
-      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 7.3.7</a>
-      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 0.7.16</a>
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 8.0.2</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 1.0.0</a>
       
     </div>
 

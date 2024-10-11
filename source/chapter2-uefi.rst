@@ -207,6 +207,10 @@ Variables as found in :UEFI:`3.3`.
    * - `OsIndicationsSupported`
      - Variable for firmware to indicate which features can be enabled.
 
+.. warning:: A future version of this specification will require reporting
+   Boot Manager capabilities in the `BootOptionSupport` variable.
+   See section :ref:`section-uefi-boot-mgr`.
+
 .. _section-required-vars-for-on-disk:
 
 Required Variables for capsule update "on disk"

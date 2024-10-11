@@ -80,9 +80,7 @@ jobs:
 
       - name: 'Install Python required packages'
         run: |
-          pip3 install --user mako
-          pip3 install --user typing
-          pip3 install --user Sphinx
+          pip3 install --user --break-system-packages mako typing Sphinx~=7.4
 
       - name: 'Check'
         run: make check

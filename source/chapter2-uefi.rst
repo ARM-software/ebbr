@@ -383,6 +383,12 @@ take precedence. [#DTSchNote]_
      - This Property is required. It is necessary for console output.
        ([DTSPEC]_ § 3.6)
 
+When a ``/psci`` node is provided, it is recommended that it is located under
+the ``/firmware`` node. [#PSCINote]_
+
+.. [#PSCINote] Legacy systems also commonly located the ``/psci`` node under the
+   root node ``/``.
+
 The DTB must be contained in memory of type `EfiACPIReclaimMemory`.
 [#ACPIMemNote]_
 

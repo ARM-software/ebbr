@@ -21,25 +21,25 @@ Bibliography
    <https://gitlab.com/Linaro/trustedsubstrate/mbfw/uploads/3d0d7d11ca9874dc9115616b418aa330/mbfw.pdf>`_
    November 2021, `Linaro Limited and contributors <https://www.linaro.org>`_
 
-.. [DTSCHEMA] `Devicetree schema tools v2024.05
-   <https://github.com/devicetree-org/dt-schema/releases/tag/v2024.05>`_,
+.. [DTSCHEMA] `Devicetree schema tools v2024.09
+   <https://github.com/devicetree-org/dt-schema/releases/tag/v2024.09>`_,
    `Devicetree.org <https://www.devicetree.org/>`_
 
 .. [DTSPEC] `Devicetree specification v0.4
    <https://github.com/devicetree-org/devicetree-specification/releases/tag/v0.4>`_,
    `Devicetree.org <https://www.devicetree.org/>`_
 
-.. [PSCI] `Arm Power State Coordination Interface issue F (PSCI v1.3 BETA-0).
-   <https://developer.arm.com/documentation/den0022/fbet0>`_
-   June 2024, `Arm Limited <https://www.arm.com/>`_
+.. [PSCI] `Arm Power State Coordination Interface issue F.b (PSCI v1.3).
+   <https://developer.arm.com/documentation/den0022/fb>`_
+   October 2024, `Arm Limited <https://www.arm.com/>`_
 
-.. [SMCCC] `SMC Calling Convention version F.
-   <https://developer.arm.com/documentation/den0028/f>`_
-   Dec 2023, `Arm Limited <https://www.arm.com/>`_
+.. [SMCCC] `SMC Calling Convention version 1.6 G (ALP1).
+   <https://developer.arm.com/documentation/den0028/galp1>`_
+   October 2024, `Arm Limited <https://www.arm.com/>`_
 
 .. [ArmBBR] `Arm Base Boot Requirements specification Issue H (v2.1)
    <https://developer.arm.com/documentation/den0044/h>`_
-   15 Apr 2024, `Arm Limited <https://www.arm.com/>`_
+   15 April 2024, `Arm Limited <https://www.arm.com/>`_
 
 .. [UEFI] `Unified Extensible Firmware Interface Specification v2.10 Errata A
    <https://uefi.org/sites/default/files/resources/UEFI_Spec_2_10_A_Aug8.pdf>`_,

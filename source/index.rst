@@ -104,8 +104,8 @@ Creative Commons, PO Box 1866, Mountain View, CA 94042, USA.
        - Links refresh and additions, typos and syntax fixes, cosmetic changes,
          formatting conventions, notes movements, chapters changes, glossary
          adjustments
-   * - TBD
-     - 2.3.0
+   * - 6 Dec 2024
+     - 2.3.0-pre1
      - - Formalize the Boot Manager requirements
        - Require authenticated FMP capsules for firmware update
        - Deprecate spin tables for AArch64

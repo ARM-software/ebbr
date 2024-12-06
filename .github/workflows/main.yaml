@@ -60,6 +60,7 @@ jobs:
         # and when we have computed a message.
         if: ${{ github.repository == 'ARM-software/ebbr' &&
                 env.EBBR_IRC_MESSAGE != '' }}
+        continue-on-error: true
         with:
           server: irc.oftc.net
           channel: '#ebbr'

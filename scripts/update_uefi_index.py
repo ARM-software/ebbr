@@ -9,7 +9,7 @@ import enum
 import logging
 import requests
 
-UEFI_INDEX_URL = 'https://uefi.org/specs/UEFI/2.10_A/index.html'
+UEFI_INDEX_URL = 'https://uefi.org/specs/UEFI/2.11/index.html'
 uefi_csv = os.path.dirname(__file__) + '/../source/extensions/uefi_index.csv'
 logger = logging.getLogger(__name__)
 

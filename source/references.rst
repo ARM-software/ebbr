@@ -41,9 +41,9 @@ Bibliography
    <https://developer.arm.com/documentation/den0044/h>`_
    15 April 2024, `Arm Limited <https://www.arm.com/>`_
 
-.. [UEFI] `Unified Extensible Firmware Interface Specification v2.10 Errata A
-   <https://uefi.org/sites/default/files/resources/UEFI_Spec_2_10_A_Aug8.pdf>`_,
-   August 2024, `UEFI Forum <https://uefi.org/>`_
+.. [UEFI] `Unified Extensible Firmware Interface Specification Version 2.11
+   <https://uefi.org/sites/default/files/resources/UEFI_Spec_Final_2.11.pdf>`_,
+   December 2024, `UEFI Forum <https://uefi.org/>`_
 
 .. [RVPLTSPEC] `RISC-V Platform specification <https://github.com/riscv/riscv-platform-specs>`_
 

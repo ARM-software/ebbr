@@ -10,7 +10,7 @@ platforms.
 UEFI Version
 ============
 
-This document uses version 2.10 Errata A of the UEFI specification [UEFI]_.
+This document uses version 2.11 of the UEFI specification [UEFI]_.
 
 UEFI Compliance
 ===============

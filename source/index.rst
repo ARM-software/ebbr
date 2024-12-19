@@ -104,14 +104,15 @@ Creative Commons, PO Box 1866, Mountain View, CA 94042, USA.
        - Links refresh and additions, typos and syntax fixes, cosmetic changes,
          formatting conventions, notes movements, chapters changes, glossary
          adjustments
-   * - 6 Dec 2024
-     - 2.3.0-pre1
+   * - 20 Dec 2024
+     - 2.3.0
      - - Formalize the Boot Manager requirements
        - Require authenticated FMP capsules for firmware update
        - Deprecate spin tables for AArch64
        - Add conformance profile GUID for version 2.3
        - Remove ambiguities around the collation protocol
-       - Bump UEFI, PSCI, SMCCC, BBR and dt-schema references versions
+       - Bump referenced versions: UEFI to v2.11, PSCI to v1.3, SMCCC to 1.6 G,
+         BBR to v2.1 and dt-schema to v2024.09
        - Move some footnotes around
 
 .. toctree::

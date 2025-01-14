@@ -206,6 +206,7 @@ Variables as found in :UEFI:`3.3`.
      - Method for OS to request features from firmware.
    * - `OsIndicationsSupported`
      - Variable for firmware to indicate which features can be enabled.
+       See section :ref:`section-in-band-fw-update` for additional requirements.
 
 .. _section-required-vars-for-on-disk:
 
@@ -615,13 +616,15 @@ secure platforms.
 EBBR platforms are required to implement either an in-band or an out-of-band
 firmware update mechanism.
 
+.. _section-in-band-fw-update:
+
 In-band firmware update
 ^^^^^^^^^^^^^^^^^^^^^^^
 
 If firmware update is performed in-band (firmware on the application processor
 updates itself), then the firmware shall implement the `UpdateCapsule()` runtime
-service and accept only authenticated updates in the "Firmware Management
-Protocol Data Capsule Structure" format as described in :UEFI:`23.3`, with
+service and accept only authenticated updates in the Firmware Management
+Protocol (FMP) format as described in :UEFI:`23.3`, with
 `IMAGE_ATTRIBUTE_AUTHENTICATION_REQUIRED` set. [#FMPNote]_
 `UpdateCapsule()` is only required before `ExitBootServices()` is called.
 
@@ -649,6 +652,11 @@ Firmware must support the delivery of capsules via file on mass storage device
 
 .. [#VarNote] Some Variables are required to support capsule "on disk".
    See section :ref:`section-required-vars-for-on-disk`.
+
+The `OsIndicationsSupported` Variable bits
+`EFI_OS_INDICATIONS_FMP_CAPSULE_SUPPORTED` and
+`EFI_OS_INDICATIONS_FILE_CAPSULE_DELIVERY_SUPPORTED` must be set to indicate
+support of capsules in FMP format and "on disk" delivery.
 
 .. note::
    It is recommended that firmware implementing the `UpdateCapsule()` runtime

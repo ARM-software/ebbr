@@ -47,7 +47,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = 'Embedded Base Boot Requirements (EBBR) Specification'
-copyright = '2017-2024 Arm Limited and Contributors'
+copyright = '2017-2025 Arm Limited and Contributors'
 author = 'Arm Limited and Contributors'
 
 # The version info for the project you're documenting, acts as replacement for

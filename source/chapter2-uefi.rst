@@ -206,6 +206,7 @@ Variables as found in :UEFI:`3.3`.
      - Method for OS to request features from firmware.
    * - `OsIndicationsSupported`
      - Variable for firmware to indicate which features can be enabled.
+       See section :ref:`section-in-band-fw-update` for additional requirements.
 
 .. _section-required-vars-for-on-disk:
 
@@ -651,6 +652,11 @@ Firmware must support the delivery of capsules via file on mass storage device
 
 .. [#VarNote] Some Variables are required to support capsule "on disk".
    See section :ref:`section-required-vars-for-on-disk`.
+
+The `OsIndicationsSupported` Variable bits
+`EFI_OS_INDICATIONS_FMP_CAPSULE_SUPPORTED` and
+`EFI_OS_INDICATIONS_FILE_CAPSULE_DELIVERY_SUPPORTED` must be set to indicate
+support of capsules in FMP format and "on disk" delivery.
 
 .. note::
    It is recommended that firmware implementing the `UpdateCapsule()` runtime

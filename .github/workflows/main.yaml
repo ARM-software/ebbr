@@ -84,7 +84,7 @@ jobs:
           pip3 install --user --break-system-packages mako typing Sphinx~=7.4
 
       - name: 'Check'
-        run: make check
+        run: make check-local
 
       - name: 'Build PDF'
         run: |

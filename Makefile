@@ -17,14 +17,15 @@ help:
 	@echo
 	@echo 'Use "make check" to perform verifications on this repository.'
 
-.PHONY: help Makefile check
+.PHONY: help Makefile check check-local
 
-check:
+check-local:
 	! grep -r --file=.typos.txt --exclude=.typos.txt --exclude-dir=.git
 	yamllint .
 	flake8 .
 	mypy .
-	$(SPHINXBUILD) -M linkcheck "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
+
+check: check-local linkcheck
 
 # Catch-all target: route all unknown targets to Sphinx using the new
 # "make mode" option.  $(O) is meant as a shortcut for $(SPHINXOPTS).

@@ -615,6 +615,8 @@ secure platforms.
 EBBR platforms are required to implement either an in-band or an out-of-band
 firmware update mechanism.
 
+.. _section-in-band-fw-update:
+
 In-band firmware update
 ^^^^^^^^^^^^^^^^^^^^^^^
 

@@ -622,8 +622,8 @@ In-band firmware update
 
 If firmware update is performed in-band (firmware on the application processor
 updates itself), then the firmware shall implement the `UpdateCapsule()` runtime
-service and accept only authenticated updates in the "Firmware Management
-Protocol Data Capsule Structure" format as described in :UEFI:`23.3`, with
+service and accept only authenticated updates in the Firmware Management
+Protocol (FMP) format as described in :UEFI:`23.3`, with
 `IMAGE_ATTRIBUTE_AUTHENTICATION_REQUIRED` set. [#FMPNote]_
 `UpdateCapsule()` is only required before `ExitBootServices()` is called.
 

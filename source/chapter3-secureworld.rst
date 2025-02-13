@@ -38,6 +38,24 @@ It is recommended that firmware implements PSCI version 1.0 or later
 .. warning:: A future version of this specification will require minimum PSCI
    and SMCCC versions.
 
+AArch64 Firmware Framework
+==========================
+
+On AArch64 platforms, when privileged or secure firmware implements the Firmware
+Framework for A-profile (FF-A), it must conform to the Arm Firmware Framework
+for Arm A-profile specification [FFA]_ and it must support at least one callee
+version compatible with caller version 1.2. [#FFANote]_
+
+.. [#FFANote] FF-A is an Arm software architecture describing interfaces that
+   standardize communication between software images and firmware, in the Secure
+   world and the Normal world.
+   FF-A v1.2 introduced support for multiple services UUIDs in a partition,
+   which eases services discovery, as well as the supporting
+   `FFA_MSG_SEND_DIRECT_REQ2` ABI.
+   As per the FF-A specification § 13.2 FFA_VERSION, all callee versions 1.x,
+   with x >= 2, are compatible with caller versions 1.0 to 1.x, which includes
+   caller version 1.2.
+
 RISC-V Multiprocessor Startup Protocol
 ======================================
 

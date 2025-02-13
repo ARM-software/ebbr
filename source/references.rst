@@ -29,6 +29,10 @@ Bibliography
    <https://github.com/devicetree-org/devicetree-specification/releases/tag/v0.4>`_,
    `Devicetree.org <https://www.devicetree.org/>`_
 
+.. [FFA] `Arm Firmware Framework for Arm A-profile v1.3 ALP1
+   <https://developer.arm.com/documentation/den0077/l>`_
+   November 2024, `Arm Limited <https://www.arm.com/>`_
+
 .. [PSCI] `Arm Power State Coordination Interface issue F.b (PSCI v1.3).
    <https://developer.arm.com/documentation/den0022/fb>`_
    October 2024, `Arm Limited <https://www.arm.com/>`_

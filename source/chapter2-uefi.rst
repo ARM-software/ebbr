@@ -116,6 +116,10 @@ All of the following UEFI elements are required for EBBR compliance.
    also sometimes called the `EFI_UNICODE_COLLATION2_PROTOCOL` or even the
    `EFI_UNICODE_COLLATION_PROTOCOL2`.
 
+When the platform has a graphical console device, it is recommended that
+firmware implements the `EFI_GRAPHICS_OUTPUT_PROTOCOL` as defined in
+:UEFI:`12.9`.
+
 The following table is a list of notable deviations from :UEFI:`2.6.2`.
 Many of these deviations are because the EBBR use cases do not require
 interface specific UEFI protocols, and so they have been made optional.
@@ -177,6 +181,10 @@ interface specific UEFI protocols, and so they have been made optional.
        the firmware itself rather than loaded as option ROMs.
        For this reason EBBR implementations are not required to support option
        ROM loading.
+   * - Graphics
+     - Supporting `EFI_EDID_DISCOVERED_PROTOCOL`, `EFI_EDID_ACTIVE_PROTOCOL` and
+       `EFI_EDID_OVERRIDE_PROTOCOL`, and producing
+       `EFI_SIMPLE_TEXT_OUTPUT_PROTOCOL` is not required.
 
 .. _section-required-global-vars:
 

@@ -35,6 +35,9 @@ It is recommended that firmware implements PSCI version 1.0 or later
 .. [#SMCCCNote] Starting with SMCCC version 1.1, support for the `SMCCC_VERSION`
    function is required, for standardized discovery.
 
+.. warning:: A future version of this specification will require minimum PSCI
+   and SMCCC versions.
+
 RISC-V Multiprocessor Startup Protocol
 ======================================
 

@@ -5,11 +5,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Embedded Base Boot Requirements (EBBR) Specification v2.3.0-5-g5f223dc documentation</title>
+    <title>Embedded Base Boot Requirements (EBBR) Specification v2.3.0-7-g1d7d77d documentation</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
     <link rel="stylesheet" type="text/css" href="_static/basic.css?v=b08954a9" />
     <link rel="stylesheet" type="text/css" href="_static/alabaster.css?v=27fed22d" />
-    <script src="_static/documentation_options.js?v=f2727f44"></script>
+    <script src="_static/documentation_options.js?v=cf5b0d77"></script>
     <script src="_static/doctools.js?v=9bcbadda"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <link rel="index" title="Index" href="genindex.html" />
@@ -1395,10 +1395,31 @@ function is required, for standardized discovery.</p>
 and SMCCC versions.</p>
 </div>
 </section>
+<section id="aarch64-firmware-framework">
+<h3><span class="section-number">3.3. </span>AArch64 Firmware Framework<a class="headerlink" href="#aarch64-firmware-framework" title="Link to this heading">¶</a></h3>
+<p>On AArch64 platforms, when privileged or secure firmware implements the Firmware
+Framework for A-profile (FF-A), it must conform to the Arm Firmware Framework
+for Arm A-profile specification <a class="reference internal" href="#document-references#ffa" id="id5"><span>[FFA]</span></a> and it must support at least one callee
+version compatible with caller version 1.2. <a class="footnote-reference brackets" href="#ffanote" id="id6" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a></p>
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="ffanote" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id6">3</a><span class="fn-bracket">]</span></span>
+<p>FF-A is an Arm software architecture describing interfaces that
+standardize communication between software images and firmware, in the Secure
+world and the Normal world.
+FF-A v1.2 introduced support for multiple services UUIDs in a partition,
+which eases services discovery, as well as the supporting
+<cite>FFA_MSG_SEND_DIRECT_REQ2</cite> ABI.
+As per the FF-A specification § 13.2 FFA_VERSION, all callee versions 1.x,
+with x &gt;= 2, are compatible with caller versions 1.0 to 1.x, which includes
+caller version 1.2.</p>
+</aside>
+</aside>
+</section>
 <section id="risc-v-multiprocessor-startup-protocol">
-<h3><span class="section-number">3.3. </span>RISC-V Multiprocessor Startup Protocol<a class="headerlink" href="#risc-v-multiprocessor-startup-protocol" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">3.4. </span>RISC-V Multiprocessor Startup Protocol<a class="headerlink" href="#risc-v-multiprocessor-startup-protocol" title="Link to this heading">¶</a></h3>
 <p>The resident firmware in M mode or hypervisor running in HS mode must implement
-and conform to at least SBI <a class="reference internal" href="#document-references#rvsbispec" id="id5"><span>[RVSBISPEC]</span></a> v0.2 with HART State Management(HSM)
+and conform to at least SBI <a class="reference internal" href="#document-references#rvsbispec" id="id7"><span>[RVSBISPEC]</span></a> v0.2 with HART State Management(HSM)
 extension for both RV32 and RV64.</p>
 </section>
 </section>
@@ -1787,6 +1808,11 @@ November 2021, <a class="reference external" href="https://www.linaro.org">Linar
 <span class="label"><span class="fn-bracket">[</span>DTSPEC<span class="fn-bracket">]</span></span>
 <p><a class="reference external" href="https://github.com/devicetree-org/devicetree-specification/releases/tag/v0.4">Devicetree specification v0.4</a>,
 <a class="reference external" href="https://www.devicetree.org/">Devicetree.org</a></p>
+</div>
+<div class="citation" id="ffa" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>FFA<span class="fn-bracket">]</span></span>
+<p><a class="reference external" href="https://developer.arm.com/documentation/den0077/l">Arm Firmware Framework for Arm A-profile v1.3 ALP1</a>
+November 2024, <a class="reference external" href="https://www.arm.com/">Arm Limited</a></p>
 </div>
 <div class="citation" id="psci" role="doc-biblioentry">
 <span class="label"><span class="fn-bracket">[</span>PSCI<span class="fn-bracket">]</span></span>

@@ -5,11 +5,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Embedded Base Boot Requirements (EBBR) Specification v2.3.0-7-g1d7d77d documentation</title>
+    <title>Embedded Base Boot Requirements (EBBR) Specification v2.3.0-8-gb68993f documentation</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
     <link rel="stylesheet" type="text/css" href="_static/basic.css?v=b08954a9" />
     <link rel="stylesheet" type="text/css" href="_static/alabaster.css?v=27fed22d" />
-    <script src="_static/documentation_options.js?v=cf5b0d77"></script>
+    <script src="_static/documentation_options.js?v=906762e7"></script>
     <script src="_static/doctools.js?v=9bcbadda"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <link rel="index" title="Index" href="genindex.html" />
@@ -624,6 +624,9 @@ also sometimes called the <cite>EFI_UNICODE_COLLATION2_PROTOCOL</cite> or even t
 <cite>EFI_UNICODE_COLLATION_PROTOCOL2</cite>.</p>
 </aside>
 </aside>
+<p>When the platform has a graphical console device, it is recommended that
+firmware implements the <cite>EFI_GRAPHICS_OUTPUT_PROTOCOL</cite> as defined in
+<a class="reference external" href="https://uefi.org/specs/UEFI/2.11/12_Protocols_Console_Support.html#graphics-output-protocol">UEFI § 12.9 Graphics Output Protocol</a>.</p>
 <p>The following table is a list of notable deviations from <a class="reference external" href="https://uefi.org/specs/UEFI/2.11/02_Overview.html#platform-specific-elements">UEFI § 2.6.2 Platform-Specific Elements</a>.
 Many of these deviations are because the EBBR use cases do not require
 interface specific UEFI protocols, and so they have been made optional.</p>
@@ -704,6 +707,11 @@ When PCIe devices are used, drivers for the device are often built into
 the firmware itself rather than loaded as option ROMs.
 For this reason EBBR implementations are not required to support option
 ROM loading.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Graphics</p></td>
+<td><p>Supporting <cite>EFI_EDID_DISCOVERED_PROTOCOL</cite>, <cite>EFI_EDID_ACTIVE_PROTOCOL</cite> and
+<cite>EFI_EDID_OVERRIDE_PROTOCOL</cite>, and producing
+<cite>EFI_SIMPLE_TEXT_OUTPUT_PROTOCOL</cite> is not required.</p></td>
 </tr>
 </tbody>
 </table>

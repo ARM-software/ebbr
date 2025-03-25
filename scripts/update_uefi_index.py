@@ -69,91 +69,94 @@ class IndexHtmlParser(HTMLParser):
     def handle_starttag(self, tag: str, attrs: AttrsType) -> None:
         logger.debug(f"Encountered a start tag: {tag}, {attrs}")
 
-        if self.state == State.AWAIT_DIV and tag == 'div':
-            # We look for a div with toctree* class.
-            if self.has_class('toctree', attrs):
+        match self.state:
+            case State.AWAIT_DIV if tag == 'div':
+                # We look for a div with toctree* class.
+                if self.has_class('toctree', attrs):
+                    self.set_state(State.AWAIT_LI)
+                    return
+
+            case State.AWAIT_LI if tag == 'li':
+                # We look for an li with toctree* class.
+                if self.has_class('toctree', attrs):
+                    self.set_state(State.AWAIT_A)
+                    return
+
+            case State.AWAIT_A:
+                # We expect an a with a reference internal class and a href.
+                if tag == 'a' and self.has_class('reference internal', attrs):
+                    for a in attrs:
+                        if a[0] == 'href':
+                            self.current['href'] = a[1]
+                            self.set_state(State.AWAIT_FIRST_DATA)
+                            return
+
                 self.set_state(State.AWAIT_LI)
-                return
 
-        elif self.state == State.AWAIT_LI and tag == 'li':
-            # We look for an li with toctree* class.
-            if self.has_class('toctree', attrs):
-                self.set_state(State.AWAIT_A)
-                return
+            case State.AWAIT_FIRST_DATA:
+                self.set_state(State.AWAIT_LI)
 
-        elif self.state == State.AWAIT_A:
-            # We expect an a with a reference internal class and a href.
-            if tag == 'a' and self.has_class('reference internal', attrs):
-                for a in attrs:
-                    if a[0] == 'href':
-                        self.current['href'] = a[1]
-                        self.set_state(State.AWAIT_FIRST_DATA)
-                        return
+            case State.AWAIT_MORE_DATA:
+                # Ignore most of the tags when inside the data.
+                if tag != 'a':
+                    return
 
-            self.set_state(State.AWAIT_LI)
-
-        elif self.state == State.AWAIT_FIRST_DATA:
-            self.set_state(State.AWAIT_LI)
-
-        elif self.state == State.AWAIT_MORE_DATA:
-            # Ignore most of the tags when inside the data.
-            if tag != 'a':
-                return
-
-            self.set_state(State.AWAIT_LI)
+                self.set_state(State.AWAIT_LI)
 
     def handle_endtag(self, tag: str) -> None:
         logger.debug(f"Encountered an end tag : {tag}")
 
-        if self.state in (State.AWAIT_A, State.AWAIT_FIRST_DATA):
-            self.set_state(State.AWAIT_LI)
+        match self.state:
+            case State.AWAIT_A | State.AWAIT_FIRST_DATA:
+                self.set_state(State.AWAIT_LI)
 
-        elif self.state == State.AWAIT_MORE_DATA:
-            if tag != 'a':
-                # Ignore most of the tags when inside the data.
-                return
+            case State.AWAIT_MORE_DATA:
+                if tag != 'a':
+                    # Ignore most of the tags when inside the data.
+                    return
 
-            # else: tag == 'a'
-            # When we have all the data, store the index entry.
+                # else: tag == 'a'
+                # When we have all the data, store the index entry.
 
-            # We need to filter the section titles a bit because they sometimes
-            # contain a few remaining unicode characters.
-            self.current['title'] = re.sub(
-                r'[\x80-\xff]+', '-', self.current['title'])
+                # We need to filter the section titles a bit because they
+                # sometimes contain a few remaining unicode characters.
+                self.current['title'] = re.sub(
+                    r'[\x80-\xff]+', '-', self.current['title'])
 
-            logger.debug(f"Index entry: {self.current}")
-            self.index.append(self.current)
-            self.current = {}
-            self.set_state(State.AWAIT_LI)
+                logger.debug(f"Index entry: {self.current}")
+                self.index.append(self.current)
+                self.current = {}
+                self.set_state(State.AWAIT_LI)
 
     def handle_data(self, data: str) -> None:
         logger.debug(f"Encountered some data  : {data}")
 
-        if self.state == State.AWAIT_A:
-            self.set_state(State.AWAIT_LI)
+        match self.state:
+            case State.AWAIT_A:
+                self.set_state(State.AWAIT_LI)
 
-        elif self.state == State.AWAIT_FIRST_DATA:
-            # Inside the li, and the a, we look for a first data in the right
-            # format.
-            m = re.match(r'([A-Z0-9\.]*[0-9])\. (.*)', data)
-            if m:
-                num = m[1]
+            case State.AWAIT_FIRST_DATA:
+                # Inside the li, and the a, we look for a first data in the
+                # right format.
+                m = re.match(r'([A-Z0-9\.]*[0-9])\. (.*)', data)
+                if m:
+                    num = m[1]
 
-                # Bail out at first duplicate.
-                if num in self.nums:
-                    self.set_state(State.DONE)
+                    # Bail out at first duplicate.
+                    if num in self.nums:
+                        self.set_state(State.DONE)
+                        return
+
+                    self.nums.add(num)
+                    self.current['num'] = num
+                    self.current['title'] = m[2]
+                    self.set_state(State.AWAIT_MORE_DATA)
                     return
 
-                self.nums.add(num)
-                self.current['num'] = num
-                self.current['title'] = m[2]
-                self.set_state(State.AWAIT_MORE_DATA)
+            case State.AWAIT_MORE_DATA:
+                # We might have more data.
+                self.current['title'] += data
                 return
-
-        elif self.state == State.AWAIT_MORE_DATA:
-            # We might have more data.
-            self.current['title'] += data
-            return
 
 
 def update_index(index_url: str, csv_filename: str) -> None:

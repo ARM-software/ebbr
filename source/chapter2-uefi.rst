@@ -499,10 +499,10 @@ are required to be implemented during boot services and runtime services.
      - Optional
    * - `SetVirtualAddressMap`
      - N/A
-     - Required
+     - Optional
    * - `ConvertPointer`
      - N/A
-     - Required
+     - Optional
    * - `GetVariable`
      - Required
      - Optional

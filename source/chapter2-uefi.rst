@@ -472,7 +472,7 @@ If any `EFI_RUNTIME_SERVICES` functions are only available during boot services
 then firmware shall provide the `EFI_RT_PROPERTIES_TABLE` to
 indicate which functions are available during runtime services.
 Functions that are not available during runtime services shall return
-`EFI_UNSUPPORTED`.
+`EFI_UNSUPPORTED`, as per :UEFI:`4.6.2`.
 
 :numref:`uefi_runtime_service_requirements` details which `EFI_RUNTIME_SERVICES`
 are required to be implemented during boot services and runtime services.

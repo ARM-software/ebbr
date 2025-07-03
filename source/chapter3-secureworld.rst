@@ -56,6 +56,18 @@ version compatible with caller version 1.2. [#FFANote]_
    1.x, with x >= 2, are compatible with caller versions 1.0 to 1.x, which
    includes caller version 1.2.
 
+AArch64 Platform Fault Detection
+================================
+
+On AArch64 platforms, when privileged or secure firmware implements the Platform
+Fault Detection Interface (PFDI), it must be compliant with the requirements
+defined in [PFDI]_ § 5 Compliance Requirements, and it must support a version
+1.0 client. [#PFDINote]_
+
+.. [#PFDINote] PFDI is an Arm standard interface that enables System Software to
+   request fault detection checks from Platform Firmware.
+   At the time of writing, only PFDI version 1.0 is defined.
+
 RISC-V Multiprocessor Startup Protocol
 ======================================
 

@@ -33,6 +33,10 @@ Bibliography
    <https://developer.arm.com/documentation/den0077/m>`_
    July 2025, `Arm Limited <https://www.arm.com/>`_
 
+.. [PFDI] `Arm Platform Fault Detection Interface Specification version 1.0 ALP0.
+   <https://developer.arm.com/documentation/110468/1-0alp0>`_
+   June 2025, `Arm Limited <https://www.arm.com/>`_
+
 .. [PSCI] `Arm Power State Coordination Interface issue F.b (PSCI v1.3).
    <https://developer.arm.com/documentation/den0022/fb>`_
    October 2024, `Arm Limited <https://www.arm.com/>`_

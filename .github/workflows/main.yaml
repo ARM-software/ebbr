@@ -16,7 +16,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         # Make sure we fetch the tags for proper version identification.
         with:
           fetch-depth: 0

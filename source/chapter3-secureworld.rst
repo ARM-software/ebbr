@@ -52,9 +52,9 @@ version compatible with caller version 1.2. [#FFANote]_
    FF-A v1.2 introduced support for multiple services UUIDs in a partition,
    which eases services discovery, as well as the supporting
    `FFA_MSG_SEND_DIRECT_REQ2` ABI.
-   As per the FF-A specification § 13.2 FFA_VERSION, all callee versions 1.x,
-   with x >= 2, are compatible with caller versions 1.0 to 1.x, which includes
-   caller version 1.2.
+   As per the FF-A specification [FFA]_ § 13.2 FFA_VERSION, all callee versions
+   1.x, with x >= 2, are compatible with caller versions 1.0 to 1.x, which
+   includes caller version 1.2.
 
 RISC-V Multiprocessor Startup Protocol
 ======================================

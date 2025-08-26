@@ -156,6 +156,17 @@ In general, try to keep the text width to at most 80 columns.
 Try to write footnotes contents as close a possible to the places referencing
 them.
 
+When referencing other specifications, use the following format::
+
+  <reference name>_ § <section number> <section title>
+
+For example::
+
+  [DTSPEC]_ § 5 Flattened Devicetree (DTB) Format
+
+As a special case, references to the UEFI specification should use the Sphinx
+extension described below instead.
+
 Sphinx Extensions
 -----------------
 

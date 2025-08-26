@@ -56,6 +56,28 @@ version compatible with caller version 1.2. [#FFANote]_
    with x >= 2, are compatible with caller versions 1.0 to 1.x, which includes
    caller version 1.2.
 
+AArch64 System Control and Management
+=====================================
+
+On AArch64 platforms, when privileged or secure firmware implements the System
+Control and Management Interface (SCMI), it must conform to the Arm System
+Control and Management Interface specification [SCMI]_ and it must implement a
+Base protocol version 2.x, where x >= 1 is recommended. [#SCMINote]_
+
+.. [#SCMINote] SCMI is a set of software interfaces defined by Arm, used in
+   the system management of power domains, performances, clocks, sensors, reset,
+   voltage domains, power and pins.
+   SCMI specification v3.2 introduced Base Protocol v2.1 and the
+   `NEGOTIATE_PROTOCOL_VERSION` command, which eases agents and platforms
+   interoperability.
+   Future versions 3.x are not guaranteed to retain compatibility with current
+   agents, which forbids their use to start exchanging messages.
+   This should not prevent agents and platforms to exchange messages with future
+   versions 3.x, after negotiation.
+
+.. warning:: A future version of this specification will require a minimum SCMI
+   Base protocol version of 2.1.
+
 RISC-V Multiprocessor Startup Protocol
 ======================================
 

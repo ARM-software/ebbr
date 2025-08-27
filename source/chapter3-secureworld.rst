@@ -60,5 +60,9 @@ RISC-V Multiprocessor Startup Protocol
 ======================================
 
 The resident firmware in M mode or hypervisor running in HS mode must implement
-and conform to at least SBI [RVSBISPEC]_ v0.2 with HART State Management(HSM)
-extension for both RV32 and RV64.
+and conform to at least SBI [RVSBISPEC]_ v2.0 with at least these extensions:
+
+* Base Extension
+* HART State Management Extension (HSM)
+* System Reset Extension (SRST)
+* Debug Console Extension (DBCN) if a serial console is present

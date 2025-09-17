@@ -15,8 +15,13 @@ system description or the ACPI tables so that the OS can enable the correct
 driver.
 At `ExitBootServices()` time, all secondary CPUs must be parked or powered off.
 
+AArch64
+=======
+
+This section is specific to AArch64 platforms.
+
 AArch64 Multiprocessor Startup Protocol
-=======================================
+---------------------------------------
 
 On AArch64 platforms, Firmware resident in Trustzone EL3 must implement and
 conform to the Power State Coordination Interface specification [PSCI]_ and to
@@ -39,7 +44,7 @@ It is recommended that firmware implements PSCI version 1.0 or later
    and SMCCC versions.
 
 AArch64 Firmware Framework
-==========================
+--------------------------
 
 On AArch64 platforms, when privileged or secure firmware implements the Firmware
 Framework for A-profile (FF-A), it must conform to the Arm Firmware Framework
@@ -57,7 +62,7 @@ version compatible with caller version 1.2. [#FFANote]_
    includes caller version 1.2.
 
 AArch64 Platform Fault Detection
-================================
+--------------------------------
 
 On AArch64 platforms, when privileged or secure firmware implements the Platform
 Fault Detection Interface (PFDI), it must be compliant with the requirements

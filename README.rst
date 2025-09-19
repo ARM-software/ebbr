@@ -155,6 +155,10 @@ tag. Generally this means each ``.rst`` file should include the line
 In general, try to keep the text width to at most 80 columns.
 Try to write footnotes contents as close a possible to the places referencing
 them.
+Start footnotes and notes on the same line as their directive::
+
+  .. [#label] Footnote paragraph
+  .. note:: Note paragraph
 
 When referencing other specifications, use the following format::
 

@@ -659,10 +659,9 @@ Firmware must support the delivery of capsules via file on mass storage device
 .. [#VarNote] Some Variables are required to support capsule "on disk".
    See section :ref:`section-required-vars-for-on-disk`.
 
-.. note::
-   It is recommended that firmware implementing the `UpdateCapsule()` runtime
-   service and an ESRT also implement the `EFI_FIRMWARE_MANAGEMENT_PROTOCOL`
-   described in :UEFI:`23.1`. [#FMProtoNote]_
+.. note:: It is recommended that firmware implementing the `UpdateCapsule()`
+   runtime service and an ESRT also implement the
+   `EFI_FIRMWARE_MANAGEMENT_PROTOCOL` described in :UEFI:`23.1`. [#FMProtoNote]_
 
 .. [#FMProtoNote] At the time of writing, both Tianocore/EDK2 and U-Boot are
    using the `EFI_FIRMWARE_MANAGEMENT_PROTOCOL` internally to support their
@@ -759,9 +758,8 @@ been made optional.
      - Notifying the `EFI_EVENT_GROUP_READY_TO_BOOT` and the
        `EFI_EVENT_GROUP_AFTER_READY_TO_BOOT` event groups is optional.
 
-.. note::
-   Other mechanisms exist, which leverage the Boot Manager. For example: the
-   Linux kernel EFI stub is capable of loading an initial ramdisk using the
+.. note:: Other mechanisms exist, which leverage the Boot Manager. For example:
+   the Linux kernel EFI stub is capable of loading an initial ramdisk using the
    `EFI_LOAD_FILE2_PROTOCOL`, while the U-Boot bootloader can use the OSV
    specific information contained in the load options `FilePathList[1..n]` to
    setup the protocol. [#LF2Note]_

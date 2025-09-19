@@ -73,6 +73,64 @@ defined in [PFDI]_ § 5 Compliance Requirements, and it must support a version
    request fault detection checks from Platform Firmware.
    At the time of writing, only PFDI version 1.0 is defined.
 
+AArch64 System Control and Management
+-------------------------------------
+
+On AArch64 platforms, when the System Control and Management Interface (SCMI) is
+described in the ACPI table or the Devicetree, it must conform to the Arm System
+Control and Management Interface specification [SCMI]_ and the following
+implementation requirements take precedence. [#SCMINote]_
+
+.. [#SCMINote] SCMI is a set of software interfaces defined by Arm, used for
+   system management.
+   It can be implemented by privileged or secure firmware, or by another
+   processor.
+
+.. list-table:: SCMI Implementation Requirements
+   :widths: 33 33 33
+   :header-rows: 1
+
+   * - SCMI Protocol
+     - Minimum required version (when implemented)
+     - Minimum recommended version (when implemented)
+   * - Base
+     - 2.0
+     - 2.1
+   * - Power domain management
+     - 2.0
+     - 3.1
+   * - System power management
+     -
+     - 2.1
+   * - Performance domain management
+     - 2.0
+     - 4.0
+   * - Clock management
+     -
+     - 3.0
+   * - Sensor management
+     -
+     - 3.1
+   * - Reset domain management
+     -
+     - 3.1
+   * - Voltage domain management
+     -
+     - 2.1
+   * - Power capping and monitoring
+     -
+     - 2.0
+   * - Pin control
+     -
+     -
+   * - System telemetry
+     -
+     -
+
+.. note:: SCMI specification v3.2 introduced version negotiation, which eases
+   agents and platforms interoperability, and this is therefore the recommended
+   implementation.
+
 RISC-V Multiprocessor Startup Protocol
 ======================================
 

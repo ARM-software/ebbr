@@ -41,6 +41,10 @@ Bibliography
    <https://developer.arm.com/documentation/den0022/fb>`_
    October 2024, `Arm Limited <https://www.arm.com/>`_
 
+.. [SCMI] `Arm System Control and Management Interface issue F (v4.0 alp0).
+   <https://developer.arm.com/documentation/den0056/f>`_
+   May 2025, `Arm Limited <https://www.arm.com/>`_
+
 .. [SMCCC] `SMC Calling Convention version 1.6 G.
    <https://developer.arm.com/documentation/den0028/g>`_
    July 2025, `Arm Limited <https://www.arm.com/>`_

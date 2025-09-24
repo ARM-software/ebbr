@@ -7,8 +7,6 @@
    \renewcommand\chapter[1]{\endgroup}
    \phantomsection
 
-.. _refs:
-
 ************
 Bibliography
 ************

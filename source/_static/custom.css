@@ -1,0 +1,4 @@
+/* We need a bit more space for our citations labels. */
+div.citation > p {
+  margin-left: 7em;
+}

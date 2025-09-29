@@ -300,7 +300,7 @@ UEFI Boot at S mode
 ^^^^^^^^^^^^^^^^^^^
 
 Most systems are expected to boot UEFI at S mode when the hypervisor extension
-is not enabled [RVPRIVSPEC]_.
+is not enabled [RVPRVSPC]_.
 
 UEFI Boot at HS mode
 ^^^^^^^^^^^^^^^^^^^^

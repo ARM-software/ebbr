@@ -171,6 +171,9 @@ For example::
 As a special case, references to the UEFI specification should use the Sphinx
 extension described below instead.
 
+Make sure that citations labels (such as "DTSPEC" above) have 8 characters
+maximum as this is the limit of the Sphinx LaTeX writer.
+
 Sphinx Extensions
 -----------------
 

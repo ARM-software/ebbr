@@ -62,6 +62,10 @@ Bibliography
 
 .. [RVUEFI] `RISC-V UEFI Protocol Specification <https://github.com/riscv-non-isa/riscv-uefi/releases/download/1.0.0/RISCV_UEFI_PROTOCOL-spec.pdf>`_
 
+.. [SEMVER] `Semantic Versioning 2.0.0
+   <https://semver.org/spec/v2.0.0.html>`_,
+   December 2023
+
 .. [TCG2] `TCG EFI Protocol Specification, Family “2.0”, Level 00 Revision 00.13
    <https://trustedcomputinggroup.org/wp-content/uploads/EFI-Protocol-Specification-rev13-160330final.pdf>`_,
    March 2016, `Trusted Computing Group <https://trustedcomputinggroup.org/>`_

@@ -142,6 +142,16 @@ specification.
   In turn, OS projects and end users can choose what level of EBBR compliance
   is required for their use case.
 
+  This specification follows semantic versioning [SEMVER]_.
+  In this context, the EBBR specification defines an API implemented by a
+  platform and used by an Operating System.
+  A change to the EBBR specification is deemed backward compatible when it
+  requires more functionalities from a compliant platform, which an OS can use.
+  [#MinorNote]_
+
+.. [#MinorNote] This corresponds to an increment of the MINOR or PATCH numbers
+   of the EBBR version.
+
 Scope
 =====
 

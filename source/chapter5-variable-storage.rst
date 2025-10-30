@@ -1,7 +1,5 @@
 .. SPDX-License-Identifier: CC-BY-SA-4.0
 
-.. _section-efi-vars-file-format:
-
 *************************************
 File Format For Storing EFI Variables
 *************************************

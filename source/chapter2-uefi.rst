@@ -685,8 +685,6 @@ the `GetNextHighMonotonicCount()` runtime service. [#BootNote]_
 .. [#BootNote] The platform's monotonic counter is made optional in section
    :ref:`section-misc-boot-services`.
 
-.. _section-uefi-boot-mgr:
-
 UEFI Boot Manager
 =================
 

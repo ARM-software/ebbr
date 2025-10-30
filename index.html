@@ -5,11 +5,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Embedded Base Boot Requirements (EBBR) Specification v2.3.0-22-g158e0e8 documentation</title>
+    <title>Embedded Base Boot Requirements (EBBR) Specification v2.3.0-23-g2fdf270 documentation</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
     <link rel="stylesheet" type="text/css" href="_static/basic.css?v=b08954a9" />
     <link rel="stylesheet" type="text/css" href="_static/alabaster.css?v=27fed22d" />
-    <script src="_static/documentation_options.js?v=c12887da"></script>
+    <script src="_static/documentation_options.js?v=61f7d3af"></script>
     <script src="_static/doctools.js?v=9bcbadda"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <link rel="index" title="Index" href="genindex.html" />
@@ -1133,9 +1133,9 @@ use <cite>ResetSystem()</cite> to reset the system.</p>
 <p>If firmware doesn’t support <cite>ResetSystem()</cite> during runtime services, then the
 call will immediately return, and the OS should fall back to an architecture or
 platform specific reset mechanism.</p>
-<p>On AArch64 platforms implementing <a class="reference internal" href="#document-references#psci" id="id22"><span>[PSCI]</span></a>,
-if <cite>ResetSystem()</cite> is not implemented then the Operating System should fall
-back to making a PSCI call to reset or shutdown the system.</p>
+<p>On AArch64 platforms, if <cite>ResetSystem()</cite> is not implemented then the Operating
+System should fall back to making a <a class="reference internal" href="#document-references#psci" id="id22"><span>[PSCI]</span></a> call to reset or shutdown the
+system.</p>
 </section>
 <section id="runtime-variable-access">
 <h4><span class="section-number">2.7.3. </span>Runtime Variable Access<a class="headerlink" href="#runtime-variable-access" title="Link to this heading">¶</a></h4>

@@ -51,12 +51,12 @@ Bibliography
    <https://uefi.org/sites/default/files/resources/UEFI_Spec_Final_2.11.pdf>`_,
    December 2024, `UEFI Forum <https://uefi.org/>`_
 
-.. [RVPLTSPEC] `RISC-V Platform specification <https://github.com/riscv/riscv-platform-specs>`_
+.. [RVPLTSPC] `RISC-V Platform specification <https://github.com/riscv/riscv-platform-specs>`_
 
-.. [RVSBISPEC] `RISC-V Supervisor Binary Interface specification
+.. [RVSBISPC] `RISC-V Supervisor Binary Interface specification
    <https://github.com/riscv-non-isa/riscv-sbi-doc>`_
 
-.. [RVPRIVSPEC] `The RISC-V Instruction Set Manual Volume II: Privileged Architecture
+.. [RVPRVSPC] `The RISC-V Instruction Set Manual Volume II: Privileged Architecture
    <https://github.com/riscv/riscv-isa-manual/releases/download/Priv-v1.12/riscv-privileged-20211203.pdf>`_,
    Version 20211203
 

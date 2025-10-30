@@ -164,7 +164,7 @@ easily meet the stricter BBR requirements.
 By definition, all BBR compliant systems are also EBBR compliant, but the
 converse is not true.
 
-This specification is referenced by RISC-V platform specification [RVPLTSPEC]_.
+This specification is referenced by RISC-V platform specification [RVPLTSPC]_.
 
 Conventions Used in this Document
 =================================

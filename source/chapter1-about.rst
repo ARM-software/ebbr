@@ -137,10 +137,10 @@ specification.
   platforms.
   Instead, new requirements will be clearly documented as being over and above
   what was required by a previous release.
-  Existing platforms will be able to retain compliance with a previous
-  requirement level.
-  In turn, OS projects and end users can choose what level of EBBR compliance
-  is required for their use case.
+  Existing platforms will be able to retain compliance with a previous EBBR
+  version.
+  In turn, OS projects and end users can choose the EBBR version with which
+  compliance is required for their use case.
 
 Scope
 =====

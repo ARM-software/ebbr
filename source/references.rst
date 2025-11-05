@@ -55,8 +55,6 @@ Bibliography
    <https://uefi.org/sites/default/files/resources/UEFI_Spec_Final_2.11.pdf>`_,
    December 2024, `UEFI Forum <https://uefi.org/>`_
 
-.. [RVPLTSPC] `RISC-V Platform specification <https://github.com/riscv/riscv-platform-specs>`_
-
 .. [RVSBISPC] `RISC-V Supervisor Binary Interface specification
    <https://docs.riscv.org/reference/platform-software/sbi/_attachments/riscv-sbi.pdf>`_
 

@@ -58,11 +58,10 @@ Bibliography
 .. [RVPLTSPC] `RISC-V Platform specification <https://github.com/riscv/riscv-platform-specs>`_
 
 .. [RVSBISPC] `RISC-V Supervisor Binary Interface specification
-   <https://github.com/riscv-non-isa/riscv-sbi-doc>`_
+   <https://docs.riscv.org/reference/platform-software/sbi/_attachments/riscv-sbi.pdf>`_
 
 .. [RVPRVSPC] `The RISC-V Instruction Set Manual Volume II: Privileged Architecture
-   <https://github.com/riscv/riscv-isa-manual/releases/download/Priv-v1.12/riscv-privileged-20211203.pdf>`_,
-   Version 20211203
+   <https://docs.riscv.org/reference/isa/_attachments/riscv-privileged.pdf>`_
 
 .. [RVUEFI] `RISC-V UEFI Protocol Specification <https://github.com/riscv-non-isa/riscv-uefi/releases/download/1.0.0/RISCV_UEFI_PROTOCOL-spec.pdf>`_
 

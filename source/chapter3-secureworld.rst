@@ -28,7 +28,11 @@ conform to the Power State Coordination Interface specification [PSCI]_ and to
 the SMC Calling Convention [SMCCC]_.
 
 Platforms without EL3 must implement PSCI and SMCCC at EL2 (leaving only EL1
-available to an operating system).
+available to an operating system). [#ConduitNote]_
+
+.. [#ConduitNote] Refer to [SMCCC]_ § 2.5.3 Conduits for details on the conduit
+   instructions (SMC & HVC) and their dependence on Exception Levels (EL3 &
+   EL2).
 
 It is recommended that firmware implements PSCI version 1.0 or later
 [#PSCINote]_ and SMCCC version 1.1 or later [#SMCCCNote]_.

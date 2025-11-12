@@ -128,6 +128,17 @@ implementation requirements take precedence. [#SCMINote]_
    which eases agents and platforms interoperability, and this is therefore the
    recommended implementation.
 
+AArch64 Random Number Generator
+-------------------------------
+
+On AArch64 platforms, if the platform has a hardware entropy source it is
+recommended that privileged or secure firmware implements the True Random Number
+Generator Firmware Interface version 1.0, as defined in [TRNG]_. [#TRNGNote]_
+
+.. [#TRNGNote] The firmware TRNG is complementary to the `EFI_RNG_PROTOCOL` as
+   it can be used at runtime.
+   The TRNG interface requires SMCCC version 1.1 or later.
+
 RISC-V Multiprocessor Startup Protocol
 ======================================
 

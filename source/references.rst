@@ -73,3 +73,7 @@ Bibliography
 .. [TCG2] `TCG EFI Protocol Specification, Family “2.0”, Level 00 Revision 00.13
    <https://trustedcomputinggroup.org/wp-content/uploads/EFI-Protocol-Specification-rev13-160330final.pdf>`_,
    March 2016, `Trusted Computing Group <https://trustedcomputinggroup.org/>`_
+
+.. [TRNG] `Arm True Random Number Generator Firmware Interface version 1.0
+   <https://developer.arm.com/documentation/den0098/1-0>`_,
+   January 2022, `Arm Limited <https://www.arm.com/>`_

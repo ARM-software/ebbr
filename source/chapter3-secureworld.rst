@@ -47,6 +47,12 @@ It is recommended that firmware implements PSCI version 1.0 or later
 .. warning:: A future version of this specification will require minimum PSCI
    and SMCCC versions.
 
+AArch64 SoC Identification
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+On AArch64 platforms, it is recommended that privileged or secure firmware
+implements the `SMCCC_ARCH_SOC_ID` call, to ease system identification.
+
 AArch64 Firmware Framework
 --------------------------
 

@@ -114,6 +114,21 @@ Creative Commons, PO Box 1866, Mountain View, CA 94042, USA.
        - Bump referenced versions: UEFI to v2.11, PSCI to v1.3, SMCCC to 1.6 G,
          BBR to v2.1 and dt-schema to v2024.09
        - Move some footnotes around
+   * - TBD
+     - 2.4.0
+     - - Recommend the EFI Graphics Output Protocol
+       - Split AArch64 requirements section § 3.2, add conditional requirements
+         on FF-A, PFDI and SCMI, recommend SOC_ID and TRNG, warn about future
+         PSCI & SMCCC versions requirements, simplify PSCI wording, add a note
+         on SMCCC conduit
+       - Raise RISC-V SBI requirement
+       - Refer to semantic versioning, clarify backward compatibility and remove
+         the mention of levels completely
+       - Add conformance profile GUID for version 2.4
+       - Update references and links, bump referenced versions of ACPI, BBR,
+         dt-schema and SMCCC, add references to FF-A, PFDI, SCMI, semantic
+         versioning and TRNG, remove reference to RISC-V platform
+       - Formatting changes and cosmetic adjustments
 
 .. toctree::
    :numbered:

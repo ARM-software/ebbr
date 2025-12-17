@@ -114,8 +114,8 @@ Creative Commons, PO Box 1866, Mountain View, CA 94042, USA.
        - Bump referenced versions: UEFI to v2.11, PSCI to v1.3, SMCCC to 1.6 G,
          BBR to v2.1 and dt-schema to v2024.09
        - Move some footnotes around
-   * - TBD
-     - 2.4.0
+   * - 17 Dec 2025
+     - 2.4.0-pre1
      - - Recommend the EFI Graphics Output Protocol
        - Split AArch64 requirements section § 3.2, add conditional requirements
          on FF-A, PFDI and SCMI, recommend SOC_ID and TRNG, warn about future

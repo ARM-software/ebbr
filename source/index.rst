@@ -1,5 +1,5 @@
 .. EBBR Source Document
-   Copyright Arm Limited, 2017-2025
+   Copyright Arm Limited, 2017-2026
    Copyright Western Digital Corporation or its affiliates, 2021
    SPDX-License-Identifier: CC-BY-SA-4.0
 
@@ -7,7 +7,7 @@
 Embedded Base Boot Requirements (EBBR) Specification
 ####################################################
 
-Copyright © 2017-2025 Arm Limited and Contributors.
+Copyright © 2017-2026 Arm Limited and Contributors.
 
 Copyright © 2021 Western Digital Corporation or its affiliates.
 

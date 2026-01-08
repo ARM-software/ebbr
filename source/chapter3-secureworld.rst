@@ -149,11 +149,12 @@ Generator Firmware Interface version 1.0, as defined in [TRNG]_. [#TRNGNote]_
    it can be used at runtime.
    The TRNG interface requires SMCCC version 1.1 or later.
 
-RISC-V Multiprocessor Startup Protocol
-======================================
+RISC-V
+======
 
-The resident firmware in M mode or hypervisor running in HS mode must implement
-and conform to at least SBI [RVSBISPC]_ v2.0 with at least these extensions:
+The resident firmware in M mode or the hypervisor running in HS mode must
+implement and conform to at least SBI [RVSBISPC]_ v2.0 with at least these
+extensions:
 
 * Base Extension
 * HART State Management Extension (HSM)

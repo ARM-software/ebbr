@@ -181,6 +181,15 @@ The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD",
 "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be
 interpreted as described in :rfc:`2119`.
 
+The following annotations are used to highlight when requirements were
+introduced or significantly changed since the last major version of this
+specification:
+
+.. versionadded:: 2.3.0
+   UEFI Boot Manager requirements.
+
+.. versionchanged:: 2.4.0
+
 Features, which will not be supported by a future version of this specification
 are indicated with a warning such as the following one:
 

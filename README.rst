@@ -174,6 +174,21 @@ extension described below instead.
 Make sure that citations labels (such as "DTSPEC" above) have 8 characters
 maximum as this is the limit of the Sphinx LaTeX writer.
 
+Version annotations
+^^^^^^^^^^^^^^^^^^^
+
+For version annotations, use a directive line at the end of the concerned
+section, optionally followed on the next line by a quick mention of which
+requirement was added or changed::
+
+ .. versionadded:: 2.3.0
+    UEFI Boot Manager requirements.
+
+ .. versionchanged:: 2.4.0
+
+Annotate only changes in requirements; there is no need to annotate changes in
+recommendations.
+
 Sphinx Extensions
 -----------------
 

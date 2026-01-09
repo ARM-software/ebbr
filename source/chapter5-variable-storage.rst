@@ -13,6 +13,8 @@ and the operating system can rely on.
 
 All integer fields are stored in little-endian byte order.
 
+.. versionadded:: 2.2.0
+
 File header
 ===========
 

@@ -12,6 +12,8 @@ UEFI Version
 
 This document uses version 2.11 of the UEFI specification [UEFI]_.
 
+.. versionchanged:: 2.3.0
+
 UEFI Compliance
 ===============
 
@@ -186,6 +188,9 @@ interface specific UEFI protocols, and so they have been made optional.
        `EFI_EDID_OVERRIDE_PROTOCOL`, and producing
        `EFI_SIMPLE_TEXT_OUTPUT_PROTOCOL` is not required.
 
+.. versionadded:: 2.1.0
+   Require `RISCV_EFI_BOOT_PROTOCOL` on RISC-V platforms.
+
 .. _section-required-global-vars:
 
 Required Global Variables
@@ -239,6 +244,8 @@ processing after restart as found in :UEFI:`8.5.6`. [#FWUpNote]_
      - Variable for platform to publish the maximum `CapsuleNNNN` supported.
    * - `CapsuleLast`
      - Variable for platform to publish the last `CapsuleNNNN` created.
+
+.. versionadded:: 2.2.0
 
 Block device partitioning
 -------------------------
@@ -295,6 +302,8 @@ operating system runs while the guest OS runs in virtual S mode (VS mode).
 Resident UEFI firmware can be executed in M mode or S/HS mode during POST.
 However, the UEFI images must be loaded in HS or VS mode if virtualization
 is available at OS load time.
+
+.. versionadded:: 2.0.1
 
 UEFI Boot at S mode
 ^^^^^^^^^^^^^^^^^^^
@@ -384,6 +393,8 @@ specification [#VersionsNote]_.
     { 0xf2bb0422, 0xda8e, 0x11f0, \
     { 0xa6, 0x7b, 0x1b, 0xe2, 0x20, 0x85, 0x40, 0x98 }}
 
+.. versionadded:: 2.1.0
+
 Devicetree
 ----------
 
@@ -416,6 +427,9 @@ The DTB must be contained in memory of type `EfiACPIReclaimMemory`.
 .. [#ACPIMemNote] `EfiACPIReclaimMemory` was chosen to match the recommendation
    for ACPI tables which fulfill the same task as the DTB.
 
+.. versionadded:: 2.1.0
+   DTB Nodes and Properties requirements table.
+
 UEFI Protocols
 ==============
 
@@ -431,6 +445,8 @@ Trusted Platform Module (TPM)
 
 Not all embedded systems include a TPM but if a TPM is present, then firmware
 shall implement the `EFI_TCG2_PROTOCOL` as defined in [TCG2]_.
+
+.. versionadded:: 2.2.0
 
 UEFI Boot Services
 ==================
@@ -458,6 +474,8 @@ If the platform does not implement the monotonic counter, the
 
 .. [#MonoNote] `EFI_UNSUPPORTED` is not an allowed status code for
    `GetNextMonotonicCount()`.
+
+.. versionadded:: 2.2.0
 
 UEFI Secure Boot (Optional)
 ---------------------------
@@ -676,6 +694,15 @@ Firmware must support the delivery of capsules via file on mass storage device
    implementation of the `UpdateCapsule()` runtime service and of the ESRT,
    as detailed in :UEFI:`23.3` and :UEFI:`23.4` respectively.
 
+.. versionchanged:: 2.3.0
+   Require authenticated firmware updates.
+
+.. versionadded:: 2.1.0
+   Require an ESRT.
+
+.. versionadded:: 2.2.0
+   Require support for delivery of capsules "on disk".
+
 Out-of-band firmware update
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -692,6 +719,8 @@ the `GetNextHighMonotonicCount()` runtime service. [#BootNote]_
 
 .. [#BootNote] The platform's monotonic counter is made optional in section
    :ref:`section-misc-boot-services`.
+
+.. versionadded:: 2.2.0
 
 UEFI Boot Manager
 =================
@@ -772,3 +801,5 @@ been made optional.
    This is outside the scope of this specification.
 
 .. [#LF2Note] https://docs.u-boot.org/en/v2024.10/develop/uefi/uefi.html#load-file-2-protocol
+
+.. versionadded:: 2.3.0

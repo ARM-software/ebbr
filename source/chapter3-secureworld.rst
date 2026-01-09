@@ -47,6 +47,9 @@ It is recommended that firmware implements PSCI version 1.0 or later
 .. warning:: A future version of this specification will require minimum PSCI
    and SMCCC versions.
 
+.. versionchanged:: 2.3.0
+   Require PSCI and SMCCC for platforms without EL3.
+
 AArch64 SoC Identification
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -71,6 +74,8 @@ version compatible with caller version 1.2. [#FFANote]_
    1.x, with x >= 2, are compatible with caller versions 1.0 to 1.x, which
    includes caller version 1.2.
 
+.. versionadded:: 2.4.0
+
 AArch64 Platform Fault Detection
 --------------------------------
 
@@ -82,6 +87,8 @@ defined in [PFDI]_ § 5 Compliance Requirements, and it must support a version
 .. [#PFDINote] PFDI is an Arm standard interface that enables System Software to
    request fault detection checks from Platform Firmware.
    At the time of writing, only PFDI version 1.0 is defined.
+
+.. versionadded:: 2.4.0
 
 AArch64 System Control and Management
 -------------------------------------
@@ -138,6 +145,8 @@ implementation requirements take precedence. [#SCMINote]_
    which eases agents and platforms interoperability, and this is therefore the
    recommended implementation.
 
+.. versionadded:: 2.4.0
+
 AArch64 Random Number Generator
 -------------------------------
 
@@ -160,3 +169,5 @@ extensions:
 * HART State Management Extension (HSM)
 * System Reset Extension (SRST)
 * Debug Console Extension (DBCN) if a serial console is present
+
+.. versionchanged:: 2.4.0

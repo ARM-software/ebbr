@@ -4,6 +4,8 @@
 File Format For Storing EFI Variables
 *************************************
 
+.. versionadded:: 2.2.0
+
 Some UEFI enabled devices can only store EFI variables as a file on a block
 device. This implies that at runtime the operating system must manage changes
 to the EFI variable by updating the file.

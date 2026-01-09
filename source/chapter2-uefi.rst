@@ -10,6 +10,8 @@ platforms.
 UEFI Version
 ============
 
+.. versionchanged:: 2.3.0
+
 This document uses version 2.11 of the UEFI specification [UEFI]_.
 
 UEFI Compliance
@@ -110,7 +112,9 @@ All of the following UEFI elements are required for EBBR compliance.
    * - HTTP Boot
      - Required if the platform supports network booting. (:UEFI:`24.7`)
    * - `RISCV_EFI_BOOT_PROTOCOL`
-     - Required on RISC-V platforms. (:UEFI:`2.3.7.1` and [RVUEFI]_)
+     - .. versionadded:: 2.1.0
+
+       Required on RISC-V platforms. (:UEFI:`2.3.7.1` and [RVUEFI]_)
 
 .. [#COLNote] The `EFI_UNICODE_COLLATION_PROTOCOL` defined in :UEFI:`21.1` is
    also sometimes called the `EFI_UNICODE_COLLATION2_PROTOCOL` or even the
@@ -220,6 +224,8 @@ Variables as found in :UEFI:`3.3`.
 Required Variables for capsule update "on disk"
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+.. versionadded:: 2.2.0
+
 When the firmware implements in-band firmware update with `UpdateCapsule()` it
 must support the following Variables to report the status of capsule "on disk"
 processing after restart as found in :UEFI:`8.5.6`. [#FWUpNote]_
@@ -288,6 +294,8 @@ virtualized service, by the hypervisor and not as part of the host firmware.
 RISC-V Privilege Levels
 -----------------------
 
+.. versionadded:: 2.0.1
+
 RISC-V doesn't define dedicated privilege levels for hypervisor enabled
 platforms.
 The supervisor mode becomes HS mode where a hypervisor or a hosting-capable
@@ -340,6 +348,8 @@ and must ensure only the selected interface is provided to the OS loader.
 EFI Conformance Profile Table
 -----------------------------
 
+.. versionadded:: 2.1.0
+
 The following GUIDs in the EFI Conformance Profile Table, as defined in
 :UEFI:`4.6.4`, are used to indicate compliance to specific versions of the EBBR
 specification.
@@ -390,6 +400,9 @@ Devicetree
 If firmware provides a Devicetree system description then it must be provided
 in Flattened Devicetree Blob (DTB) format version 17 or higher as described in
 [DTSPEC]_ § 5 Flattened Devicetree (DTB) Format.
+
+.. versionadded:: 2.1.0
+
 The DTB Nodes and Properties must be compliant with the requirements listed in
 [DTSPEC]_ § 3 Device Node Requirements & [DTSPEC]_ § 4 Device Bindings, and with
 the requirements listed in the following table, which take precedence.
@@ -429,6 +442,8 @@ in the UEFI specification.
 Trusted Platform Module (TPM)
 -----------------------------
 
+.. versionadded:: 2.2.0
+
 Not all embedded systems include a TPM but if a TPM is present, then firmware
 shall implement the `EFI_TCG2_PROTOCOL` as defined in [TCG2]_.
 
@@ -451,6 +466,8 @@ The default RAM allocated attribute must be `EFI_MEMORY_WB`.
 
 Miscellaneous Boot Services
 ---------------------------
+
+.. versionadded:: 2.2.0
 
 The platform's monotonic counter is made optional.
 If the platform does not implement the monotonic counter, the
@@ -635,6 +652,8 @@ firmware update mechanism.
 In-band firmware update
 ^^^^^^^^^^^^^^^^^^^^^^^
 
+.. versionchanged:: 2.3.0
+
 If firmware update is performed in-band (firmware on the application processor
 updates itself), then the firmware shall implement the `UpdateCapsule()` runtime
 service and accept only authenticated updates in the "Firmware Management
@@ -657,9 +676,13 @@ format, with or without authentication. [#SignalingNote]_
    signaling mean between OS and firmware, as described in [DEPBOOT]_ for
    example.
 
+.. versionadded:: 2.1.0
+
 Firmware is also required to provide an EFI System Resource Table (ESRT) as
 described in :UEFI:`23.4`.
 Every firmware image that can be updated in-band must be described in the ESRT.
+
+.. versionadded:: 2.2.0
 
 Firmware must support the delivery of capsules via file on mass storage device
 ("on disk") as described in :UEFI:`8.5.5`. [#VarNote]_
@@ -687,6 +710,8 @@ service and it is not required to provide an ESRT.
 Miscellaneous Runtime Services
 ------------------------------
 
+.. versionadded:: 2.2.0
+
 If the platform does not implement the monotonic counter, it shall not support
 the `GetNextHighMonotonicCount()` runtime service. [#BootNote]_
 
@@ -695,6 +720,8 @@ the `GetNextHighMonotonicCount()` runtime service. [#BootNote]_
 
 UEFI Boot Manager
 =================
+
+.. versionadded:: 2.3.0
 
 The UEFI Boot Manager is required for EBBR compliance.
 

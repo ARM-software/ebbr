@@ -23,6 +23,8 @@ This section is specific to AArch64 platforms.
 AArch64 Multiprocessor Startup Protocol
 ---------------------------------------
 
+.. versionchanged:: 2.3.0
+
 On AArch64 platforms, Firmware resident in Trustzone EL3 must implement and
 conform to the Power State Coordination Interface specification [PSCI]_ and to
 the SMC Calling Convention [SMCCC]_.
@@ -56,6 +58,8 @@ implements the `SMCCC_ARCH_SOC_ID` call, to ease system identification.
 AArch64 Firmware Framework
 --------------------------
 
+.. versionadded:: 2.4.0
+
 On AArch64 platforms, when privileged or secure firmware implements the Firmware
 Framework for A-profile (FF-A), it must conform to the Arm Firmware Framework
 for Arm A-profile specification [FFA]_ and it must support at least one callee
@@ -74,6 +78,8 @@ version compatible with caller version 1.2. [#FFANote]_
 AArch64 Platform Fault Detection
 --------------------------------
 
+.. versionadded:: 2.4.0
+
 On AArch64 platforms, when privileged or secure firmware implements the Platform
 Fault Detection Interface (PFDI), it must be compliant with the requirements
 defined in [PFDI]_ § 5 Compliance Requirements, and it must support a version
@@ -85,6 +91,8 @@ defined in [PFDI]_ § 5 Compliance Requirements, and it must support a version
 
 AArch64 System Control and Management
 -------------------------------------
+
+.. versionadded:: 2.4.0
 
 On AArch64 platforms, when the System Control and Management Interface (SCMI) is
 described in the ACPI table or the Devicetree, it must conform to the Arm System
@@ -151,6 +159,8 @@ Generator Firmware Interface version 1.0, as defined in [TRNG]_. [#TRNGNote]_
 
 RISC-V
 ======
+
+.. versionchanged:: 2.4.0
 
 The resident firmware in M mode or the hypervisor running in HS mode must
 implement and conform to at least SBI [RVSBISPC]_ v2.0 with at least these

@@ -2,3 +2,8 @@
 div.citation > p {
   margin-left: 7em;
 }
+
+/* Render version annotations in gray to make them different from normal text. */
+.versionmodified {
+	color: #9fa2a5;
+}

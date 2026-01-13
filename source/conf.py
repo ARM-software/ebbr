@@ -121,9 +121,7 @@ latex_elements = {
     # 'pointsize': '10pt',
 
     # Additional stuff for the LaTeX preamble.
-    'preamble': r'''
-        \usepackage{hyphenat}
-        ''',
+    'preamble': r'\input{custom.tex.txt}',
 
     # Latex figure (float) alignment
     #
@@ -146,6 +144,7 @@ latex_documents = [
     (master_doc, 'ebbr.tex', project, author, 'manual'),
 ]
 
+latex_additional_files = ['latex/custom.tex.txt']
 
 # -- Options for manual page output ---------------------------------------
 

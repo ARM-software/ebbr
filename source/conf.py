@@ -131,7 +131,8 @@ latex_elements = {
 }
 
 # Release numbers with a qualifier (ex. '-rc', '-pre') get a watermark.
-if '-' in release:
+# This can be prevented by defining the EBBRNOWATERMARK environment variable.
+if '-' in release and not os.getenv('EBBRNOWATERMARK'):
     latex_elements['preamble'] += r'''
         \usepackage{draftwatermark}
         \SetWatermarkScale{.45}

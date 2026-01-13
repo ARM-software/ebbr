@@ -2,3 +2,6 @@
 
 % Using the hyphenat package allows to break e.g. UEFI Protocol names.
 \usepackage{hyphenat}
+
+% Render version annotations in italic, to align with HTML.
+\newcommand{\DUroleversionmodified}[1]{\textit{#1}}

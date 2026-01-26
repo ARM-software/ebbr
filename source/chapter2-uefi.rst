@@ -195,7 +195,7 @@ EBBR compliant platforms are required to support the following Global
 Variables as found in :UEFI:`3.3`.
 
 .. list-table:: Required UEFI Variables
-   :widths: 50 50
+   :widths: 33 66
    :header-rows: 1
 
    * - Variable Name
@@ -227,7 +227,7 @@ processing after restart as found in :UEFI:`8.5.6`. [#FWUpNote]_
 .. [#FWUpNote] See section :ref:`section-fw-update`.
 
 .. list-table:: UEFI Variables required for capsule update "on disk"
-   :widths: 50 50
+   :widths: 33 66
    :header-rows: 1
 
    * - Variable Name
@@ -399,7 +399,7 @@ the requirements listed in the following table, which take precedence.
    verified automatically with the tools and schemas in [DTSCHEMA]_.
 
 .. list-table:: DTB Nodes and Properties requirements
-   :widths: 50 50
+   :widths: 33 66
    :header-rows: 1
 
    * - Name
@@ -705,7 +705,7 @@ All of the following UEFI Boot Manager elements are required for EBBR
 compliance.
 
 .. list-table:: Required UEFI Boot Manager elements
-   :widths: 50 50
+   :widths: 33 66
    :header-rows: 1
 
    * - Required element
@@ -738,7 +738,7 @@ The following table is a list of notable UEFI Boot Manager elements, which have
 been made optional.
 
 .. list-table:: Notable optional UEFI Boot Manager elements
-   :widths: 50 50
+   :widths: 33 66
    :header-rows: 1
 
    * - Optional element

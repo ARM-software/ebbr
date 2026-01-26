@@ -121,13 +121,14 @@ Creative Commons, PO Box 1866, Mountain View, CA 94042, USA.
          on FF-A, PFDI and SCMI, recommend SOC_ID and TRNG, warn about future
          PSCI & SMCCC versions requirements, simplify PSCI wording, add a note
          on SMCCC conduit
-       - Raise RISC-V SBI requirement
+       - Raise RISC-V SBI requirement and rename section § 3.3
        - Refer to semantic versioning, clarify backward compatibility and remove
          the mention of levels completely
        - Add conformance profile GUID for version 2.4
        - Update references and links, bump referenced versions of ACPI, BBR,
          dt-schema and SMCCC, add references to FF-A, PFDI, SCMI, semantic
-         versioning and TRNG, remove reference to RISC-V platform
+         versioning and TRNG, remove reference to the RISC-V platform
+         specification
        - Formatting changes and cosmetic adjustments
 
 .. toctree::

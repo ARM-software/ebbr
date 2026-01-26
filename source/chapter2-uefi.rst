@@ -352,6 +352,13 @@ specification [#VersionsNote]_.
    As such, versions of this specification differing only by their last digit
    (or "patch number") are expected to be compatible.
 
+Platform firmware should advertise all the EBBR profiles GUIDs it claims
+compliance with in the EFI Conformance Profile Table. [#AdvertNote]_.
+
+.. [#AdvertNote] This will maximize compatibility with existing EFI applications
+   and Operating Systems, which may not know about the latest versions of this
+   specification and the corresponding EBBR profile GUIDs.
+
 - Version 2.1.x:
 
 .. code-block:: c

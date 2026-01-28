@@ -17,8 +17,8 @@ This document uses version 2.11 of the UEFI specification [UEFI]_.
 UEFI Compliance
 ===============
 
-EBBR compliant platform shall conform to a subset of the [UEFI]_ spec as listed
-in this section.
+EBBR compliant platforms shall conform to a subset of the [UEFI]_ spec as
+listed in this section.
 Normally, UEFI compliance would require full compliance with all items listed
 in :UEFI:`2.6`.
 However, the EBBR target market has a reduced set of requirements,

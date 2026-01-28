@@ -35,7 +35,7 @@ conflict with normal usage of the media by an OS.
 * Firmware must be stored on the media in a way that does not conflict
   with normal partitioning and usage by the operating system.
 * Normal operation of the OS must not interfere with firmware files.
-* Firmware needs a method to modify variable storage at runtime while the
+* Firmware may need a method to modify variable storage at runtime while the
   OS controls access to the device. [#LUVariables]_
 
 .. [#LUVariables] Runtime access to firmware data may still be an issue when

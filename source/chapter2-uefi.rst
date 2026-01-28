@@ -494,8 +494,8 @@ Secure Boot. There are no additional requirements for Secure Boot.
 UEFI Runtime Services
 =====================
 
-UEFI runtime services exist after the call to `ExitBootServices()` and are
-designed to provide a limited set of persistent services to the platform
+UEFI runtime services remain available after the call to `ExitBootServices()`
+and are designed to provide a limited set of persistent services to the platform
 Operating System or hypervisor.
 Functions contained in `EFI_RUNTIME_SERVICES` are expected to be available
 during both boot services and runtime services.

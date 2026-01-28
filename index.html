@@ -5,11 +5,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Embedded Base Boot Requirements (EBBR) Specification v2.4.0-pre1-7-gbdc8207 documentation</title>
+    <title>Embedded Base Boot Requirements (EBBR) Specification v2.4.0-pre1-9-g0fdb84b documentation</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
     <link rel="stylesheet" type="text/css" href="_static/basic.css?v=b08954a9" />
     <link rel="stylesheet" type="text/css" href="_static/alabaster.css?v=27fed22d" />
-    <script src="_static/documentation_options.js?v=708ba9a5"></script>
+    <script src="_static/documentation_options.js?v=6a6bec76"></script>
     <script src="_static/doctools.js?v=9bcbadda"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <link rel="index" title="Index" href="genindex.html" />
@@ -377,6 +377,15 @@ converse is not true.</p>
 <p>The key words “MUST”, “MUST NOT”, “REQUIRED”, “SHALL”, “SHALL NOT”, “SHOULD”,
 “SHOULD NOT”, “RECOMMENDED”, “MAY”, and “OPTIONAL” in this document are to be
 interpreted as described in <span class="target" id="index-0"></span><a class="rfc reference external" href="https://datatracker.ietf.org/doc/html/rfc2119.html"><strong>RFC 2119</strong></a>.</p>
+<p>The following annotations are used to highlight when requirements were
+introduced or significantly changed since the last major version of this
+specification:</p>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 2.1.0.</span></p>
+</div>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Changed in version 2.4.0.</span></p>
+</div>
 <p>Features, which will not be supported by a future version of this specification
 are indicated with a warning such as the following one:</p>
 <div class="admonition warning">
@@ -512,6 +521,9 @@ hypervisor is enabled.</p>
 platforms.</p>
 <section id="uefi-version">
 <h3><span class="section-number">2.1. </span>UEFI Version<a class="headerlink" href="#uefi-version" title="Link to this heading">¶</a></h3>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Changed in version 2.3.0.</span></p>
+</div>
 <p>This document uses version 2.11 of the UEFI specification <a class="reference internal" href="#document-references#uefi" id="id1"><span>[UEFI]</span></a>.</p>
 </section>
 <section id="uefi-compliance">
@@ -644,7 +656,11 @@ All of the following UEFI elements are required for EBBR compliance.</p>
 <td><p>Required if the platform supports network booting. (<a class="reference external" href="https://uefi.org/specs/UEFI/2.11/24_Network_Protocols_SNP_PXE_BIS.html#http-boot">UEFI § 24.7 HTTP Boot</a>)</p></td>
 </tr>
 <tr class="row-odd"><td><p><cite>RISCV_EFI_BOOT_PROTOCOL</cite></p></td>
-<td><p>Required on RISC-V platforms. (<a class="reference external" href="https://uefi.org/specs/UEFI/2.11/02_Overview.html#handoff-state-5">UEFI § 2.3.7.1 Handoff State</a> and <a class="reference internal" href="#document-references#rvuefi" id="id4"><span>[RVUEFI]</span></a>)</p></td>
+<td><div class="versionadded">
+<p><span class="versionmodified added">Added in version 2.1.0.</span></p>
+</div>
+<p>Required on RISC-V platforms. (<a class="reference external" href="https://uefi.org/specs/UEFI/2.11/02_Overview.html#handoff-state-5">UEFI § 2.3.7.1 Handoff State</a> and <a class="reference internal" href="#document-references#rvuefi" id="id4"><span>[RVUEFI]</span></a>)</p>
+</td>
 </tr>
 </tbody>
 </table>
@@ -788,6 +804,9 @@ order given by <cite>BootOrder</cite> to find the first bootable image.</p></td>
 </table>
 <section id="required-variables-for-capsule-update-on-disk">
 <span id="section-required-vars-for-on-disk"></span><h5><span class="section-number">2.2.3.1. </span>Required Variables for capsule update “on disk”<a class="headerlink" href="#required-variables-for-capsule-update-on-disk" title="Link to this heading">¶</a></h5>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 2.2.0.</span></p>
+</div>
 <p>When the firmware implements in-band firmware update with <cite>UpdateCapsule()</cite> it
 must support the following Variables to report the status of capsule “on disk”
 processing after restart as found in <a class="reference external" href="https://uefi.org/specs/UEFI/2.11/08_Services_Runtime_Services.html#uefi-variable-reporting-on-the-success-or-any-errors-encountered-in-processing-of-capsules-after-restart">UEFI § 8.5.6 UEFI variable reporting on the Success or any Errors encountered in processing of capsules after restart</a>. <a class="footnote-reference brackets" href="#fwupnote" id="id5" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a></p>
@@ -864,6 +883,9 @@ virtualized service, by the hypervisor and not as part of the host firmware.</p>
 </section>
 <section id="risc-v-privilege-levels">
 <h4><span class="section-number">2.3.2. </span>RISC-V Privilege Levels<a class="headerlink" href="#risc-v-privilege-levels" title="Link to this heading">¶</a></h4>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 2.0.1.</span></p>
+</div>
 <p>RISC-V doesn’t define dedicated privilege levels for hypervisor enabled
 platforms.
 The supervisor mode becomes HS mode where a hypervisor or a hosting-capable
@@ -910,6 +932,9 @@ mechanism to select either ACPI or Devicetree,
 and must ensure only the selected interface is provided to the OS loader.</p>
 <section id="efi-conformance-profile-table">
 <h4><span class="section-number">2.4.1. </span>EFI Conformance Profile Table<a class="headerlink" href="#efi-conformance-profile-table" title="Link to this heading">¶</a></h4>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 2.1.0.</span></p>
+</div>
 <p>The following GUIDs in the EFI Conformance Profile Table, as defined in
 <a class="reference external" href="https://uefi.org/specs/UEFI/2.11/04_EFI_System_Table.html#efi-conformance-profile-table">UEFI § 4.6.4 EFI_CONFORMANCE_PROFILE_TABLE</a>, are used to indicate compliance to specific versions of the EBBR
 specification.</p>
@@ -971,8 +996,11 @@ specification and the corresponding EBBR profile GUIDs.</p>
 <h4><span class="section-number">2.4.2. </span>Devicetree<a class="headerlink" href="#devicetree" title="Link to this heading">¶</a></h4>
 <p>If firmware provides a Devicetree system description then it must be provided
 in Flattened Devicetree Blob (DTB) format version 17 or higher as described in
-<a class="reference internal" href="#document-references#dtspec" id="id12"><span>[DTSPEC]</span></a> § 5 Flattened Devicetree (DTB) Format.
-The DTB Nodes and Properties must be compliant with the requirements listed in
+<a class="reference internal" href="#document-references#dtspec" id="id12"><span>[DTSPEC]</span></a> § 5 Flattened Devicetree (DTB) Format.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 2.1.0.</span></p>
+</div>
+<p>The DTB Nodes and Properties must be compliant with the requirements listed in
 <a class="reference internal" href="#document-references#dtspec" id="id13"><span>[DTSPEC]</span></a> § 3 Device Node Requirements &amp; <a class="reference internal" href="#document-references#dtspec" id="id14"><span>[DTSPEC]</span></a> § 4 Device Bindings, and with
 the requirements listed in the following table, which take precedence.
 <a class="footnote-reference brackets" href="#dtschnote" id="id15" role="doc-noteref"><span class="fn-bracket">[</span>5<span class="fn-bracket">]</span></a></p>
@@ -1024,6 +1052,9 @@ sections <a class="reference internal" href="#section-required-elems"><span clas
 in the UEFI specification.</p>
 <section id="trusted-platform-module-tpm">
 <h4><span class="section-number">2.5.1. </span>Trusted Platform Module (TPM)<a class="headerlink" href="#trusted-platform-module-tpm" title="Link to this heading">¶</a></h4>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 2.2.0.</span></p>
+</div>
 <p>Not all embedded systems include a TPM but if a TPM is present, then firmware
 shall implement the <cite>EFI_TCG2_PROTOCOL</cite> as defined in <a class="reference internal" href="#document-references#tcg2" id="id21"><span>[TCG2]</span></a>.</p>
 </section>
@@ -1041,6 +1072,9 @@ that virtual addresses must equal physical addresses.</p>
 </section>
 <section id="miscellaneous-boot-services">
 <span id="section-misc-boot-services"></span><h4><span class="section-number">2.6.2. </span>Miscellaneous Boot Services<a class="headerlink" href="#miscellaneous-boot-services" title="Link to this heading">¶</a></h4>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 2.2.0.</span></p>
+</div>
 <p>The platform’s monotonic counter is made optional.
 If the platform does not implement the monotonic counter, the
 <cite>GetNextMonotonicCount()</cite> function shall return <cite>EFI_DEVICE_ERROR</cite>. <a class="footnote-reference brackets" href="#mononote" id="id22" role="doc-noteref"><span class="fn-bracket">[</span>7<span class="fn-bracket">]</span></a></p>
@@ -1230,6 +1264,9 @@ EBBR platforms are required to implement either an in-band or an out-of-band
 firmware update mechanism.</p>
 <section id="in-band-firmware-update">
 <h5><span class="section-number">2.7.4.1. </span>In-band firmware update<a class="headerlink" href="#in-band-firmware-update" title="Link to this heading">¶</a></h5>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Changed in version 2.3.0.</span></p>
+</div>
 <p>If firmware update is performed in-band (firmware on the application processor
 updates itself), then the firmware shall implement the <cite>UpdateCapsule()</cite> runtime
 service and accept only authenticated updates in the “Firmware Management
@@ -1257,9 +1294,15 @@ signaling mean between OS and firmware, as described in <a class="reference inte
 example.</p>
 </aside>
 </aside>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 2.1.0.</span></p>
+</div>
 <p>Firmware is also required to provide an EFI System Resource Table (ESRT) as
 described in <a class="reference external" href="https://uefi.org/specs/UEFI/2.11/23_Firmware_Update_and_Reporting.html#efi-system-resource-table">UEFI § 23.4 EFI System Resource Table</a>.
 Every firmware image that can be updated in-band must be described in the ESRT.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 2.2.0.</span></p>
+</div>
 <p>Firmware must support the delivery of capsules via file on mass storage device
 (“on disk”) as described in <a class="reference external" href="https://uefi.org/specs/UEFI/2.11/08_Services_Runtime_Services.html#delivery-of-capsules-via-file-on-mass-storage-device">UEFI § 8.5.5 Delivery of Capsules via file on Mass Storage Device</a>. <a class="footnote-reference brackets" href="#varnote" id="id28" role="doc-noteref"><span class="fn-bracket">[</span>11<span class="fn-bracket">]</span></a></p>
 <aside class="footnote-list brackets">
@@ -1295,6 +1338,9 @@ service and it is not required to provide an ESRT.</p>
 </section>
 <section id="miscellaneous-runtime-services">
 <h4><span class="section-number">2.7.5. </span>Miscellaneous Runtime Services<a class="headerlink" href="#miscellaneous-runtime-services" title="Link to this heading">¶</a></h4>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 2.2.0.</span></p>
+</div>
 <p>If the platform does not implement the monotonic counter, it shall not support
 the <cite>GetNextHighMonotonicCount()</cite> runtime service. <a class="footnote-reference brackets" href="#bootnote" id="id30" role="doc-noteref"><span class="fn-bracket">[</span>13<span class="fn-bracket">]</span></a></p>
 <aside class="footnote-list brackets">
@@ -1308,6 +1354,9 @@ the <cite>GetNextHighMonotonicCount()</cite> runtime service. <a class="footnote
 </section>
 <section id="uefi-boot-manager">
 <h3><span class="section-number">2.8. </span>UEFI Boot Manager<a class="headerlink" href="#uefi-boot-manager" title="Link to this heading">¶</a></h3>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 2.3.0.</span></p>
+</div>
 <p>The UEFI Boot Manager is required for EBBR compliance.</p>
 <p>Not all the elements defined in <a class="reference external" href="https://uefi.org/specs/UEFI/2.11/03_Boot_Manager.html">UEFI § 3 Boot Manager</a> are necessary to allow installing and
 booting an OS, therefore only a subset is required.</p>
@@ -1431,6 +1480,9 @@ At <cite>ExitBootServices()</cite> time, all secondary CPUs must be parked or po
 <p>This section is specific to AArch64 platforms.</p>
 <section id="aarch64-multiprocessor-startup-protocol">
 <h4><span class="section-number">3.2.1. </span>AArch64 Multiprocessor Startup Protocol<a class="headerlink" href="#aarch64-multiprocessor-startup-protocol" title="Link to this heading">¶</a></h4>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Changed in version 2.3.0.</span></p>
+</div>
 <p>On AArch64 platforms, Firmware resident in Trustzone EL3 must implement and
 conform to the Power State Coordination Interface specification <a class="reference internal" href="#document-references#psci" id="id1"><span>[PSCI]</span></a> and to
 the SMC Calling Convention <a class="reference internal" href="#document-references#smccc" id="id2"><span>[SMCCC]</span></a>.</p>
@@ -1472,6 +1524,9 @@ implements the <cite>SMCCC_ARCH_SOC_ID</cite> call, to ease system identificatio
 </section>
 <section id="aarch64-firmware-framework">
 <h4><span class="section-number">3.2.2. </span>AArch64 Firmware Framework<a class="headerlink" href="#aarch64-firmware-framework" title="Link to this heading">¶</a></h4>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 2.4.0.</span></p>
+</div>
 <p>On AArch64 platforms, when privileged or secure firmware implements the Firmware
 Framework for A-profile (FF-A), it must conform to the Arm Firmware Framework
 for Arm A-profile specification <a class="reference internal" href="#document-references#ffa" id="id7"><span>[FFA]</span></a> and it must support at least one callee
@@ -1493,6 +1548,9 @@ includes caller version 1.2.</p>
 </section>
 <section id="aarch64-platform-fault-detection">
 <h4><span class="section-number">3.2.3. </span>AArch64 Platform Fault Detection<a class="headerlink" href="#aarch64-platform-fault-detection" title="Link to this heading">¶</a></h4>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 2.4.0.</span></p>
+</div>
 <p>On AArch64 platforms, when privileged or secure firmware implements the Platform
 Fault Detection Interface (PFDI), it must be compliant with the requirements
 defined in <a class="reference internal" href="#document-references#pfdi" id="id10"><span>[PFDI]</span></a> § 5 Compliance Requirements, and it must support a version
@@ -1508,6 +1566,9 @@ At the time of writing, only PFDI version 1.0 is defined.</p>
 </section>
 <section id="aarch64-system-control-and-management">
 <h4><span class="section-number">3.2.4. </span>AArch64 System Control and Management<a class="headerlink" href="#aarch64-system-control-and-management" title="Link to this heading">¶</a></h4>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 2.4.0.</span></p>
+</div>
 <p>On AArch64 platforms, when the System Control and Management Interface (SCMI) is
 described in the ACPI table or the Devicetree, it must conform to the Arm System
 Control and Management Interface specification <a class="reference internal" href="#document-references#scmi" id="id12"><span>[SCMI]</span></a> and the following
@@ -1603,6 +1664,9 @@ The TRNG interface requires SMCCC version 1.1 or later.</p>
 </section>
 <section id="risc-v">
 <h3><span class="section-number">3.3. </span>RISC-V<a class="headerlink" href="#risc-v" title="Link to this heading">¶</a></h3>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Changed in version 2.4.0.</span></p>
+</div>
 <p>The resident firmware in M mode or the hypervisor running in HS mode must
 implement and conform to at least SBI <a class="reference internal" href="#document-references#rvsbispc" id="id17"><span>[RVSBISPC]</span></a> v2.0 with at least these
 extensions:</p>
@@ -1878,6 +1942,9 @@ firmware files in a dedicated firmware partition.</p>
 </section>
 <span id="document-chapter5-variable-storage"></span><section id="file-format-for-storing-efi-variables">
 <h2><span class="section-number">5. </span>File Format For Storing EFI Variables<a class="headerlink" href="#file-format-for-storing-efi-variables" title="Link to this heading">¶</a></h2>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 2.2.0.</span></p>
+</div>
 <p>Some UEFI enabled devices can only store EFI variables as a file on a block
 device. This implies that at runtime the operating system must manage changes
 to the EFI variable by updating the file.</p>

@@ -112,7 +112,7 @@ specification.
 
 - Support multiple architectures
 
-  Any architecture can implement the EBBR requirements.
+  Any architecture supporting UEFI can implement the EBBR requirements.
   Architecture specific requirements will clearly marked as to which
   architecture(s) they apply.
 

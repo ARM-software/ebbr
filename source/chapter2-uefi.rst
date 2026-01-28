@@ -50,8 +50,8 @@ All of the following UEFI elements are required for EBBR compliance.
      - All functions defined as runtime services must exist.
        Methods for unsupported or unimplemented behaviour must return
        an appropriate error code.
-       If any runtime service is unimplemented, it must be indicated
-       via the `EFI_RT_PROPERTIES_TABLE`.
+       If any runtime service is not supported after `ExitBootServices()`, this
+       must be indicated via the `EFI_RT_PROPERTIES_TABLE`.
    * - `EFI_LOADED_IMAGE_PROTOCOL`
      - Must be installed for each loaded image.
    * - `EFI_LOADED_IMAGE_DEVICE_PATH_PROTOCOL`

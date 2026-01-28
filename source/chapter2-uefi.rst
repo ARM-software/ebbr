@@ -362,7 +362,7 @@ specification [#VersionsNote]_.
    As such, versions of this specification differing only by their last digit
    (or "patch number") are expected to be compatible.
 
-Platform firmware should advertise all the EBBR profiles GUIDs it claims
+Platform firmware should advertise all the EBBR profile GUIDs it claims
 compliance with in the EFI Conformance Profile Table. [#AdvertNote]_.
 
 .. [#AdvertNote] This will maximize compatibility with existing EFI applications

@@ -5,11 +5,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Embedded Base Boot Requirements (EBBR) Specification v2.4.0-pre2-2-g0a45460 documentation</title>
+    <title>Embedded Base Boot Requirements (EBBR) Specification v2.4.0-pre2-3-g579d8e2 documentation</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
     <link rel="stylesheet" type="text/css" href="_static/basic.css?v=b08954a9" />
     <link rel="stylesheet" type="text/css" href="_static/alabaster.css?v=27fed22d" />
-    <script src="_static/documentation_options.js?v=0d2abe5b"></script>
+    <script src="_static/documentation_options.js?v=f3fc11b0"></script>
     <script src="_static/doctools.js?v=9bcbadda"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <link rel="index" title="Index" href="genindex.html" />
@@ -1097,8 +1097,8 @@ Secure Boot. There are no additional requirements for Secure Boot.</p>
 </section>
 <section id="uefi-runtime-services">
 <h3><span class="section-number">2.7. </span>UEFI Runtime Services<a class="headerlink" href="#uefi-runtime-services" title="Link to this heading">¶</a></h3>
-<p>UEFI runtime services exist after the call to <cite>ExitBootServices()</cite> and are
-designed to provide a limited set of persistent services to the platform
+<p>UEFI runtime services remain available after the call to <cite>ExitBootServices()</cite>
+and are designed to provide a limited set of persistent services to the platform
 Operating System or hypervisor.
 Functions contained in <cite>EFI_RUNTIME_SERVICES</cite> are expected to be available
 during both boot services and runtime services.

@@ -175,14 +175,14 @@ Make sure that citations labels (such as "DTSPEC" above) have 8 characters
 maximum as this is the limit of the Sphinx LaTeX writer.
 
 Version annotations
-^^^^^^^^^^^^^^^^^^^
+-------------------
 
 For version annotations, use a single directive line at the beginning of the
 concerned section or paragraph::
 
- .. versionadded:: 2.3.0
+  .. versionadded:: 2.3.0
 
- .. versionchanged:: 2.4.0
+  .. versionchanged:: 2.4.0
 
 Annotate only changes in requirements; there is no need to annotate changes in
 recommendations.

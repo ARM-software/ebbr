@@ -114,8 +114,8 @@ Creative Commons, PO Box 1866, Mountain View, CA 94042, USA.
        - Bump referenced versions: UEFI to v2.11, PSCI to v1.3, SMCCC to 1.6 G,
          BBR to v2.1 and dt-schema to v2024.09
        - Move some footnotes around
-   * - 28 Jan 2026
-     - 2.4.0-pre2
+   * - 12 Feb 2026
+     - 2.4.0-pre3
      - - Recommend the EFI Graphics Output Protocol
        - Encourage to advertise all supported EBBR profiles
        - Split AArch64 requirements section § 3.2, add conditional requirements
@@ -131,7 +131,8 @@ Creative Commons, PO Box 1866, Mountain View, CA 94042, USA.
          dt-schema and SMCCC, add references to FF-A, PFDI, SCMI, semantic
          versioning and TRNG, remove reference to the RISC-V platform
          specification
-       - Formatting changes, table widths and cosmetic adjustments
+       - Typos and syntax fixes, formatting changes, table widths and cosmetic
+         adjustments
 
 .. toctree::
    :numbered:

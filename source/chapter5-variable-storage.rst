@@ -8,7 +8,7 @@ File Format For Storing EFI Variables
 
 Some UEFI enabled devices can only store EFI variables as a file on a block
 device. This implies that at runtime the operating system must manage changes
-to the EFI variable by updating the file.
+to the EFI variables by updating the file.
 
 This chapter defines a file-format for EFI variables that both the firmware
 and the operating system can rely on.
@@ -24,7 +24,7 @@ The following byte sequence is used to identify the file format:
 
     #define EFI_VAR_FILE_MAGIC {0x55, 0x62, 0x45, 0x66, 0x69, 0x56, 0x61}
 
-The current revision of the file format it given by:
+The current revision of the file format is given by:
 
 .. code-block:: c
 

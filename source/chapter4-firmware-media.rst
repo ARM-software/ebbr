@@ -238,7 +238,7 @@ Fixed Shared Storage
 
 Fixed storage is storage that is permanently attached to the platform,
 and cannot be moved between systems.
-eMMC and Universal Flash Storage (UFS) device are often used as
+eMMC and Universal Flash Storage (UFS) devices are often used as
 shared fixed storage for both firmware and the OS.
 
 Where possible, it is preferred for the system to boot from a dedicated boot
@@ -283,5 +283,5 @@ On removable media, firmware should be stored in the ESP under the
 Platform vendors should support their platform by providing a single
 .zip file that places all the required firmware files in the correct
 locations when extracted in the ESP ``/FIRMWARE`` directory.
-For simplicity sake, it is expected the same .zip file will recover the
+For simplicity's sake, it is expected the same .zip file will recover the
 firmware files in a dedicated firmware partition.

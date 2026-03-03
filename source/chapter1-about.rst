@@ -34,7 +34,7 @@ but requirements alone don't provide insight into why the specification is
 written the way it is, or what problems it is intended to solve.
 Using the assumption that better understanding of the thought process behind
 EBBR will result in better implementations, this section is a discussion of the
-goals and guiding principle that shaped EBBR.
+goals and guiding principles that shaped EBBR.
 
 This section should be considered commentary, and not a formal part of the
 specification.
@@ -113,7 +113,7 @@ specification.
 - Support multiple architectures
 
   Any architecture supporting UEFI can implement the EBBR requirements.
-  Architecture specific requirements will clearly marked as to which
+  Architecture specific requirements will be clearly marked as to which
   architecture(s) they apply.
 
 - Design for common embedded hardware
@@ -203,7 +203,7 @@ This document uses the following typographic conventions:
 `Italic`
 
 	An `italic` typeface is used for identifiers such as UEFI tables,
-	variables, protocols, memory types and functions names.
+	variables, protocols, memory types and function names.
 
 ``Monospace``
 
@@ -224,7 +224,7 @@ Terms and abbreviations
 
 This document uses the following terms and abbreviations.
 Generic terms are listed at the beginning of this chapter.
-Architecture specific terms are listed a section for each architecture.
+Architecture specific terms are listed in a section for each architecture.
 
 .. glossary::
 

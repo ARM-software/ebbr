@@ -670,7 +670,7 @@ Protocol Data Capsule Structure" format as described in :UEFI:`23.3`, with
 
 .. [#FMPNote] The `UpdateCapsule()` runtime service is expected to be suitable
    for use by generic firmware update services like fwupd and Windows Update.
-   Both fwupd and Windows Update read the ESRT table to determine what firmware
+   Both fwupd and Windows Update read the ESRT to determine what firmware
    can be updated, and use an EFI helper application to call `UpdateCapsule()`
    before `ExitBootServices()` is called.
 

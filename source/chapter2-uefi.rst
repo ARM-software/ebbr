@@ -631,7 +631,7 @@ variables stored on shared media. [#OPTEESupplicant]_
    Regardless, EBBR compliance does not require `SetVariable()` support
    during runtime services.
 
-   https://optee.readthedocs.io/en/latest/architecture/secure_storage.html
+   https://optee.readthedocs.io/en/4.9.0/architecture/secure_storage.html
 
 If a platform does not implement modifying non-volatile variables with
 `SetVariable()` after `ExitBootServices()`,
@@ -805,4 +805,4 @@ been made optional.
    setup the protocol. [#LF2Note]_
    This is outside the scope of this specification.
 
-.. [#LF2Note] https://docs.u-boot.org/en/v2024.10/develop/uefi/uefi.html#load-file-2-protocol
+.. [#LF2Note] https://docs.u-boot.org/en/v2026.01/develop/uefi/uefi.html#load-file-2-protocol

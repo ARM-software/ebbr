@@ -3,7 +3,7 @@
 
 import os
 import csv
-from typing import Any, Callable, TypedDict
+from typing import Any, Callable, TypedDict, Optional
 from docutils import nodes
 from sphinx.util import logging
 
@@ -51,12 +51,19 @@ def create_role(ref: str, index: IndexType) -> RoleType:
     """
     def role(
             name: str, rawtext: str, text: str, lineno: int, inliner: Any,
-            options: dict[Any, Any] = {}, content: list[str] = []
+            options: Optional[dict[Any, Any]] = None,
+            content: Optional[list[str]] = None
             ) -> tuple[list[Any], list[str]]:
 
         logger.debug(
             f"{ref} {name} {rawtext} {text} {lineno} {inliner} {options} "
             f"{content}")
+
+        if options is None:
+            options = {}
+
+        if content is None:
+            content = []
 
         # Query the index.
         if text in index:

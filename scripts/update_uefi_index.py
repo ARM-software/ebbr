@@ -47,10 +47,13 @@ class State(enum.Enum):
 class IndexHtmlParser(HTMLParser):
     """A class to parse an HTML index and extract what we need from there.
     """
+    state: State
+    current: ParsedEntry
+
     def reset(self) -> None:
         self.index: list[ParsedEntry] = []  # The index we have captured.
         self.state = State.AWAIT_DIV        # Our state-machine current state.
-        self.current: ParsedEntry = {}      # The current data.
+        self.current = {}                   # The current data.
         self.nums: set[str] = set()         # To detect duplicates.
         HTMLParser.reset(self)
 

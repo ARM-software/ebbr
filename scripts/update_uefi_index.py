@@ -7,7 +7,7 @@ import csv
 from typing import Optional, TypedDict
 import enum
 import logging
-import requests
+import sys
 
 UEFI_INDEX_URL = 'https://uefi.org/specs/UEFI/2.11/index.html'
 uefi_csv = os.path.dirname(__file__) + '/../source/extensions/uefi_index.csv'
@@ -159,21 +159,25 @@ class IndexHtmlParser(HTMLParser):
                 return
 
 
-def update_index(index_url: str, csv_filename: str) -> None:
+def update_index(
+        index_url: str, index_filename: str, csv_filename: str) -> None:
     """Update index database.
-    We download the index and create a csv containing lines in the following
+    We parse the index and create a csv containing lines in the following
     format:
     <chapter number>,<chapter title>,<url>
     """
-    # Download index
-    logger.info(f"Downloading {index_url}")
-    req = requests.get(index_url, allow_redirects=True, timeout=60.0)
-    # logger.debug(req)
+    # Load index
+    logger.info(f"Loading {index_filename}")
+
+    with open(index_filename, encoding='utf-8') as f:
+        text = f.read()
+
+    # logger.debug(text)
 
     # Parse HTML
     logger.debug('Parsing')
     parser = IndexHtmlParser()
-    parser.feed(req.text)
+    parser.feed(text)
     # logger.debug(parser.index)
 
     # Save csv
@@ -190,4 +194,4 @@ def update_index(index_url: str, csv_filename: str) -> None:
 
 if __name__ == '__main__':
     logging.basicConfig(level=logging.INFO)
-    update_index(UEFI_INDEX_URL, uefi_csv)
+    update_index(UEFI_INDEX_URL, sys.argv[1], uefi_csv)

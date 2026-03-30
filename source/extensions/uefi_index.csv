@@ -158,7 +158,7 @@
 6.3.6,Validating the Flog entries at start-up,https://uefi.org/specs/UEFI/2.11/06_Block_Transition_Table_Layout.html#validating-the-flog-entries-at-start-up
 6.3.7,Read Path,https://uefi.org/specs/UEFI/2.11/06_Block_Transition_Table_Layout.html#read-path
 6.3.8,Write Path,https://uefi.org/specs/UEFI/2.11/06_Block_Transition_Table_Layout.html#write-path
-7,Services - Boot Services,https://uefi.org/specs/UEFI/2.11/07_Services_Boot_Services.html
+7,Services — Boot Services,https://uefi.org/specs/UEFI/2.11/07_Services_Boot_Services.html
 7.1,"Event, Timer, and Task Priority Services",https://uefi.org/specs/UEFI/2.11/07_Services_Boot_Services.html#event-timer-and-task-priority-services
 7.1.1,EFI_BOOT_SERVICES.CreateEvent(),https://uefi.org/specs/UEFI/2.11/07_Services_Boot_Services.html#efi-boot-services-createevent
 7.1.2,EFI_BOOT_SERVICES.CreateEventEx(),https://uefi.org/specs/UEFI/2.11/07_Services_Boot_Services.html#efi-boot-services-createeventex
@@ -209,7 +209,7 @@
 7.5.5,EFI_BOOT_SERVICES.GetNextMonotonicCount(),https://uefi.org/specs/UEFI/2.11/07_Services_Boot_Services.html#efi-boot-services-getnextmonotoniccount
 7.5.6,EFI_BOOT_SERVICES.InstallConfigurationTable(),https://uefi.org/specs/UEFI/2.11/07_Services_Boot_Services.html#efi-boot-services-installconfigurationtable
 7.5.7,EFI_BOOT_SERVICES.CalculateCrc32(),https://uefi.org/specs/UEFI/2.11/07_Services_Boot_Services.html#efi-boot-services-calculatecrc32
-8,Services - Runtime Services,https://uefi.org/specs/UEFI/2.11/08_Services_Runtime_Services.html
+8,Services — Runtime Services,https://uefi.org/specs/UEFI/2.11/08_Services_Runtime_Services.html
 8.1,Runtime Services Rules and Restrictions,https://uefi.org/specs/UEFI/2.11/08_Services_Runtime_Services.html#runtime-services-rules-and-restrictions
 8.1.1,"Exception for Machine Check, INIT, and NMI",https://uefi.org/specs/UEFI/2.11/08_Services_Runtime_Services.html#exception-for-machine-check-init-and-nmi
 8.2,Variable Services,https://uefi.org/specs/UEFI/2.11/08_Services_Runtime_Services.html#variable-services
@@ -251,7 +251,7 @@
 9.1.2,EFI_LOADED_IMAGE_PROTOCOL.Unload(),https://uefi.org/specs/UEFI/2.11/09_Protocols_EFI_Loaded_Image.html#efi-loaded-image-protocol-unload
 9.2,EFI Loaded Image Device Path Protocol,https://uefi.org/specs/UEFI/2.11/09_Protocols_EFI_Loaded_Image.html#efi-loaded-image-device-path-protocol
 9.2.1,EFI_LOADED_IMAGE_DEVICE_PATH_PROTOCOL,https://uefi.org/specs/UEFI/2.11/09_Protocols_EFI_Loaded_Image.html#id6
-10,Protocols - Device Path Protocol,https://uefi.org/specs/UEFI/2.11/10_Protocols_Device_Path_Protocol.html
+10,Protocols – Device Path Protocol,https://uefi.org/specs/UEFI/2.11/10_Protocols_Device_Path_Protocol.html
 10.1,Device Path Overview,https://uefi.org/specs/UEFI/2.11/10_Protocols_Device_Path_Protocol.html#device-path-overview
 10.2,EFI Device Path Protocol,https://uefi.org/specs/UEFI/2.11/10_Protocols_Device_Path_Protocol.html#efi-device-path-protocol
 10.3,Device Path Nodes,https://uefi.org/specs/UEFI/2.11/10_Protocols_Device_Path_Protocol.html#device-path-nodes
@@ -344,7 +344,7 @@
 10.6.5.1,EFI_DEVICE_PATH_FROM_TEXT_PROTOCOL,https://uefi.org/specs/UEFI/2.11/10_Protocols_Device_Path_Protocol.html#efi-device-path-from-text-protocol
 10.6.5.2,EFI_DEVICE_PATH_FROM_TEXT_PROTOCOL.ConvertTextToDeviceNode(),https://uefi.org/specs/UEFI/2.11/10_Protocols_Device_Path_Protocol.html#efi-device-path-from-text-protocol-converttexttodevicenode
 10.6.5.3,EFI_DEVICE_PATH_FROM_TEXT_PROTOCOL.ConvertTextToDevicePath(,https://uefi.org/specs/UEFI/2.11/10_Protocols_Device_Path_Protocol.html#efi-device-path-from-text-protocol-converttexttodevicepath
-11,Protocols - UEFI Driver Model,https://uefi.org/specs/UEFI/2.11/11_Protocols_UEFI_Driver_Model.html
+11,Protocols — UEFI Driver Model,https://uefi.org/specs/UEFI/2.11/11_Protocols_UEFI_Driver_Model.html
 11.1,EFI Driver Binding Protocol,https://uefi.org/specs/UEFI/2.11/11_Protocols_UEFI_Driver_Model.html#efi-driver-binding-protocol
 11.1.1,EFI_DRIVER_BINDING_PROTOCOL,https://uefi.org/specs/UEFI/2.11/11_Protocols_UEFI_Driver_Model.html#id1
 11.1.2,EFI_DRIVER_BINDING_PROTOCOL.Supported(),https://uefi.org/specs/UEFI/2.11/11_Protocols_UEFI_Driver_Model.html#efi-driver-binding-protocol-supported
@@ -407,7 +407,7 @@
 11.12.4,IPV6 Support from UNDI,https://uefi.org/specs/UEFI/2.11/11_Protocols_UEFI_Driver_Model.html#ipv6-support-from-undi
 11.12.5,Network Media Type,https://uefi.org/specs/UEFI/2.11/11_Protocols_UEFI_Driver_Model.html#network-media-type
 11.12.6,Coherent Device Attribute Table (CDAT) Type,https://uefi.org/specs/UEFI/2.11/11_Protocols_UEFI_Driver_Model.html#coherent-device-attribute-table-cdat-type
-12,Protocols - Console Support,https://uefi.org/specs/UEFI/2.11/12_Protocols_Console_Support.html
+12,Protocols — Console Support,https://uefi.org/specs/UEFI/2.11/12_Protocols_Console_Support.html
 12.1,Console I/O Protocol,https://uefi.org/specs/UEFI/2.11/12_Protocols_Console_Support.html#console-i-o-protocol
 12.1.1,Overview,https://uefi.org/specs/UEFI/2.11/12_Protocols_Console_Support.html#overview
 12.1.2,ConsoleIn Definition,https://uefi.org/specs/UEFI/2.11/12_Protocols_Console_Support.html#consolein-definition
@@ -464,7 +464,7 @@
 12.9.2.6,EFI_EDID_OVERRIDE_PROTOCOL,https://uefi.org/specs/UEFI/2.11/12_Protocols_Console_Support.html#efi-edid-override-protocol
 12.9.2.7,EFI_EDID_OVERRIDE_PROTOCOL.GetEdid(),https://uefi.org/specs/UEFI/2.11/12_Protocols_Console_Support.html#efi-edid-override-protocol-getedid
 12.10,Rules for PCI/AGP Devices,https://uefi.org/specs/UEFI/2.11/12_Protocols_Console_Support.html#rules-for-pci-agp-devices
-13,Protocols - Media Access,https://uefi.org/specs/UEFI/2.11/13_Protocols_Media_Access.html
+13,Protocols – Media Access,https://uefi.org/specs/UEFI/2.11/13_Protocols_Media_Access.html
 13.1,Load File Protocol,https://uefi.org/specs/UEFI/2.11/13_Protocols_Media_Access.html#load-file-protocol
 13.1.1,EFI_LOAD_FILE_PROTOCOL,https://uefi.org/specs/UEFI/2.11/13_Protocols_Media_Access.html#efi-load-file-protocol
 13.1.2,EFI_LOAD_FILE_PROTOCOL.LoadFile(),https://uefi.org/specs/UEFI/2.11/13_Protocols_Media_Access.html#efi-load-file-protocol-loadfile
@@ -595,7 +595,7 @@
 13.20.2,EFI_UFS_DEVICE_CONFIG_PROTOCOL.RwUfsDescriptor(),https://uefi.org/specs/UEFI/2.11/13_Protocols_Media_Access.html#efi-ufs-device-config-protocol-rwufsdescriptor
 13.20.3,EFI_UFS_DEVICE_CONFIG_PROTOCOL.RwUfsFlag(),https://uefi.org/specs/UEFI/2.11/13_Protocols_Media_Access.html#efi-ufs-device-config-protocol-rwufsflag
 13.20.4,EFI_UFS_DEVICE_CONFIG_PROTOCOL.RwUfsAttribute(),https://uefi.org/specs/UEFI/2.11/13_Protocols_Media_Access.html#efi-ufs-device-config-protocol-rwufsattribute
-14,Protocols - PCI Bus Support,https://uefi.org/specs/UEFI/2.11/14_Protocols_PCI_Bus_Support.html
+14,Protocols — PCI Bus Support,https://uefi.org/specs/UEFI/2.11/14_Protocols_PCI_Bus_Support.html
 14.1,PCI Root Bridge I/O Support,https://uefi.org/specs/UEFI/2.11/14_Protocols_PCI_Bus_Support.html#pci-root-bridge-i-o-support
 14.1.1,PCI Root Bridge I/O Overview,https://uefi.org/specs/UEFI/2.11/14_Protocols_PCI_Bus_Support.html#pci-root-bridge-i-o-overview
 14.1.2,Sample PCI Architectures,https://uefi.org/specs/UEFI/2.11/14_Protocols_PCI_Bus_Support.html#sample-pci-architectures
@@ -655,7 +655,7 @@
 14.4.23,PCI Device Driver Responsibilities,https://uefi.org/specs/UEFI/2.11/14_Protocols_PCI_Bus_Support.html#pci-device-driver-responsibilities
 14.4.24,Nonvolatile Storage,https://uefi.org/specs/UEFI/2.11/14_Protocols_PCI_Bus_Support.html#nonvolatile-storage
 14.4.25,PCI Hot-Plug Events,https://uefi.org/specs/UEFI/2.11/14_Protocols_PCI_Bus_Support.html#pci-hot-plug-events
-15,Protocols - SCSI Driver Models and Bus Support,https://uefi.org/specs/UEFI/2.11/15_Protocols_SCSI_Driver_Models_and_Bus_Support.html
+15,Protocols — SCSI Driver Models and Bus Support,https://uefi.org/specs/UEFI/2.11/15_Protocols_SCSI_Driver_Models_and_Bus_Support.html
 15.1,SCSI Driver Model Overview,https://uefi.org/specs/UEFI/2.11/15_Protocols_SCSI_Driver_Models_and_Bus_Support.html#scsi-driver-model-overview
 15.2,SCSI Bus Drivers,https://uefi.org/specs/UEFI/2.11/15_Protocols_SCSI_Driver_Models_and_Bus_Support.html#scsi-bus-drivers
 15.2.1,Driver Binding Protocol for SCSI Bus Drivers,https://uefi.org/specs/UEFI/2.11/15_Protocols_SCSI_Driver_Models_and_Bus_Support.html#driver-binding-protocol-for-scsi-bus-drivers
@@ -684,14 +684,14 @@
 15.7.6,EFI_EXT_SCSI_PASS_THRU_PROTOCOL.ResetChannel(),https://uefi.org/specs/UEFI/2.11/15_Protocols_SCSI_Driver_Models_and_Bus_Support.html#efi-ext-scsi-pass-thru-protocol-resetchannel
 15.7.7,EFI_EXT_SCSI_PASS_THRU_PROTOCOL.ResetTargetLun(),https://uefi.org/specs/UEFI/2.11/15_Protocols_SCSI_Driver_Models_and_Bus_Support.html#efi-ext-scsi-pass-thru-protocol-resettargetlun
 15.7.8,EFI_EXT_SCSI_PASS_THRU_PROTOCOL.GetNextTarget(),https://uefi.org/specs/UEFI/2.11/15_Protocols_SCSI_Driver_Models_and_Bus_Support.html#efi-ext-scsi-pass-thru-protocol-getnexttarget
-16,Protocols - iSCSI Boot,https://uefi.org/specs/UEFI/2.11/16_Protocols_iSCSI_Boot.html
+16,Protocols — iSCSI Boot,https://uefi.org/specs/UEFI/2.11/16_Protocols_iSCSI_Boot.html
 16.1,Overview,https://uefi.org/specs/UEFI/2.11/16_Protocols_iSCSI_Boot.html#overview
 16.1.1,iSCSI UEFI Driver Layering,https://uefi.org/specs/UEFI/2.11/16_Protocols_iSCSI_Boot.html#iscsi-uefi-driver-layering
 16.2,EFI iSCSI Initiator Name Protocol,https://uefi.org/specs/UEFI/2.11/16_Protocols_iSCSI_Boot.html#efi-iscsi-initiator-name-protocol
 16.2.1,EFI_ISCSI_INITIATOR_NAME_PROTOCOL,https://uefi.org/specs/UEFI/2.11/16_Protocols_iSCSI_Boot.html#id4
 16.2.2,EFI_ISCSI_INITIATOR_NAME_PROTOCOL. Get(),https://uefi.org/specs/UEFI/2.11/16_Protocols_iSCSI_Boot.html#efi-iscsi-initiator-name-protocol-get
 16.2.3,EFI_ISCSI_INITIATOR_NAME_PROTOCOL.Set(),https://uefi.org/specs/UEFI/2.11/16_Protocols_iSCSI_Boot.html#efi-iscsi-initiator-name-protocol-set
-17,Protocols - USB Support,https://uefi.org/specs/UEFI/2.11/17_Protocols_USB_Support.html
+17,Protocols — USB Support,https://uefi.org/specs/UEFI/2.11/17_Protocols_USB_Support.html
 17.1,USB2 Host Controller Protocol,https://uefi.org/specs/UEFI/2.11/17_Protocols_USB_Support.html#usb2-host-controller-protocol
 17.1.1,USB Host Controller Protocol Overview,https://uefi.org/specs/UEFI/2.11/17_Protocols_USB_Support.html#usb-host-controller-protocol-overview
 17.1.2,EFI_USB2_HC_PROTOCOL,https://uefi.org/specs/UEFI/2.11/17_Protocols_USB_Support.html#efi-usb2-hc-protocol
@@ -754,7 +754,7 @@
 17.3.17,EFI_USBFN_IO_PROTOCOL.SetEndpointPolicy(),https://uefi.org/specs/UEFI/2.11/17_Protocols_USB_Support.html#efi-usbfn-io-protocol-setendpointpolicy
 17.3.18,EFI_USBFN_IO_PROTOCOL.GetEndpointPolicy(),https://uefi.org/specs/UEFI/2.11/17_Protocols_USB_Support.html#efi-usbfn-io-protocol-getendpointpolicy
 17.3.19,USB Function Sequence Diagram,https://uefi.org/specs/UEFI/2.11/17_Protocols_USB_Support.html#usb-function-sequence-diagram
-18,Protocols - Debugger Support,https://uefi.org/specs/UEFI/2.11/18_Protocols_Debugger_Support.html
+18,Protocols — Debugger Support,https://uefi.org/specs/UEFI/2.11/18_Protocols_Debugger_Support.html
 18.1,Overview,https://uefi.org/specs/UEFI/2.11/18_Protocols_Debugger_Support.html#overview
 18.2,EFI Debug Support Protocol,https://uefi.org/specs/UEFI/2.11/18_Protocols_Debugger_Support.html#efi-debug-support-protocol
 18.2.1,EFI Debug Support Protocol Overview,https://uefi.org/specs/UEFI/2.11/18_Protocols_Debugger_Support.html#efi-debug-support-protocol-overview
@@ -776,7 +776,7 @@
 18.4.1,Overview,https://uefi.org/specs/UEFI/2.11/18_Protocols_Debugger_Support.html#overview-1
 18.4.2,EFI System Table Location,https://uefi.org/specs/UEFI/2.11/18_Protocols_Debugger_Support.html#efi-system-table-location
 18.4.3,EFI Image Info,https://uefi.org/specs/UEFI/2.11/18_Protocols_Debugger_Support.html#efi-image-info
-19,Protocols - Compression Algorithm Specification,https://uefi.org/specs/UEFI/2.11/19_Protocols_Compression_Algorithm_Specification.html
+19,Protocols — Compression Algorithm Specification,https://uefi.org/specs/UEFI/2.11/19_Protocols_Compression_Algorithm_Specification.html
 19.1,Algorithm Overview,https://uefi.org/specs/UEFI/2.11/19_Protocols_Compression_Algorithm_Specification.html#algorithm-overview
 19.2,Data Format,https://uefi.org/specs/UEFI/2.11/19_Protocols_Compression_Algorithm_Specification.html#data-format
 19.2.1,Bit Order,https://uefi.org/specs/UEFI/2.11/19_Protocols_Compression_Algorithm_Specification.html#bit-order
@@ -800,11 +800,11 @@
 19.5.1,EFI_DECOMPRESS_PROTOCOL,https://uefi.org/specs/UEFI/2.11/19_Protocols_Compression_Algorithm_Specification.html#efi-decompress-protocol
 19.5.2,EFI_DECOMPRESS_PROTOCOL.GetInfo(),https://uefi.org/specs/UEFI/2.11/19_Protocols_Compression_Algorithm_Specification.html#efi-decompress-protocol-getinfo
 19.5.3,EFI_DECOMPRESS_PROTOCOL.Decompress(),https://uefi.org/specs/UEFI/2.11/19_Protocols_Compression_Algorithm_Specification.html#efi-decompress-protocol-decompress
-20,Protocols - ACPI Protocols,https://uefi.org/specs/UEFI/2.11/20_Protocols_ACPI_Protocols.html
+20,Protocols — ACPI Protocols,https://uefi.org/specs/UEFI/2.11/20_Protocols_ACPI_Protocols.html
 20.1,EFI_ACPI_TABLE_PROTOCOL,https://uefi.org/specs/UEFI/2.11/20_Protocols_ACPI_Protocols.html#efi-acpi-table-protocol
 20.2,EFI_ACPI_TABLE_PROTOCOL.InstallAcpiTable(),https://uefi.org/specs/UEFI/2.11/20_Protocols_ACPI_Protocols.html#efi-acpi-table-protocol-installacpitable
 20.3,EFI_ACPI_TABLE_PROTOCOL.UninstallAcpiTable(),https://uefi.org/specs/UEFI/2.11/20_Protocols_ACPI_Protocols.html#efi-acpi-table-protocol-uninstallacpitable
-21,Protocols - String Services,https://uefi.org/specs/UEFI/2.11/21_Protocols_String_Services.html
+21,Protocols — String Services,https://uefi.org/specs/UEFI/2.11/21_Protocols_String_Services.html
 21.1,Unicode Collation Protocol,https://uefi.org/specs/UEFI/2.11/21_Protocols_String_Services.html#unicode-collation-protocol
 21.1.1,EFI_UNICODE_COLLATION_PROTOCOL,https://uefi.org/specs/UEFI/2.11/21_Protocols_String_Services.html#efi-unicode-collation-protocol
 21.1.2,EFI_UNICODE_COLLATION_PROTOCOL.StriColl(),https://uefi.org/specs/UEFI/2.11/21_Protocols_String_Services.html#efi-unicode-collation-protocol-stricoll
@@ -967,7 +967,7 @@
 23.5.1,EFI_JSON_CAPSULE_ID_GUID,https://uefi.org/specs/UEFI/2.11/23_Firmware_Update_and_Reporting.html#efi-json-capsule-id-guid
 23.5.2,Defined JSON Capsule Data Structure,https://uefi.org/specs/UEFI/2.11/23_Firmware_Update_and_Reporting.html#defined-json-capsule-data-structure
 23.5.3,Firmware Processing of the Capsule Identified by EFI_JSON_CAPSULE_ID_GUID,https://uefi.org/specs/UEFI/2.11/23_Firmware_Update_and_Reporting.html#firmware-processing-of-the-capsule-identified-by-efi-json-capsule-id-guid
-24,"Network Protocols - SNP, PXE, BIS and HTTP Boot",https://uefi.org/specs/UEFI/2.11/24_Network_Protocols_SNP_PXE_BIS.html
+24,"Network Protocols — SNP, PXE, BIS and HTTP Boot",https://uefi.org/specs/UEFI/2.11/24_Network_Protocols_SNP_PXE_BIS.html
 24.1,Simple Network Protocol,https://uefi.org/specs/UEFI/2.11/24_Network_Protocols_SNP_PXE_BIS.html#simple-network-protocol
 24.1.1,EFI_SIMPLE_NETWORK_PROTOCOL,https://uefi.org/specs/UEFI/2.11/24_Network_Protocols_SNP_PXE_BIS.html#efi-simple-network-protocol
 24.1.2,EFI_SIMPLE_NETWORK.Start(),https://uefi.org/specs/UEFI/2.11/24_Network_Protocols_SNP_PXE_BIS.html#efi-simple-network-start
@@ -1060,7 +1060,7 @@
 25.1.8,EFI_MANAGED_NETWORK_PROTOCOL.Receive(),https://uefi.org/specs/UEFI/2.11/25_Network_Protocols_Managed_Network.html#efi-managed-network-protocol-receive
 25.1.9,EFI_MANAGED_NETWORK_PROTOCOL.Cancel(),https://uefi.org/specs/UEFI/2.11/25_Network_Protocols_Managed_Network.html#efi-managed-network-protocol-cancel
 25.1.10,EFI_MANAGED_NETWORK_PROTOCOL.Poll(),https://uefi.org/specs/UEFI/2.11/25_Network_Protocols_Managed_Network.html#efi-managed-network-protocol-poll
-26,Network Protocols - Bluetooth,https://uefi.org/specs/UEFI/2.11/26_Network_Protocols_Bluetooth.html
+26,Network Protocols — Bluetooth,https://uefi.org/specs/UEFI/2.11/26_Network_Protocols_Bluetooth.html
 26.1,EFI Bluetooth Host Controller Protocol,https://uefi.org/specs/UEFI/2.11/26_Network_Protocols_Bluetooth.html#efi-bluetooth-host-controller-protocol
 26.1.1,EFI_BLUETOOTH_HC_PROTOCOL,https://uefi.org/specs/UEFI/2.11/26_Network_Protocols_Bluetooth.html#efi-bluetooth-hc-protocol
 26.1.2,BLUETOOTH_HC_PROTOCOL.SendCommand(),https://uefi.org/specs/UEFI/2.11/26_Network_Protocols_Bluetooth.html#bluetooth-hc-protocol-sendcommand
@@ -1120,7 +1120,7 @@
 26.5.11,BLUETOOTH_LE_CONFIG_PROTOCOL.RegisterSmpGetDataCallback,https://uefi.org/specs/UEFI/2.11/26_Network_Protocols_Bluetooth.html#bluetooth-le-config-protocol-registersmpgetdatacallback
 26.5.12,BLUETOOTH_LE_CONFIG_PROTOCOL.RegisterSmpSetDataCallback,https://uefi.org/specs/UEFI/2.11/26_Network_Protocols_Bluetooth.html#bluetooth-le-config-protocol-registersmpsetdatacallback
 26.5.13,BLUETOOTH_LE_CONFIG_PROTOCOL.RegisterLinkConnectCompleteCallback,https://uefi.org/specs/UEFI/2.11/26_Network_Protocols_Bluetooth.html#bluetooth-le-config-protocol-registerlinkconnectcompletecallback
-27,"Network Protocols - VLAN, EAP, Wi-Fi and Supplicant",https://uefi.org/specs/UEFI/2.11/27_Network_Protocols_VLAN_and_EAP.html
+27,"Network Protocols — VLAN, EAP, Wi-Fi and Supplicant",https://uefi.org/specs/UEFI/2.11/27_Network_Protocols_VLAN_and_EAP.html
 27.1,VLAN Configuration Protocol,https://uefi.org/specs/UEFI/2.11/27_Network_Protocols_VLAN_and_EAP.html#vlan-configuration-protocol
 27.1.1,EFI_VLAN_CONFIG_PROTOCOL,https://uefi.org/specs/UEFI/2.11/27_Network_Protocols_VLAN_and_EAP.html#efi-vlan-config-protocol
 27.1.2,EFI_VLAN_CONFIG_PROTOCOL.Set(),https://uefi.org/specs/UEFI/2.11/27_Network_Protocols_VLAN_and_EAP.html#efi-vlan-config-protocol-set
@@ -1168,7 +1168,7 @@
 27.5.6,EFI_SUPPLICANT_PROTOCOL.ProcessPacket(),https://uefi.org/specs/UEFI/2.11/27_Network_Protocols_VLAN_and_EAP.html#efi-supplicant-protocol-processpacket
 27.5.7,EFI_SUPPLICANT_PROTOCOL.SetData(),https://uefi.org/specs/UEFI/2.11/27_Network_Protocols_VLAN_and_EAP.html#efi-supplicant-protocol-setdata
 27.5.8,EFI_SUPPLICANT_PROTOCOL.GetData(),https://uefi.org/specs/UEFI/2.11/27_Network_Protocols_VLAN_and_EAP.html#efi-supplicant-protocol-getdata
-28,"Network Protocols - TCP, IP, IPsec, FTP, TLS and Configurations",https://uefi.org/specs/UEFI/2.11/28_Network_Protocols_TCP_IP_and_Configuration.html
+28,"Network Protocols — TCP, IP, IPsec, FTP, TLS and Configurations",https://uefi.org/specs/UEFI/2.11/28_Network_Protocols_TCP_IP_and_Configuration.html
 28.1,EFI TCPv4 Protocol,https://uefi.org/specs/UEFI/2.11/28_Network_Protocols_TCP_IP_and_Configuration.html#efi-tcpv4-protocol
 28.1.1,TCP4 Service Binding Protocol,https://uefi.org/specs/UEFI/2.11/28_Network_Protocols_TCP_IP_and_Configuration.html#tcp4-service-binding-protocol
 28.1.2,EFI_TCP4_SERVICE_BINDING_PROTOCOL,https://uefi.org/specs/UEFI/2.11/28_Network_Protocols_TCP_IP_and_Configuration.html#efi-tcp4-service-binding-protocol
@@ -1276,7 +1276,7 @@
 28.9.7.1,EFI_TLS_CONFIGURATION_PROTOCOL,https://uefi.org/specs/UEFI/2.11/28_Network_Protocols_TCP_IP_and_Configuration.html#id107
 28.9.8,EFI_TLS_CONFIGURATION_PROTOCOL.SetData(),https://uefi.org/specs/UEFI/2.11/28_Network_Protocols_TCP_IP_and_Configuration.html#efi-tls-configuration-protocol-setdata
 28.9.9,EFI_TLS_CONFIGURATION_PROTOCOL.GetData(),https://uefi.org/specs/UEFI/2.11/28_Network_Protocols_TCP_IP_and_Configuration.html#efi-tls-configuration-protocol-getdata
-29,"Network Protocols - ARP, DHCP, DNS, HTTP and REST",https://uefi.org/specs/UEFI/2.11/29_Network_Protocols_ARP_and_DHCP.html
+29,"Network Protocols — ARP, DHCP, DNS, HTTP and REST",https://uefi.org/specs/UEFI/2.11/29_Network_Protocols_ARP_and_DHCP.html
 29.1,ARP Protocol,https://uefi.org/specs/UEFI/2.11/29_Network_Protocols_ARP_and_DHCP.html#arp-protocol
 29.1.1,EFI_ARP_SERVICE_BINDING_PROTOCOL,https://uefi.org/specs/UEFI/2.11/29_Network_Protocols_ARP_and_DHCP.html#efi-arp-service-binding-protocol
 29.1.2,EFI_ARP_PROTOCOL,https://uefi.org/specs/UEFI/2.11/29_Network_Protocols_ARP_and_DHCP.html#efi-arp-protocol
@@ -1382,7 +1382,7 @@
 29.7.20,EFI_REST_JSON_STRUCTURE.ToJson (),https://uefi.org/specs/UEFI/2.11/29_Network_Protocols_ARP_and_DHCP.html#efi-rest-json-structure-tojson
 29.7.21,EFI_REST_JSON_STRUCTURE.DestroyStructure (),https://uefi.org/specs/UEFI/2.11/29_Network_Protocols_ARP_and_DHCP.html#efi-rest-json-structure-destroystructure
 29.7.21.1,EFI Redfish JSON Structure Converter,https://uefi.org/specs/UEFI/2.11/29_Network_Protocols_ARP_and_DHCP.html#efi-redfish-json-structure-converter
-30,Network Protocols - UDP and MTFTP,https://uefi.org/specs/UEFI/2.11/30_Network_Protocols_UDP_and_MTFTP.html
+30,Network Protocols — UDP and MTFTP,https://uefi.org/specs/UEFI/2.11/30_Network_Protocols_UDP_and_MTFTP.html
 30.1,EFI UDP Protocol,https://uefi.org/specs/UEFI/2.11/30_Network_Protocols_UDP_and_MTFTP.html#efi-udp-protocol
 30.1.1,UDP4 Service Binding Protocol,https://uefi.org/specs/UEFI/2.11/30_Network_Protocols_UDP_and_MTFTP.html#udp4-service-binding-protocol
 30.1.1.1,EFI_UDP4_SERVICE_BINDING_PROTOCOL,https://uefi.org/specs/UEFI/2.11/30_Network_Protocols_UDP_and_MTFTP.html#efi-udp4-service-binding-protocol
@@ -1544,8 +1544,8 @@
 33.2.13,Driver Model Interaction,https://uefi.org/specs/UEFI/2.11/33_Human_Interface_Infrastructure.html#driver-model-interaction
 33.2.14,Human Interface Component Interactions,https://uefi.org/specs/UEFI/2.11/33_Human_Interface_Infrastructure.html#human-interface-component-interactions
 33.2.15,Standards Map Forms,https://uefi.org/specs/UEFI/2.11/33_Human_Interface_Infrastructure.html#standards-map-forms
-33.2.15.1,Create A Question-s Value By Combing MultipleConfiguration Settings,https://uefi.org/specs/UEFI/2.11/33_Human_Interface_Infrastructure.html#create-a-questions-value-by-combing-multipleconfiguration-settings
-33.2.15.2,Changing Multiple Configuration Settings From One Question-s Value,https://uefi.org/specs/UEFI/2.11/33_Human_Interface_Infrastructure.html#changing-multiple-configuration-settings-from-one-questions-value
+33.2.15.1,Create A Question’s Value By Combing MultipleConfiguration Settings,https://uefi.org/specs/UEFI/2.11/33_Human_Interface_Infrastructure.html#create-a-questions-value-by-combing-multipleconfiguration-settings
+33.2.15.2,Changing Multiple Configuration Settings From One Question’s Value,https://uefi.org/specs/UEFI/2.11/33_Human_Interface_Infrastructure.html#changing-multiple-configuration-settings-from-one-questions-value
 33.2.15.3,Value Shifting,https://uefi.org/specs/UEFI/2.11/33_Human_Interface_Infrastructure.html#value-shifting
 33.2.15.4,Prompts,https://uefi.org/specs/UEFI/2.11/33_Human_Interface_Infrastructure.html#prompts
 33.3,Code Definitions,https://uefi.org/specs/UEFI/2.11/33_Human_Interface_Infrastructure.html#code-definitions

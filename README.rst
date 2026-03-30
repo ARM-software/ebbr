@@ -212,9 +212,10 @@ webpage::
 
 We keep the UEFI index ``.csv`` file under version control for caching, and we
 have a python script to re-generate it from the UEFI specification webpage.
-To re-generate the index file, do::
+To re-generate the index file, download and save the UEFI index from
+https://uefi.org/specs/UEFI/2.11/index.html manually, then do::
 
-  $ ./scripts/update_uefi_index.py
+  $ ./scripts/update_uefi_index.py <UEFI index HTML filename>
 
 Original Document
 =================

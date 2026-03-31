@@ -1,5 +1,5 @@
 # This is the list of Python packages we need for EBBR.
 # Install with pip3 --requirement.
-Sphinx ~= 8.1
+Sphinx ~= 9.1
 mako
 typing

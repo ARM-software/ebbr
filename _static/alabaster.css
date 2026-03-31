@@ -1,7 +1,7 @@
 /* -- page layout ----------------------------------------------------------- */
 
 body {
-    font-family: Georgia, serif;
+    font-family: serif;
     font-size: 17px;
     background-color: #fff;
     color: #000;
@@ -110,7 +110,7 @@ div.sphinxsidebarwrapper p.blurb {
 
 div.sphinxsidebar h3,
 div.sphinxsidebar h4 {
-    font-family: Georgia, serif;
+    font-family: serif;
     color: #444;
     font-size: 24px;
     font-weight: normal;
@@ -154,7 +154,7 @@ div.sphinxsidebar ul li.toctree-l2 > a {
 
 div.sphinxsidebar input {
     border: 1px solid #CCC;
-    font-family: Georgia, serif;
+    font-family: serif;
     font-size: 1em;
 }
 
@@ -208,7 +208,7 @@ div.body h3,
 div.body h4,
 div.body h5,
 div.body h6 {
-    font-family: Georgia, serif;
+    font-family: serif;
     font-weight: normal;
     margin: 30px 0px 10px 0px;
     padding: 0;
@@ -249,7 +249,7 @@ div.admonition tt.xref, div.admonition code.xref, div.admonition a tt {
 }
 
 div.admonition p.admonition-title {
-    font-family: Georgia, serif;
+    font-family: serif;
     font-weight: normal;
     font-size: 24px;
     margin: 0 0 10px 0;
@@ -502,6 +502,10 @@ a.footnote-reference:hover {
 a:hover tt, a:hover code {
     background: #EEE;
 }
+div.sphinxsidebar {
+    position: fixed;
+    margin-left: 0;
+}
 
 @media screen and (max-width: 940px) {
 
@@ -523,7 +527,8 @@ a:hover tt, a:hover code {
         display: block;
         float: none;
         width: unset;
-        margin: 50px -30px -20px -30px;
+        margin: -20px -30px 20px -30px;
+        position: static;
         padding: 10px 20px;
         background: #333;
         color: #FFF;

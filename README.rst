@@ -56,7 +56,7 @@ If the version of python-sphinx installed is too old, then an additional
 new version can be installed with the Python package installer::
 
   $ apt-get install python3-pip
-  $ pip3 install --user --upgrade Sphinx
+  $ pip3 install --user --upgrade --requirement requirements.txt
   $ export SPHINXBUILD=~/.local/bin/sphinx-build
 
 Export SPHINXBUILD (see above) if Sphinx was installed with pip3 --user,

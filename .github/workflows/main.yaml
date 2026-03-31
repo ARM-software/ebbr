@@ -81,7 +81,8 @@ jobs:
 
       - name: 'Install Python required packages'
         run: |
-          pip3 install --user --break-system-packages mako typing Sphinx~=8.1
+          pip3 install --user --break-system-packages \
+            --requirement requirements.txt
 
       - name: 'Check'
         run: make check-local

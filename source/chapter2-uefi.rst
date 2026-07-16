@@ -519,16 +519,16 @@ are required to be implemented during boot services and runtime services.
      - Before `ExitBootServices()`
      - After `ExitBootServices()`
    * - `GetTime`
-     - Required if RTC present.
+     - Required if RTC present. [#TimeNote]_
      - Optional
    * - `SetTime`
-     - Required if RTC present.
+     - Required if RTC present. [#TimeNote]_
      - Optional
    * - `GetWakeupTime`
-     - Required if wakeup supported.
+     - Required if wakeup supported. [#TimeNote]_
      - Optional
    * - `SetWakeupTime`
-     - Required if wakeup supported.
+     - Required if wakeup supported. [#TimeNote]_
      - Optional
    * - `SetVirtualAddressMap`
      - N/A
@@ -561,6 +561,9 @@ are required to be implemented during boot services and runtime services.
      - Optional
      - Optional
 
+.. [#TimeNote] See section :ref:`section-rtc` for relaxed requirements on time
+   services.
+
 Runtime Device Mappings
 -----------------------
 
@@ -579,6 +582,8 @@ shall not be accessed by the OS.
 Only devices that explicitly support concurrent access by both firmware and an
 OS may be mapped at runtime by both firmware and the OS.
 
+.. _section-rtc:
+
 Real-time Clock (RTC)
 ^^^^^^^^^^^^^^^^^^^^^
 
@@ -593,6 +598,31 @@ before `ExitBootServices()` is called.
 However, if firmware does not support access to the RTC after
 `ExitBootServices()`, then `GetTime()` and `SetTime()` shall return
 `EFI_UNSUPPORTED` and the OS must use a device driver to control the RTC.
+
+.. versionchanged:: 3.0.0
+
+Some further aspects of the Services defined in :UEFI:`8.3` are made optional.
+[#RelaxNote]_
+
+.. [#RelaxNote] Those relaxations allow to support Time Services with a timer
+   instead of a real-time clock.
+
+Firmware may behave as if some fields of all the `EFI_TIME` structures had fixed
+values, as listed in the following table:
+
+.. list-table:: Optional `EFI_TIME` structure fields fixed values
+   :widths: 50 50
+   :header-rows: 1
+
+   * - `EFI_TIME` structure field
+     - Optional fixed value
+   * - `TimeZone`
+     - `EFI_UNSPECIFIED_TIMEZONE`
+   * - `Daylight`
+     - 0
+
+Firmware is also not required to persist the current local time and date or the
+system wakeup alarm clock time information across reset.
 
 UEFI Reset and Shutdown
 -----------------------

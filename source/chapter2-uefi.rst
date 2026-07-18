@@ -510,6 +510,8 @@ Functions that are not available during runtime services shall return
 :numref:`uefi_runtime_service_requirements` details which `EFI_RUNTIME_SERVICES`
 are required to be implemented during boot services and runtime services.
 
+.. versionchanged:: 2.5.0
+
 .. _uefi_runtime_service_requirements:
 .. list-table:: `EFI_RUNTIME_SERVICES` Implementation Requirements
    :widths: 40 30 30
@@ -538,13 +540,16 @@ are required to be implemented during boot services and runtime services.
      - Required
    * - `GetVariable`
      - Required
-     - Optional
+     - Required for file-backed variable stores. [#RTVarNote]_
+       Otherwise optional.
    * - `GetNextVariableName`
      - Required
-     - Optional
+     - Required for file-backed variable stores. [#RTVarNote]_
+       Otherwise optional.
    * - `SetVariable`
      - Required
-     - Optional
+     - Required for file-backed variable stores. [#RTVarNote]_
+       Otherwise optional.
    * - `GetNextHighMonotonicCount`
      - N/A
      - Optional
@@ -560,6 +565,12 @@ are required to be implemented during boot services and runtime services.
    * - `QueryVariableInfo`
      - Optional
      - Optional
+
+.. [#RTVarNote] Firmware storing EFI variables in a file on storage shared
+   with the OS shall keep the variable services available during runtime
+   services by implementing the mechanism described in
+   :ref:`section-runtime-var-handover`.
+   See section :ref:`section-runtime-variable-access`.
 
 Runtime Device Mappings
 -----------------------
@@ -610,8 +621,12 @@ On AArch64 platforms, if `ResetSystem()` is not implemented then the Operating
 System should fall back to making a [PSCI]_ call to reset or shutdown the
 system.
 
+.. _section-runtime-variable-access:
+
 Runtime Variable Access
 -----------------------
+
+.. versionchanged:: 2.5.0
 
 There are many platforms where it is difficult to implement `SetVariable()` for
 non-volatile variables during runtime services because the firmware cannot
@@ -619,8 +634,8 @@ access storage after `ExitBootServices()` is called.
 
 e.g., If firmware accesses an eMMC device directly at runtime, it will
 collide with transactions initiated by the OS.
-Neither U-Boot nor Tianocore have a generic solution for accessing or updating
-variables stored on shared media. [#OPTEESupplicant]_
+Firmware cannot, on its own, safely update a variable store located on
+storage media shared with the OS. [#OPTEESupplicant]_
 
 .. [#OPTEESupplicant] It is worth noting that OP-TEE has a similar problem
    regarding secure storage.
@@ -628,10 +643,19 @@ variables stored on shared media. [#OPTEESupplicant]_
    storage operations on behalf of OP-TEE.
    The same solution may be applicable to solving the UEFI non-volatile
    variable problem, but it requires additional OS support to work.
-   Regardless, EBBR compliance does not require `SetVariable()` support
-   during runtime services.
+   Regardless, outside of the file-backed variable store case described
+   below, EBBR compliance does not require `SetVariable()` support during
+   runtime services.
 
    https://optee.readthedocs.io/en/4.9.0/architecture/secure_storage.html
+
+If firmware stores EFI variables in a file on a storage device shared with
+the operating system, then it shall implement the mechanism described in
+:ref:`section-runtime-var-handover`, which keeps `GetVariable()`,
+`GetNextVariableName()` and `SetVariable()` available during runtime
+services: variable modifications are applied to an in-memory copy of the
+variable store, and the operating system writes the updated store content
+back to the variable store file.
 
 If a platform does not implement modifying non-volatile variables with
 `SetVariable()` after `ExitBootServices()`,

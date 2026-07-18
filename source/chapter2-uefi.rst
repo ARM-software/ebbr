@@ -610,6 +610,8 @@ On AArch64 platforms, if `ResetSystem()` is not implemented then the Operating
 System should fall back to making a [PSCI]_ call to reset or shutdown the
 system.
 
+.. _section-runtime-variable-access:
+
 Runtime Variable Access
 -----------------------
 

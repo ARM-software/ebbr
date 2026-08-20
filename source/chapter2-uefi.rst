@@ -115,10 +115,22 @@ All of the following UEFI elements are required for EBBR compliance.
      - .. versionadded:: 2.1.0
 
        Required on RISC-V platforms. (:UEFI:`2.3.7.1` and [RVUEFI]_)
+   * - `EFI_MEMORY_ATTRIBUTE_PROTOCOL`
+     - Required if the firmware supports Enhanced Memory Protection. [#EMPNote]_
+       (:UEFI:`37.7`)
 
 .. [#COLNote] The `EFI_UNICODE_COLLATION_PROTOCOL` defined in :UEFI:`21.1` is
    also sometimes called the `EFI_UNICODE_COLLATION2_PROTOCOL` or even the
    `EFI_UNICODE_COLLATION_PROTOCOL2`.
+
+.. [#EMPNote] Enhanced Memory Protection increases security by tightening
+   memory permissions. This includes making sure that writable memory is not
+   also executable (W^X).
+
+   The `EFI_MEMORY_ATTRIBUTE_PROTOCOL` allows boot components to configure
+   memory permissions.
+
+   https://microsoft.github.io/mu/WhatAndWhy/enhancedmemoryprotection/
 
 When the platform has a graphical console device, it is recommended that
 firmware implements the `EFI_GRAPHICS_OUTPUT_PROTOCOL` as defined in

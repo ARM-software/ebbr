@@ -658,6 +658,15 @@ Even when `SetVariable()` is not supported during runtime services, firmware
 should cache variable names and values in `EfiRuntimeServicesData` memory so
 that `GetVariable()` and `GetNextVariableName()` can behave as specified.
 
+.. note:: Firmware caching the variables in memory can go one step further
+   and accept `SetVariable()` calls during runtime services on the cached
+   copy, relying on the operating system to write the resulting variable
+   store back to the storage media.
+   This only persists the modifications performed by software aware of the
+   mechanism, and is not required by this specification.
+   Section :ref:`section-runtime-var-handover` describes such a mechanism,
+   with U-Boot and libefivar as example implementations.
+
 .. _section-fw-update:
 
 Firmware Update

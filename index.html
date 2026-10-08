@@ -5,11 +5,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Embedded Base Boot Requirements (EBBR) Specification v2.4.0-13-g2d413d1 documentation</title>
+    <title>Embedded Base Boot Requirements (EBBR) Specification v2.4.0-15-g524a0f2 documentation</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
     <link rel="stylesheet" type="text/css" href="_static/basic.css?v=b08954a9" />
     <link rel="stylesheet" type="text/css" href="_static/alabaster.css?v=54d21e49" />
-    <script src="_static/documentation_options.js?v=f1ce18a8"></script>
+    <script src="_static/documentation_options.js?v=fe321008"></script>
     <script src="_static/doctools.js?v=fd6eb6e6"></script>
     <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
     <link rel="index" title="Index" href="genindex.html" />
@@ -41,7 +41,7 @@
 <li class="toctree-l1"><a class="reference internal" href="#document-chapter2-uefi">2. UEFI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="#document-chapter3-secureworld">3. Privileged or Secure Firmware</a></li>
 <li class="toctree-l1"><a class="reference internal" href="#document-chapter4-firmware-media">4. Firmware Storage</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#document-chapter5-variable-storage">5. File Format For Storing EFI Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#document-chapter5-variable-storage">5. EFI Variable Storage</a></li>
 <li class="toctree-l1"><a class="reference internal" href="#document-references">6. Bibliography</a></li>
 </ul>
 
@@ -1274,7 +1274,7 @@ System should fall back to making a <a class="reference internal" href="#documen
 system.</p>
 </section>
 <section id="runtime-variable-access">
-<h4><span class="section-number">2.7.3. </span>Runtime Variable Access<a class="headerlink" href="#runtime-variable-access" title="Link to this heading">¶</a></h4>
+<span id="section-runtime-variable-access"></span><h4><span class="section-number">2.7.3. </span>Runtime Variable Access<a class="headerlink" href="#runtime-variable-access" title="Link to this heading">¶</a></h4>
 <p>There are many platforms where it is difficult to implement <cite>SetVariable()</cite> for
 non-volatile variables during runtime services because the firmware cannot
 access storage after <cite>ExitBootServices()</cite> is called.</p>
@@ -1307,6 +1307,17 @@ to <cite>SetVariable()</cite> need to be performed before calling <cite>ExitBoot
 <p>Even when <cite>SetVariable()</cite> is not supported during runtime services, firmware
 should cache variable names and values in <cite>EfiRuntimeServicesData</cite> memory so
 that <cite>GetVariable()</cite> and <cite>GetNextVariableName()</cite> can behave as specified.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Firmware caching the variables in memory can go one step further
+and accept <cite>SetVariable()</cite> calls during runtime services on the cached
+copy, relying on the operating system to write the resulting variable
+store back to the storage media.
+This only persists the modifications performed by software aware of the
+mechanism, and is not required by this specification.
+Section <a class="reference internal" href="#document-chapter5-variable-storage#section-runtime-var-handover"><span class="std std-ref">Runtime Access to File-Backed Variables (non-normative)</span></a> describes such a mechanism,
+with U-Boot and libefivar as example implementations.</p>
+</div>
 </section>
 <section id="firmware-update">
 <span id="section-fw-update"></span><h4><span class="section-number">2.7.4. </span>Firmware Update<a class="headerlink" href="#firmware-update" title="Link to this heading">¶</a></h4>
@@ -1993,19 +2004,24 @@ firmware files in a dedicated firmware partition.</p>
 </section>
 </section>
 </section>
-<span id="document-chapter5-variable-storage"></span><section id="file-format-for-storing-efi-variables">
-<h2><span class="section-number">5. </span>File Format For Storing EFI Variables<a class="headerlink" href="#file-format-for-storing-efi-variables" title="Link to this heading">¶</a></h2>
+<span id="document-chapter5-variable-storage"></span><section id="efi-variable-storage">
+<h2><span class="section-number">5. </span>EFI Variable Storage<a class="headerlink" href="#efi-variable-storage" title="Link to this heading">¶</a></h2>
 <div class="versionadded">
 <p><span class="versionmodified added">Added in version 2.2.0.</span></p>
 </div>
 <p>Some UEFI enabled devices can only store EFI variables as a file on a block
 device. This implies that at runtime the operating system must manage changes
 to the EFI variables by updating the file.</p>
-<p>This chapter defines a file-format for EFI variables that both the firmware
-and the operating system can rely on.</p>
+<p>This chapter defines a file format for EFI variables that both the firmware
+and the operating system can rely on, and describes, as an example, a
+mechanism that keeps the variable runtime services available with such a
+file-backed variable store, as implemented by U-Boot and the libefivar
+library.</p>
+<section id="file-format-for-storing-efi-variables">
+<h3><span class="section-number">5.1. </span>File Format For Storing EFI Variables<a class="headerlink" href="#file-format-for-storing-efi-variables" title="Link to this heading">¶</a></h3>
 <p>All integer fields are stored in little-endian byte order.</p>
 <section id="file-header">
-<h3><span class="section-number">5.1. </span>File header<a class="headerlink" href="#file-header" title="Link to this heading">¶</a></h3>
+<h4><span class="section-number">5.1.1. </span>File header<a class="headerlink" href="#file-header" title="Link to this heading">¶</a></h4>
 <p>The following byte sequence is used to identify the file format:</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define EFI_VAR_FILE_MAGIC {0x55, 0x62, 0x45, 0x66, 0x69, 0x56, 0x61}</span>
 </pre></div>
@@ -2049,7 +2065,7 @@ not sorted.</p>
 </dl>
 </section>
 <section id="variable-entries">
-<h3><span class="section-number">5.2. </span>Variable entries<a class="headerlink" href="#variable-entries" title="Link to this heading">¶</a></h3>
+<h4><span class="section-number">5.1.2. </span>Variable entries<a class="headerlink" href="#variable-entries" title="Link to this heading">¶</a></h4>
 <p>Each variable is stored as a structure:</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="n">UINT32</span><span class="w">          </span><span class="n">DataSize</span><span class="p">;</span>
@@ -2079,6 +2095,116 @@ variable.</p>
 </dd>
 </dl>
 </section>
+</section>
+<section id="runtime-access-to-file-backed-variables-non-normative">
+<span id="section-runtime-var-handover"></span><h3><span class="section-number">5.2. </span>Runtime Access to File-Backed Variables (non-normative)<a class="headerlink" href="#runtime-access-to-file-backed-variables-non-normative" title="Link to this heading">¶</a></h3>
+<p>This section is non-normative. It describes, as an example, a mechanism that
+keeps the variable runtime services available with a file-backed variable
+store: the firmware services the variable runtime services from a copy of the
+variable store held in memory, and the operating system writes the modified
+variable store back to the EFI System Partition. U-Boot, which implements the
+firmware side of the mechanism since release v2024.07, and the libefivar
+library, which implements the operating system side, are used as example
+implementations throughout this section. Other firmware implements the same
+mechanism, e.g., the EDK II based firmware of Qualcomm platforms. This
+specification requires neither firmware nor operating systems to implement
+this mechanism, including the variables described below. See section
+<a class="reference internal" href="#document-chapter2-uefi#section-runtime-variable-access"><span class="std std-ref">Runtime Variable Access</span></a> for the requirements on the variable
+runtime services.</p>
+<p>Firmware that stores EFI variables in a file usually cannot write to that
+file after <cite>ExitBootServices()</cite>: the file resides on a storage device that is
+controlled by the operating system at runtime, and any firmware access would
+conflict with transactions initiated by the OS.</p>
+<p>The firmware keeps a copy of the variable store in <cite>EfiRuntimeServicesData</cite>
+memory, services <cite>GetVariable()</cite>, <cite>GetNextVariableName()</cite> and <cite>SetVariable()</cite>
+from that copy during runtime services, and advertises <cite>SetVariable()</cite> as
+supported in the <cite>EFI_RT_PROPERTIES_TABLE</cite>. Calls to <cite>SetVariable()</cite> during
+runtime services only modify the in-memory copy, without accessing the
+variable store file. The modifications are therefore volatile, including
+those to variables carrying the <cite>EFI_VARIABLE_NON_VOLATILE</cite> attribute, until
+the operating system writes the variable store back to the file as described
+below. U-Boot implements this when built with the <cite>EFI_RT_VOLATILE_STORE</cite>
+configuration option.</p>
+<p>Which modifications are accepted during runtime services is up to the
+implementation. U-Boot only accepts modifications of non-volatile variables
+having the <cite>EFI_VARIABLE_RUNTIME_ACCESS</cite> attribute: authenticated variables
+are not supported, volatile variables cannot be created or modified,
+variables without the <cite>EFI_VARIABLE_RUNTIME_ACCESS</cite> attribute are hidden from
+<cite>GetVariable()</cite> and <cite>GetNextVariableName()</cite> and cannot be created or
+modified, and the attributes of an existing variable cannot be changed.</p>
+<section id="variables">
+<h4><span class="section-number">5.2.1. </span>Variables<a class="headerlink" href="#variables" title="Link to this heading">¶</a></h4>
+<p>The firmware exposes the variable store file to the operating system through
+the two variables described below, under the vendor GUID
+<cite>b2ac5fc9-92b7-4acd-aeac-11e818c3130c</cite>, which U-Boot defines as
+<cite>U_BOOT_EFI_RT_VAR_FILE_GUID</cite>:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define U_BOOT_EFI_RT_VAR_FILE_GUID \</span>
+<span class="cp">    EFI_GUID(0xb2ac5fc9, 0x92b7, 0x4acd, \</span>
+<span class="cp">             0xae, 0xac, 0x11, 0xe8, 0x18, 0xc3, 0x13, 0x0c)</span>
+</pre></div>
+</div>
+<p>Both variables have the <cite>EFI_VARIABLE_BOOTSERVICE_ACCESS</cite> and
+<cite>EFI_VARIABLE_RUNTIME_ACCESS</cite> attributes, are volatile, and are read-only:
+calls to <cite>SetVariable()</cite> targeting them fail with <cite>EFI_WRITE_PROTECTED</cite>.</p>
+<dl class="simple">
+<dt>RTStorageVolatile</dt><dd><p>This variable contains the path of the variable store file, relative to
+the root directory of the EFI System Partition, as a NUL terminated ASCII
+string. Any file path on the EFI System Partition can be used:
+<cite>ubootefi.var</cite>, in the root directory, is the file name U-Boot uses.</p>
+</dd>
+<dt>VarToFile</dt><dd><p>This variable contains the complete content the variable store file needs
+to hold in order to persist the current state of all variables carrying
+the <cite>EFI_VARIABLE_NON_VOLATILE</cite> attribute, as an <cite>EFI_VARIABLE_FILE</cite>
+image in the format defined in this chapter. The firmware regenerates
+the content every time the variable is read, so that it reflects all
+preceding <cite>SetVariable()</cite> calls, including calls made during runtime
+services.</p>
+</dd>
+</dl>
+</section>
+<section id="persisting-variable-modifications">
+<h4><span class="section-number">5.2.2. </span>Persisting variable modifications<a class="headerlink" href="#persisting-variable-modifications" title="Link to this heading">¶</a></h4>
+<p>To persist a variable modification performed during runtime services, the
+operating system reads <cite>RTStorageVolatile</cite> to obtain the path of the variable
+store file, reads <cite>VarToFile</cite> after the modification, and writes its content
+to the variable store file on the EFI System Partition.</p>
+<p>The libefivar library, which Linux tools such as efibootmgr use to access EFI
+variables, implements the operating system side: it detects the mechanism by
+looking up <cite>RTStorageVolatile</cite> under the GUID above, and performs this
+write-back after each variable modification or deletion it carries out, so
+that the tools built on it persist their modifications transparently.
+<a class="footnote-reference brackets" href="#libefivarnote" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a> It only updates an existing variable store file, which it
+locates by probing the usual mount points of the EFI System Partition.</p>
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="libefivarnote" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p>libefivar commit 68daa046 (“efivarfs: Update a file
+variable store On SetVariable RT”),
+<a class="reference external" href="https://github.com/rhboot/efivar/commit/68daa04654acbe1bbaa17ebfc23c371b39e69c6b">https://github.com/rhboot/efivar/commit/68daa04654acbe1bbaa17ebfc23c371b39e69c6b</a></p>
+<p>At the time of writing, this support is not yet part of a tagged release
+of libefivar.</p>
+</aside>
+</aside>
+<p>Writing the new content to a temporary file on the same partition, flushing
+it to the storage device, then renaming it over the variable store file,
+limits the exposure to an interrupted update: the content is complete before
+the rename, which the file system performs as a single operation, and an
+update interrupted before the rename leaves the variable store file
+untouched. On Linux, <cite>rename()</cite> provides this on FAT file systems like on
+any other file system, and since Linux 6.0 the FAT driver also supports the
+<cite>RENAME_EXCHANGE</cite> flag of <cite>renameat2()</cite>, which exchanges the temporary file
+and the variable store file in a single operation, as transactional as a
+file system without a journal allows. <a class="footnote-reference brackets" href="#renameexchangenote" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a></p>
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="renameexchangenote" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">2</a><span class="fn-bracket">]</span></span>
+<p>Linux commit da87e1725ae2 (“fat: add renameat2
+RENAME_EXCHANGE flag support”),
+<a class="reference external" href="https://git.kernel.org/linus/da87e1725ae2136baeb9aac04c572c283afc917f">https://git.kernel.org/linus/da87e1725ae2136baeb9aac04c572c283afc917f</a></p>
+</aside>
+</aside>
+</section>
+</section>
 <section id="limitations">
 <h3><span class="section-number">5.3. </span>Limitations<a class="headerlink" href="#limitations" title="Link to this heading">¶</a></h3>
 <p>The security of a file based variable storage is limited by the security
@@ -2087,14 +2213,26 @@ is inadequate for the UEFI security database and other authenticated
 variables.</p>
 <p>The current version of the file format can convey the timestamp of
 time-based authenticated variables. It does not define the storage of the
-signing certificates of nonce-based authenticated variables. <a class="footnote-reference brackets" href="#certnote" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a></p>
+signing certificates of nonce-based authenticated variables. <a class="footnote-reference brackets" href="#certnote" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a></p>
 <aside class="footnote-list brackets">
 <aside class="footnote brackets" id="certnote" role="doc-footnote">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id3">3</a><span class="fn-bracket">]</span></span>
 <p>Tianocore EDK II keeps signer certificates of authenticated
 variables in variables <cite>certdb</cite> and <cite>certdbv</cite>.</p>
 </aside>
 </aside>
+<p>The mechanism described in section <a class="reference internal" href="#section-runtime-var-handover"><span class="std std-ref">Runtime Access to File-Backed Variables (non-normative)</span></a> does
+not provide generic <cite>SetVariable()</cite> support during runtime services: only the
+modifications performed through software implementing the operating system
+side of the mechanism are persisted, which at the time of writing means only
+the modifications performed by tools using libefivar, such as efibootmgr.
+Modifications performed by other means, e.g., by an application writing
+directly to the <cite>efivarfs</cite> file system of the Linux kernel, or by an
+operating system without support for the mechanism, are lost when the system
+resets. Additionally, on systems with multiple EFI System Partitions,
+<cite>RTStorageVolatile</cite> names the variable store file but not the partition
+holding it, so identifying the correct partition is left to the operating
+system.</p>
 </section>
 </section>
 <span id="document-references"></span><section id="bibliography">
